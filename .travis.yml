@@ -46,5 +46,14 @@ script:
   ### Unittest
   - cd $TRAVIS_BUILD_DIR/test/unittest && $TRAVIS_BUILD_DIR/cmake-build-test/test/unittest/AnanasGfxUnitTest
 
+  - export DISPLAY=:99
+  - export LIBGL_ALWAYS_SOFTWARE=1
+  - xpra --xvfb="Xorg +extension GLX +extension RANDR +extension RENDER -config `pwd`/test/dummy.xorg.conf -logfile ${HOME}/.xpra/xorg.log"  start :99
+  - sleep 3
+  - LIBGL_ALWAYS_SOFTWARE=1 glxinfo
+  - glxinfo
+  - cat ${HOME}/.xpra/xorg.log
+
   ### Examples
-  - cd $TRAVIS_BUILD_DIR/examples && $TRAVIS_BUILD_DIR/cmake-build-test/examples/AnanasGfxExamples
+  - cd $TRAVIS_BUILD_DIR/examples
+  - LIBGL_ALWAYS_SOFTWARE=1 $TRAVIS_BUILD_DIR/cmake-build-test/examples/AnanasGfxExamples
