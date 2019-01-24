@@ -1,0 +1,30 @@
+language: cpp
+
+matrix:
+  include:
+
+    # clang 7.0
+    - os: linux
+      dist: xenial
+      compiler: clang
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - libstdc++-7-dev
+      env:
+        - MATRIX_EVAL=""
+
+before_install:
+  - eval "${MATRIX_EVAL}"
+
+before_script:
+  - mkdir cmake-build-test
+  - cd cmake-build-test
+  - cmake ..
+
+script:
+  - make
+  - cd $TRAVIS_BUILD_DIR/test/unittest
+  - test/unittest/AnanasGfxUnitTest
