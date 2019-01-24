@@ -45,7 +45,7 @@ set_target_properties(AnanasGfx PROPERTIES LINKER_LANGUAGE CXX)
 
 ### Link desktop specific
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*")
-    target_link_libraries (AnanasGfx glfw freetype ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES})
+    target_link_libraries (AnanasGfx EasyException glfw freetype ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES})
 endif()
 
 ### Link android specific
