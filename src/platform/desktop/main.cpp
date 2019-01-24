@@ -4,6 +4,8 @@
 #include "../../../include/ananasgfx/gfx/Application.hpp"
 #include "../../../include/ananasgfx/gfx/ApplicationManager.hpp"
 
+#include <ee/Log.hpp>
+
 #include <iostream>
 #include <algorithm>
 #include <fstream>
@@ -23,6 +25,8 @@ void mainLoop() {
 
 int main(int argc, char* argv[]) {
     try {
+        ee::Log::applyDefaultConfiguration();
+
         // Get program arguments
         std::list<std::string> args;
         for (int i = 0; i < argc; i++) {
