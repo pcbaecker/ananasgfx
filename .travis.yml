@@ -44,6 +44,4 @@ script:
   - make
 
   ### Unittest
-  - cp $TRAVIS_BUILD_DIR/cmake-build-test/test/unittest/AnanasGfxUnitTest $TRAVIS_BUILD_DIR/test/unittest/AnanasGfxUnitTest
-  - cd $TRAVIS_BUILD_DIR/test/unittest
-  - AnanasGfxUnitTest
+  - cd $TRAVIS_BUILD_DIR/test/unittest && $TRAVIS_BUILD_DIR/cmake-build-test/test/unittest/AnanasGfxUnitTest
