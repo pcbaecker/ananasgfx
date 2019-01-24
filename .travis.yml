@@ -45,3 +45,6 @@ script:
 
   ### Unittest
   - cd $TRAVIS_BUILD_DIR/test/unittest && $TRAVIS_BUILD_DIR/cmake-build-test/test/unittest/AnanasGfxUnitTest
+
+  ### Examples
+  - cd $TRAVIS_BUILD_DIR/examples && $TRAVIS_BUILD_DIR/cmake-build-test/examples/AnanasGfxExamples
