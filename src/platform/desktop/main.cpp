@@ -26,6 +26,7 @@ void mainLoop() {
 int main(int argc, char* argv[]) {
     try {
         ee::Log::applyDefaultConfiguration();
+        ee::Log::registerOutstream(ee::LogLevel::Trace, std::cout);
 
         // Get program arguments
         std::list<std::string> args;

@@ -1,7 +1,6 @@
-#include <iostream>
-
 #include <ananasgfx/gfx/ApplicationManager.hpp>
 #include <ananasgfx/gfx/Application.hpp>
+#include <ee/Log.hpp>
 
 namespace gfx::_internal {
 
@@ -21,24 +20,39 @@ namespace gfx::_internal {
         if (this->mIterator != this->mApplications.cend()) {
             // Create a new application instance and increase the iterator
             auto app = (*this->mIterator++);
-            std::cout << "Launching application: " << app.first << std::endl;
+            ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Creating application instance", {
+                    ee::Note("ApplicationName", app.first, __PRETTY_FUNCTION__)
+            });
             this->pCurrentApplication = app.second->createInstance();
 
             // Initialize the application
+            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Initializing application", {
+                ee::Note("ApplicationName", app.first, __PRETTY_FUNCTION__)
+            });
             if (!this->pCurrentApplication->init()) {
-                std::cerr << __PRETTY_FUNCTION__ << ": Unable to initialize application" << std::endl;
+                ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Unable to initialize application", {
+                    ee::Note("ApplicationName", app.first, __PRETTY_FUNCTION__)
+                });
                 this->pCurrentApplication.reset();
                 return;
             }
 
             // Initialize the windows
+            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Initializing windows", {
+                    ee::Note("ApplicationName", app.first, __PRETTY_FUNCTION__)
+            });
             if (!this->pCurrentApplication->initWindows()) {
-                std::cerr << __PRETTY_FUNCTION__ << ": Unable to initialize windows" << std::endl;
+                ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Unable to initialize windows", {
+                        ee::Note("ApplicationName", app.first, __PRETTY_FUNCTION__)
+                });
                 this->pCurrentApplication.reset();
                 return;
             }
 
             // To draw the first frame we call tick() again
+            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Drawing first frame", {
+                    ee::Note("ApplicationName", app.first, __PRETTY_FUNCTION__)
+            });
             this->tick();
         }
     }

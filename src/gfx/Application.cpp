@@ -1,4 +1,4 @@
-#include <iostream>
+#include <ee/Log.hpp>
 #include <ananasgfx/gfx/Application.hpp>
 
 namespace gfx {
@@ -23,8 +23,13 @@ namespace gfx {
                 if (!window->mSceneStack.empty()) {
                     window->mSceneStack.top()->init();
                 }
+            } catch (ee::Exception& e) {
+                ee::Log::log(ee::LogLevel::Error, e);
+                return false;
             } catch (std::exception& e) {
-                std::cerr << e.what() << std::endl;
+                ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Received exception", {
+                    ee::Note("what()", e.what())
+                });
                 return false;
             }
         }

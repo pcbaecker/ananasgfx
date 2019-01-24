@@ -9,6 +9,8 @@
 #ifndef __ANDROID__
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <ee/Log.hpp>
+
 #else
 #include <GLES3/gl3.h>
 #endif
@@ -19,7 +21,9 @@ namespace gfx::renderer::opengl {
 
     OpenglRenderer::OpenglRenderer() {
         // Print the version we are using for rendering
-        std::cout << "Renderer: " << getVersion() << std::endl;
+        ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Creating renderer", {
+            ee::Note("Version", getVersion())
+        });
 
         try {
             this->mShaderCache[gfx::ShaderType::SimpleColor] = std::make_shared<SimpleColorShader>();
@@ -239,7 +243,8 @@ namespace gfx::renderer::opengl {
 
         // Check
         if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
-            std::cerr << __PRETTY_FUNCTION__ << "Framebuffer status invalid" << std::endl;
+            ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "Framebuffer status invalid",
+                    {}, ee::Stacktrace::create());
         }
 
         // Bind the original framebuffer back again

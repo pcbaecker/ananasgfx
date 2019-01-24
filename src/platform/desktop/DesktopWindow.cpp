@@ -1,9 +1,8 @@
 #if !defined(__ANDROID__) && !defined(__UNITTEST__)
 
-#include <iostream>
-
 #include <ananasgfx/platform/desktop/DesktopWindow.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <ee/Log.hpp>
 
 namespace platform::desktop {
 
@@ -20,6 +19,11 @@ namespace platform::desktop {
                 nullptr,
                 nullptr);
         if (this->pWindow == nullptr) {
+            ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Could not create glfw window", {
+                ee::Note("Width", this->getConfiguration().getWidth(), __PRETTY_FUNCTION__),
+                ee::Note("Height", this->getConfiguration().getHeight(), __PRETTY_FUNCTION__),
+                ee::Note("Title", this->getConfiguration().getTitle(), __PRETTY_FUNCTION__)
+            });
             return false;
         }
 
@@ -31,7 +35,11 @@ namespace platform::desktop {
 
         // For some reason we have to use glew
         if (glewInit() != GLEW_OK) {
-            std::cerr << __PRETTY_FUNCTION__ << ": Unable to init GLEW" << std::endl;
+            ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Could not create glfw window", {
+                    ee::Note("Width", this->getConfiguration().getWidth(), __PRETTY_FUNCTION__),
+                    ee::Note("Height", this->getConfiguration().getHeight(), __PRETTY_FUNCTION__),
+                    ee::Note("Title", this->getConfiguration().getTitle(), __PRETTY_FUNCTION__)
+            });
             return false;
         }
 
@@ -40,7 +48,6 @@ namespace platform::desktop {
         glfwGetFramebufferSize(this->pWindow, &width, &height);
         this->mWidth = static_cast<unsigned int>(width);
         this->mHeight = static_cast<unsigned int>(height);
-        std::cout << "Window size: " << this->mWidth << "x" << this->mHeight << std::endl;
 
         // Update camera
         this->mCamera.updateWindow(this);
@@ -50,6 +57,11 @@ namespace platform::desktop {
                 static_cast<float>(this->mHeight),
                 0.0f);
 
+        // Window successfully created
+        ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Window created", {
+                ee::Note("Width", this->mWidth),
+                ee::Note("Height", this->mHeight)
+        });
         return true;
     }
 
