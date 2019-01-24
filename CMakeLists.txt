@@ -5,6 +5,9 @@ option(USE_DOC "Build documentation" ON)
 option(USE_EXAMPLES "Use examples" ON)
 
 add_subdirectory(dependencies/freetype2)
+
+set(EE_USE_TESTS OFF CACHE BOOL "Disable easy-exception tests" FORCE)
+set(EE_USE_EXAMPLES OFF CACHE BOOL "Disable easy-exception examples" FORCE)
 add_subdirectory(dependencies/easy-exception)
 
 ### Currently android seems to be not able to handle the c++17 definition in cmake

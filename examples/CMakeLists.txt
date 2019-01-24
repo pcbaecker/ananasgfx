@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.12)
 file(GLOB_RECURSE HEADER_FILES src/*.hpp src/*.h)
 file(GLOB_RECURSE SOURCE_FILES src/*.cpp src/*.c)
 
+include_directories(../dependencies/easy-exception/include)
+
 ### Desktop
 if (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Android")
     add_executable(AnanasGfxExamples ${SOURCE_FILES} ${HEADER_FILES})
