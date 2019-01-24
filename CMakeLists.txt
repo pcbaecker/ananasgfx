@@ -27,6 +27,7 @@ include_directories(
 )
 file(GLOB_RECURSE HEADER_FILES "include/*.hpp" "include/*.h")
 file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.c" ${ANDROID_NDK}/sources/android/native_app_glue/android_native_app_glue.c)
+set(CMAKE_CXX_FLAGS -rdynamic)
 
 ### Glfw only for Desktop
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*")
