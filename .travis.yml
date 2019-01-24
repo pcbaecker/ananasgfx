@@ -39,9 +39,11 @@ before_script:
   - mkdir cmake-build-test
   - cd cmake-build-test
   - cmake ..
-  - cp test/unittest/AnanasGfxUnitTest $TRAVIS_BUILD_DIR/test/unittest/AnanasGfxUnitTest
 
 script:
   - make
+
+  ### Unittest
+  - cp $TRAVIS_BUILD_DIR/cmake-build-test/test/unittest/AnanasGfxUnitTest $TRAVIS_BUILD_DIR/test/unittest/AnanasGfxUnitTest
   - cd $TRAVIS_BUILD_DIR/test/unittest
   - test/unittest/AnanasGfxUnitTest
