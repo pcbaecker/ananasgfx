@@ -26,12 +26,14 @@ namespace gfx::renderer::opengl {
         });
 
         try {
+            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Creating shaders", {});
             this->mShaderCache[gfx::ShaderType::SimpleColor] = std::make_shared<SimpleColorShader>();
             this->mShaderCache[gfx::ShaderType::TextureGrayscaleShader] = std::make_shared<TextureGrayscaleShader>();
             this->mShaderCache[gfx::ShaderType::TextureGrayAlphaShader] = std::make_shared<TextureGrayAlphaShader>();
             this->mShaderCache[gfx::ShaderType::TextureRgbaShader] = std::make_shared<TextureRgbaShader>();
 
             // Initialize all shader
+            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Initializing shaders", {});
             for (auto& shader : this->mShaderCache) {
                 shader.second->init();
             }
@@ -42,6 +44,8 @@ namespace gfx::renderer::opengl {
             // Must only be done once and is not used anymore?
             glGenVertexArrays(1, &VertexArrayID);
             glBindVertexArray(VertexArrayID);
+
+            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Renderer successfully created", {});
         } catch (ee::Exception& e) {
             throw;
         }
