@@ -45,6 +45,9 @@ namespace gfx::renderer::opengl {
 
             // Must only be done once and is not used anymore?
             glGenVertexArrays(1, &this->mVertexAttribArray);
+
+            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Middleman222", {});
+
             glBindVertexArray(this->mVertexAttribArray);
 
             ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Renderer successfully created", {});
