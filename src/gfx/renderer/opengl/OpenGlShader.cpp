@@ -1,9 +1,4 @@
 #ifndef __UNITTEST__
-
-#include <vector>
-#include <iostream>
-#include <glm/gtc/type_ptr.hpp>
-
 #ifndef __ANDROID__
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -12,6 +7,9 @@
 #endif
 
 #include <ananasgfx/gfx/renderer/opengl/OpenGlShader.hpp>
+#include <vector>
+#include <glm/gtc/type_ptr.hpp>
+#include <ee/Log.hpp>
 
 namespace gfx::renderer::opengl {
 
@@ -37,11 +35,19 @@ namespace gfx::renderer::opengl {
     }
 
     void OpenGlShader::init() {
+        ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Initializing shader", {});
         GLuint vertexShaderId = compile(GL_VERTEX_SHADER, getGlslVersion() + this->vertexShader());
         GLuint fragmentShaderId = compile(GL_FRAGMENT_SHADER, getGlslVersion() + this->fragmentShader());
+        if (vertexShaderId == 0 || fragmentShaderId == 0) { return; }
 
         // Link program
         this->mProgamId = glCreateProgram();
+        if (this->mProgamId == 0) {
+            return ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "glCreateProgram() returned error", {
+                ee::Note("glGetError()", glGetError())
+            });
+        }
+
         glAttachShader(this->mProgamId, vertexShaderId);
         glAttachShader(this->mProgamId, fragmentShaderId);
         glLinkProgram(this->mProgamId);
@@ -68,8 +74,19 @@ namespace gfx::renderer::opengl {
     }
 
     unsigned int OpenGlShader::compile(unsigned int shaderType, const std::string& source) {
+        ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Compiling single shader", {
+            ee::Note("Shader", source)
+        });
+
         // Create shader id
         GLuint shaderId = glCreateShader(shaderType);
+        if (shaderId == 0) {
+            ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "glCreateShader() returned error", {
+                    ee::Note("glGetError()", glGetError()),
+                    ee::Note("ShaderType", shaderType)
+            });
+            return 0;
+        }
 
         // Provide source
         auto str = source.c_str();
