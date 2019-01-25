@@ -34,8 +34,9 @@ namespace platform::desktop {
         glfwSwapInterval(1);
 
         // For some reason we have to use glew
+        glewExperimental = GL_TRUE;
         if (glewInit() != GLEW_OK) {
-            ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Could not create glfw window", {
+            ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Could not init glew", {
                     ee::Note("Width", this->getConfiguration().getWidth(), __PRETTY_FUNCTION__),
                     ee::Note("Height", this->getConfiguration().getHeight(), __PRETTY_FUNCTION__),
                     ee::Note("Title", this->getConfiguration().getTitle(), __PRETTY_FUNCTION__)
