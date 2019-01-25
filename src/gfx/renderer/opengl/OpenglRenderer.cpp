@@ -41,6 +41,8 @@ namespace gfx::renderer::opengl {
             glEnable(GL_DEPTH_TEST);
             glDepthFunc(GL_LESS);
 
+            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Middleman", {});
+
             // Must only be done once and is not used anymore?
             glGenVertexArrays(1, &this->mVertexAttribArray);
             glBindVertexArray(this->mVertexAttribArray);

@@ -74,10 +74,6 @@ namespace gfx::renderer::opengl {
     }
 
     unsigned int OpenGlShader::compile(unsigned int shaderType, const std::string& source) {
-        ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Compiling single shader", {
-            ee::Note("Shader", source)
-        });
-
         // Create shader id
         GLuint shaderId = glCreateShader(shaderType);
         if (shaderId == 0) {
