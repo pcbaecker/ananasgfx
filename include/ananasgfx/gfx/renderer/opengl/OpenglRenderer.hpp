@@ -71,6 +71,7 @@ namespace gfx::renderer::opengl {
         void deactivateStencilBuffer() noexcept override;
 
     private:
+        unsigned int mVertexAttribArray = 0;
         std::map<gfx::ShaderType,std::shared_ptr<OpenGlShader>> mShaderCache;
     };
 

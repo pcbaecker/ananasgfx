@@ -15,8 +15,6 @@
 #include <GLES3/gl3.h>
 #endif
 
-GLuint VertexArrayID;
-
 namespace gfx::renderer::opengl {
 
     OpenglRenderer::OpenglRenderer() {
@@ -38,12 +36,14 @@ namespace gfx::renderer::opengl {
                 shader.second->init();
             }
 
+            // Define some open gl things
+            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Setting up opengl", {});
             glEnable(GL_DEPTH_TEST);
             glDepthFunc(GL_LESS);
 
             // Must only be done once and is not used anymore?
-            glGenVertexArrays(1, &VertexArrayID);
-            glBindVertexArray(VertexArrayID);
+            glGenVertexArrays(1, &this->mVertexAttribArray);
+            glBindVertexArray(this->mVertexAttribArray);
 
             ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Renderer successfully created", {});
         } catch (ee::Exception& e) {

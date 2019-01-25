@@ -90,7 +90,8 @@ namespace gfx::renderer::opengl {
 
         // Provide source
         auto str = source.c_str();
-        glShaderSource(shaderId, 1, &str, nullptr);
+        auto strLen = static_cast<GLint>(source.size());
+        glShaderSource(shaderId, 1, &str, &strLen);
 
         // Try to compile shader
         glCompileShader(shaderId);
