@@ -121,4 +121,4 @@ public:
         return true;
     }
 };
-REGISTER_APPLICATION("Primitives 2d", Primitives2dApp);
+REGISTER_APPLICATION("Primitives2d", Primitives2dApp);

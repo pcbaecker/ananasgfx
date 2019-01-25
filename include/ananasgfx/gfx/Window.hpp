@@ -5,7 +5,6 @@
 #include <optional>
 #include <memory>
 #include <stack>
-#include <chrono>
 
 #include "WindowConfiguration.hpp"
 #include "Scene.hpp"
@@ -33,7 +32,7 @@ namespace gfx {
 
         Renderer* getRenderer() noexcept;
 
-        void tick() noexcept;
+        void tick(float dt) noexcept;
 
         TextureManager& getTextureManager() noexcept;
 
@@ -48,7 +47,6 @@ namespace gfx {
         void setRenderer(std::shared_ptr<Renderer> pRenderer) noexcept;
 
     protected:
-        std::chrono::steady_clock::time_point mLastUpdate = std::chrono::steady_clock::now();
         std::shared_ptr<Renderer> pRenderer;
         WindowConfiguration mConfiguration;
         std::stack<std::shared_ptr<Scene>> mSceneStack;

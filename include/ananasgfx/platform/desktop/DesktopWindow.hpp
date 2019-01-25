@@ -10,7 +10,9 @@ namespace platform::desktop {
 
     class DesktopWindow : public ::gfx::Window {
     public:
-        DesktopWindow(const gfx::WindowConfiguration& config) noexcept;
+        explicit DesktopWindow(const gfx::WindowConfiguration& config) noexcept;
+
+        virtual ~DesktopWindow() noexcept;
 
         bool init() noexcept override;
 

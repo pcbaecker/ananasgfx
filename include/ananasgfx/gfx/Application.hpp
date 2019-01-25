@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <map>
+#include <chrono>
 
 #include "Window.hpp"
 
@@ -22,11 +23,17 @@ namespace gfx {
 
         void registerWindow(std::shared_ptr<Window> window) noexcept;
         void tick() noexcept;
+        bool isDone() const noexcept;
+
+        void setMaxLifetime(long maxlifetime) noexcept;
     private:
         bool initWindows() noexcept;
 
     private:
+        std::chrono::steady_clock::time_point mLastUpdate = std::chrono::steady_clock::now();
         std::list<std::shared_ptr<Window>> mWindows;
+        float mLifetime = 0.0f;
+        long mMaxLifetime = 0;
     };
 
     namespace _internal {

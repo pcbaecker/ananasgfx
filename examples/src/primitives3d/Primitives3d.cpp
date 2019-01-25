@@ -37,4 +37,4 @@ public:
         return true;
     }
 };
-//REGISTER_APPLICATION(Primitives3dApp);
+REGISTER_APPLICATION("Primitives3d", Primitives3dApp);

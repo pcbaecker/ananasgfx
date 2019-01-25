@@ -27,7 +27,9 @@ namespace d3 {
         glm::mat4 mModelMatrix = glm::mat4(1.0f);
         ::gfx::Shader* pShader = nullptr;
         ::gfx::ShaderUniform* pMvpUniform = nullptr;
+        ::gfx::ShaderUniform* pColorUniform = nullptr;
         ::gfx::Vertices mVertices;
+        glm::vec4 mColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
     };
 
 }

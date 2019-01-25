@@ -28,7 +28,8 @@ namespace d3 {
         this->pShader = this->shader();
 
         // Get the uniforms where we connect the matrices later
-        this->pMvpUniform = this->pShader->getUniform("MVP");
+        this->pMvpUniform = this->pShader->getUniform("mvp");
+        this->pColorUniform = this->pShader->getUniform("overallColor");
 
         // Initialize our vertices and indices
         this->updateVertices();
@@ -49,6 +50,7 @@ namespace d3 {
 
         // Bind our mvp matrix
         this->pMvpUniform->bind(&mvp);
+        this->pColorUniform->bind(&this->mColor);
 
         // Bind our vertices
         this->pWindow->getRenderer()->bindVertices(&this->mVertices);

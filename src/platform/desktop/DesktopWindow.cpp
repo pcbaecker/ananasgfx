@@ -10,6 +10,12 @@ namespace platform::desktop {
 
     }
 
+    DesktopWindow::~DesktopWindow() noexcept {
+        // Destroy window
+        glfwDestroyWindow(this->pWindow);
+        this->pWindow = nullptr;
+    }
+
     bool DesktopWindow::init() noexcept {
         // Initalize the window
         this->pWindow = glfwCreateWindow(
@@ -34,7 +40,7 @@ namespace platform::desktop {
         glfwSwapInterval(1);
 
         // For some reason we have to use glew
-        glewExperimental = GL_TRUE;
+        glewExperimental = GL_TRUE;//< Required for travis ci execution (xvfb)
         if (glewInit() != GLEW_OK) {
             ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Could not init glew", {
                     ee::Note("Width", this->getConfiguration().getWidth(), __PRETTY_FUNCTION__),

@@ -30,18 +30,14 @@ namespace gfx {
         return this->pRenderer.get();
     }
 
-    void Window::tick() noexcept {
-        // Calculate delta time
-        float delta = std::chrono::duration<float, std::ratio<1>>(std::chrono::steady_clock::now() - this->mLastUpdate).count();
-        this->mLastUpdate = std::chrono::steady_clock::now();
-
+    void Window::tick(float dt) noexcept {
         // Make sure that there is at least one scene
         if (!this->mSceneStack.empty()) {
             // Get the top scene
             auto& scene = this->mSceneStack.top();
 
             this->pRenderer->clearScreen();
-            scene->update(delta);
+            scene->update(dt);
             scene->draw();
         }
     }

@@ -37,7 +37,30 @@ namespace gfx {
         return true;
     }
 
+    bool Application::isDone() const noexcept {
+        return this->mWindows.empty();
+    }
+
+    void Application::setMaxLifetime(long maxlifetime) noexcept {
+        this->mMaxLifetime = maxlifetime;
+    }
+
     void Application::tick() noexcept {
+        // Calculate delta time
+        float delta = std::chrono::duration<float, std::ratio<1>>(std::chrono::steady_clock::now() - this->mLastUpdate).count();
+        this->mLastUpdate = std::chrono::steady_clock::now();
+
+        // Handle lifetime
+        this->mLifetime += delta;
+        if (this->mMaxLifetime > 0 && this->mLifetime >= this->mMaxLifetime) {
+            // We exceeded lifetime
+            ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Lifetime exceeded", {
+                ee::Note("Lifetime in s", this->mLifetime)
+            });
+            this->mWindows.clear();
+            return;
+        }
+
         // TODO event handling here
 
         // Iterate through all windows
@@ -52,7 +75,7 @@ namespace gfx {
 
             window->makeContext();
 
-            window->tick();
+            window->tick(delta);
 
             window->swapBuffers();
         }
