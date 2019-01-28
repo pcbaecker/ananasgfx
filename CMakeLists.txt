@@ -31,6 +31,7 @@ set(CMAKE_CXX_FLAGS -rdynamic)
 
 ### Glfw only for Desktop
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*")
+    cmake_policy(SET CMP0072 OLD)#< Setting this to NEW will lead to OpenGL context not working, must be fixed in the future
     find_package(OpenGL REQUIRED)
     find_package(GLEW REQUIRED)
 
@@ -46,7 +47,7 @@ set_target_properties(AnanasGfx PROPERTIES LINKER_LANGUAGE CXX)
 
 ### Link desktop specific
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*")
-    target_link_libraries (AnanasGfx EasyException glfw freetype ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES})
+    target_link_libraries (AnanasGfx glfw freetype EasyException OpenGL::GL OpenGL::GLX ${GLEW_LIBRARIES})
 endif()
 
 ### Link android specific
