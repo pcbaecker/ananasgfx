@@ -63,8 +63,10 @@ if(USE_EXAMPLES)
     add_subdirectory(examples)
 endif()
 
+### Tests
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*")
     add_subdirectory(test/unittest)
+    add_subdirectory(test/integrationtest)
 endif()
 ### Documentation
 #if (USE_DOC)

@@ -1,9 +1,10 @@
-#ifndef TEST_TEST_H
-#define TEST_TEST_H
+#ifndef TEST_APPLICATIONTEST_H
+#define TEST_APPLICATIONTEST_H
 
 #include <string>
 #include <memory>
 #include <list>
+#include <map>
 
 namespace test {
 
@@ -16,7 +17,7 @@ namespace test {
 
         class ApplicationTestProxyBase {
         public:
-            ApplicationTestProxyBase() noexcept;
+            explicit ApplicationTestProxyBase(const std::string& appname) noexcept;
             virtual std::shared_ptr<ApplicationTest> createInstance() noexcept = 0;
         };
 
@@ -24,21 +25,20 @@ namespace test {
         public:
             static ApplicationTestStore& getInstance() noexcept;
 
-            void registerApplicationTestProxy(ApplicationTestProxyBase *pApplicationTest) noexcept;
+            void registerApplicationTestProxy(const std::string& appname, ApplicationTestProxyBase *pApplicationTest) noexcept;
             size_t getNumberOfApplicationTests() const noexcept;
-            const std::list<ApplicationTestProxyBase*> getApplications() const noexcept;
+            const std::map<std::string,std::list<ApplicationTestProxyBase*>> getApplicationTests() const noexcept;
 
         private:
             ApplicationTestStore() noexcept;
 
         private:
-            // TODO This must be std::map<std::string,std::list<ApplicationTestProxyBase*>> where the string is the Application name to test
-            std::list<ApplicationTestProxyBase*> mApplications;
+            std::map<std::string,std::list<ApplicationTestProxyBase*>> mApplications;
         };
 
         template <class T> class ApplicationTestProxy : public ApplicationTestProxyBase {
         public:
-
+            explicit ApplicationTestProxy(const std::string& appname) noexcept : ApplicationTestProxyBase(appname) {}
             std::shared_ptr<ApplicationTest> createInstance() noexcept override {
                 return std::make_shared<T>();
             }
@@ -54,11 +54,11 @@ namespace test {
 
 
 #define NN_UNIQUENAME(name,line) name##line
-#define APPLICATION_TEST(appname) NN_TESTCLASS(NN_UNIQUENAME(ananasgfx_test,__COUNTER__), description)
+#define APPLICATION_TEST(appname) NN_TESTCLASS(NN_UNIQUENAME(ananasgfx_test,__COUNTER__), appname)
 
-#define NN_TESTCLASS(classname, description) \
+#define NN_TESTCLASS(classname, appname) \
 class classname; \
-test::_internal::ApplicationTestProxy<classname> NN_UNIQUENAME(ananasgfx_test_proxy, __COUNTER__); \
+test::_internal::ApplicationTestProxy<classname> NN_UNIQUENAME(ananasgfx_test_proxy, __COUNTER__)(appname); \
 class classname : public test::ApplicationTest
 
 #endif
