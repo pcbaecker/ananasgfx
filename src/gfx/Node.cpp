@@ -51,4 +51,22 @@ namespace gfx {
     void Node::onChildAdded(Node *pNode) noexcept {
         // Can be overridden by inheriting classes
     }
+
+    std::shared_ptr<RenderTexture> Node::asRenderTexture() noexcept {
+        // Create a RenderTexture
+        auto rendertexture = std::make_shared<gfx::RenderTexture>(
+                this->pWindow, this->pWindow->getWidth(), this->pWindow->getHeight());
+
+        // Begin drawing into the rendertexture
+        rendertexture->begin();
+        this->pWindow->getRenderer()->clearScreen();
+
+        // Draw this node and all children
+        this->draw();
+
+        // Finish drawing
+        rendertexture->end();
+
+        return rendertexture;
+    }
 }

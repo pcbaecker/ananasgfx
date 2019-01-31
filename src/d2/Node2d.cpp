@@ -185,4 +185,8 @@ namespace d2 {
             }
         }
     }
+
+    void Node::setZIndex(uint8_t zindex) noexcept {
+        this->mZIndex = zindex;
+    }
 }

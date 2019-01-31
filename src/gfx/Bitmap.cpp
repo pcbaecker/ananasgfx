@@ -63,6 +63,7 @@ namespace gfx {
     }
 
     bool Bitmap::saveAsFile(const std::string &filename) const noexcept {
+        stbi_flip_vertically_on_write(1);
         return stbi_write_png(
                 filename.c_str(),
                 static_cast<int>(this->mWidth),

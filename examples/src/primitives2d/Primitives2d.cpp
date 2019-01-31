@@ -1,5 +1,6 @@
 #include <ananasgfx/gfx/Application.hpp>
 #include <ananasgfx/gfx/ClippingNode.hpp>
+#include <ananasgfx/gfx/RenderTexture.hpp>
 #include <ananasgfx/d2/Rectangle.hpp>
 #include <ananasgfx/d2/Sprite.hpp>
 #include <ananasgfx/d2/Circle.hpp>
@@ -11,22 +12,24 @@ public:
     bool init() noexcept override {
         // Set background color
         this->pWindow->getRenderer()->setClearColor(0.03f, 0.25f, 0.025f, 1.0f);
-
+/*
         auto clippingNode = createChild<gfx::ClippingNode>();
         auto stencil = clippingNode->createStencil<d2::Rectangle>();
         stencil->setSize(this->pWindow->getWidth() * 0.5f, this->pWindow->getHeight());
         stencil->setPosition(this->pWindow->getWidth() * 0.5f, this->pWindow->getHeight() * 0.5f);
         stencil->setAnchorPoint(0.5f, 0.5f);
-
+*/
         // Create rectangle
-        this->pRectangle = clippingNode->createChild<d2::Rectangle>();
+        this->pRectangle = this->createChild<d2::Rectangle>();
+        this->pRectangle->setZIndex(0);
         this->pRectangle->setSize(50, 50);
         this->pRectangle->setPosition(0,10);
         this->pRectangle->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
 
         // Create a child ring that moves automatically with its parent
         auto childRing = this->pRectangle->createChild<d2::Ring>();
-        childRing->setSize(50, 50);
+        childRing->setZIndex(2);
+        childRing->setSize(65, 65);
         childRing->setPosition(this->pRectangle->getSize().x * 0.5f, this->pRectangle->getSize().y * 0.5f);
         childRing->setAnchorPoint(0.5f, 0.5f);
 
@@ -79,24 +82,15 @@ public:
 
         // Rotate the sprite
         this->pSprite->setRotation(this->pSprite->getRotation() + dt);
-    }
-/*
-    void draw() noexcept override {
-        this->mRenderTexture->begin();
-        this->pWindow->getRenderer()->clearScreen();
-        //Node::draw();
-        this->pRectangle->draw();
 
-        this->mRenderTexture->end();
-
-        auto bitmap = this->mRenderTexture->toBitmap();
+        /*
+        auto rendertexture = this->pRectangle->asRenderTexture();
+        auto bitmap = rendertexture->toBitmap();
         if (bitmap.has_value()) {
             (*bitmap)->saveAsFile("file.png");
-        }
-
-        Node::draw();
+        }*/
     }
-*/
+
 private:
     d2::Rectangle* pRectangle = nullptr;
     bool mRectangleGoRight = true;
@@ -104,6 +98,7 @@ private:
     d2::Sprite* pSprite = nullptr;
     d2::Rectangle* pChildRect = nullptr;
 
+    std::shared_ptr<gfx::RenderTexture> mRenderTexture;
 };
 
 class Primitives2dApp : public gfx::Application {

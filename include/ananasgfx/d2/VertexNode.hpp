@@ -23,6 +23,7 @@ namespace d2 {
         void setAnchorPoint(float x, float y) noexcept override;
         void setParentPositionOffset(float x, float y) noexcept override;
         void setParentRotationOffset(float rotation) noexcept override;
+        void setZIndex(uint8_t zindex) noexcept override;
 
         void setColor(const glm::vec4& color) noexcept;
 

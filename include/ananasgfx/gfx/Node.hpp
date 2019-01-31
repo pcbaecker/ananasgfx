@@ -4,6 +4,8 @@
 #include <list>
 #include <memory>
 
+#include "RenderTexture.hpp"
+
 namespace gfx {
 
     class Window;
@@ -13,6 +15,8 @@ namespace gfx {
         virtual bool init() noexcept;
         virtual void update(float dt) noexcept;
         virtual void draw() noexcept;
+
+        virtual std::shared_ptr<RenderTexture> asRenderTexture() noexcept;
 
         template<class T> T* createChild() noexcept {
             // Try to create an instance of the object

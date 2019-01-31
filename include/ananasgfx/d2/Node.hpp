@@ -39,6 +39,8 @@ namespace d2 {
         virtual void setParentRotationOffset(float rotation) noexcept;
         float getParentRotationOffset() const noexcept;
 
+        virtual void setZIndex(uint8_t zindex) noexcept;
+
     protected:
         void onChildAdded(gfx::Node* pNode) noexcept override;
         void updateChildrenPositionOffset(d2::Node* pNode = nullptr) const noexcept;
@@ -53,6 +55,7 @@ namespace d2 {
         glm::vec2 mSize = glm::vec2(0.0f, 0.0f);
         float mRotation = 0.0f;
         float mParentRotationOffset = 0.0f;
+        uint8_t mZIndex = 0;
     };
 
 }

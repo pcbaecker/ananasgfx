@@ -36,18 +36,12 @@ namespace gfx::renderer::opengl {
                 shader.second->init();
             }
 
-            // Define some open gl things
+            // Define some OpenGL things
             ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Setting up opengl", {});
             glEnable(GL_DEPTH_TEST);
-            glDepthFunc(GL_LESS);
-
-            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Middleman", {});
 
             // Must only be done once and is not used anymore?
             glGenVertexArrays(1, &this->mVertexAttribArray);
-
-            ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Middleman222", {});
-
             glBindVertexArray(this->mVertexAttribArray);
 
             ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Renderer successfully created", {});
