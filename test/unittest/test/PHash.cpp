@@ -31,7 +31,6 @@ TEST_CASE("test::PHash") {
 
         // Compare the distances
         REQUIRE(test::PHash::distance(treeJpgHash,treePngHash) == 1);
-        REQUIRE(test::PHash::distance(treeJpgHash,treePngHash) == 1);
         REQUIRE(test::PHash::distance(treeDiffHash,treePngHash) == 8);
         REQUIRE(test::PHash::distance(treeDiffHash,treeJpgHash) == 7);
         REQUIRE(test::PHash::distance(treePngHash,otherHash) == 43);
