@@ -1,6 +1,7 @@
 #ifndef GFX_APPLICATIONMANANGER_H
 #define GFX_APPLICATIONMANANGER_H
 
+#include <thread>
 #include <ananasgfx/gfx/Application.hpp>
 
 namespace gfx::_internal {
@@ -22,12 +23,17 @@ namespace gfx::_internal {
         void surfaceAvailable() noexcept;
         void tick() noexcept;
         bool isDone() const noexcept;
+
+    private:
+        void setupApplicationTest(const std::string& appname, std::shared_ptr<Application> application) noexcept;
+
     private:
         long mMaxAppLifetime;
         bool mDone = false;
         std::shared_ptr<Application> pCurrentApplication = nullptr;
         std::map<std::string,ApplicationProxyBase*> mApplications;
         std::map<std::string,ApplicationProxyBase*>::const_iterator mIterator;
+        std::unique_ptr<std::thread> mTestThread;
     };
 
 }

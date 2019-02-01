@@ -1,5 +1,6 @@
 #include <ananasgfx/gfx/ApplicationManager.hpp>
 #include <ananasgfx/gfx/Application.hpp>
+#include <ananasgfx/test/ApplicationTest.hpp>
 #include <ee/Log.hpp>
 #include <algorithm>
 
@@ -78,6 +79,9 @@ namespace gfx::_internal {
             this->pCurrentApplication = app.second->createInstance();
             this->pCurrentApplication->setMaxLifetime(this->mMaxAppLifetime);
 
+            // Setup ApplicationTest for the launched Application (if not test exist, nothing will be done)
+            this->setupApplicationTest(app.first, this->pCurrentApplication);
+
             // Initialize the application
             ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Initializing application", {
                     ee::Note("ApplicationName", app.first)
@@ -117,4 +121,38 @@ namespace gfx::_internal {
                && this->mIterator == this->mApplications.end();
     }
 
+    void ApplicationManager::setupApplicationTest(const std::string &appname, std::shared_ptr<Application> application) noexcept {
+        // Check if we have a sidekick ApplicationTest
+        if (test::_internal::ApplicationTestStore::getInstance().getApplicationTests().count(appname)
+            && !test::_internal::ApplicationTestStore::getInstance().getApplicationTests().at(appname).empty()) {
+            // Get a pointer to the ApplicationTest
+            auto test = *test::_internal::ApplicationTestStore::getInstance().getApplicationTests().at(appname).begin();
+
+            // Start it in another thread
+            this->mTestThread = std::make_unique<std::thread>([](
+                    std::string appname,
+                    std::shared_ptr<Application> appinstance,
+                    test::_internal::ApplicationTestProxyBase* pApplicationTestProxyBase) {
+                ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Starting ApplicationTest in another thread", {
+                        ee::Note("ApplicationName", appname)
+                });
+
+                // Create the ApplicationTest instance
+                auto applicationTest = pApplicationTestProxyBase->createInstance(appinstance);
+
+                // Run the test
+                try {
+                    applicationTest->run();
+                } catch (ee::Exception& e) {
+                    ee::Log::log(ee::LogLevel::Error, e);
+                } catch (std::exception& e) {
+                    ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Caught std::exception", {
+                            ee::Note("what()", e.what())
+                    });
+                } catch (...) {
+                    ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Caught unknown exception", {});
+                }
+            }, appname, application, test);
+        }
+    }
 }

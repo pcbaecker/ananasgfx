@@ -1,6 +1,7 @@
 #ifndef D2_NODE_H
 #define D2_NODE_H
 
+#include <list>
 #include <glm/glm.hpp>
 #include <ananasgfx/gfx/Node.hpp>
 
@@ -40,6 +41,10 @@ namespace d2 {
         float getParentRotationOffset() const noexcept;
 
         virtual void setZIndex(uint8_t zindex) noexcept;
+
+        gfx::nodePriority_t getPriority() const noexcept override;
+
+        std::shared_ptr<gfx::RenderTexture> asRenderTexture() noexcept override;
 
     protected:
         void onChildAdded(gfx::Node* pNode) noexcept override;

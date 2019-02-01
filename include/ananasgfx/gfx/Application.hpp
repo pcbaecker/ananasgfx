@@ -4,8 +4,10 @@
 #include <memory>
 #include <map>
 #include <chrono>
+#include <mutex>
 
 #include "Window.hpp"
+#include "Task.hpp"
 
 namespace gfx {
 
@@ -26,6 +28,9 @@ namespace gfx {
         bool isDone() const noexcept;
 
         void setMaxLifetime(long maxlifetime) noexcept;
+
+        void addTask(std::shared_ptr<Task> task) noexcept;
+
     private:
         bool initWindows() noexcept;
 
@@ -34,6 +39,9 @@ namespace gfx {
         std::list<std::shared_ptr<Window>> mWindows;
         float mLifetime = 0.0f;
         long mMaxLifetime = 0;
+
+        std::mutex mTaskMutex;
+        std::list<std::shared_ptr<gfx::Task>> mTasks;
     };
 
     namespace _internal {

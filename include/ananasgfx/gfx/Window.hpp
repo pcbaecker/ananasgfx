@@ -41,6 +41,8 @@ namespace gfx {
 
         const Camera& getCamera() const noexcept;
         const glm::mat4& getProjection2dMatrix() const noexcept;
+        void setTemporaryProjection2dMatrix(const glm::mat4& matrix) noexcept;
+        void removeTemporaryProjection2dMatrix() noexcept;
 
     protected:
         explicit Window(const WindowConfiguration& windowConfiguration) noexcept;
@@ -54,6 +56,7 @@ namespace gfx {
         unsigned int mHeight = 0;
         Camera mCamera;
         glm::mat4 mProjection2dMatrix;
+        std::optional<glm::mat4> mTempProjection2dMatrix;
         TextureManager mTextureManager;
     };
 

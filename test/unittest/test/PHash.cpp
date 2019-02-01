@@ -18,7 +18,7 @@ TEST_CASE("test::PHash") {
         uint64_t treePngHash = test::PHash::hash(*treePng);
 
         // Tree with a little diff as png
-        auto treeDiffOpt = gfx::Bitmap::read("resource/treePHash.png");
+        auto treeDiffOpt = gfx::Bitmap::read("resource/treePhash.png");
         REQUIRE(treeDiffOpt.has_value());
         auto treeDiff = *treeDiffOpt;
         uint64_t treeDiffHash = test::PHash::hash(*treeDiff);

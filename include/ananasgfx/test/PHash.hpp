@@ -1,9 +1,12 @@
 #ifndef TEST_PHASH_H
 #define TEST_PHASH_H
 
+#include <vector>
 #include <ananasgfx/gfx/Bitmap.hpp>
 
 namespace test {
+
+    typedef uint64_t phash_t;
 
     class PHash {
     public:
@@ -15,7 +18,7 @@ namespace test {
          * @param bitmap The bitmap to calculate the phash for.
          * @return The calculated phash.
          */
-        static uint64_t hash(const gfx::Bitmap& bitmap) noexcept;
+        static phash_t hash(const gfx::Bitmap& bitmap) noexcept;
 
         /**
          * @brief Calculates the dct for the given values.
@@ -35,7 +38,7 @@ namespace test {
          * @param threshold The threshold to compare with each element.
          * @return The result that contains a bit for every element.
          */
-        static uint64_t _compareToThreshold(const std::vector<double> &input, double threshold) noexcept;
+        static phash_t _compareToThreshold(const std::vector<double> &input, double threshold) noexcept;
 
         /**
          * @brief Converts the given integer to a human readable string representation of bits.
@@ -43,7 +46,7 @@ namespace test {
          * @param hash The given has to display.
          * @return A human readable string representation.
          */
-        static std::string toString(uint64_t hash) noexcept;
+        static std::string toString(phash_t hash) noexcept;
 
         /**
          * @brief Calculates the distance between the two given hashes.
@@ -52,7 +55,7 @@ namespace test {
          * @param b The hash number two.
          * @return The number of bits that are different.
          */
-        static uint8_t distance(uint64_t a, uint64_t b) noexcept;
+        static uint8_t distance(phash_t a, phash_t b) noexcept;
     };
 
 }

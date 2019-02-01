@@ -1,6 +1,6 @@
 #include <ananasgfx/d2/Node.hpp>
-
-#include <iostream>
+#include <ananasgfx/gfx/Window.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace d2 {
 
@@ -188,5 +188,46 @@ namespace d2 {
 
     void Node::setZIndex(uint8_t zindex) noexcept {
         this->mZIndex = zindex;
+        this->resortChildren();
+    }
+
+    gfx::nodePriority_t Node::getPriority() const noexcept {
+        return static_cast<gfx::nodePriority_t>(1024 + this->mZIndex);
+    }
+
+    std::shared_ptr<gfx::RenderTexture> Node::asRenderTexture() noexcept {
+        // Store the original position and anchor point and set it for this method to zero
+        auto originalPos = this->getPosition();
+        auto originalAnchor = this->getAnchorPoint();
+        this->setPosition(0.0f, 0.0f);
+        this->setAnchorPoint(0.0f, 0.0f);
+
+        // Set the viewport to the size of this node
+        this->pWindow->getRenderer()->setViewport(static_cast<size_t>(this->getSize().x), static_cast<size_t>(this->getSize().y));
+        this->pWindow->setTemporaryProjection2dMatrix(glm::ortho(0.0f, this->getSize().x, this->getSize().y, 0.0f));
+
+        // Create a RenderTexture
+        auto rendertexture = std::make_shared<gfx::RenderTexture>(
+                this->pWindow, this->getSize().x, this->getSize().y);
+
+        // Begin drawing into the rendertexture
+        rendertexture->begin();
+        this->pWindow->getRenderer()->clearScreen();
+
+        // Draw this node and all children
+        this->draw();
+
+        // Finish drawing
+        rendertexture->end();
+
+        // Restore AnchorPoint and Position
+        this->setPosition(originalPos);
+        this->setAnchorPoint(originalAnchor);
+
+        // Restore viewport
+        this->pWindow->getRenderer()->setViewport(this->pWindow->getWidth(), this->pWindow->getHeight());
+        this->pWindow->removeTemporaryProjection2dMatrix();
+
+        return rendertexture;
     }
 }

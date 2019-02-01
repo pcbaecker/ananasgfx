@@ -32,7 +32,6 @@ namespace d2 {
 
     protected:
         glm::mat4 mModelMatrix = glm::mat4(1.0f);
-        glm::mat4 mModelViewProjectionMatrix;
         ::gfx::Shader* pShader = nullptr;
         ::gfx::ShaderUniform* pMvpUniform = nullptr;
         ::gfx::ShaderUniform* pColorUniform = nullptr;

@@ -69,4 +69,18 @@ namespace gfx {
 
         return rendertexture;
     }
+
+    nodePriority_t Node::getPriority() const noexcept {
+        return 0;
+    }
+
+    void Node::resortChildren() noexcept {
+        this->mChildren.sort([](const std::shared_ptr<Node> &lhs, const std::shared_ptr<Node> &rhs) {
+            return lhs->getPriority() <= rhs->getPriority();
+        });
+    }
+
+    bool NodeComparator::operator()(const std::shared_ptr<Node> &lhs, const std::shared_ptr<Node> &rhs) const noexcept {
+        return lhs->getPriority() <= rhs->getPriority();
+    }
 }

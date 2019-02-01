@@ -5,7 +5,7 @@
 
 namespace test {
 
-    uint64_t PHash::hash(const gfx::Bitmap &bitmap) noexcept {
+    phash_t PHash::hash(const gfx::Bitmap &bitmap) noexcept {
         // Reduce size
         auto resizedBitmap = bitmap.resize(32,32);
         if (!resizedBitmap.has_value()) {
@@ -75,7 +75,7 @@ namespace test {
         return result;
     }
 
-    uint64_t PHash::_compareToThreshold(const std::vector<double> &input, double threshold) noexcept {
+    phash_t PHash::_compareToThreshold(const std::vector<double> &input, double threshold) noexcept {
         // Check vector size
         if (input.size() != 64) {
             ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given input vector has not 64 elements", {
@@ -95,7 +95,7 @@ namespace test {
         return result;
     }
 
-    std::string PHash::toString(uint64_t hash) noexcept {
+    std::string PHash::toString(phash_t hash) noexcept {
         std::string str;
         for (int i = 0; i < 64; i++) {
             if (hash & (1 << i)) {
@@ -107,9 +107,9 @@ namespace test {
         return str;
     }
 
-    uint8_t PHash::distance(uint64_t a, uint64_t b) noexcept {
+    uint8_t PHash::distance(phash_t a, phash_t b) noexcept {
         // Get the difference between the hashes
-        uint64_t diff = a ^b;
+        phash_t diff = a ^b;
 
         // Count the different bits
         uint8_t count = 0;

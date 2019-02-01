@@ -36,14 +36,23 @@ namespace gfx {
             // Get the top scene
             auto& scene = this->mSceneStack.top();
 
+            // Clear the scene
             this->pRenderer->clearScreen();
+
+            // Call the scene update
             scene->update(dt);
+
+            // Call the scene draw
             scene->draw();
         }
     }
 
     const glm::mat4 &Window::getProjection2dMatrix() const noexcept {
-        return this->mProjection2dMatrix;
+        if (this->mTempProjection2dMatrix.has_value()) {
+            return *this->mTempProjection2dMatrix;
+        } else {
+            return this->mProjection2dMatrix;
+        }
     }
 
     Window::Window(const WindowConfiguration &windowConfiguration) noexcept : mConfiguration(windowConfiguration) {
@@ -70,4 +79,13 @@ namespace gfx {
         this->pRenderer = std::move(pRenderer);
         this->mTextureManager.setRenderer(this->pRenderer.get());
     }
+
+    void Window::setTemporaryProjection2dMatrix(const glm::mat4 &matrix) noexcept {
+        this->mTempProjection2dMatrix = matrix;
+    }
+
+    void Window::removeTemporaryProjection2dMatrix() noexcept {
+        this->mTempProjection2dMatrix.reset();
+    }
+
 }

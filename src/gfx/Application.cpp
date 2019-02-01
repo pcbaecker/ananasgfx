@@ -61,6 +61,28 @@ namespace gfx {
             return;
         }
 
+        // Execute tasks
+        {
+            // To get and execute tasks we need to lock the mutex
+            std::lock_guard<std::mutex> guard(this->mTaskMutex);
+
+            // Make sure there are some tasks to execute
+            if (!this->mTasks.empty()) {
+                // Iterate through the tasks
+                auto it = this->mTasks.begin();
+                while (it != this->mTasks.end()) {
+                    // Execute the task
+                    if ((*it)->run(this)) {
+                        // Return true -> we want to retain the task to execute it again next tick
+                        it++;
+                    } else {
+                        // Return false -> we can release the task
+                        it = this->mTasks.erase(it);
+                    }
+                }
+            }
+        }
+
         // TODO event handling here
 
         // Iterate through all windows
@@ -79,6 +101,14 @@ namespace gfx {
 
             window->swapBuffers();
         }
+    }
+
+    void Application::addTask(std::shared_ptr<Task> task) noexcept {
+        // To modify the list we need to lock the mutex
+        std::lock_guard<std::mutex> guard(this->mTaskMutex);
+
+        // Add task to the list
+        this->mTasks.push_back(task);
     }
 
     namespace _internal {

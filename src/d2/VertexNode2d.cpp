@@ -3,10 +3,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-//glm::mat4 Projection = glm::perspective(glm::radians(45.0f), (float) 640 / (float)480, 0.1f, 100.0f);
-//glm::mat4 Projection = glm::ortho(0.0f, 640.0f, 480.0f, 0.0f);
-glm::mat4 View = glm::mat4(1.0f);
-
 namespace d2 {
 
     bool VertexNode::init() noexcept {
@@ -31,14 +27,14 @@ namespace d2 {
     }
 
     void VertexNode::draw() noexcept {
-        // Call the normal draw command
-        d2::Node::draw();
+        // Calculate the MVP matrix
+        auto mvp = this->pWindow->getProjection2dMatrix() * this->mModelMatrix;
 
         // Use our shader
         this->pShader->use();
 
         // Bind our mvp matrix
-        this->pMvpUniform->bind(&this->mModelViewProjectionMatrix);
+        this->pMvpUniform->bind(&mvp);
         this->pColorUniform->bind(&this->mColor);
 
         // Bind our vertices
@@ -46,6 +42,9 @@ namespace d2 {
 
         // Draw
         this->pWindow->getRenderer()->drawVertices(&this->mVertices);
+
+        // Draw all children after we drew this node
+        d2::Node::draw();
     }
 
     void VertexNode::setPosition(float x, float y) noexcept {
@@ -74,6 +73,7 @@ namespace d2 {
         // Update vertices only if we already initialized our vertex node
         if (this->mInitialized) {
             this->updateVertices();
+            this->pWindow->getRenderer()->bufferVertices(&this->mVertices);
         }
     }
 
@@ -89,17 +89,14 @@ namespace d2 {
         float h = this->mScale.y * this->mSize.y;
 
         // Scale the rectangle to the correct form
-        glm::mat4 model = glm::scale(glm::mat4(1.0f), glm::vec3(w, h, 0.0f));
+        this->mModelMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(w, h, 0.0f));
 
         // Apply translation -> move to position
         auto pos = this->getScreenPosition();
-        model = glm::translate(model, glm::vec3(pos.x / w, pos.y / h, this->mZIndex));
+        this->mModelMatrix = glm::translate(this->mModelMatrix, glm::vec3(pos.x / w, pos.y / h, this->mZIndex));
 
         // Apply rotation
-        model = glm::rotate(model, this->mRotation + this->mParentRotationOffset, glm::vec3(0.0f, 0.0f, 1.0f));
-
-        // Combine
-        this->mModelViewProjectionMatrix = this->pWindow->getProjection2dMatrix() * View * model;
+        this->mModelMatrix = glm::rotate(this->mModelMatrix, this->mRotation + this->mParentRotationOffset, glm::vec3(0.0f, 0.0f, 1.0f));
     }
 
     void VertexNode::setParentPositionOffset(float x, float y) noexcept {

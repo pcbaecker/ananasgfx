@@ -6,6 +6,9 @@
 #include <ananasgfx/d2/Circle.hpp>
 #include <ananasgfx/d2/Ring.hpp>
 #include <ananasgfx/d2/RectangleRoundCorner.hpp>
+#include <ananasgfx/test/ApplicationTest.hpp>
+
+#include <thread>
 
 class Primitives2dScene : public gfx::Scene {
 public:
@@ -21,14 +24,12 @@ public:
 */
         // Create rectangle
         this->pRectangle = this->createChild<d2::Rectangle>();
-        this->pRectangle->setZIndex(0);
         this->pRectangle->setSize(50, 50);
         this->pRectangle->setPosition(0,10);
         this->pRectangle->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
 
         // Create a child ring that moves automatically with its parent
         auto childRing = this->pRectangle->createChild<d2::Ring>();
-        childRing->setZIndex(2);
         childRing->setSize(65, 65);
         childRing->setPosition(this->pRectangle->getSize().x * 0.5f, this->pRectangle->getSize().y * 0.5f);
         childRing->setAnchorPoint(0.5f, 0.5f);
@@ -36,6 +37,8 @@ public:
         // Create sprite
         this->pSprite = createChild<d2::Sprite>();
         this->pSprite->setFilename("resource/icon_lightbulb.png");
+        this->pSprite->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
+        this->pSprite->setZIndex(2);
         this->pSprite->setPosition(75, 200);
         this->pSprite->setAnchorPoint(0.5f, 0.5f);
 
@@ -49,6 +52,8 @@ public:
         // Create a circle that is in the middle of the screen
         auto circle = createChild<d2::Circle>();
         circle->setPosition(this->getWindow()->getWidth() * 0.5f, this->getWindow()->getHeight() * 0.5f);
+        circle->setColor(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f));
+        circle->setZIndex(2);
         circle->setSize(128, 128);
         circle->setColor(glm::vec4(0.33f, 0.9f, 0.01f, 1.0f));
 
@@ -83,12 +88,11 @@ public:
         // Rotate the sprite
         this->pSprite->setRotation(this->pSprite->getRotation() + dt);
 
-        /*
-        auto rendertexture = this->pRectangle->asRenderTexture();
+        auto rendertexture = this->pSprite->asRenderTexture();
         auto bitmap = rendertexture->toBitmap();
         if (bitmap.has_value()) {
             (*bitmap)->saveAsFile("file.png");
-        }*/
+        }
     }
 
 private:
@@ -117,3 +121,18 @@ public:
     }
 };
 REGISTER_APPLICATION("Primitives2d", Primitives2dApp);
+
+APPLICATION_TEST("Primitives2d") {
+public:
+    void run() noexcept override {
+        std::cout << "I am running from outside thread " << std::this_thread::get_id() << std::endl;
+
+        If([](gfx::Application* application) {
+            return true;
+            }, [](gfx::Application* application) {
+
+            std::cout << "CONDITION =TRUE " << std::this_thread::get_id() << std::endl;
+        });
+
+    }
+};

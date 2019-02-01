@@ -38,7 +38,7 @@ namespace gfx::renderer::opengl {
 
             // Define some OpenGL things
             ee::Log::log(ee::LogLevel::Trace, "", __PRETTY_FUNCTION__, "Setting up opengl", {});
-            glEnable(GL_DEPTH_TEST);
+            //glEnable(GL_DEPTH_TEST);
 
             // Must only be done once and is not used anymore?
             glGenVertexArrays(1, &this->mVertexAttribArray);

@@ -1,6 +1,6 @@
 #include "../Catch.hpp"
 #include <ananasgfx/test/ApplicationTest.hpp>
-
+/*
 APPLICATION_TEST("apptest") {
 public:
     std::string getDescription() noexcept override {
@@ -18,4 +18,4 @@ TEST_CASE("test::_internal::ApplicationTestStore") {
     REQUIRE(test::_internal::ApplicationTestStore::getInstance().getApplicationTests().count("apptest") == 1);
     REQUIRE(test::_internal::ApplicationTestStore::getInstance().getApplicationTests().at("apptest").size() == 1);
 
-}
+}*/

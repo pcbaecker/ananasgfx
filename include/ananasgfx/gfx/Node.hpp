@@ -8,7 +8,14 @@
 
 namespace gfx {
 
+    typedef int16_t nodePriority_t;
+
     class Window;
+    class Node;
+
+    struct NodeComparator {
+        bool operator() (const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs) const noexcept;
+    };
 
     class Node {
     public:
@@ -27,6 +34,7 @@ namespace gfx {
 
             // Try to cast it to the base node type and store it in the children list
             this->mChildren.push_back(std::dynamic_pointer_cast<Node>(object));
+            this->resortChildren();
 
             // Call the on child added callback for inheriting classes
             onChildAdded(object.get());
@@ -38,6 +46,9 @@ namespace gfx {
         Window* getWindow() noexcept;
 
         bool isInitialized() const noexcept;
+
+        virtual nodePriority_t getPriority() const noexcept;
+        void resortChildren() noexcept;
 
     protected:
         virtual void onChildAdded(Node* pNode) noexcept;
