@@ -3,6 +3,19 @@
 
 namespace gfx {
 
+    std::vector<std::string> split(const std::string& str, const std::string& delim) {
+        std::vector<std::string> tokens;
+        size_t prev = 0, pos = 0;
+        do {
+            pos = str.find(delim, prev);
+            if (pos == std::string::npos) pos = str.length();
+            std::string token = str.substr(prev, pos-prev);
+            if (!token.empty()) tokens.push_back(token);
+            prev = pos + delim.length();
+        } while (pos < str.length() && prev < str.length());
+        return tokens;
+    }
+
     void Application::registerWindow(std::shared_ptr<Window> window) noexcept {
         this->mWindows.push_back(window);
     }
@@ -113,6 +126,54 @@ namespace gfx {
 
     std::list<std::shared_ptr<Window>> &Application::getWindows() noexcept {
         return this->mWindows;
+    }
+
+    void Application::setDevmode(bool devmode) noexcept {
+        this->mDevmode = devmode;
+    }
+
+    bool Application::isDevmode() const noexcept {
+        return this->mDevmode;
+    }
+
+    std::optional<gfx::Node *> Application::getNode(const std::string &nodepath) noexcept {
+        // Split by dots
+        auto steps = split(nodepath, ".");
+
+        if (steps.size() < 2 ) {
+            return std::nullopt;
+        }
+        if (steps[0] != "window" || steps[1] != "scene") {
+            return std::nullopt;
+        }
+
+        // Get the root scene
+        auto window = *this->getWindows().begin();
+        auto sceneOpt = window->getScene();
+        if (!sceneOpt.has_value()) {
+            return std::nullopt;
+        }
+
+        // Check if we just want the root scene
+        if (steps.size() == 2) {
+            return *sceneOpt;
+        }
+
+        // Follow the id chain to the end
+        int i = 2;
+        gfx::Node* node = *sceneOpt;
+        while (i < steps.size()) {
+            // Try to find the node for this chain element
+            auto opt = node->getChildWithId(steps[i++]);
+            if (!opt.has_value()) {
+                return std::nullopt;
+            }
+
+            // We found the node, store it
+            node = *opt;
+        }
+
+        return node;
     }
 
     namespace _internal {

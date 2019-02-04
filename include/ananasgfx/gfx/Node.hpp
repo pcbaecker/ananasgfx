@@ -42,6 +42,10 @@ namespace gfx {
             return object.get();
         }
 
+        void setId(const std::string& id) noexcept;
+        const std::string& getId() const noexcept;
+        std::optional<Node*> getChildWithId(const std::string& id) const noexcept;
+
         void setWindow(Window* pWindow) noexcept;
         Window* getWindow() noexcept;
 
@@ -54,6 +58,7 @@ namespace gfx {
         virtual void onChildAdded(Node* pNode) noexcept;
 
     protected:
+        std::string mId;
         Window* pWindow = nullptr;
         std::list<std::shared_ptr<Node>> mChildren;
         bool mInitialized = false;

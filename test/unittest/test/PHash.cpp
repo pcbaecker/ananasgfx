@@ -30,10 +30,10 @@ TEST_CASE("test::PHash") {
         uint64_t otherHash = test::PHash::hash(*other);
 
         // Compare the distances
-        REQUIRE(test::PHash::distance(treeJpgHash,treePngHash) == 1);
-        REQUIRE(test::PHash::distance(treeDiffHash,treePngHash) == 8);
-        REQUIRE(test::PHash::distance(treeDiffHash,treeJpgHash) == 7);
-        REQUIRE(test::PHash::distance(treePngHash,otherHash) == 43);
+        REQUIRE(test::PHash::distance(treeJpgHash,treePngHash) == 0);
+        REQUIRE(test::PHash::distance(treeDiffHash,treePngHash) == 6);
+        REQUIRE(test::PHash::distance(treeDiffHash,treeJpgHash) == 6);
+        REQUIRE(test::PHash::distance(treePngHash,otherHash) == 44);
     }
 
     SECTION("std::vector<double> _dct(const std::vector<double> &) noexcept") {

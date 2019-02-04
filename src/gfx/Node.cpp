@@ -83,4 +83,24 @@ namespace gfx {
     bool NodeComparator::operator()(const std::shared_ptr<Node> &lhs, const std::shared_ptr<Node> &rhs) const noexcept {
         return lhs->getPriority() <= rhs->getPriority();
     }
+
+    void Node::setId(const std::string &id) noexcept {
+        this->mId = id;
+    }
+
+    const std::string &Node::getId() const noexcept {
+        return this->mId;
+    }
+
+    std::optional<Node *> Node::getChildWithId(const std::string &id) const noexcept {
+        // Iterate through all children
+        for (auto& child : this->mChildren) {
+            if (child->getId() == id) {
+                return child.get();
+            }
+        }
+
+        // No child with given Id found
+        return std::nullopt;
+    }
 }

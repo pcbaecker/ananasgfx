@@ -33,6 +33,11 @@ namespace gfx {
 
         std::list<std::shared_ptr<Window>>& getWindows() noexcept;
 
+        std::optional<gfx::Node*> getNode(const std::string& nodepath) noexcept;
+
+        void setDevmode(bool devmode) noexcept;
+        bool isDevmode() const noexcept;
+
     private:
         bool initWindows() noexcept;
 
@@ -41,6 +46,7 @@ namespace gfx {
         std::list<std::shared_ptr<Window>> mWindows;
         float mLifetime = 0.0f;
         long mMaxLifetime = 0;
+        bool mDevmode = true;
 
         std::mutex mTaskMutex;
         std::list<std::shared_ptr<gfx::Task>> mTasks;

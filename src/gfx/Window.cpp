@@ -4,11 +4,22 @@
 
 namespace gfx {
 
+#ifdef __UNITTEST__
+    class UnittestWindow : public gfx::Window {
+    public:
+        UnittestWindow(const WindowConfiguration& windowConfiguration) noexcept : Window(windowConfiguration) {}
+        bool init() noexcept override {return false;}
+        bool shouldClose() noexcept override {return false;}
+        void makeContext() noexcept override {}
+        void swapBuffers() noexcept override {}
+    };
+#endif
+
     std::shared_ptr<Window> Window::create(const WindowConfiguration& windowConfiguration) noexcept {
 #ifdef __ANDROID__
         return std::make_shared<platform::android::AndroidWindow>(windowConfiguration);
 #elif __UNITTEST__
-        return nullptr;
+        return std::make_shared<UnittestWindow>(windowConfiguration);
 #else
         return std::make_shared<platform::desktop::DesktopWindow>(windowConfiguration);
 #endif

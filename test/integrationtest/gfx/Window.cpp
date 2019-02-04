@@ -1,5 +1,5 @@
 #include <ananasgfx/gfx/Application.hpp>
-
+/*
 class WindowTest : public gfx::Application {
 public:
     bool init() noexcept override {
@@ -17,4 +17,4 @@ public:
     }
 };
 
-REGISTER_APPLICATION("WindowTest", WindowTest);
+REGISTER_APPLICATION("WindowTest", WindowTest);*/
