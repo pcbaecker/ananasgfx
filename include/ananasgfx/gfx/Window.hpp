@@ -44,6 +44,8 @@ namespace gfx {
         void setTemporaryProjection2dMatrix(const glm::mat4& matrix) noexcept;
         void removeTemporaryProjection2dMatrix() noexcept;
 
+        std::optional<gfx::Scene*> getScene() const noexcept;
+
     protected:
         explicit Window(const WindowConfiguration& windowConfiguration) noexcept;
         void setRenderer(std::shared_ptr<Renderer> pRenderer) noexcept;

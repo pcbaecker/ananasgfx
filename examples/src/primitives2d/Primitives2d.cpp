@@ -7,8 +7,10 @@
 #include <ananasgfx/d2/Ring.hpp>
 #include <ananasgfx/d2/RectangleRoundCorner.hpp>
 #include <ananasgfx/test/ApplicationTest.hpp>
+#include <ananasgfx/gfx/Scene.hpp>
 
 #include <thread>
+#include <iostream>
 
 class Primitives2dScene : public gfx::Scene {
 public:
@@ -87,12 +89,12 @@ public:
 
         // Rotate the sprite
         this->pSprite->setRotation(this->pSprite->getRotation() + dt);
-
+/*
         auto rendertexture = this->pSprite->asRenderTexture();
         auto bitmap = rendertexture->toBitmap();
         if (bitmap.has_value()) {
             (*bitmap)->saveAsFile("file.png");
-        }
+        }*/
     }
 
 private:
@@ -127,12 +129,27 @@ public:
     void run() noexcept override {
         std::cout << "I am running from outside thread " << std::this_thread::get_id() << std::endl;
 
+        Compare("window.scene", "resource/compare.png");
+
+        /*
         If([](gfx::Application* application) {
             return true;
             }, [](gfx::Application* application) {
+                if (!application->getWindows().empty()) {
+                    auto window = *application->getWindows().begin();
+                    std::cout << window->getWidth() << "x" << window->getHeight() << std::endl;
+                    auto scene = window->getScene();
+                    if (scene.has_value()) {
+                        auto rt = (*scene)->asRenderTexture();
+                        auto bitmap = rt->toBitmap();
+                        if (bitmap.has_value()) {
+                            (*bitmap)->saveAsFile("file.png");
+                        }
+                    }
+                }
 
             std::cout << "CONDITION =TRUE " << std::this_thread::get_id() << std::endl;
         });
-
+*/
     }
 };

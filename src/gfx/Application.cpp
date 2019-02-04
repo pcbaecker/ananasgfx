@@ -111,6 +111,10 @@ namespace gfx {
         this->mTasks.push_back(task);
     }
 
+    std::list<std::shared_ptr<Window>> &Application::getWindows() noexcept {
+        return this->mWindows;
+    }
+
     namespace _internal {
 
         ApplicationStore &ApplicationStore::getInstance() noexcept {

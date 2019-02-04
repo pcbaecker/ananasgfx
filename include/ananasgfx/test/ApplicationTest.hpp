@@ -23,7 +23,8 @@ namespace test {
         public:
             explicit ApplicationTestProxyBase(const std::string &appname) noexcept;
 
-            virtual std::shared_ptr<ApplicationTest> createInstance(std::shared_ptr<gfx::Application> application) noexcept = 0;
+            virtual std::shared_ptr<ApplicationTest>
+            createInstance(std::shared_ptr<gfx::Application> application) noexcept = 0;
         };
 
         class ApplicationTestStore {
@@ -49,7 +50,8 @@ namespace test {
         public:
             explicit ApplicationTestProxy(const std::string &appname) noexcept : ApplicationTestProxyBase(appname) {}
 
-            std::shared_ptr<ApplicationTest> createInstance(std::shared_ptr<gfx::Application> application) noexcept override {
+            std::shared_ptr<ApplicationTest>
+            createInstance(std::shared_ptr<gfx::Application> application) noexcept override {
                 auto test = std::make_shared<T>();
                 test->setApplication(application);
                 return test;
@@ -63,26 +65,41 @@ namespace test {
     class IfTask : public gfx::Task {
     public:
         explicit IfTask(
-                std::function<bool(gfx::Application*)> condition,
-                std::function<void(gfx::Application*)> thenDo,
-                std::function<void(gfx::Application*)> elseDo) noexcept;
+                std::function<bool(gfx::Application *)> condition,
+                std::function<void(gfx::Application *)> thenDo,
+                std::function<void(gfx::Application *)> elseDo) noexcept;
 
-        bool run(gfx::Application*) noexcept override;
+        bool run(gfx::Application* application) noexcept override;
 
     private:
-        std::function<bool(gfx::Application*)> mCondition;
-        std::function<void(gfx::Application*)> mThenDo;
-        std::function<void(gfx::Application*)> mElseDo;
+        std::function<bool(gfx::Application *)> mCondition;
+        std::function<void(gfx::Application *)> mThenDo;
+        std::function<void(gfx::Application *)> mElseDo;
+    };
+
+    class Compare : public gfx::Task {
+    public:
+        Compare(const std::string& nodepath, const std::string& filepath) noexcept;
+
+        bool run(gfx::Application* application) noexcept override;
+
+    private:
+        std::string mNodepath;
+        std::string mFilepath;
     };
 
     class ApplicationTest {
     public:
         virtual void run() = 0;
+
         void setApplication(std::shared_ptr<gfx::Application> application) noexcept;
+
     protected:
-        void If(std::function<bool(gfx::Application*)> condition,
-                std::function<void(gfx::Application*)> thenDo,
-                std::function<void(gfx::Application*)> elseDo = nullptr);
+        void If(std::function<bool(gfx::Application *)> condition,
+                std::function<void(gfx::Application *)> thenDo,
+                std::function<void(gfx::Application *)> elseDo = nullptr);
+
+        void Compare(const std::string& nodepath, const std::string& filepath);
 
     private:
         std::shared_ptr<gfx::Application> mApplication;

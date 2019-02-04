@@ -12,6 +12,7 @@ namespace gfx {
     std::optional<std::shared_ptr<Bitmap>> Bitmap::read(const std::string &filename) noexcept {
         // Try to open file and read the content
         int width, height, channels;
+        stbi_set_flip_vertically_on_load(true);
         stbi_uc* pData = stbi_load(filename.c_str(), &width, &height, &channels, 0);
 
         // Check result

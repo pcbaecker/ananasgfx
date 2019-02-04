@@ -88,4 +88,11 @@ namespace gfx {
         this->mTempProjection2dMatrix.reset();
     }
 
+    std::optional<gfx::Scene *> Window::getScene() const noexcept {
+        if (this->mSceneStack.empty()) {
+            return std::nullopt;
+        } else {
+            return this->mSceneStack.top().get();
+        }
+    }
 }

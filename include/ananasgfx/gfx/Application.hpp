@@ -31,6 +31,8 @@ namespace gfx {
 
         void addTask(std::shared_ptr<Task> task) noexcept;
 
+        std::list<std::shared_ptr<Window>>& getWindows() noexcept;
+
     private:
         bool initWindows() noexcept;
 
