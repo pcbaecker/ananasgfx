@@ -22,14 +22,21 @@ namespace test {
             }
         }
 
+        // We are done, inform the waiting thread that we are done
+        this->mPromise.set_value(true);
+
         // We never want to retain the task
         return false;
     }
 
     IfTask::IfTask(std::function<bool(gfx::Application*)> condition,
                    std::function<void(gfx::Application*)> thenDo,
-                   std::function<void(gfx::Application*)> elseDo) noexcept :
-            mCondition(std::move(condition)), mThenDo(std::move(thenDo)), mElseDo(std::move(elseDo)) {
+                   std::function<void(gfx::Application*)> elseDo,
+                   std::promise<bool> promise) noexcept :
+            mCondition(std::move(condition)),
+            mThenDo(std::move(thenDo)),
+            mElseDo(std::move(elseDo)),
+            mPromise(std::move(promise)) {
 
     }
 
@@ -49,7 +56,8 @@ namespace test {
         return false;
     }
 
-    Compare::Compare(const std::string &nodepath, const std::string &filepath) noexcept : mNodepath(nodepath), mFilepath(filepath) {
+    Compare::Compare(const std::string &nodepath, const std::string &filepath, std::promise<bool> promise) noexcept :
+    mNodepath(nodepath), mFilepath(filepath), mPromise(std::move(promise)) {
 
     }
 
@@ -110,25 +118,33 @@ namespace test {
             // Template file not found
             if (application->isDevmode()) {
                 // In devmode we offer the user to auto create the fixture image
-                if (!offerRecreation(application)) {
-                    // TODO handle recreation unsuccessful
+                if (offerRecreation(application)) {
+                    this->mPromise.set_value(true);
+                    return false;
+                } else {
+                    std::cerr << "### INFO ### NEW TEMPLATE NOT ACCEPTED" << std::endl;
+                    this->mPromise.set_value(false);
+                    return false;
                 }
             }
-            // TODO handle template not found -> test fail
+            std::cerr << "### ERROR ### TEMPLATE " << this->mFilepath << " NOT FOUND" << std::endl;
+            this->mPromise.set_value(false);
             return false;
         }
 
         // Try to get the node
         auto node = application->getNode(this->mNodepath);
         if (!node.has_value()) {
-            // TODO handle node not found -> test fail
+            std::cerr << "### ERROR ### NODE " << this->mNodepath << " NOT FOUND" << std::endl;
+            this->mPromise.set_value(false);
             return false;
         }
 
         // Try to render the node into a bitmap
         auto nodeBitmap = (*node)->asRenderTexture()->toBitmap();
         if (!nodeBitmap.has_value()) {
-            // TODO handle error -> test fail
+            std::cerr << "### ERROR ### NODE " << this->mNodepath << " TO BITMAP FAILED" << std::endl;
+            this->mPromise.set_value(false);
             return false;
         }
 
@@ -137,9 +153,14 @@ namespace test {
         auto nodeHash = test::PHash::hash(*nodeBitmap->get());
 
         // Compare the hashes
-        std::cout << "Distance = " << (int)test::PHash::distance(templateHash, nodeHash) << std::endl;
-        // TODO handle comparision to determine if test is successful or not
-
+        auto diff = test::PHash::distance(templateHash, nodeHash);
+        if (diff > 0) {
+            std::cerr << "### ERROR ### NODE " << this->mNodepath << " AND TEMPLATE " << this->mFilepath
+            << " HAVE DIFFERENCE = " << diff << std::endl;
+            this->mPromise.set_value(false);
+        } else {
+            this->mPromise.set_value(true);
+        }
         return false;
     }
 

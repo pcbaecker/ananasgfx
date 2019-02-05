@@ -6,6 +6,8 @@
 
 namespace gfx::_internal {
 
+    int ApplicationManager::ReturnCode = EXIT_SUCCESS;
+
     void ApplicationManager::removeUnlisted(
             std::map<std::string, ApplicationProxyBase *> &mapOfApps,
             std::vector<std::string> &appsToKeep) noexcept {
@@ -54,6 +56,12 @@ namespace gfx::_internal {
 
         // Put the iterator to the first application
         this->mIterator = this->mApplications.cbegin();
+    }
+
+    ApplicationManager::~ApplicationManager() noexcept {
+        if (this->mTestThread && this->mTestThread->joinable()) {
+            this->mTestThread->join();
+        }
     }
 
     void ApplicationManager::tick() noexcept {

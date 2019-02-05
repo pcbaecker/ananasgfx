@@ -2,12 +2,15 @@
 #define GFX_APPLICATIONMANANGER_H
 
 #include <thread>
+#include <functional>
 #include <ananasgfx/gfx/Application.hpp>
 
 namespace gfx::_internal {
 
     class ApplicationManager {
     public:
+        static int ReturnCode;
+
         static void removeUnlisted(
                 std::map<std::string,ApplicationProxyBase*>& map,
                 std::vector<std::string>& apps) noexcept;
@@ -19,6 +22,8 @@ namespace gfx::_internal {
                 const std::string& userSpace,
                 bool fullscreen,
                 bool hideCursor) noexcept;
+
+        ~ApplicationManager() noexcept;
 
         void surfaceAvailable() noexcept;
         void tick() noexcept;

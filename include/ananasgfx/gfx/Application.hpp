@@ -26,6 +26,7 @@ namespace gfx {
         void registerWindow(std::shared_ptr<Window> window) noexcept;
         void tick() noexcept;
         bool isDone() const noexcept;
+        void close() noexcept;
 
         void setMaxLifetime(long maxlifetime) noexcept;
 

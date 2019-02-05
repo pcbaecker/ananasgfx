@@ -8,9 +8,10 @@ namespace test {
 
     class ApplicationTest {
     public:
+        ~ApplicationTest() noexcept;
         virtual void run() = 0;
 
-        void setApplication(std::shared_ptr<gfx::Application> application) noexcept;
+        void setApplication(std::string name, std::shared_ptr<gfx::Application> application) noexcept;
 
     protected:
         void If(std::function<bool(gfx::Application *)> condition,
@@ -27,6 +28,9 @@ namespace test {
             this->mApplication->addTask(std::make_shared<test::Control<T>>(nodepath, task));
         }
     private:
+        std::string mName;
+        size_t mFailures = 0;
+        size_t mSuccesses = 0;
         std::shared_ptr<gfx::Application> mApplication;
     };
 

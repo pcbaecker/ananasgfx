@@ -45,15 +45,18 @@ namespace test {
         template<class T>
         class ApplicationTestProxy : public ApplicationTestProxyBase {
         public:
-            explicit ApplicationTestProxy(const std::string &appname) noexcept : ApplicationTestProxyBase(appname) {}
+            explicit ApplicationTestProxy(const std::string &appname) noexcept :
+            ApplicationTestProxyBase(appname), mAppname(appname) {}
 
             std::shared_ptr<ApplicationTest>
             createInstance(std::shared_ptr<gfx::Application> application) noexcept override {
                 auto test = std::make_shared<T>();
-                test->setApplication(application);
+                test->setApplication(this->mAppname, application);
                 return test;
             }
 
+        private:
+            std::string mAppname;
         };
 
     }

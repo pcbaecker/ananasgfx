@@ -2,6 +2,7 @@
 #define TEST_TESTTASKS_H
 
 #include <functional>
+#include <future>
 
 #include <ananasgfx/gfx/Node.hpp>
 #include <ananasgfx/gfx/Task.hpp>
@@ -14,7 +15,8 @@ namespace test {
         explicit IfTask(
                 std::function<bool(gfx::Application *)> condition,
                 std::function<void(gfx::Application *)> thenDo,
-                std::function<void(gfx::Application *)> elseDo) noexcept;
+                std::function<void(gfx::Application *)> elseDo,
+                std::promise<bool> promise) noexcept;
 
         bool run(gfx::Application* application) noexcept override;
 
@@ -22,11 +24,12 @@ namespace test {
         std::function<bool(gfx::Application *)> mCondition;
         std::function<void(gfx::Application *)> mThenDo;
         std::function<void(gfx::Application *)> mElseDo;
+        std::promise<bool> mPromise;
     };
 
     class Compare : public gfx::Task {
     public:
-        Compare(const std::string& nodepath, const std::string& filepath) noexcept;
+        Compare(const std::string& nodepath, const std::string& filepath, std::promise<bool> promise) noexcept;
 
         bool run(gfx::Application* application) noexcept override;
 
@@ -36,6 +39,7 @@ namespace test {
     private:
         std::string mNodepath;
         std::string mFilepath;
+        std::promise<bool> mPromise;
     };
 
     class Task : public gfx::Task {

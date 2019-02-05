@@ -26,40 +26,14 @@ void mainLoop() {
 int main(int argc, const char* argv[]) {
     try {
         platform::desktop::CommandLineParameters clp(argc, argv);
-
-        ee::Log::applyDefaultConfiguration();
-        //ee::Log::registerOutstream(ee::LogLevel::Trace, std::cout);
-
-/*
-        // Get program arguments
-        std::list<std::string> args;
-        for (int i = 0; i < argc; i++) {
-            args.emplace_back(argv[i]);
-        }
-
-        // Check for fullscreen
-        bool fullscreen = std::find(args.begin(), args.end(), "--fullscreen") != args.end();
-
-        // Check for hiding mouse cursor
-        bool hideMouseCursor = std::find(args.begin(), args.end(), "--no-cursor") != args.end();
-
-        // Check for user-space and resource-space
-        std::string userSpace;
-        const std::string userSpaceCmd = "--user-space=";
-        std::string resourceSpace;
-        const std::string resourceSpaceCmd = "--resource-space=";
-        for (auto& arg : args) {
-            // User space
-            if (arg.find(userSpaceCmd) == 0) {
-                userSpace = arg.substr(userSpaceCmd.length(), arg.length() - userSpaceCmd.length());
-            }
-
-            // Resource space
-            if (arg.find(resourceSpaceCmd) == 0) {
-                resourceSpace = arg.substr(resourceSpaceCmd.length(), arg.length() - resourceSpaceCmd.length());
+        auto logLevel = clp.getString("logging", "info");
+        if (logLevel != "none") {
+            ee::Log::applyDefaultConfiguration();
+            if (logLevel == "trace") {
+                ee::Log::registerOutstream(ee::LogLevel::Trace, std::cout);
             }
         }
-*/
+
         // Initialize GLFW
         if (glfwInit() != GLFW_TRUE) {
             std::cerr << __PRETTY_FUNCTION__ << ": Unable to init GLFW" << std::endl;
@@ -91,7 +65,7 @@ int main(int argc, const char* argv[]) {
         }
 #endif
 
-        return EXIT_SUCCESS;
+        return gfx::_internal::ApplicationManager::ReturnCode;
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
         return EXIT_FAILURE;

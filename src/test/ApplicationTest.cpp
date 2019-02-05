@@ -2,18 +2,47 @@
 
 namespace test {
 
-    void ApplicationTest::setApplication(std::shared_ptr<gfx::Application> application) noexcept {
+    ApplicationTest::~ApplicationTest() noexcept {
+        std::cout << this->mName << " [ ";
+        if (this->mFailures) {
+            std::cout << "\033[1;31m" << this->mFailures << " FAILURES" << std::endl;
+        } else {
+            std::cout << "\033[1;32mOK";
+        }
+        std::cout << "\033[0m ]" << std::endl;
+
+        this->mApplication->addTask(std::make_shared<test::Task>([](gfx::Application* app) {
+            app->close();
+        }));
+    }
+
+    void ApplicationTest::setApplication(std::string name, std::shared_ptr<gfx::Application> application) noexcept {
+        this->mName = std::move(name);
         this->mApplication = std::move(application);
     }
 
     void ApplicationTest::If(std::function<bool(gfx::Application*)> condition,
                              std::function<void(gfx::Application*)> thenDo,
                              std::function<void(gfx::Application*)> elseDo) {
-        this->mApplication->addTask(std::make_shared<IfTask>(condition, thenDo, elseDo));
+        std::promise<bool> promise;
+        auto future = promise.get_future();
+        this->mApplication->addTask(std::make_shared<IfTask>(condition, thenDo, elseDo, std::move(promise)));
+        if (future.get()) {
+            this->mSuccesses++;
+        } else {
+            this->mFailures++;
+        }
     }
 
     void ApplicationTest::Compare(const std::string &nodepath, const std::string &filepath) {
-        this->mApplication->addTask(std::make_shared<test::Compare>(nodepath, filepath));
+        std::promise<bool> promise;
+        auto future = promise.get_future();
+        this->mApplication->addTask(std::make_shared<test::Compare>(nodepath, filepath, std::move(promise)));
+        if (future.get()) {
+            this->mSuccesses++;
+        } else {
+            this->mFailures++;
+        }
     }
 
     void ApplicationTest::Run(std::function<void(gfx::Application *)> task) {

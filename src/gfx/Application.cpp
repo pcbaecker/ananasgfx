@@ -54,6 +54,10 @@ namespace gfx {
         return this->mWindows.empty();
     }
 
+    void Application::close() noexcept {
+        this->mWindows.clear();
+    }
+
     void Application::setMaxLifetime(long maxlifetime) noexcept {
         this->mMaxLifetime = maxlifetime;
     }

@@ -35,20 +35,19 @@ class TestCircleApplication : public gfx::Application {
     }
 
 };
-REGISTER_APPLICATION("TestCircle", TestCircleApplication);
 
-APPLICATION_TEST("TestCircle") {
+REGISTER_APPLICATION("d2::Circle", TestCircleApplication);
+
+APPLICATION_TEST("d2::Circle") {
 public:
     void run() noexcept override {
 
-            Compare("window.scene", "fixtures/d2/circle/first.png");
+        Compare("window.scene", "fixtures/d2/circle/first.png");
 
-            Control<d2::Circle>("window.scene.CenterCircle", [](gfx::Application* app, d2::Circle* circle) {
-                circle->setPosition(0,0);
-            });
+        Control<d2::Circle>("window.scene.CenterCircle", [](gfx::Application *app, d2::Circle *circle) {
+            circle->setPosition(0, 0);
+        });
 
-            Compare("window.scene", "fixtures/d2/circle/second.png");
-
-        std::cout << "I am running from outside thread " << std::endl;
+        Compare("window.scene", "fixtures/d2/circle/second.png");
     }
 };
