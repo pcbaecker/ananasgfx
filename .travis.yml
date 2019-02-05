@@ -50,7 +50,7 @@ script:
   - cd $TRAVIS_BUILD_DIR/test/unittest && $TRAVIS_BUILD_DIR/cmake-build-test/test/unittest/AnanasGfxUnitTest
 
   ### Integrationtest
-  - cd $TRAVIS_BUILD_DIR/test/integrationtest && $TRAVIS_BUILD_DIR/cmake-build-test/test/integrationtest/AnanasGfxIntegrationTest
+  - cd $TRAVIS_BUILD_DIR/test/integrationtest && $TRAVIS_BUILD_DIR/cmake-build-test/test/integrationtest/AnanasGfxIntegrationTest --logging=none
 
   ### Examples
   - cd $TRAVIS_BUILD_DIR/examples
