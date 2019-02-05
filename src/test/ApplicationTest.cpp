@@ -1,15 +1,16 @@
 #include <ananasgfx/test/ApplicationTest.hpp>
+#include <ananasgfx/gfx/ApplicationManager.hpp>
 
 namespace test {
 
     ApplicationTest::~ApplicationTest() noexcept {
         std::cout << this->mName << " [ ";
         if (this->mFailures) {
-            std::cout << "\033[1;31m" << this->mFailures << " FAILURES" << std::endl;
+            std::cout << "\033[1;31m FAIL \033[0m ]" << std::endl;
+            gfx::_internal::ApplicationManager::ReturnCode = EXIT_FAILURE;
         } else {
-            std::cout << "\033[1;32mOK";
+            std::cout << "\033[1;32mOK \033[0m ]" << std::endl;
         }
-        std::cout << "\033[0m ]" << std::endl;
 
         this->mApplication->addTask(std::make_shared<test::Task>([](gfx::Application* app) {
             app->close();

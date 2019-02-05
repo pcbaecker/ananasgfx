@@ -65,18 +65,18 @@ namespace test {
         // Try to get the node
         auto node = application->getNode(this->mNodepath);
         if (!node.has_value()) {
-            std::cerr << "### ERROR ### NODE " << this->mNodepath << " NOT FOUND" << std::endl;
+            std::cout << "### ERROR ### NODE " << this->mNodepath << " NOT FOUND" << std::endl;
             return false;
         }
 
         // Try to save the node to a file
         auto bitmapOpt = (*node)->asRenderTexture()->toBitmap();
         if (!bitmapOpt.has_value()) {
-            std::cerr << "### ERROR ### COULD NOT CONVERT " << this->mNodepath << " TO BITMAP" << std::endl;
+            std::cout << "### ERROR ### COULD NOT CONVERT " << this->mNodepath << " TO BITMAP" << std::endl;
             return false;
         }
         if (!(*bitmapOpt)->saveAsFile("tmp.png")) {
-            std::cerr << "### ERROR ### COULD NOT SAVE " << this->mNodepath << " TO FILE " << this->mFilepath << std::endl;
+            std::cout << "### ERROR ### COULD NOT SAVE " << this->mNodepath << " TO FILE " << this->mFilepath << std::endl;
             return false;
         }
 
@@ -122,12 +122,12 @@ namespace test {
                     this->mPromise.set_value(true);
                     return false;
                 } else {
-                    std::cerr << "### INFO ### NEW TEMPLATE NOT ACCEPTED" << std::endl;
+                    std::cout << "### INFO ### NEW TEMPLATE NOT ACCEPTED" << std::endl;
                     this->mPromise.set_value(false);
                     return false;
                 }
             }
-            std::cerr << "### ERROR ### TEMPLATE " << this->mFilepath << " NOT FOUND" << std::endl;
+            std::cout << "### ERROR ### TEMPLATE " << this->mFilepath << " NOT FOUND" << std::endl;
             this->mPromise.set_value(false);
             return false;
         }
@@ -135,7 +135,7 @@ namespace test {
         // Try to get the node
         auto node = application->getNode(this->mNodepath);
         if (!node.has_value()) {
-            std::cerr << "### ERROR ### NODE " << this->mNodepath << " NOT FOUND" << std::endl;
+            std::cout << "### ERROR ### NODE " << this->mNodepath << " NOT FOUND" << std::endl;
             this->mPromise.set_value(false);
             return false;
         }
@@ -143,7 +143,7 @@ namespace test {
         // Try to render the node into a bitmap
         auto nodeBitmap = (*node)->asRenderTexture()->toBitmap();
         if (!nodeBitmap.has_value()) {
-            std::cerr << "### ERROR ### NODE " << this->mNodepath << " TO BITMAP FAILED" << std::endl;
+            std::cout << "### ERROR ### NODE " << this->mNodepath << " TO BITMAP FAILED" << std::endl;
             this->mPromise.set_value(false);
             return false;
         }
@@ -155,8 +155,19 @@ namespace test {
         // Compare the hashes
         auto diff = test::PHash::distance(templateHash, nodeHash);
         if (diff > 0) {
-            std::cerr << "### ERROR ### NODE " << this->mNodepath << " AND TEMPLATE " << this->mFilepath
-            << " HAVE DIFFERENCE = " << diff << std::endl;
+            if (application->isDevmode()) {
+                // In devmode we offer the user to auto create the fixture image
+                if (offerRecreation(application)) {
+                    this->mPromise.set_value(true);
+                    return false;
+                } else {
+                    std::cout << "### INFO ### NEW TEMPLATE NOT ACCEPTED" << std::endl;
+                    this->mPromise.set_value(false);
+                    return false;
+                }
+            }
+            std::cout << "### ERROR ### NODE " << this->mNodepath << " AND TEMPLATE " << this->mFilepath
+            << " HAVE DIFFERENCE = " << (int)diff << std::endl;
             this->mPromise.set_value(false);
         } else {
             this->mPromise.set_value(true);

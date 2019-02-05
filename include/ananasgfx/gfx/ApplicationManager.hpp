@@ -16,6 +16,7 @@ namespace gfx::_internal {
                 std::vector<std::string>& apps) noexcept;
 
         ApplicationManager(
+                bool devmode,
                 std::vector<std::string> appNames,
                 long appLifetime,
                 const std::string& resourceSpace,
@@ -33,6 +34,7 @@ namespace gfx::_internal {
         void setupApplicationTest(const std::string& appname, std::shared_ptr<Application> application) noexcept;
 
     private:
+        bool mDevmode = false;
         long mMaxAppLifetime;
         bool mDone = false;
         std::shared_ptr<Application> pCurrentApplication = nullptr;

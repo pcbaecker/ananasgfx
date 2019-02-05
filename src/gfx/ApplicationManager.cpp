@@ -40,6 +40,7 @@ namespace gfx::_internal {
     }
 
     ApplicationManager::ApplicationManager(
+            bool devmode,
             std::vector<std::string> appNames,
             long appLifetime,
             const std::string &resourceSpace,
@@ -47,6 +48,7 @@ namespace gfx::_internal {
             bool fullscreen,
             bool hideCursor
     ) noexcept :
+            mDevmode(devmode),
             mMaxAppLifetime(appLifetime),
             mApplications(ApplicationStore::getInstance().getApplications()) {
         // Check if we got appNames, which means we should only execute that apps
@@ -86,6 +88,7 @@ namespace gfx::_internal {
             });
             this->pCurrentApplication = app.second->createInstance();
             this->pCurrentApplication->setMaxLifetime(this->mMaxAppLifetime);
+            this->pCurrentApplication->setDevmode(this->mDevmode);
 
             // Setup ApplicationTest for the launched Application (if not test exist, nothing will be done)
             this->setupApplicationTest(app.first, this->pCurrentApplication);
@@ -129,7 +132,8 @@ namespace gfx::_internal {
                && this->mIterator == this->mApplications.end();
     }
 
-    void ApplicationManager::setupApplicationTest(const std::string &appname, std::shared_ptr<Application> application) noexcept {
+    void ApplicationManager::setupApplicationTest(const std::string &appname,
+                                                  std::shared_ptr<Application> application) noexcept {
         // Check if we have a sidekick ApplicationTest
         if (test::_internal::ApplicationTestStore::getInstance().getApplicationTests().count(appname)
             && !test::_internal::ApplicationTestStore::getInstance().getApplicationTests().at(appname).empty()) {
@@ -140,10 +144,11 @@ namespace gfx::_internal {
             this->mTestThread = std::make_unique<std::thread>([](
                     std::string appname,
                     std::shared_ptr<Application> appinstance,
-                    test::_internal::ApplicationTestProxyBase* pApplicationTestProxyBase) {
-                ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Starting ApplicationTest in another thread", {
-                        ee::Note("ApplicationName", appname)
-                });
+                    test::_internal::ApplicationTestProxyBase *pApplicationTestProxyBase) {
+                ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Starting ApplicationTest in another thread",
+                             {
+                                     ee::Note("ApplicationName", appname)
+                             });
 
                 // Create the ApplicationTest instance
                 auto applicationTest = pApplicationTestProxyBase->createInstance(appinstance);
@@ -151,9 +156,9 @@ namespace gfx::_internal {
                 // Run the test
                 try {
                     applicationTest->run();
-                } catch (ee::Exception& e) {
+                } catch (ee::Exception &e) {
                     ee::Log::log(ee::LogLevel::Error, e);
-                } catch (std::exception& e) {
+                } catch (std::exception &e) {
                     ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Caught std::exception", {
                             ee::Note("what()", e.what())
                     });

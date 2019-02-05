@@ -47,7 +47,7 @@ namespace gfx {
         std::list<std::shared_ptr<Window>> mWindows;
         float mLifetime = 0.0f;
         long mMaxLifetime = 0;
-        bool mDevmode = true;
+        bool mDevmode = false;
 
         std::mutex mTaskMutex;
         std::list<std::shared_ptr<gfx::Task>> mTasks;
