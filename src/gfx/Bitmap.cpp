@@ -386,4 +386,8 @@ namespace gfx {
 
         return bitmap;
     }
+
+    void Bitmap::clear(uint8_t value) noexcept {
+        memset(this->pData, value, this->mWidth * this->mHeight * this->mChannels);
+    }
 }

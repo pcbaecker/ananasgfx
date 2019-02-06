@@ -3,6 +3,11 @@
 
 #include <string>
 #include <vector>
+#include <memory>
+
+#include <glm/vec2.hpp>
+#include <ananasgfx/gfx/Bitmap.hpp>
+#include "Font.hpp"
 
 namespace font {
 
@@ -16,6 +21,12 @@ namespace font {
          * @return A vector containing a long for every utf8 char.
          */
         static std::vector<long> convert(const std::string& string) noexcept;
+
+        static std::shared_ptr<gfx::Bitmap> render(
+                const std::string& text,
+                Font* font,
+                font::size_t fontSize,
+                const glm::vec2& maxSize) noexcept;
     };
 
 }

@@ -5,16 +5,23 @@
 #include <ananasgfx/d2/Sprite.hpp>
 #include <ananasgfx/d2/Circle.hpp>
 #include <ananasgfx/d2/Ring.hpp>
+#include <ananasgfx/d2/Label.hpp>
 #include <ananasgfx/d2/RectangleRoundCorner.hpp>
 #include <ananasgfx/test/ApplicationTest.hpp>
 #include <ananasgfx/gfx/Scene.hpp>
+#include <ananasgfx/font/FontManager.hpp>
 
-#include <thread>
-#include <iostream>
 
 class Primitives2dScene : public gfx::Scene {
 public:
     bool init() noexcept override {
+/*
+        if (!font::FontManager::registerFont("resource/Roboto-Medium.ttf", "Roboto", "Regular")) {
+            std::cerr << __PRETTY_FUNCTION__ << ": FONT FAIL" << std::endl;
+        }*/
+
+
+
         // Set background color
         this->pWindow->getRenderer()->setClearColor(0.03f, 0.25f, 0.025f, 1.0f);
 /*
@@ -70,6 +77,12 @@ public:
         ring->setSize(300, 300);
         ring->setAnchorPoint(0.0f, 1.0f);
         ring->setPosition(10, this->getWindow()->getHeight() - 10);
+
+        // Create a label
+        auto label = createChild<d2::Label>();
+        label->setText("Ich bin ABC");
+        label->setSize(150,150);
+        label->setPosition(200,200);
 
         return gfx::Scene::init();
     }

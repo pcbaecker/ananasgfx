@@ -72,7 +72,14 @@ namespace font {
          * @param fontSize The font size.
          * @return True on success
          */
-        bool createCharacter(long character, font::size_t fontSize) noexcept;
+        std::optional<Character*> createCharacter(long character, font::size_t fontSize) noexcept;
+
+        /**
+         * @brief TODO
+         * @param character
+         * @return
+         */
+        std::optional<Character*> getCharacter(long character, font::size_t fontSize) noexcept;
 
     private:
         /**

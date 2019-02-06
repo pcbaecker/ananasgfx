@@ -35,6 +35,8 @@ namespace gfx {
         bool saveAsFile(const std::string& filename) const noexcept;
         std::shared_ptr<Bitmap> asGrayscale() const noexcept;
 
+        void clear(uint8_t value = 0) noexcept;
+
     private:
         void* pData = nullptr;
         size_t mWidth = 0;

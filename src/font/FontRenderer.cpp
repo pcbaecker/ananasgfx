@@ -92,9 +92,67 @@ namespace font {
             i++;
         }
 
-
-
         return vector;
+    }
+
+    std::shared_ptr<gfx::Bitmap> FontRenderer::render(
+            const std::string &text,
+            Font *font,
+            font::size_t fontSize,
+            const glm::vec2 &maxSize) noexcept {
+        // Convert the given text into unicode characters
+        auto characters = convert(text);
+
+        // Get the constraints
+        float maxOverBaseline = 0.0f, maxUnderBaseline = 0.0f, width = 0.0f;
+        std::vector<Character*> charmap;
+        for (auto& code : characters) {
+            auto opt = font->getCharacter(code, fontSize);
+            if (opt.has_value()) {
+                auto c = *opt;
+                if (maxOverBaseline < c->getOverBaseline())
+                    maxOverBaseline = c->getOverBaseline();
+                if (maxUnderBaseline < c->getUnderBaseline())
+                    maxUnderBaseline = c->getUnderBaseline();
+                width += c->getAdvanceX();
+                charmap.emplace_back(c);
+            }
+        }
+
+        // Calculate the bitmap constraints
+        float height = maxOverBaseline + maxUnderBaseline;
+        if (width > maxSize.x) {
+            width = maxSize.x;
+        }
+        if (height > maxSize.y) {
+            height = maxSize.y;
+        }
+
+        // Create bitmap
+        auto w = static_cast<size_t>(width);
+        auto h = static_cast<size_t>(height);
+        auto bitmap = std::make_shared<gfx::Bitmap>(malloc(w*h), w, h, 1);
+        bitmap->clear();
+
+        // Write the characters into the bitmap
+        size_t t = 0;
+        for (auto& c : charmap) {
+            auto data = static_cast<const uint8_t*>(c->getBitmap().getData());
+
+            size_t j = 0;
+            for (int y = 0; y < c->getBitmap().getHeight(); y++) {
+                for (int x = 0; x < c->getBitmap().getWidth(); x++) {
+                    if (data[j]) {
+                        bitmap->setPixel(t + x, y + (maxOverBaseline - c->getOverBaseline()), data[j]);
+                    }
+                    j++;
+                }
+            }
+
+            t += c->getAdvanceX();
+        }
+
+        return bitmap;
     }
 
 }

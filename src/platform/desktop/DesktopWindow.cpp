@@ -56,6 +56,14 @@ namespace platform::desktop {
         this->mWidth = static_cast<unsigned int>(width);
         this->mHeight = static_cast<unsigned int>(height);
 
+        // Get dpi
+        GLFWmonitor* pPrimaryMonitor = glfwGetPrimaryMonitor();
+        int widthMM, heightMM;
+        glfwGetMonitorPhysicalSize(pPrimaryMonitor, &widthMM, &heightMM);
+        const GLFWvidmode* mode = glfwGetVideoMode(pPrimaryMonitor);
+        this->mHorizontalDpi = mode->width / (widthMM / 25.4f);
+        this->mVerticalDpi = mode->height / (heightMM / 25.4f);
+
         // Update camera
         this->mCamera.updateWindow(this);
         this->mProjection2dMatrix = glm::ortho(
@@ -64,10 +72,16 @@ namespace platform::desktop {
                 static_cast<float>(this->mHeight),
                 0.0f);
 
+        // Update font manager
+        this->mFontManager.setHorizontalDpi(this->mHorizontalDpi);
+        this->mFontManager.setVerticalDpi(this->mVerticalDpi);
+
         // Window successfully created
         ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Window created", {
                 ee::Note("Width", this->mWidth),
-                ee::Note("Height", this->mHeight)
+                ee::Note("Height", this->mHeight),
+                ee::Note("hDPI", this->mHorizontalDpi),
+                ee::Note("vDPI", this->mVerticalDpi)
         });
         return true;
     }

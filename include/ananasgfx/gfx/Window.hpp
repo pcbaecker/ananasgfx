@@ -6,6 +6,8 @@
 #include <memory>
 #include <stack>
 
+#include <ananasgfx/font/FontManager.hpp>
+
 #include "WindowConfiguration.hpp"
 #include "Scene.hpp"
 #include "Renderer.hpp"
@@ -46,6 +48,8 @@ namespace gfx {
 
         std::optional<gfx::Scene*> getScene() const noexcept;
 
+        font::FontManager& getFontManager() noexcept;
+
     protected:
         explicit Window(const WindowConfiguration& windowConfiguration) noexcept;
         void setRenderer(std::shared_ptr<Renderer> pRenderer) noexcept;
@@ -56,10 +60,13 @@ namespace gfx {
         std::stack<std::shared_ptr<Scene>> mSceneStack;
         unsigned int mWidth = 0;
         unsigned int mHeight = 0;
+        float mHorizontalDpi = 0;
+        float mVerticalDpi = 0;
         Camera mCamera;
         glm::mat4 mProjection2dMatrix;
         std::optional<glm::mat4> mTempProjection2dMatrix;
         TextureManager mTextureManager;
+        font::FontManager mFontManager;
     };
 
 }

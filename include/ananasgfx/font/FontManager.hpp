@@ -21,7 +21,7 @@ namespace font {
          *
          * @throws ee::Exception
          */
-        FontManager(float horizontalDpi, float verticalDpi);
+        FontManager() noexcept;
 
         /**
          * @brief Destructor.
@@ -44,6 +44,10 @@ namespace font {
          * @return Reference to the font cache.
          */
         const std::vector<Font>& getFontFache() const noexcept;
+
+        void setHorizontalDpi(unsigned short dpi) noexcept;
+
+        void setVerticalDpi(unsigned short dpi) noexcept;
 
     private:
         /**

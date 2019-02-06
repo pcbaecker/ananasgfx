@@ -7,7 +7,7 @@
 
 namespace font {
 
-    FontManager::FontManager(float horizontalDpi, float verticalDpi) : mHorizontalDpi(horizontalDpi), mVerticalDpi(verticalDpi) {
+    FontManager::FontManager() noexcept {
         // Try to initialize the library
         FT_Error error = FT_Init_FreeType(&this->mLibrary);
         if (error != 0) {
@@ -117,6 +117,14 @@ namespace font {
 
     const std::vector<Font> &FontManager::getFontFache() const noexcept {
         return this->mFontCache;
+    }
+
+    void FontManager::setHorizontalDpi(unsigned short dpi) noexcept {
+        this->mHorizontalDpi = dpi;
+    }
+
+    void FontManager::setVerticalDpi(unsigned short dpi) noexcept {
+        this->mVerticalDpi = dpi;
     }
 
 }

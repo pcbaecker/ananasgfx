@@ -38,7 +38,7 @@ namespace font {
         return this->mCharacterCache;
     }
 
-    bool Font::createCharacter(long character, font::size_t fontSize) noexcept {
+    std::optional<Character*> Font::createCharacter(long character, font::size_t fontSize) noexcept {
         // Get cache for this font size
         auto& cache = this->mCharacterCache[fontSize];
 
@@ -48,7 +48,7 @@ namespace font {
                 ee::Note("Character", character, __PRETTY_FUNCTION__),
                 ee::Note("Fontsize", fontSize, __PRETTY_FUNCTION__)
             }, ee::Stacktrace::create());
-            return false;
+            return std::nullopt;
         }
 
         // Set font size
@@ -58,7 +58,7 @@ namespace font {
                     ee::Note("Character", character, __PRETTY_FUNCTION__),
                     ee::Note("Fontsize", fontSize, __PRETTY_FUNCTION__)
             }, ee::Stacktrace::create());
-            return false;
+            return std::nullopt;
         }
 
         // Get Glyph index
@@ -71,7 +71,7 @@ namespace font {
                     ee::Note("Character", character, __PRETTY_FUNCTION__),
                     ee::Note("Fontsize", fontSize, __PRETTY_FUNCTION__)
             }, ee::Stacktrace::create());
-            return false;
+            return std::nullopt;
         }
 
         // Load glyph
@@ -82,7 +82,7 @@ namespace font {
                     ee::Note("Character", character, __PRETTY_FUNCTION__),
                     ee::Note("Fontsize", fontSize, __PRETTY_FUNCTION__)
             }, ee::Stacktrace::create());
-            return false;
+            return std::nullopt;
         }
 
         // Get bounding box
@@ -98,7 +98,7 @@ namespace font {
                     ee::Note("Character", character, __PRETTY_FUNCTION__),
                     ee::Note("Fontsize", fontSize, __PRETTY_FUNCTION__)
             }, ee::Stacktrace::create());
-            return false;
+            return std::nullopt;
         }
 
         // Cast bitmap
@@ -130,6 +130,20 @@ namespace font {
         // Done with this glyph
         FT_Done_Glyph(glyph);
 
-        return true;
+        // Return a pointer to the character
+        return &this->mCharacterCache.at(fontSize).at(character);
+    }
+
+    std::optional<Character*> Font::getCharacter(long character, font::size_t fontSize) noexcept {
+        // Look in cache (fontSize -> character)
+        if (this->mCharacterCache.count(fontSize)) {
+            auto fs = this->mCharacterCache.at(fontSize);
+            if (fs.count(character)) {
+                return &fs.at(character);
+            }
+        }
+
+        // Try to create the character
+        return this->createCharacter(character, fontSize);
     }
 }
