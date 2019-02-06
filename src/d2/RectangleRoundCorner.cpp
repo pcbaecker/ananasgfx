@@ -167,5 +167,8 @@ namespace d2 {
         return static_cast<unsigned short>(index + this->mTrianglesPerCorner + 2);
     }
 
+    void RectangleRoundCorner::setRadius(float radios) noexcept {
+        this->mRadius = radios;
+    }
 
 }

@@ -103,6 +103,7 @@ namespace gfx {
 
 }
 
-#define REGISTER_APPLICATION(appname,appclass) gfx::_internal::ApplicationProxy<appclass> app_ ## appclass(appname)
+#define REGISTER_APPLICATION(appname,appclass) \
+gfx::_internal::ApplicationProxy<appclass> app_ ## appclass(appname) // NOLINT
 
 #endif

@@ -13,6 +13,8 @@ namespace d2 {
 
         gfx::Shader* shader() noexcept override;
 
+        void setRadius(float radios) noexcept;
+
     protected:
         unsigned short makeCornerVertices(
                 gfx::VertexBuffer& position,
@@ -28,7 +30,7 @@ namespace d2 {
                 ) noexcept;
 
     protected:
-        float mRadius = 32.0f;
+        float mRadius = 8.0f;
         unsigned short mTrianglesPerCorner = 32;
     };
 

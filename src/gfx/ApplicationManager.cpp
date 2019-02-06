@@ -140,6 +140,14 @@ namespace gfx::_internal {
             // Get a pointer to the ApplicationTest
             auto test = *test::_internal::ApplicationTestStore::getInstance().getApplicationTests().at(appname).begin();
 
+            // If the thread is already defined we have to reset it
+            if (this->mTestThread) {
+                if (this->mTestThread->joinable()) {
+                    this->mTestThread->join();
+                }
+                this->mTestThread.release();
+            }
+
             // Start it in another thread
             this->mTestThread = std::make_unique<std::thread>([](
                     std::string appname,

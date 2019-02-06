@@ -1,14 +1,23 @@
 #include <ananasgfx/d2/Sprite.hpp>
 #include <ananasgfx/gfx/Window.hpp>
+#include <ee/Log.hpp>
 
 namespace d2 {
 
     bool Sprite::init() noexcept {
         // Check if we already got a texture
         if (this->pTexture == nullptr) {
+            if (this->mFilename.empty()) {
+                ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "No texture or filename provided", {});
+                return false;
+            }
+
             // Try to load the texture for the given filename
             auto texture = this->pWindow->getTextureManager().get(this->mFilename);
             if (!texture.has_value()) {
+                ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "Could not open file", {
+                    ee::Note("Filename", this->mFilename)
+                });
                 return false;
             }
 
@@ -44,16 +53,16 @@ namespace d2 {
         auto& texCoords = this->mVertices.createBuffer(gfx::VertexType::TextureCoords, 2, 1);
 
         // Upper left
-        texCoords.set(0, 1.0f, 0.0f);
+        texCoords.set(0, 1.0f, 1.0f);
 
         // Upper right
-        texCoords.set(1, 0.0f, 0.0f);
+        texCoords.set(1, 0.0f, 1.0f);
 
         // Lower right
-        texCoords.set(2, 0.0f, 1.0f);
+        texCoords.set(2, 0.0f, 0.0f);
 
         // Lower left
-        texCoords.set(3, 1.0f, 1.0f);
+        texCoords.set(3, 1.0f, 0.0f);
     }
 
     void Sprite::draw() noexcept {

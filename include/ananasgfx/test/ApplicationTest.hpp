@@ -36,13 +36,7 @@ namespace test {
 
 }
 
-
-#define NN_UNIQUENAME(name, line) name##line
-#define APPLICATION_TEST(appname) NN_TESTCLASS(NN_UNIQUENAME(ananasgfx_test,__COUNTER__), appname)
-
-#define NN_TESTCLASS(classname, appname) \
-class classname; \
-test::_internal::ApplicationTestProxy<classname> NN_UNIQUENAME(ananasgfx_test_proxy, __COUNTER__)(appname); \
-class classname : public test::ApplicationTest
+#define REGISTER_APPLICATIONTEST(appname,appclass) \
+test::_internal::ApplicationTestProxy<appclass> app_ ## appclass(appname) // NOLINT
 
 #endif
