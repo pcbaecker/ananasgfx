@@ -123,33 +123,3 @@ public:
     }
 };
 REGISTER_APPLICATION("Primitives2d", Primitives2dApp);
-
-APPLICATION_TEST("Primitives2d") {
-public:
-    void run() noexcept override {
-        std::cout << "I am running from outside thread " << std::this_thread::get_id() << std::endl;
-
-        Compare("window.scene", "resource/compare.png");
-
-        /*
-        If([](gfx::Application* application) {
-            return true;
-            }, [](gfx::Application* application) {
-                if (!application->getWindows().empty()) {
-                    auto window = *application->getWindows().begin();
-                    std::cout << window->getWidth() << "x" << window->getHeight() << std::endl;
-                    auto scene = window->getScene();
-                    if (scene.has_value()) {
-                        auto rt = (*scene)->asRenderTexture();
-                        auto bitmap = rt->toBitmap();
-                        if (bitmap.has_value()) {
-                            (*bitmap)->saveAsFile("file.png");
-                        }
-                    }
-                }
-
-            std::cout << "CONDITION =TRUE " << std::this_thread::get_id() << std::endl;
-        });
-*/
-    }
-};
