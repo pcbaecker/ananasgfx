@@ -11,7 +11,6 @@
 #include <ananasgfx/gfx/Scene.hpp>
 #include <ananasgfx/font/FontManager.hpp>
 
-
 class Primitives2dScene : public gfx::Scene {
 public:
     bool init() noexcept override {
@@ -24,6 +23,14 @@ public:
         stencil->setPosition(this->pWindow->getWidth() * 0.5f, this->pWindow->getHeight() * 0.5f);
         stencil->setAnchorPoint(0.5f, 0.5f);
 */
+
+        // Create a label
+        auto label = createChild<d2::Label>();
+        label->setText("Ich bin ABC");
+        label->setSize(250,250);
+        label->setPosition(150,60);
+        label->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
+
         // Create rectangle
         this->pRectangle = this->createChild<d2::Rectangle>();
         this->pRectangle->setSize(50, 50);
@@ -70,12 +77,6 @@ public:
         ring->setSize(300, 300);
         ring->setAnchorPoint(0.0f, 1.0f);
         ring->setPosition(10, this->getWindow()->getHeight() - 10);
-
-        // Create a label
-        auto label = createChild<d2::Label>();
-        label->setText("Ich bin ABC");
-        label->setSize(150,150);
-        label->setPosition(200,200);
 
         return gfx::Scene::init();
     }

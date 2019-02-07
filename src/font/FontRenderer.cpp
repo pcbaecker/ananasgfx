@@ -1,5 +1,8 @@
 #include <ananasgfx/font/FontRenderer.hpp>
 
+#include <iostream>
+#include <list>
+
 namespace font {
 
     bool validFollower(char c) noexcept {
@@ -115,7 +118,7 @@ namespace font {
                 if (maxUnderBaseline < c->getUnderBaseline())
                     maxUnderBaseline = c->getUnderBaseline();
                 width += c->getAdvanceX();
-                charmap.emplace_back(c);
+                charmap.push_back(c);
             }
         }
 
@@ -153,6 +156,80 @@ namespace font {
         }
 
         return bitmap;
+    }
+
+    void FontRenderer::render(
+            const std::string &text, Font *font,
+            font::size_t fontSize,
+            gfx::Bitmap &bitmap,
+            gfx::HorizontalAlign horizontalAlign,
+            gfx::VerticalAlign verticalAlign) noexcept {
+        // Convert the given text into unicode characters
+        auto characters = convert(text);
+
+        // Get the constraints
+        float maxOverBaseline = 0.0f, maxUnderBaseline = 0.0f, width = 0.0f;
+        std::list<Character*> charmap;
+        for (auto& code : characters) {
+            auto opt = font->getCharacter(code, fontSize);
+            if (opt.has_value()) {
+                auto c = *opt;
+                if (maxOverBaseline < c->getOverBaseline())
+                    maxOverBaseline = c->getOverBaseline();
+                if (maxUnderBaseline < c->getUnderBaseline())
+                    maxUnderBaseline = c->getUnderBaseline();
+                width += c->getAdvanceX();
+                charmap.push_back(c);
+            }
+        }
+
+        // Calculate the bitmap constraints
+        float height = maxOverBaseline + maxUnderBaseline;
+        if (height > bitmap.getHeight()) {
+            height = bitmap.getHeight();
+        }
+
+        // Set start points
+        float startX = 0.0f;
+        float startY = 0.0f;
+        switch (verticalAlign) {
+            case gfx::Top:
+                startY = 0.0f;
+                break;
+            case gfx::Middle:
+                startY = bitmap.getHeight()*0.5f - height*0.5f;
+                break;
+            case gfx::Bottom:
+                startY = bitmap.getHeight() - height;
+                break;
+        }
+        switch (horizontalAlign) {
+            case gfx::Left:
+                startX = 0.0f;
+                break;
+            case gfx::Center:
+                startX = bitmap.getWidth()*0.5f - width*0.5f;
+                break;
+            case gfx::Right:
+                startX = bitmap.getWidth() - width;
+                break;
+        }
+
+        for (auto& c : charmap) {
+            auto data = static_cast<const uint8_t*>(c->getBitmap().getData());
+
+            size_t j = 0;
+            for (int y = 0; y < c->getBitmap().getHeight(); y++) {
+                for (int x = 0; x < c->getBitmap().getWidth(); x++) {
+                    if (data[j]) {
+                        float t = startX + x;
+                        bitmap.setPixel(startX + x, y + startY + (maxOverBaseline - c->getOverBaseline()), data[j]);
+                    }
+                    j++;
+                }
+            }
+            startX += c->getAdvanceX();
+        }
     }
 
 }

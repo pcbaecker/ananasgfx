@@ -75,6 +75,7 @@ namespace test {
             std::cout << "### ERROR ### COULD NOT CONVERT " << this->mNodepath << " TO BITMAP" << std::endl;
             return false;
         }
+        bitmapOpt->get()->flipVertical();
         if (!(*bitmapOpt)->saveAsFile("tmp.png")) {
             std::cout << "### ERROR ### COULD NOT SAVE " << this->mNodepath << " TO FILE " << this->mFilepath << std::endl;
             return false;
@@ -147,6 +148,7 @@ namespace test {
             this->mPromise.set_value(false);
             return false;
         }
+        nodeBitmap->get()->flipVertical();
 
         // Hash the bitmaps
         auto templateHash = test::PHash::hash(*templateBitmap->get());

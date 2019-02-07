@@ -12,7 +12,7 @@ namespace gfx {
     std::optional<std::shared_ptr<Bitmap>> Bitmap::read(const std::string &filename) noexcept {
         // Try to open file and read the content
         int width, height, channels;
-        stbi_set_flip_vertically_on_load(true);
+        //stbi_set_flip_vertically_on_load(true);
         stbi_uc* pData = stbi_load(filename.c_str(), &width, &height, &channels, 0);
 
         // Check result
@@ -64,7 +64,7 @@ namespace gfx {
     }
 
     bool Bitmap::saveAsFile(const std::string &filename) const noexcept {
-        stbi_flip_vertically_on_write(1);
+        //stbi_flip_vertically_on_write(1);
         return stbi_write_png(
                 filename.c_str(),
                 static_cast<int>(this->mWidth),
@@ -100,6 +100,33 @@ namespace gfx {
 
         // Create the new bitmap and return it
         return std::make_shared<gfx::Bitmap>(pOutputData, width, height, this->mChannels);
+    }
+
+    void Bitmap::flipVertical() noexcept {
+        // Prepare the new data buffer
+        const size_t numBytes = this->mWidth * this->mHeight * this->mChannels;
+        void* data = malloc(numBytes);
+        memset(data, 0, numBytes);
+
+        // Get the data buffers
+        auto srcData = static_cast<uint8_t*>(this->pData);
+        auto dstData = static_cast<uint8_t*>(data);
+
+        // Go through the buffers pixel by pixel
+        for (int x = 0; x < this->mWidth; x++) {
+            for (int y = 0; y < this->mHeight; y++) {
+                // Calculate the buffer offsets
+                size_t srcOffset = (this->mWidth * y + x) * this->mChannels;
+                size_t dstOffset = (this->mWidth * (this->mHeight - y - 1) + x) * this->mChannels;
+
+                // Copy the pixel
+                memcpy(&dstData[dstOffset], &srcData[srcOffset], this->mChannels);
+            }
+        }
+
+        // Swap the data buffers
+        free(this->pData);
+        this->pData = data;
     }
 
     void Bitmap::setPixel(uint16_t x, uint16_t y, uint8_t r) noexcept {

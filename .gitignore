@@ -12,3 +12,4 @@ cmake-build-*
 /build
 /captures
 .externalNativeBuild
+tmp.png

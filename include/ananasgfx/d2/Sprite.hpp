@@ -17,12 +17,14 @@ namespace d2 {
 
         void setFilename(const std::string& filename) noexcept;
         void setTexture(gfx::Texture* pTexture) noexcept;
+        void setVerticalFlip(bool flip) noexcept;
 
         void draw() noexcept override;
 
     private:
         std::string mFilename;
         gfx::Texture* pTexture = nullptr;
+        bool mVerticalFlip = false;
     };
 
 }

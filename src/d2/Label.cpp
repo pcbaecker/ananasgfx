@@ -12,10 +12,14 @@ namespace d2 {
             return false;
         }
 
-        auto bitmap = font::FontRenderer::render(this->mText, *font, 12, glm::vec2(300, 300));
-        std::cout << bitmap->getWidth() << std::endl;
+        unsigned short w = this->mSize.x;
+        unsigned short h = this->mSize.y;
+        gfx::Bitmap bitmap(malloc(w*h), w, h, 1);
+        bitmap.clear();
+        font::FontRenderer::render(this->mText, *font, 24, bitmap, gfx::HorizontalAlign::Center, gfx::VerticalAlign::Middle);
+        std::cout << bitmap.getWidth() << std::endl;
 
-        auto texture = gfx::Texture::create(this->pWindow->getRenderer(), *bitmap);
+        auto texture = gfx::Texture::create(this->pWindow->getRenderer(), bitmap);
         if (!texture.has_value()) {
             std::cerr << "Texture get fail" << std::endl;
             return false;

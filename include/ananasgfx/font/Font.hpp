@@ -67,7 +67,7 @@ namespace font {
          *
          * @return Referemce to the character cache map.
          */
-        const std::map<font::size_t,std::map<long,Character>>& getCharacterCache() const noexcept;
+        const std::map<font::size_t,std::map<long,std::shared_ptr<Character>>>& getCharacterCache() const noexcept;
 
         /**
          * @brief Creates a character object for the given character and a specific font size.
@@ -114,7 +114,7 @@ namespace font {
         /**
          * @brief Holds the different characters for the different font sizes
          */
-        std::map<font::size_t,std::map<long,Character>> mCharacterCache;
+        std::map<font::size_t,std::map<long,std::shared_ptr<Character>>> mCharacterCache;
     };
 
 }

@@ -27,7 +27,9 @@ TEST_CASE("font::FontManager") {
         FT_Done_FreeType(library);
     }
 
-    font::FontManager fontManager(76.0f, 72.0f);
+    font::FontManager fontManager;
+    fontManager.setHorizontalDpi(76.0f);
+    fontManager.setVerticalDpi(72.0f);
 
     SECTION("bool registerFont(const std::string&)") {
 

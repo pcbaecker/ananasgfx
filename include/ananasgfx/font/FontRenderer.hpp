@@ -7,6 +7,7 @@
 
 #include <glm/vec2.hpp>
 #include <ananasgfx/gfx/Bitmap.hpp>
+#include <ananasgfx/gfx/Defines.hpp>
 #include "Font.hpp"
 
 namespace font {
@@ -27,6 +28,14 @@ namespace font {
                 Font* font,
                 font::size_t fontSize,
                 const glm::vec2& maxSize) noexcept;
+
+        static void render(
+                const std::string& text,
+                Font* font,
+                font::size_t fontSize,
+                gfx::Bitmap& bitmap,
+                gfx::HorizontalAlign horizontalAlign,
+                gfx::VerticalAlign verticalAlign) noexcept;
     };
 
 }

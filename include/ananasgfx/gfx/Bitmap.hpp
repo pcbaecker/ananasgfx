@@ -36,6 +36,7 @@ namespace gfx {
         std::shared_ptr<Bitmap> asGrayscale() const noexcept;
 
         void clear(uint8_t value = 0) noexcept;
+        void flipVertical() noexcept;
 
     private:
         void* pData = nullptr;

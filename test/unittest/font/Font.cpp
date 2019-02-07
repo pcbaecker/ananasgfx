@@ -50,9 +50,9 @@ TEST_CASE("font::Font") {
                 REQUIRE(font.getCharacterCache().count(fs) == 1);
                 REQUIRE(font.getCharacterCache().at(fs).count(c) == 1);
                 auto& character = font.getCharacterCache().at(fs).at(c);
-                REQUIRE(character.getBitmap().getWidth() > 0);
-                REQUIRE(character.getBitmap().getHeight() > 0);
-                REQUIRE(character.getCharCode() == c);
+                REQUIRE(character->getBitmap().getWidth() > 0);
+                REQUIRE(character->getBitmap().getHeight() > 0);
+                REQUIRE(character->getCharCode() == c);
             }
 
             SECTION("UTF-8 character 'ö'") {
@@ -62,9 +62,9 @@ TEST_CASE("font::Font") {
                 REQUIRE(font.getCharacterCache().count(fs) == 1);
                 REQUIRE(font.getCharacterCache().at(fs).count(c) == 1);
                 auto& character = font.getCharacterCache().at(fs).at(c);
-                REQUIRE(character.getBitmap().getWidth() > 0);
-                REQUIRE(character.getBitmap().getHeight() > 0);
-                REQUIRE(character.getCharCode() == c);
+                REQUIRE(character->getBitmap().getWidth() > 0);
+                REQUIRE(character->getBitmap().getHeight() > 0);
+                REQUIRE(character->getCharCode() == c);
             }
         }
     }

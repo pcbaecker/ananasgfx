@@ -42,7 +42,7 @@ namespace font {
         this->mHorizontalDpi = dpi;
     }
 
-    const std::map<font::size_t, std::map<long, Character>> &Font::getCharacterCache() const noexcept {
+    const std::map<font::size_t, std::map<long, std::shared_ptr<Character>>> &Font::getCharacterCache() const noexcept {
         return this->mCharacterCache;
     }
 
@@ -126,7 +126,7 @@ namespace font {
                 channels);
 
         // Create the character
-        Character c(character,
+        auto c = std::make_shared<Character>(character,
                   static_cast<float>(this->mFaceHandle->glyph->advance.x >> 6),
                   static_cast<float>(-box.yMin),
                   static_cast<float>(this->mFaceHandle->glyph->metrics.horiBearingY >> 6),
@@ -139,7 +139,7 @@ namespace font {
         FT_Done_Glyph(glyph);
 
         // Return a pointer to the character
-        return &this->mCharacterCache.at(fontSize).at(character);
+        return this->mCharacterCache.at(fontSize).at(character).get();
     }
 
     std::optional<Character*> Font::getCharacter(long character, font::size_t fontSize) noexcept {
@@ -147,7 +147,7 @@ namespace font {
         if (this->mCharacterCache.count(fontSize)) {
             auto fs = this->mCharacterCache.at(fontSize);
             if (fs.count(character)) {
-                return &fs.at(character);
+                return fs.at(character).get();
             }
         }
 

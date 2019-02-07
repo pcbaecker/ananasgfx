@@ -41,6 +41,15 @@ namespace d2 {
         this->pTexture = pTexture;
     }
 
+    void Sprite::setVerticalFlip(bool flip) noexcept {
+        this->mVerticalFlip = flip;
+
+        if (isInitialized()) {
+            this->updateVertices();
+            this->pWindow->getRenderer()->bufferVertices(&this->mVertices);
+        }
+    }
+
     gfx::Shader *Sprite::shader() noexcept {
         if (this->pTexture) {
             return this->getWindow()->getRenderer()->getShader(this->pTexture->getShaderType());
@@ -53,16 +62,16 @@ namespace d2 {
         auto& texCoords = this->mVertices.createBuffer(gfx::VertexType::TextureCoords, 2, 1);
 
         // Upper left
-        texCoords.set(0, 1.0f, 1.0f);
+        texCoords.set(0, 0.0f, this->mVerticalFlip ? 1.0f : 0.0f);
 
         // Upper right
-        texCoords.set(1, 0.0f, 1.0f);
+        texCoords.set(1, 1.0f, this->mVerticalFlip ? 1.0f : 0.0f);
 
         // Lower right
-        texCoords.set(2, 0.0f, 0.0f);
+        texCoords.set(2, 1.0f, this->mVerticalFlip ? 0.0f : 1.0f);
 
         // Lower left
-        texCoords.set(3, 1.0f, 0.0f);
+        texCoords.set(3, 0.0f, this->mVerticalFlip ? 0.0f : 1.0f);
     }
 
     void Sprite::draw() noexcept {
