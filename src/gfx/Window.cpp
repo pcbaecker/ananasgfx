@@ -99,6 +99,10 @@ namespace gfx {
         this->mTempProjection2dMatrix.reset();
     }
 
+    font::FontManager &Window::getFontManager() noexcept {
+        return this->mFontManager;
+    }
+
     std::optional<gfx::Scene *> Window::getScene() const noexcept {
         if (this->mSceneStack.empty()) {
             return std::nullopt;

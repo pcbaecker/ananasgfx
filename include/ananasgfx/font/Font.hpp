@@ -52,11 +52,15 @@ namespace font {
          */
         unsigned short getVerticalDpi() const noexcept;
 
+        void setVerticalDpi(unsigned short dpi) noexcept;
+
         /**
          * @brief Returns the horizontal dpi
          * @return
          */
         unsigned short getHorizontalDpi() const noexcept;
+
+        void setHorizontalDpi(unsigned short dpi) noexcept;
 
         /**
          * @brief Returns a reference to the character cache map.

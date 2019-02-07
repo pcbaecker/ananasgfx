@@ -14,6 +14,7 @@ namespace d2 {
 
     private:
         std::string mText;
+        std::shared_ptr<gfx::Texture> mTexture;
     };
 
 }

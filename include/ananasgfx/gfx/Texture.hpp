@@ -17,6 +17,7 @@ namespace gfx {
     class Texture {
     public:
         static std::optional<std::shared_ptr<Texture>> create(Renderer* pRenderer, const std::string& filename) noexcept;
+        static std::optional<std::shared_ptr<Texture>> create(Renderer* pRenderer, Bitmap& bitmap) noexcept;
 
         explicit Texture(Renderer* pRenderer) noexcept;
         virtual ~Texture() noexcept;

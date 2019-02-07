@@ -34,6 +34,14 @@ namespace font {
         return this->mHorizontalDpi;
     }
 
+    void Font::setVerticalDpi(unsigned short dpi) noexcept {
+        this->mVerticalDpi = dpi;
+    }
+
+    void Font::setHorizontalDpi(unsigned short dpi) noexcept {
+        this->mHorizontalDpi = dpi;
+    }
+
     const std::map<font::size_t, std::map<long, Character>> &Font::getCharacterCache() const noexcept {
         return this->mCharacterCache;
     }

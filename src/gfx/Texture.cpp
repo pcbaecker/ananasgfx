@@ -11,18 +11,23 @@ namespace gfx {
             return std::nullopt;
         }
 
+        // Create the texture from the bitmap
+        return create(pRenderer, **bitmap);
+    }
+
+    std::optional<std::shared_ptr<Texture>> Texture::create(Renderer *pRenderer, Bitmap &bitmap) noexcept {
         // Create a texture object
         std::shared_ptr<Texture> texture = std::make_shared<Texture>(pRenderer);
 
         // Try to read the bitmap into the texture
-        if (!pRenderer->loadBitmap(texture.get(), bitmap->get())) {
+        if (!pRenderer->loadBitmap(texture.get(), &bitmap)) {
             return std::nullopt;
         }
 
         // Texture is initialized
-        texture->mTextureFormat = static_cast<TextureFormat>((*bitmap)->getChannels());
-        texture->mWidth = (*bitmap)->getWidth();
-        texture->mHeight = (*bitmap)->getHeight();
+        texture->mTextureFormat = static_cast<TextureFormat>(bitmap.getChannels());
+        texture->mWidth = bitmap.getWidth();
+        texture->mHeight = bitmap.getHeight();
         return texture;
     }
 

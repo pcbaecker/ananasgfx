@@ -7,7 +7,7 @@
 
 namespace font {
 
-    FontManager::FontManager() noexcept {
+    FontManager::FontManager() {
         // Try to initialize the library
         FT_Error error = FT_Init_FreeType(&this->mLibrary);
         if (error != 0) {
@@ -121,10 +121,31 @@ namespace font {
 
     void FontManager::setHorizontalDpi(unsigned short dpi) noexcept {
         this->mHorizontalDpi = dpi;
+
+        // Propagate the new dpi to the cached fonts
+        for (auto& font : this->mFontCache) {
+            font.setHorizontalDpi(dpi);
+        }
     }
 
     void FontManager::setVerticalDpi(unsigned short dpi) noexcept {
         this->mVerticalDpi = dpi;
+
+        // Propagate the new dpi to the cached fonts
+        for (auto& font : this->mFontCache) {
+            font.setVerticalDpi(dpi);
+        }
     }
 
+    std::optional<Font *> FontManager::get(const std::string &family, const std::string &subfamily) noexcept {
+        // Try to find font
+        for (auto& font : this->mFontCache) {
+            if (font.getFamilyName() == family && font.getSubFamilyName() == subfamily) {
+                return &font;
+            }
+        }
+
+        // No matching font found
+        return std::nullopt;
+    }
 }

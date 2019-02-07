@@ -21,7 +21,7 @@ namespace font {
          *
          * @throws ee::Exception
          */
-        FontManager() noexcept;
+        FontManager();
 
         /**
          * @brief Destructor.
@@ -48,6 +48,8 @@ namespace font {
         void setHorizontalDpi(unsigned short dpi) noexcept;
 
         void setVerticalDpi(unsigned short dpi) noexcept;
+
+        std::optional<Font*> get(const std::string& family, const std::string& subfamily) noexcept;
 
     private:
         /**

@@ -15,13 +15,6 @@
 class Primitives2dScene : public gfx::Scene {
 public:
     bool init() noexcept override {
-/*
-        if (!font::FontManager::registerFont("resource/Roboto-Medium.ttf", "Roboto", "Regular")) {
-            std::cerr << __PRETTY_FUNCTION__ << ": FONT FAIL" << std::endl;
-        }*/
-
-
-
         // Set background color
         this->pWindow->getRenderer()->setClearColor(0.03f, 0.25f, 0.025f, 1.0f);
 /*
@@ -131,6 +124,11 @@ public:
         auto window = gfx::Window::create(windowConfiguration);
         window->addScene(std::make_shared<Primitives2dScene>());
         registerWindow(window);
+
+        if (!window->getFontManager().registerFont("resource/Roboto-Bold.ttf", "Roboto", "Bold")) {
+            std::cerr << __PRETTY_FUNCTION__ << " FONT FAIL" << std::endl;
+            return false;
+        }
 
         return true;
     }
