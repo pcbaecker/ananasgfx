@@ -1,4 +1,4 @@
-#include <ananasgfx/d3/Node.hpp>
+#include <ananasgfx/d3/RenderTexture.hpp>
 
 namespace d3 {
 

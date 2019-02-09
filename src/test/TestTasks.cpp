@@ -92,6 +92,7 @@ namespace test {
         system("display -title \"Possible new image\" tmp.png &");
 
         // Ask the user if we want to keep the old image or override it with the new one
+        std::cout << this->mNodepath << " ( " << this->mFilepath << " )" << std::endl;
         std::cout << "Want to use the new image? (y/n):";
         std::string s;
         std::cin >> s;

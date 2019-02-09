@@ -3,7 +3,7 @@
 
 #include <ananasgfx/gfx/Vertex.hpp>
 #include <ananasgfx/gfx/Shader.hpp>
-#include "Node.hpp"
+#include "RenderTexture.hpp"
 
 namespace d3 {
 
