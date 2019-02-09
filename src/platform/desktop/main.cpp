@@ -49,7 +49,7 @@ int main(int argc, const char* argv[]) {
         // Create the ApplicationManager
         gfx::_internal::ApplicationManager applicationManager(
                 clp.getBool("devmode", false),
-                {},
+                {"Primitives2d"},
                 clp.getLong("app-lifetime", 0),
                 clp.getString("resource-space", "resource/"),
                 clp.getString("user-space", "user/"),

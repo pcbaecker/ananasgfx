@@ -1,9 +1,5 @@
 #include <ananasgfx/gfx/Window.hpp>
 #include <ananasgfx/gfx/ClippingNode.hpp>
-#include <iostream>
-
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 
 namespace gfx {
 

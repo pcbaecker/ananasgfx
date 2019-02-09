@@ -1,5 +1,6 @@
 #ifndef __UNITTEST__
 
+#include <ee/Log.hpp>
 #include <ananasgfx/gfx/renderer/opengl/OpenglRenderer.hpp>
 #include <ananasgfx/gfx/renderer/opengl/SimpleColorShader.hpp>
 #include <ananasgfx/gfx/renderer/opengl/TextureGrayscaleShader.hpp>

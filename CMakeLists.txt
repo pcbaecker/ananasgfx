@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.6)
 
 project(AnanasGfx)
 option(USE_DOC "Build documentation" ON)
@@ -13,6 +13,7 @@ add_subdirectory(dependencies/easy-exception)
 ### Currently android seems to be not able to handle the c++17 definition in cmake
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Android")
     set(CMAKE_CXX_STANDARD 17)
+    set(CMAKE_CXX_FLAGS -rdynamic)
 endif()
 
 ### Source files
@@ -27,7 +28,6 @@ include_directories(
 )
 file(GLOB_RECURSE HEADER_FILES "include/*.hpp" "include/*.h")
 file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.c" ${ANDROID_NDK}/sources/android/native_app_glue/android_native_app_glue.c)
-set(CMAKE_CXX_FLAGS -rdynamic)
 
 ### Glfw only for Desktop
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*")
@@ -54,7 +54,7 @@ endif()
 if (${CMAKE_SYSTEM_NAME} MATCHES "Android")
     find_library(log-lib log)
     find_library(android-lib android)
-    target_link_libraries (AnanasGfx ${CMAKE_THREAD_LIBS_INIT} ${CMAKE_DL_LIBS} ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES}
+    target_link_libraries (AnanasGfx freetype EasyException ${CMAKE_THREAD_LIBS_INIT} ${CMAKE_DL_LIBS} ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES}
             ${log-lib} ${android-lib} GLESv3 EGL)
 endif()
 

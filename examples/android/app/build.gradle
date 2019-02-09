@@ -5,26 +5,32 @@ android {
     defaultConfig {
         applicationId "com.pcbaecker.ananasgfxexample"
         minSdkVersion 26
-        targetSdkVersion 28
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
                 cppFlags "-std=c++17 -fexceptions"
+                arguments "-DANDROID_STL=c++_static"
             }
         }
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     externalNativeBuild {
         cmake {
             path "../../../CMakeLists.txt"
         }
+    }
+    sourceSets.main {
+        jni.srcDirs = []
+        assets.srcDirs "../../resource"
     }
 }
 
