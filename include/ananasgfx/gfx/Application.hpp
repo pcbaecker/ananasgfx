@@ -8,12 +8,15 @@
 
 #include "Window.hpp"
 #include "Task.hpp"
+#include "FileManager.hpp"
 
 namespace gfx {
 
     namespace _internal {
         class ApplicationManager;
     }
+
+    DEFINE_EXCEPTION(ApplicationException);
 
     /**
      * @brief The base application class every application should derive from.
@@ -39,6 +42,16 @@ namespace gfx {
         void setDevmode(bool devmode) noexcept;
         bool isDevmode() const noexcept;
 
+        /**
+         * @brief Returns a reference to the filemanager.
+         *
+         * Throws an exception if the filemanager is not set before.
+         * @throws ee::Exception
+         * @return Reference to the filemanager.
+         */
+        const FileManager& getFileManager() const;
+        void setFileManager(std::shared_ptr<FileManager> fileManager) noexcept;
+
     private:
         bool initWindows() noexcept;
 
@@ -51,6 +64,7 @@ namespace gfx {
 
         std::mutex mTaskMutex;
         std::list<std::shared_ptr<gfx::Task>> mTasks;
+        std::shared_ptr<FileManager> mFileManager;
     };
 
     namespace _internal {

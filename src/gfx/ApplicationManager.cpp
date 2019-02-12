@@ -50,6 +50,8 @@ namespace gfx::_internal {
     ) noexcept :
             mDevmode(devmode),
             mMaxAppLifetime(appLifetime),
+            mResourcePath(std::move(resourceSpace)),
+            mUserPath(std::move(userSpace)),
             mApplications(ApplicationStore::getInstance().getApplications()) {
         // Check if we got appNames, which means we should only execute that apps
         if (!appNames.empty()) {
@@ -89,6 +91,7 @@ namespace gfx::_internal {
             this->pCurrentApplication = app.second->createInstance();
             this->pCurrentApplication->setMaxLifetime(this->mMaxAppLifetime);
             this->pCurrentApplication->setDevmode(this->mDevmode);
+            this->pCurrentApplication->setFileManager(std::make_shared<FileManager>(this->mResourcePath, this->mUserPath));
 
             // Setup ApplicationTest for the launched Application (if not test exist, nothing will be done)
             this->setupApplicationTest(app.first, this->pCurrentApplication);

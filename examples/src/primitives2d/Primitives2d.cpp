@@ -10,6 +10,7 @@
 #include <ananasgfx/test/ApplicationTest.hpp>
 #include <ananasgfx/gfx/Scene.hpp>
 #include <ananasgfx/font/FontManager.hpp>
+#include <ee/Log.hpp>
 
 class Primitives2dScene : public gfx::Scene {
 public:
@@ -28,6 +29,7 @@ public:
         auto label = createChild<d2::Label>();
         label->setText("Ich bin ABC");
         label->setSize(250,250);
+        label->setFont("Roboto", "Bold");
         label->setPosition(150,60);
         label->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
 
@@ -121,13 +123,15 @@ public:
         gfx::WindowConfiguration windowConfiguration;
         windowConfiguration.setWidth(640);
         windowConfiguration.setHeight(480);
-        windowConfiguration.setTitle("My first window");
+        windowConfiguration.setTitle("2d primitives example");
         auto window = gfx::Window::create(windowConfiguration);
         window->addScene(std::make_shared<Primitives2dScene>());
         registerWindow(window);
 
-        if (!window->getFontManager().registerFont("resource/Roboto-Bold.ttf", "Roboto", "Bold")) {
-            std::cerr << __PRETTY_FUNCTION__ << " FONT FAIL" << std::endl;
+        if (!window->getFontManager().registerFont(getFileManager().getResource("Roboto-Bold.ttf"), "Roboto", "Bold")) {
+            ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Could not load font", {
+                ee::Note("Filename", "Roboto-Bold.ttf")
+            });
             return false;
         }
 

@@ -1,4 +1,4 @@
-//#ifdef __ANDROID__
+#ifdef __ANDROID__
 
 #include <native_app_glue/android_native_app_glue.h>
 #include <android/log.h>
@@ -207,4 +207,4 @@ void android_main(struct android_app* state) {
     }
 }
 
-//#endif
+#endif

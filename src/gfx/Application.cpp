@@ -140,6 +140,20 @@ namespace gfx {
         return this->mDevmode;
     }
 
+    const FileManager &Application::getFileManager() const {
+        // Make sure FileManager is set before
+        if (!this->mFileManager) {
+            throw ApplicationException(__PRETTY_FUNCTION__, "FileManager must be set before calling this method", {});
+        }
+
+        // Return a reference of the FileManager.
+        return *this->mFileManager;
+    }
+
+    void Application::setFileManager(std::shared_ptr<FileManager> fileManager) noexcept {
+        this->mFileManager = fileManager;
+    }
+
     std::optional<gfx::Node *> Application::getNode(const std::string &nodepath) noexcept {
         // Split by dots
         auto steps = split(nodepath, ".");

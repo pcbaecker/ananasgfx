@@ -36,6 +36,8 @@ namespace gfx::_internal {
     private:
         bool mDevmode = false;
         long mMaxAppLifetime;
+        std::string mResourcePath;
+        std::string mUserPath;
         bool mDone = false;
         std::shared_ptr<Application> pCurrentApplication = nullptr;
         std::map<std::string,ApplicationProxyBase*> mApplications;
