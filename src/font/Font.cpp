@@ -60,7 +60,7 @@ namespace font {
         }
 
         // Set font size
-        FT_Error error = FT_Set_Char_Size(this->mFaceHandle, 0, fontSize*64, this->mHorizontalDpi, this->mVerticalDpi);
+        FT_Error error = FT_Set_Char_Size(this->mFaceHandle, 0, fontSize*64, 0, 0);
         if (error) {
             ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Could not set char size", {
                     ee::Note("Character", character, __PRETTY_FUNCTION__),

@@ -9,6 +9,7 @@
 #include <ananasgfx/d2/RectangleRoundCorner.hpp>
 #include <ananasgfx/test/ApplicationTest.hpp>
 #include <ananasgfx/gfx/Scene.hpp>
+#include <ananasgfx/gfx/Window.hpp>
 #include <ananasgfx/font/FontManager.hpp>
 #include <ee/Log.hpp>
 
@@ -47,7 +48,7 @@ public:
 
         // Create sprite
         this->pSprite = createChild<d2::Sprite>();
-        this->pSprite->setFilename("resource/icon_lightbulb.png");
+        this->pSprite->setFilename(this->pWindow->getFileManager().getResource("icon_lightbulb.png"));
         this->pSprite->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
         this->pSprite->setZIndex(2);
         this->pSprite->setPosition(75, 200);
@@ -95,9 +96,11 @@ public:
         if (!this->mRectangleGoRight && this->pRectangle->getPosition().x <= 0.0f) {
             this->mRectangleGoRight = true;
         }
-
+/*
         // Rotate the sprite
         this->pSprite->setRotation(this->pSprite->getRotation() + dt);
+        */
+
 /*
         auto rendertexture = this->pSprite->asRenderTexture();
         auto bitmap = rendertexture->toBitmap();
@@ -113,7 +116,7 @@ private:
     d2::Sprite* pSprite = nullptr;
     d2::Rectangle* pChildRect = nullptr;
 
-    std::shared_ptr<gfx::RenderTexture> mRenderTexture;
+    //std::shared_ptr<gfx::RenderTexture> mRenderTexture;
 };
 
 class Primitives2dApp : public gfx::Application {

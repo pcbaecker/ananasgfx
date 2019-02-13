@@ -13,10 +13,13 @@
 #include "Renderer.hpp"
 #include "Camera.hpp"
 #include "TextureManager.hpp"
+#include "FileManager.hpp"
 
 namespace gfx {
 
     class Application;
+
+    DEFINE_EXCEPTION(WindowException);
 
     class Window {
         friend class Application;
@@ -50,6 +53,8 @@ namespace gfx {
 
         font::FontManager& getFontManager() noexcept;
 
+        const FileManager& getFileManager() const;
+
     protected:
         explicit Window(const WindowConfiguration& windowConfiguration) noexcept;
         void setRenderer(std::shared_ptr<Renderer> pRenderer) noexcept;
@@ -67,6 +72,7 @@ namespace gfx {
         std::optional<glm::mat4> mTempProjection2dMatrix;
         TextureManager mTextureManager;
         font::FontManager mFontManager;
+        std::shared_ptr<FileManager> mFileManager;
     };
 
 }

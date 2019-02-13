@@ -32,6 +32,9 @@ namespace gfx {
                 // Provide the renderer to the window
                 window->setRenderer(Renderer::create());
 
+                // Provide the FileManager to the window
+                window->mFileManager = this->mFileManager;
+
                 // Initialize the top
                 if (!window->mSceneStack.empty()) {
                     window->mSceneStack.top()->init();

@@ -110,4 +110,14 @@ namespace gfx {
             return this->mSceneStack.top().get();
         }
     }
+
+    const FileManager &Window::getFileManager() const {
+        // Make sure FileManager is set before
+        if (!this->mFileManager) {
+            throw WindowException(__PRETTY_FUNCTION__, "FileManager must be set before calling this method", {});
+        }
+
+        // Return a reference of the FileManager.
+        return *this->mFileManager;
+    }
 }

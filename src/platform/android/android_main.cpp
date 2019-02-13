@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <ee/Log.hpp>
 
 #include <ananasgfx/gfx/ApplicationManager.hpp>
 #include <ananasgfx/platform/android/AndroidWindow.hpp>
@@ -171,6 +172,9 @@ void android_main(struct android_app* state) {
 
     // Redirect the std::cout and std::cerr to android-logcat
     redirectStdout();
+
+    // Apply default logging configuration
+    ee::Log::applyDefaultConfiguration();
 
     // Register the command and event listener
     state->onAppCmd = engine_handle_cmd;

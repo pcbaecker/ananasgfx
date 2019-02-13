@@ -1,9 +1,10 @@
 #ifdef __ANDROID__
 
-#include <iostream>
+#include <android/configuration.h>
 #include <native_app_glue/android_native_app_glue.h>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include <ee/Log.hpp>
 #include <ananasgfx/platform/android/AndroidWindow.hpp>
 
 namespace platform::android {
@@ -36,7 +37,7 @@ namespace platform::android {
                 EGL_STENCIL_SIZE, 8,
                 EGL_NONE
         };
-        EGLint w, h, dummy, format;
+        EGLint w, h, dummy, format, hdpi;
         EGLint numConfigs;
         EGLConfig config;
 
@@ -62,37 +63,36 @@ namespace platform::android {
         this->pSurface = eglCreateWindowSurface(this->pDisplay, config, pAndroidApp->window, NULL);
         this->pContext = eglCreateContext(this->pDisplay, config, NULL, attrib_list);
 
-
-
         eglQuerySurface(this->pDisplay, this->pSurface, EGL_WIDTH, &w);
         this->mWidth = w;
         eglQuerySurface(this->pDisplay, this->pSurface, EGL_HEIGHT, &h);
         this->mHeight = h;
 
+        // Query the DPI of the surface
+        AConfiguration* tmpConfig = AConfiguration_new();
+        AConfiguration_fromAssetManager(tmpConfig, pAndroidApp->activity->assetManager);
+        this->mHorizontalDpi = AConfiguration_getDensity(tmpConfig);
+        this->mVerticalDpi = this->mHorizontalDpi;
+        AConfiguration_delete(tmpConfig);
+
         // Update camera
         this->mCamera.updateWindow(this);
-        this->mProjection2dMatrix = glm::ortho(0.0f, static_cast<float>(this->mWidth), static_cast<float>(480.0f), 0.0f);
+        this->mProjection2dMatrix = glm::ortho(0.0f, static_cast<float>(this->mWidth), static_cast<float>(this->mHeight), 0.0f);
+
+        // Update font manager
+        this->mFontManager.setHorizontalDpi(this->mHorizontalDpi);
+        this->mFontManager.setVerticalDpi(this->mVerticalDpi);
 
         // Make this window the current context
         this->makeContext();
 
-/*
-    engine->display = display;
-    engine->context = context;
-    engine->surface = surface;
-    engine->width = w;
-    engine->height = h;
-    engine->state.angle = 0;*/
-
-        // Initialize GL state.
-        //glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
-        //glEnable(GL_CULL_FACE);
-        //glShadeModel(GL_SMOOTH);
-        //glDisable(GL_DEPTH_TEST);
-
-        //glClearColor(1.0f, 0.0f, 0.0f, 1.0);
-        //glClear(GL_COLOR_BUFFER_BIT);
-
+        // Window successfully created
+        ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Window created", {
+                ee::Note("Width", this->mWidth),
+                ee::Note("Height", this->mHeight),
+                ee::Note("hDPI", this->mHorizontalDpi),
+                ee::Note("vDPI", this->mVerticalDpi)
+        });
         return true;
     }
 
