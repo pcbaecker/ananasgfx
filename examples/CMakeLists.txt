@@ -20,7 +20,7 @@ if (DEFINED EMSCRIPTEN)
     # set(CMAKE_EXECUTABLE_SUFFIX ".html")
     set_target_properties(AnanasGfxExamples
             PROPERTIES SUFFIX ".html"
-            LINK_FLAGS " --bind -s USE_GLFW=3 -s WASM=1 -s USE_WEBGL2=1 -s DISABLE_EXCEPTION_CATCHING=0 -g4")
+            LINK_FLAGS " --bind -s USE_GLFW=3 -s WASM=1 -s USE_WEBGL2=1 -s DISABLE_EXCEPTION_CATCHING=0 -s BINARYEN_TRAP_MODE='clamp' -g4 --preload-file resource")
 endif ()
 
 

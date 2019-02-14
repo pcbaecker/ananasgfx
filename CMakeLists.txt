@@ -46,7 +46,7 @@ add_library(AnanasGfx STATIC ${SOURCE_FILES} ${HEADER_FILES})
 set_target_properties(AnanasGfx PROPERTIES LINKER_LANGUAGE CXX)
 
 ### Link desktop specific
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*")
+if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*" OR DEFINED EMSCRIPTEN)
     target_link_libraries (AnanasGfx glfw freetype EasyException ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES})
 endif()
 

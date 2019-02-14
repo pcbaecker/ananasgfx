@@ -175,6 +175,8 @@ namespace gfx::renderer::opengl {
         // Define filter method for scaling the texture
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
         // Read the bitmap into the texture, depending on the number of channels
         switch (pBitmap->getChannels()) {
@@ -184,7 +186,7 @@ namespace gfx::renderer::opengl {
 
             case Grayscale: {
                 glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RED,
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_R8,
                         static_cast<GLsizei>(pBitmap->getWidth()),
                         static_cast<GLsizei>(pBitmap->getHeight()),
                         0, GL_RED, GL_UNSIGNED_BYTE, pBitmap->getData());
@@ -192,7 +194,7 @@ namespace gfx::renderer::opengl {
 
             case GrayAlpha: {
                 glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RG,
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RG8,
                         static_cast<GLsizei>(pBitmap->getWidth()),
                         static_cast<GLsizei>(pBitmap->getHeight()),
                         0, GL_RG, GL_UNSIGNED_BYTE, pBitmap->getData());
@@ -200,7 +202,7 @@ namespace gfx::renderer::opengl {
 
             case RGB: {
                 glPixelStorei(GL_UNPACK_ALIGNMENT, 2);
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8,
                         static_cast<GLsizei>(pBitmap->getWidth()),
                         static_cast<GLsizei>(pBitmap->getHeight()),
                         0, GL_RGB, GL_UNSIGNED_BYTE, pBitmap->getData());
@@ -208,7 +210,7 @@ namespace gfx::renderer::opengl {
 
             case RGBA: {
                 glPixelStorei(GL_UNPACK_ALIGNMENT, 2);
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA,
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8,
                         static_cast<GLsizei>(pBitmap->getWidth()),
                         static_cast<GLsizei>(pBitmap->getHeight()),
                         0, GL_RGBA, GL_UNSIGNED_BYTE, pBitmap->getData());
