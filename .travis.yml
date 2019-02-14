@@ -23,7 +23,7 @@ matrix:
         - android-26
         - extra
     script:
-      - $TRAVIS_BUILD_DIR/examples/android/gradlew assembleDebug
+      - cd $TRAVIS_BUILD_DIR/examples/android && ./gradlew assembleDebug
 
 ### Build emscripten app
   - name: "Emscripten"
