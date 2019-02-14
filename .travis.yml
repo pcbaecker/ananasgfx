@@ -7,8 +7,13 @@ compiler: clang
 matrix:
   include:
 
+### Build emscripten app
+  - name: "Emscripten"
+
+
 ### Build and test linux app
-  - services:
+  - name: "Linux app"
+    services:
       - xvfb
     addons:
       apt:
@@ -47,6 +52,7 @@ matrix:
     script:
     - make
     #Unittest
+    - mkdir -p $TRAVIS_BUILD_DIR/test/unittest/user
     - cd $TRAVIS_BUILD_DIR/test/unittest && $TRAVIS_BUILD_DIR/cmake-build-test/test/unittest/AnanasGfxUnitTest
     #Integrationtest
     - cd $TRAVIS_BUILD_DIR/test/integrationtest && $TRAVIS_BUILD_DIR/cmake-build-test/test/integrationtest/AnanasGfxIntegrationTest --logging=none
