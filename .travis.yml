@@ -1,4 +1,9 @@
-language: cpp
+notifications:
+  email:
+    recipients:
+      - pcbaecker@gmail.com
+    on_success: never
+    on_failure: always
 
 os: linux
 dist: xenial
@@ -7,8 +12,22 @@ compiler: clang
 matrix:
   include:
 
+### Android app
+  - name: "Android app"
+    language: android
+    android:
+      components:
+        - tools
+        - platform-tools
+        - build-tools-26.0.2
+        - android-26
+        - extra
+    script:
+      - $TRAVIS_BUILD_DIR/examples/android/gradlew
+
 ### Build emscripten app
   - name: "Emscripten"
+    language: cpp
     before_script:
       - mkdir -p $TRAVIS_BUILD_DIR/cmake-build-emscripten
       - docker run -dit --name emscripten -v $TRAVIS_BUILD_DIR:/src trzeci/emscripten:sdk-incoming-64bit bash
@@ -17,8 +36,9 @@ matrix:
       - sudo cp -r $TRAVIS_BUILD_DIR/examples/resource $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples/resource
       - docker exec -it emscripten make --directory=cmake-build-emscripten
 
-  ### Build and test linux app
+### Build and test linux app
   - name: "Linux app"
+    language: cpp
     services:
       - xvfb
     addons:
