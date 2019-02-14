@@ -27,9 +27,10 @@ matrix:
         - extra-google-m2repository
         - extra-android-m2repository
     before_install:
-      - echo y | sdkmanager "ndk-bundle"
-      - echo y | sdkmanager "platforms;android-28"
-      - echo y | sdkmanager "patcher;v4"
+      - yes | sdkmanager --licenses
+      #- echo y | sdkmanager "ndk-bundle"
+      #- echo y | sdkmanager "platforms;android-28"
+      #- echo y | sdkmanager "patcher;v4"
     script:
       - cd $TRAVIS_BUILD_DIR/examples/android && ./gradlew assembleDebug
 
