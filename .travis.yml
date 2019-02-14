@@ -14,7 +14,7 @@ matrix:
       - docker run -dit --name emscripten -v $TRAVIS_BUILD_DIR:/src trzeci/emscripten:sdk-incoming-64bit bash
     script:
       - docker exec -it emscripten emcmake cmake -Bcmake-build-emscripten -H.
-      cp -r $TRAVIS_BUILD_DIR/examples/resource $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples/resource
+      - cp -r $TRAVIS_BUILD_DIR/examples/resource $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples/resource
       - docker exec -it emscripten make --directory=cmake-build-emscripten
 
   ### Build and test linux app
