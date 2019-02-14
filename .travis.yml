@@ -19,8 +19,8 @@ matrix:
       components:
         - tools
         - platform-tools
-        - build-tools-26.0.2
-        - android-28
+        - build-tools-28.0.3
+        - android-26
         - extra
     script:
       - cd $TRAVIS_BUILD_DIR/examples/android && ./gradlew assembleDebug
