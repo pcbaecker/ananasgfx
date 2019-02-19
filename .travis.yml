@@ -7,7 +7,6 @@ notifications:
 
 os: linux
 dist: xenial
-compiler: clang
 
 matrix:
   include:
@@ -47,6 +46,7 @@ matrix:
 ### Build and test linux app
   - name: "Linux app"
     language: cpp
+    compiler: clang
     services:
       - xvfb
     addons:
