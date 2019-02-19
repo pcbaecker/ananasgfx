@@ -13,4 +13,4 @@ cmake-build-*
 /captures
 .externalNativeBuild
 tmp.png
-test/unittest/user/
+test/unittest/user/*
