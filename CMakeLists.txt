@@ -31,7 +31,8 @@ file(GLOB_RECURSE SOURCE_FILES "src/*.cpp" "src/*.c" ${ANDROID_NDK}/sources/andr
 
 ### Glfw only for Desktop
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*")
-    cmake_policy(SET CMP0072 OLD)#< Setting this to NEW will lead to OpenGL context not working, must be fixed in the future
+    #cmake_policy(SET CMP0072 OLD)#< Setting this to NEW will lead to OpenGL context not working, must be fixed in the future
+    set(OpenGL_GL_PREFERENCE GLVND)
     find_package(OpenGL REQUIRED)
     find_package(GLEW REQUIRED)
 
