@@ -36,6 +36,8 @@ matrix:
       skip-cleanup: true
       github-token: $GITHUB_TOKEN
       keep-history: true
+      verbose: true
+      deployment-file: examples/android/app/build/outputs/apk/debug/app-debug.apk
 
   ### Build emscripten app
   - name: "Emscripten"
