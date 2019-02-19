@@ -31,8 +31,13 @@ matrix:
       - echo y | sdkmanager "patcher;v4"
     script:
       - cd $TRAVIS_BUILD_DIR/examples/android && ./gradlew assembleDebug
+    deploy:
+      provider: pages
+      skip-cleanup: true
+      github-token: $GITHUB_TOKEN
+      keep-history: true
 
-### Build emscripten app
+  ### Build emscripten app
   - name: "Emscripten"
     language: cpp
     before_script:
