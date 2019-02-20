@@ -39,6 +39,10 @@ namespace gfx {
     }
 
     void Node::draw() noexcept {
+        if (!this->mVisible) {
+            return;
+        }
+
         for (auto& child : this->mChildren) {
             child->draw();
         }
@@ -50,6 +54,24 @@ namespace gfx {
 
     void Node::onChildAdded(Node *pNode) noexcept {
         // Can be overridden by inheriting classes
+    }
+
+    void Node::onTouchBegan(const Touch &touch) noexcept {
+        for (auto& child : this->mChildren) {
+            child->onTouchBegan(touch);
+        }
+    }
+
+    void Node::onTouchMoved(const Touch &touch) noexcept {
+        for (auto& child : this->mChildren) {
+            child->onTouchMoved(touch);
+        }
+    }
+
+    void Node::onTouchEnded(const Touch &touch) noexcept {
+        for (auto& child : this->mChildren) {
+            child->onTouchEnded(touch);
+        }
     }
 
     std::shared_ptr<RenderTexture> Node::asRenderTexture() noexcept {
@@ -102,5 +124,13 @@ namespace gfx {
 
         // No child with given Id found
         return std::nullopt;
+    }
+
+    bool Node::isVisible() const noexcept {
+        return this->mVisible;
+    }
+
+    void Node::setVisible(bool visible) noexcept {
+        this->mVisible = visible;
     }
 }

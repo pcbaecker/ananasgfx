@@ -118,12 +118,124 @@ void redirectStdout() {
     pthread_detach(thr);
 }
 
-static int32_t engine_handle_input(struct android_app* app, AInputEvent* event) {
+static void getTouchPos(AInputEvent *event, int ids[], float xs[], float ys[]) {
+    int pointerCount = AMotionEvent_getPointerCount(event);
+    for(int i = 0; i < pointerCount; ++i) {
+        ids[i] = AMotionEvent_getPointerId(event, i);
+        xs[i] = AMotionEvent_getX(event, i);
+        ys[i] = AMotionEvent_getY(event, i);
+    }
+}
 
+static int32_t engine_handle_input(struct android_app* app, AInputEvent* event) {
+    // Check for ApplicationManager existence
+    if (pApplicationManager == nullptr) {
+        __android_log_print(ANDROID_LOG_WARN, NN_LOGGER_NAME,
+                "%s: pApplicationManager is null", __PRETTY_FUNCTION__);
+        return 0;
+    }
+
+    // Check if a current Application is active
+    if (!pApplicationManager->getCurrentApplication()) {
+        __android_log_print(ANDROID_LOG_WARN, NN_LOGGER_NAME,
+                "%s: There is no current application", __PRETTY_FUNCTION__);
+        return 0;
+    }
+
+    // Check that there is at least one window
+    if (pApplicationManager->getCurrentApplication()->getWindows().empty()) {
+        __android_log_print(ANDROID_LOG_WARN, NN_LOGGER_NAME,
+                "%s: There is no active window in the current application", __PRETTY_FUNCTION__);
+        return 0;
+    }
+
+    // Get the first window (Must be improved to use multiple windows on android)
+    auto pWindow = dynamic_cast<platform::android::AndroidWindow*>(
+            pApplicationManager->getCurrentApplication()->getWindows().begin()->get());
+    if (pWindow == nullptr) {
+        __android_log_print(ANDROID_LOG_WARN, NN_LOGGER_NAME,
+                            "%s: Not AndroidWindow", __PRETTY_FUNCTION__);
+        return 0;
+    }
+
+    // Determine event type
+    switch (AInputEvent_getType(event)) {
+        default:
+            __android_log_print(ANDROID_LOG_WARN, NN_LOGGER_NAME, "%s: No handler for this event",
+                                __PRETTY_FUNCTION__);
+            break;
+
+        case AINPUT_EVENT_TYPE_MOTION:
+            switch(AMotionEvent_getAction(event) & AMOTION_EVENT_ACTION_MASK) {
+                default:
+                    __android_log_print(ANDROID_LOG_WARN, NN_LOGGER_NAME, "%s: No handler for this event", __PRETTY_FUNCTION__);
+                    break;
+
+                case AMOTION_EVENT_ACTION_DOWN: {
+                    pWindow->onTouchBegins(
+                            AMotionEvent_getPointerId(event, 0),
+                            AMotionEvent_getX(event,0),
+                            AMotionEvent_getY(event,0));
+                } break;
+
+                case AMOTION_EVENT_ACTION_POINTER_DOWN: {
+                    int pointerIndex = AMotionEvent_getAction(event) >> AMOTION_EVENT_ACTION_POINTER_INDEX_SHIFT;
+                    pWindow->onTouchBegins(
+                            AMotionEvent_getPointerId(event, pointerIndex),
+                            AMotionEvent_getX(event,pointerIndex),
+                            AMotionEvent_getY(event,pointerIndex));
+                } break;
+
+                case AMOTION_EVENT_ACTION_MOVE: {
+                    int pointerCount = AMotionEvent_getPointerCount(event);
+                    int ids[pointerCount];
+                    float xs[pointerCount], ys[pointerCount];
+                    getTouchPos(event, ids, xs, ys);
+                    for (int i = 0; i < pointerCount; i++) {
+                        pWindow->onTouchMoves(ids[i], xs[i], ys[i]);
+                    }
+                } break;
+
+                case AMOTION_EVENT_ACTION_UP: {
+                    pWindow->onTouchEnds(
+                            AMotionEvent_getPointerId(event, 0),
+                            AMotionEvent_getX(event,0),
+                            AMotionEvent_getY(event,0));
+                } break;
+
+                case AMOTION_EVENT_ACTION_POINTER_UP: {
+                    int pointerIndex = AMotionEvent_getAction(event) >> AMOTION_EVENT_ACTION_POINTER_INDEX_SHIFT;
+                    pWindow->onTouchEnds(
+                            AMotionEvent_getPointerId(event, pointerIndex),
+                            AMotionEvent_getX(event,pointerIndex),
+                            AMotionEvent_getY(event,pointerIndex));
+                } break;
+
+                case AMOTION_EVENT_ACTION_CANCEL: {
+                    int pointerCount = AMotionEvent_getPointerCount(event);
+                    int ids[pointerCount];
+                    float xs[pointerCount], ys[pointerCount];
+                    getTouchPos(event, ids, xs, ys);
+                    for (int i = 0; i < pointerCount; i++) {
+                        pWindow->onTouchEnds(
+                                ids[i],
+                                xs[i],
+                                ys[i]);
+                    }
+                } break;
+            }
+            break;
+    }
+
+    return 1;
 }
 
 static void engine_handle_cmd(struct android_app* app, int32_t cmd) {
     switch (cmd) {
+        default:
+            __android_log_print(ANDROID_LOG_WARN, NN_LOGGER_NAME, "%s: No handler for this command %d", __PRETTY_FUNCTION__, cmd);
+            break;
+
         case APP_CMD_SAVE_STATE:
             __android_log_print(ANDROID_LOG_INFO, NN_LOGGER_NAME, "%s: APP_CMD_SAVE_STATE", __PRETTY_FUNCTION__);
             // The system has asked us to save our current state.
@@ -138,7 +250,7 @@ static void engine_handle_cmd(struct android_app* app, int32_t cmd) {
                 platform::android::AndroidWindow::pAndroidApp = app;
 
                 // Create the ApplicationManager, so that it will manage creating and update of the applications
-                pApplicationManager = new gfx::_internal::ApplicationManager(false, {"Primitives2d"}, 0, resourcePath, userPath, true, true);
+                pApplicationManager = new gfx::_internal::ApplicationManager(false, {"Rendertexture"}, 0, resourcePath, userPath, true, true);
             }
             return;
 

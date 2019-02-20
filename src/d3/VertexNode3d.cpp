@@ -41,6 +41,10 @@ namespace d3 {
     }
 
     void VertexNode::draw() noexcept {
+        if (!this->mVisible) {
+            return;
+        }
+
         d3::Node::draw();
 
         glm::mat4 mvp = this->pWindow->getCamera().getViewProjectionMatrix() * this->mModelMatrix;

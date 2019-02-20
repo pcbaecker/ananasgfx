@@ -135,6 +135,14 @@ namespace gfx::_internal {
                && this->mIterator == this->mApplications.end();
     }
 
+    void ApplicationManager::surfaceAvailable() noexcept {
+
+    }
+
+    std::shared_ptr<Application> ApplicationManager::getCurrentApplication() noexcept {
+        return this->pCurrentApplication;
+    }
+
     void ApplicationManager::setupApplicationTest(const std::string &appname,
                                                   std::shared_ptr<Application> application) noexcept {
         // Check if we have a sidekick ApplicationTest

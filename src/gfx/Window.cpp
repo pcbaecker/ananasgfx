@@ -1,6 +1,7 @@
 #include <ananasgfx/gfx/Window.hpp>
 #include <ananasgfx/platform/desktop/DesktopWindow.hpp>
 #include <ananasgfx/platform/android/AndroidWindow.hpp>
+#include <ee/Log.hpp>
 
 namespace gfx {
 
@@ -119,5 +120,44 @@ namespace gfx {
 
         // Return a reference of the FileManager.
         return *this->mFileManager;
+    }
+
+    void Window::onTouchBegan(const Touch &touch) noexcept {
+        //TRACE("Touch began", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
+
+        // Make sure a scene exists
+        if (!this->mSceneStack.empty()) {
+            // Get the top scene
+            auto& scene = this->mSceneStack.top();
+
+            // Propagate the touch to the scene
+            scene->onTouchBegan(touch);
+        }
+    }
+
+    void Window::onTouchMoved(const Touch &touch) noexcept {
+        //TRACE("Touch moved", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
+
+        // Make sure a scene exists
+        if (!this->mSceneStack.empty()) {
+            // Get the top scene
+            auto& scene = this->mSceneStack.top();
+
+            // Propagate the touch to the scene
+            scene->onTouchMoved(touch);
+        }
+    }
+
+    void Window::onTouchEnded(const Touch &touch) noexcept {
+        //TRACE("Touch ended", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
+
+        // Make sure a scene exists
+        if (!this->mSceneStack.empty()) {
+            // Get the top scene
+            auto& scene = this->mSceneStack.top();
+
+            // Propagate the touch to the scene
+            scene->onTouchEnded(touch);
+        }
     }
 }

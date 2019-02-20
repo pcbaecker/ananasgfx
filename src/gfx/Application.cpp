@@ -117,6 +117,8 @@ namespace gfx {
 
             window->makeContext();
 
+            window->handleEvents();
+
             window->tick(delta);
 
             window->swapBuffers();

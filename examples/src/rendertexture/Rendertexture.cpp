@@ -10,44 +10,77 @@
 #include <ananasgfx/test/ApplicationTest.hpp>
 #include <ananasgfx/gfx/Scene.hpp>
 #include <ananasgfx/font/FontManager.hpp>
+#include <random>
 
 class RendertextureScene : public gfx::Scene {
 public:
+    RendertextureScene() :
+    mRandomEngine(mRandomDevice()),
+    mDistribution(0, 1) {}
+
     bool init() noexcept override {
         // Set background color
-        this->pWindow->getRenderer()->setClearColor(0.0f, 0.0f, 0.05f, 0.0f);
-
-        // Create sprite
-        this->pSprite = createChild<d2::Sprite>();
-        this->pSprite->setFilename("resource/icon_lightbulb.png");
-        this->pSprite->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
-        this->pSprite->setPosition(75, 200);
-        this->pSprite->setAnchorPoint(0.5f, 0.5f);
+        this->pWindow->getRenderer()->setClearColor(1.0f,1.0f, 1.0f, 1.0f);
 
         // Rendertexture
-        this->mRenderTexture = std::make_shared<gfx::RenderTexture>(this->pWindow, this->pWindow->getWidth()*0.5f, this->pWindow->getHeight()*0.5f);
+        this->mRenderTexture = std::make_shared<gfx::RenderTexture>(this->pWindow, this->pWindow->getWidth(), this->pWindow->getHeight());
+        this->mRenderTexture->begin();
+        this->pWindow->getRenderer()->clearScreen();
+        this->mRenderTexture->end();
+
+        // The sprite to display the rendertexture
         this->pRTSprite = createChild<d2::Sprite>();
         this->pRTSprite->setTexture(this->mRenderTexture.get());
         this->pRTSprite->setAnchorPoint(0.0f, 0.0f);
-        this->pRTSprite->setPosition(this->pWindow->getWidth()*0.5f, 0.0f);
+        this->pRTSprite->setPosition(0.0f, 0.0f);
         this->pRTSprite->setVerticalFlip(true);
+
+        // The circle to be drawn onto the rendertexture
+        this->pCircle = createChild<d2::Circle>();
+        this->pCircle->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
+        this->pCircle->setAnchorPoint(0.5f, 0.5f);
+        this->pCircle->setSize(25.0f, 25.0f);
+        this->pCircle->setPosition(0.0f, 0.0f);
+        this->pCircle->setVisible(false);
 
         return gfx::Scene::init();
     }
 
-    void update(float dt) noexcept override {
-        gfx::Scene::update(dt);
+protected:
 
+    void drawCircle(float x, float y) noexcept {
         this->mRenderTexture->begin();
-        this->pWindow->getRenderer()->clearScreen();
-        this->pSprite->draw();
+        this->pCircle->setPosition(x, y);
+        this->pCircle->setVisible(true);
+        this->pCircle->draw();
+        this->pCircle->setVisible(false);
         this->mRenderTexture->end();
     }
 
+    void onTouchBegan(const gfx::Touch &touch) noexcept override {
+        drawCircle(static_cast<float>(touch.getLastX()), static_cast<float>(touch.getLastY()));
+    }
+
+    void onTouchMoved(const gfx::Touch &touch) noexcept override {
+        drawCircle(static_cast<float>(touch.getLastX()), static_cast<float>(touch.getLastY()));
+    }
+
+    void onTouchEnded(const gfx::Touch &touch) noexcept override {
+        this->pCircle->setColor(glm::vec4(randomFloat(), randomFloat(), randomFloat(), 1.0f));
+    }
+
+    float randomFloat() {
+        return static_cast<float>(this->mDistribution(this->mRandomEngine));
+    }
+
 private:
-    d2::Sprite* pSprite = nullptr;
     d2::Sprite* pRTSprite = nullptr;
+    d2::Circle* pCircle = nullptr;
     std::shared_ptr<gfx::RenderTexture> mRenderTexture;
+
+    std::random_device mRandomDevice;
+    std::mt19937 mRandomEngine;
+    std::uniform_real_distribution<> mDistribution;
 };
 
 class RendertextureApp : public gfx::Application {

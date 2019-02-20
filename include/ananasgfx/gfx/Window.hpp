@@ -14,6 +14,7 @@
 #include "Camera.hpp"
 #include "TextureManager.hpp"
 #include "FileManager.hpp"
+#include "Touch.hpp"
 
 namespace gfx {
 
@@ -30,6 +31,7 @@ namespace gfx {
         virtual bool shouldClose() noexcept = 0;
         virtual void makeContext() noexcept = 0;
         virtual void swapBuffers() noexcept = 0;
+        virtual void handleEvents() noexcept = 0;
 
         const WindowConfiguration& getConfiguration() const noexcept;
 
@@ -58,6 +60,9 @@ namespace gfx {
     protected:
         explicit Window(const WindowConfiguration& windowConfiguration) noexcept;
         void setRenderer(std::shared_ptr<Renderer> pRenderer) noexcept;
+        void onTouchBegan(const Touch& touch) noexcept;
+        void onTouchMoved(const Touch& touch) noexcept;
+        void onTouchEnded(const Touch& touch) noexcept;
 
     protected:
         std::shared_ptr<Renderer> pRenderer;

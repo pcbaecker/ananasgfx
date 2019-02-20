@@ -3,6 +3,7 @@
 #ifdef __ANDROID__
 
 #include <EGL/egl.h>
+#include <map>
 
 #include <ananasgfx/gfx/Window.hpp>
 
@@ -22,10 +23,17 @@ namespace platform::android {
 
         void swapBuffers() noexcept override;
 
+        void handleEvents() noexcept override;
+
+        void onTouchBegins(int id, float x, float y) noexcept;
+        void onTouchMoves(int id, float x, float y) noexcept;
+        void onTouchEnds(int id, float x, float y) noexcept;
+
     private:
         EGLSurface pSurface = nullptr;
         EGLContext pContext = nullptr;
         EGLDisplay pDisplay = nullptr;
+        std::map<int, gfx::Touch> mTouches;
     };
 
 }

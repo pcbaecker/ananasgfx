@@ -27,6 +27,10 @@ namespace d2 {
     }
 
     void VertexNode::draw() noexcept {
+        if (!this->mVisible) {
+            return;
+        }
+
         // Calculate the MVP matrix
         auto mvp = this->pWindow->getProjection2dMatrix() * this->mModelMatrix;
 

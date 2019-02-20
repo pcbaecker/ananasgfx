@@ -5,6 +5,7 @@
 #include <GL/glew.h>
 #include <ananasgfx/gfx/Window.hpp>
 #include <GLFW/glfw3.h>
+#include <optional>
 
 namespace platform::desktop {
 
@@ -22,8 +23,12 @@ namespace platform::desktop {
 
         void swapBuffers() noexcept override;
 
+        void handleEvents() noexcept override;
+
     private:
         GLFWwindow *pWindow = nullptr;
+
+        std::optional<gfx::Touch> mTouch;
     };
 
 }

@@ -5,6 +5,7 @@
 #include <memory>
 
 #include "RenderTexture.hpp"
+#include "Touch.hpp"
 
 namespace gfx {
 
@@ -54,14 +55,21 @@ namespace gfx {
         virtual nodePriority_t getPriority() const noexcept;
         void resortChildren() noexcept;
 
+        bool isVisible() const noexcept;
+        void setVisible(bool visible) noexcept;
+
     protected:
         virtual void onChildAdded(Node* pNode) noexcept;
+        virtual void onTouchBegan(const Touch& touch) noexcept;
+        virtual void onTouchMoved(const Touch& touch) noexcept;
+        virtual void onTouchEnded(const Touch& touch) noexcept;
 
     protected:
         std::string mId;
         Window* pWindow = nullptr;
         std::list<std::shared_ptr<Node>> mChildren;
         bool mInitialized = false;
+        bool mVisible = true;
     };
 
 }

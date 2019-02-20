@@ -30,6 +30,8 @@ namespace gfx::_internal {
         void tick() noexcept;
         bool isDone() const noexcept;
 
+        std::shared_ptr<Application> getCurrentApplication() noexcept;
+
     private:
         void setupApplicationTest(const std::string& appname, std::shared_ptr<Application> application) noexcept;
 

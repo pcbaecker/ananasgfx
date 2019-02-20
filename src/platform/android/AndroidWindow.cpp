@@ -110,6 +110,47 @@ namespace platform::android {
         eglSwapBuffers(this->pDisplay, this->pSurface);
     }
 
+    void AndroidWindow::onTouchBegins(int id, float x, float y) noexcept {
+        // Check if we already have a touch with that id
+        if (this->mTouches.count(id)) {
+            WARN("We already have a touch with that id", {ee::Note("Id", id)});
+            return;
+        }
+
+        // Create the touch object
+        this->mTouches.emplace(id, gfx::Touch(static_cast<uint8_t>(id), static_cast<double>(x), static_cast<double>(y)));
+
+        // Propagate the touch object
+        this->onTouchBegan(this->mTouches.at(id));
+    }
+
+    void AndroidWindow::onTouchMoves(int id, float x, float y) noexcept {
+        // Try to find the touch object
+        if (this->mTouches.count(id)) {
+            auto touch = this->mTouches.at(id);
+            touch.setLast(x, y);
+            this->onTouchMoved(touch);
+        } else {
+            WARN("Could not find touch object", {ee::Note("Id", id)});
+        }
+    }
+
+    void AndroidWindow::onTouchEnds(int id, float x, float y) noexcept {
+        // Try to find the touch object
+        if (this->mTouches.count(id)) {
+            auto touch = this->mTouches.at(id);
+            touch.setLast(x, y);
+            this->onTouchEnded(touch);
+            this->mTouches.erase(id);
+        } else {
+            WARN("Could not find touch object", {ee::Note("Id", id)});
+        }
+    }
+
+    void AndroidWindow::handleEvents() noexcept {
+
+    }
+
 }
 
 #endif
