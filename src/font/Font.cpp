@@ -99,7 +99,7 @@ namespace font {
 
         // Render bitmap
         FT_Vector vec = {0,0};
-        error = FT_Glyph_To_Bitmap(&glyph, FT_RENDER_MODE_NORMAL, &vec, true);
+        error = FT_Glyph_To_Bitmap(&glyph, FT_RENDER_MODE_NORMAL, &vec, 1);
         if (error) {
             FT_Done_Glyph(glyph);
             ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Could not generate bitmap", {
@@ -110,11 +110,11 @@ namespace font {
         }
 
         // Cast bitmap
-        FT_BitmapGlyph bit = (FT_BitmapGlyph)glyph;
+        auto bit = reinterpret_cast<FT_BitmapGlyph>(glyph); // NOLINT
 
         // Make a copy of the buffer
         const uint8_t channels = 2;
-        const size_t bufferSize = bit->bitmap.width * bit->bitmap.rows * channels;
+        const size_t bufferSize = static_cast<size_t>(bit->bitmap.width * bit->bitmap.rows * channels);
         void* pData = malloc(bufferSize);
         memcpy(pData, bit->bitmap.buffer, bufferSize);
 

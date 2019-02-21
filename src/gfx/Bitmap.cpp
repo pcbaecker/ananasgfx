@@ -17,11 +17,11 @@ namespace gfx {
 
         // Check result
         if (pData == nullptr) {
-            return std::nullopt;
+            return {};
         }
 
         // Create and return a shared pointer containing the data
-        return std::make_shared<Bitmap>(pData, width, height, channels);
+        return {std::make_shared<Bitmap>(pData, width, height, channels)};
     }
 
     Bitmap::Bitmap(void *pData, size_t width, size_t height, uint8_t channels) noexcept :
@@ -76,7 +76,7 @@ namespace gfx {
 
     std::optional<std::shared_ptr<Bitmap>> Bitmap::resize(size_t width, size_t height) const noexcept {
         if (width == 0 || height == 0 || width > 10000 || height > 10000) {
-            return std::nullopt;
+            return {};
         }
 
         // Create the memory for the new bitmap
@@ -95,11 +95,11 @@ namespace gfx {
         if (result != 1) {
             // We must free the allocated data and return null
             free(pOutputData);
-            return std::nullopt;
+            return {};
         }
 
         // Create the new bitmap and return it
-        return std::make_shared<gfx::Bitmap>(pOutputData, width, height, this->mChannels);
+        return {std::make_shared<gfx::Bitmap>(pOutputData, width, height, this->mChannels)};
     }
 
     void Bitmap::flipVertical() noexcept {

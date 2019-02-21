@@ -33,6 +33,9 @@ namespace gfx {
             // Provide a pointer to our window to every child
             object->setWindow(this->pWindow);
 
+            // Provide a pointer to the parent
+            object->pParent = this;
+
             // Try to cast it to the base node type and store it in the children list
             this->mChildren.push_back(std::dynamic_pointer_cast<Node>(object));
             this->resortChildren();
@@ -70,6 +73,7 @@ namespace gfx {
         std::list<std::shared_ptr<Node>> mChildren;
         bool mInitialized = false;
         bool mVisible = true;
+        Node* pParent = nullptr;
     };
 
 }

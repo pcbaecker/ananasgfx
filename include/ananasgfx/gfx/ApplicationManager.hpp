@@ -19,8 +19,8 @@ namespace gfx::_internal {
                 bool devmode,
                 std::vector<std::string> appNames,
                 long appLifetime,
-                const std::string& resourceSpace,
-                const std::string& userSpace,
+                std::string resourceSpace,
+                std::string userSpace,
                 bool fullscreen,
                 bool hideCursor) noexcept;
 
@@ -41,6 +41,8 @@ namespace gfx::_internal {
         std::string mResourcePath;
         std::string mUserPath;
         bool mDone = false;
+        bool mFullscreen = false;
+        bool mHideCursor = true;
         std::shared_ptr<Application> pCurrentApplication = nullptr;
         std::map<std::string,ApplicationProxyBase*> mApplications;
         std::map<std::string,ApplicationProxyBase*>::const_iterator mIterator;

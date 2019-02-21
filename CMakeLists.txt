@@ -13,7 +13,7 @@ add_subdirectory(dependencies/easy-exception)
 ### Currently android seems to be not able to handle the c++17 definition in cmake
 if(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Android")
     set(CMAKE_CXX_STANDARD 17)
-    set(CMAKE_CXX_FLAGS -rdynamic)
+    #set(CMAKE_CXX_FLAGS -rdynamic)
 endif()
 
 ### Source files
@@ -44,7 +44,7 @@ endif()
 
 ### The library
 add_library(AnanasGfx STATIC ${SOURCE_FILES} ${HEADER_FILES})
-set_target_properties(AnanasGfx PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(AnanasGfx PROPERTIES LINKER_LANGUAGE CXX LINK_FLAGS -rdynamic)
 
 ### Link desktop specific
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-*" OR DEFINED EMSCRIPTEN)

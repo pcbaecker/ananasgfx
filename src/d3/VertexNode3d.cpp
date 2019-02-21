@@ -86,13 +86,13 @@ namespace d3 {
         this->mModelMatrix = glm::scale(this->mModelMatrix, this->mScale);
 
         // Apply rotation x
-        this->mModelMatrix = glm::rotate(this->mModelMatrix, this->mRotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
+        this->mModelMatrix = glm::rotate(this->mModelMatrix, this->mRotation.x, glm::vec3(1.0f, 0.0f, 0.0f)); // NOLINT
 
         // Apply rotation y
-        this->mModelMatrix = glm::rotate(this->mModelMatrix, this->mRotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
+        this->mModelMatrix = glm::rotate(this->mModelMatrix, this->mRotation.y, glm::vec3(0.0f, 1.0f, 0.0f)); // NOLINT
 
         // Apply rotation z
-        this->mModelMatrix = glm::rotate(this->mModelMatrix, this->mRotation.z, glm::vec3(0.0f, 0.0f, 1.0f));
+        this->mModelMatrix = glm::rotate(this->mModelMatrix, this->mRotation.z, glm::vec3(0.0f, 0.0f, 1.0f)); // NOLINT
     }
 
 }

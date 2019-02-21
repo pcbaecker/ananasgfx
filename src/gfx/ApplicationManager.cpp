@@ -6,7 +6,7 @@
 
 namespace gfx::_internal {
 
-    int ApplicationManager::ReturnCode = EXIT_SUCCESS;
+    int ApplicationManager::ReturnCode = EXIT_FAILURE;
 
     void ApplicationManager::removeUnlisted(
             std::map<std::string, ApplicationProxyBase *> &mapOfApps,
@@ -43,8 +43,8 @@ namespace gfx::_internal {
             bool devmode,
             std::vector<std::string> appNames,
             long appLifetime,
-            const std::string &resourceSpace,
-            const std::string &userSpace,
+            std::string resourceSpace,
+            std::string userSpace,
             bool fullscreen,
             bool hideCursor
     ) noexcept :
@@ -52,7 +52,12 @@ namespace gfx::_internal {
             mMaxAppLifetime(appLifetime),
             mResourcePath(std::move(resourceSpace)),
             mUserPath(std::move(userSpace)),
+            mFullscreen(fullscreen),
+            mHideCursor(hideCursor),
             mApplications(ApplicationStore::getInstance().getApplications()) {
+        // Set the ReturnCode to success
+        ApplicationManager::ReturnCode = EXIT_SUCCESS;
+
         // Check if we got appNames, which means we should only execute that apps
         if (!appNames.empty()) {
             removeUnlisted(this->mApplications, appNames);

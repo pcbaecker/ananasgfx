@@ -28,7 +28,7 @@ namespace gfx {
         // Copy into memory
         index = index * this->mAlignment;
         this->mData[index++] = x;
-        this->mData[index++] = y;
+        this->mData[index] = y;
     }
 
     void VertexBuffer::set(size_t index, float x, float y, float z) {

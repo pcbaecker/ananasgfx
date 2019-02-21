@@ -53,7 +53,9 @@ namespace gfx {
     }
 
     void Node::onChildAdded(Node *pNode) noexcept {
-        // Can be overridden by inheriting classes
+        if (pNode == nullptr) {
+            WARN("Given node should not be null", {});
+        }
     }
 
     void Node::onTouchBegan(const Touch &touch) noexcept {

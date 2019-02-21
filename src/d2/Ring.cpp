@@ -10,12 +10,12 @@ namespace d2 {
 
     void Ring::updateIndices() noexcept {
         int numberOfIndices = this->mNumberOfVertexPairs * 6;
-        this->mVertices.setNumberOfIndices(numberOfIndices);
+        this->mVertices.setNumberOfIndices(static_cast<size_t>(numberOfIndices));
 
         unsigned short v = 0;
         for (unsigned short i = 0; i < numberOfIndices / 3; i += 2, v += 2) {
-            this->mVertices.setIndices(i, v, v + 2, v + 1);
-            this->mVertices.setIndices(i + 1, v + 2, v + 3, v + 1);
+            this->mVertices.setIndices(i, v, static_cast<unsigned short>(v + 2), static_cast<unsigned short>(v + 1));
+            this->mVertices.setIndices(i + 1, static_cast<unsigned short>(v + 2), static_cast<unsigned short>(v + 3), static_cast<unsigned short>(v + 1));
         }
     }
 

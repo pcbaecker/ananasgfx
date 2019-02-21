@@ -73,8 +73,8 @@ namespace platform::desktop {
                 0.0f);
 
         // Update font manager
-        this->mFontManager.setHorizontalDpi(this->mHorizontalDpi);
-        this->mFontManager.setVerticalDpi(this->mVerticalDpi);
+        this->mFontManager.setHorizontalDpi(static_cast<unsigned short>(this->mHorizontalDpi));
+        this->mFontManager.setVerticalDpi(static_cast<unsigned short>(this->mVerticalDpi));
 
         // Window successfully created
         ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Window created", {

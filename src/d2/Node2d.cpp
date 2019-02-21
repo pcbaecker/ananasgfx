@@ -188,7 +188,10 @@ namespace d2 {
 
     void Node::setZIndex(uint8_t zindex) noexcept {
         this->mZIndex = zindex;
-        this->resortChildren();
+
+        if (this->pParent) {
+            this->pParent->resortChildren();
+        }
     }
 
     gfx::nodePriority_t Node::getPriority() const noexcept {

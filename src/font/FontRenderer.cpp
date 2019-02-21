@@ -146,13 +146,13 @@ namespace font {
             for (int y = 0; y < c->getBitmap().getHeight(); y++) {
                 for (int x = 0; x < c->getBitmap().getWidth(); x++) {
                     if (data[j]) {
-                        bitmap->setPixel(t + x, y + (maxOverBaseline - c->getOverBaseline()), data[j]);
+                        bitmap->setPixel(static_cast<uint16_t>(t + x), static_cast<uint16_t>(y + (maxOverBaseline - c->getOverBaseline())), data[j]);
                     }
                     j++;
                 }
             }
 
-            t += c->getAdvanceX();
+            t += static_cast<size_t>(c->getAdvanceX());
         }
 
         return bitmap;
@@ -222,8 +222,8 @@ namespace font {
             for (int y = 0; y < c->getBitmap().getHeight(); y++) {
                 for (int x = 0; x < c->getBitmap().getWidth(); x++) {
                     if (data[j]) {
-                        float t = startX + x;
-                        bitmap.setPixel(startX + x, y + startY + (maxOverBaseline - c->getOverBaseline()), data[j]);
+                        //float t = startX + x;
+                        bitmap.setPixel(static_cast<uint16_t>(startX + x), static_cast<uint16_t>(y + startY + (maxOverBaseline - c->getOverBaseline())), data[j]);
                     }
                     j++;
                 }

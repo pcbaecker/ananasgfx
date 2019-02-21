@@ -13,6 +13,7 @@ namespace gfx {
         bool shouldClose() noexcept override {return false;}
         void makeContext() noexcept override {}
         void swapBuffers() noexcept override {}
+        void handleEvents() noexcept override {}
     };
 #endif
 
