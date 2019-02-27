@@ -79,10 +79,6 @@ namespace platform::android {
         this->mCamera.updateWindow(this);
         this->mProjection2dMatrix = glm::ortho(0.0f, static_cast<float>(this->mWidth), static_cast<float>(this->mHeight), 0.0f);
 
-        // Update font manager
-        this->mFontManager.setHorizontalDpi(this->mHorizontalDpi);
-        this->mFontManager.setVerticalDpi(this->mVerticalDpi);
-
         // Make this window the current context
         this->makeContext();
 

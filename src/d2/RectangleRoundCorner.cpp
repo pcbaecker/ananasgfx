@@ -171,4 +171,7 @@ namespace d2 {
         this->mRadius = radios;
     }
 
+    float RectangleRoundCorner::getRadius() const noexcept {
+        return this->mRadius;
+    }
 }

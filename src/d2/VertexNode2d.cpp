@@ -120,4 +120,12 @@ namespace d2 {
 
         this->updateModelMatrix();
     }
+
+    const gfx::Vertices &VertexNode::getVertices() const noexcept {
+        return this->mVertices;
+    }
+
+    const glm::vec4 &VertexNode::getColor() const noexcept {
+        return this->mColor;
+    }
 }

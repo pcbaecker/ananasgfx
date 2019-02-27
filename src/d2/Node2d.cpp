@@ -233,4 +233,8 @@ namespace d2 {
 
         return rendertexture;
     }
+
+    uint8_t Node::getZIndex() const noexcept {
+        return this->mZIndex;
+    }
 }

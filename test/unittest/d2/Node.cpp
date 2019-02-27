@@ -6,7 +6,7 @@ TEST_CASE("d2::Node") {
 
     d2::Node node;
 
-    SECTION("bool init()") {
+    SECTION("bool init() noexcept") {
         REQUIRE(node.init());
     }
 
@@ -140,6 +140,37 @@ TEST_CASE("d2::Node") {
     SECTION("float getParentRotationOffset() const") {
         node.setParentRotationOffset(46.0f);
         REQUIRE(node.getParentRotationOffset() == Approx(46.0f));
+    }
+
+    SECTION("void setZIndex(uint8_t) noexcept") {
+        // Test default value
+        REQUIRE(0 == node.getZIndex());
+
+        // Set the z-index
+        node.setZIndex(123);
+        REQUIRE(123 == node.getZIndex());
+    }
+
+    SECTION("uint8_t getZIndex() const noexcept") {
+        // Test default value
+        REQUIRE(0 == node.getZIndex());
+
+        // Set the z-index
+        node.setZIndex(123);
+        REQUIRE(123 == node.getZIndex());
+    }
+
+    SECTION("gfx::nodePriority_t getPriority() const noexcept") {
+        // Test default value
+        REQUIRE(1024 == node.getPriority());
+
+        // Adjust by setting the z-index
+        node.setZIndex(3);
+        REQUIRE(1027 == node.getPriority());
+    }
+
+    SECTION("std::shared_ptr<gfx::RenderTexture> asRenderTexture() noexcept") {
+        // This method cannot be tested without a working OpenGL context
     }
 
     SECTION("Parent position and rotation offset propagated to child nodes") {

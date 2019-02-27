@@ -15,7 +15,7 @@ TEST_CASE("font::Font") {
     REQUIRE(FT_New_Face(library, "resource/Roboto-Bold.ttf", 0, &face) == 0);
 
     {// We need a scope for the font to be destroyed before the library is freed
-        font::Font font(face, "MyFontFamily", "MyFontSubFamily", 72, 72);
+        font::Font font(face, "MyFontFamily", "MyFontSubFamily");
 
         SECTION("const std::string& getFamilyName() const noexcept") {
             REQUIRE("MyFontFamily" == font.getFamilyName());
@@ -23,14 +23,6 @@ TEST_CASE("font::Font") {
 
         SECTION("const std::string& getSubFamilyName() const noexcept") {
             REQUIRE("MyFontSubFamily" == font.getSubFamilyName());
-        }
-
-        SECTION("float getHorizontalDpi() const noexcept") {
-            REQUIRE(72 == font.getHorizontalDpi());
-        }
-
-        SECTION("float getVerticalDpi() const noexcept") {
-            REQUIRE(72 == font.getVerticalDpi());
         }
 
         SECTION("bool createCharacter(long, font::size_t) noexcept") {

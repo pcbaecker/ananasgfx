@@ -6,8 +6,20 @@
 
 namespace font {
 
+    /**
+     * @brief Represents a single character in a font.
+     */
     class Character {
     public:
+        /**
+         * @brief Constructor.
+         *
+         * @param charCode The unicode charcode.
+         * @param advanceX The x-advance coordinate.
+         * @param underBaseline The distance under the baseline.
+         * @param overBaseline The distance over the baseline.
+         * @param bitmap The bitmap of the character.
+         */
         Character(long charCode,
                   float advanceX,
                   float underBaseline,

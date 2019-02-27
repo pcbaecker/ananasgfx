@@ -7,8 +7,8 @@
 
 namespace font {
 
-    Font::Font(FT_Face face, const std::string &familyName, const std::string &subFamilyName, unsigned short horizontalDpi, unsigned short verticalDpi) noexcept :
-    mFaceHandle(face), mFamilyName(familyName), mSubFamilyName(subFamilyName), mHorizontalDpi(horizontalDpi), mVerticalDpi(verticalDpi) {
+    Font::Font(FT_Face face, const std::string &familyName, const std::string &subFamilyName) noexcept :
+    mFaceHandle(face), mFamilyName(familyName), mSubFamilyName(subFamilyName) {
 
     }
 
@@ -24,22 +24,6 @@ namespace font {
 
     const std::string &Font::getSubFamilyName() const noexcept {
         return this->mSubFamilyName;
-    }
-
-    unsigned short Font::getVerticalDpi() const noexcept {
-        return this->mVerticalDpi;
-    }
-
-    unsigned short Font::getHorizontalDpi() const noexcept {
-        return this->mHorizontalDpi;
-    }
-
-    void Font::setVerticalDpi(unsigned short dpi) noexcept {
-        this->mVerticalDpi = dpi;
-    }
-
-    void Font::setHorizontalDpi(unsigned short dpi) noexcept {
-        this->mHorizontalDpi = dpi;
     }
 
     const std::map<font::size_t, std::map<long, std::shared_ptr<Character>>> &Font::getCharacterCache() const noexcept {

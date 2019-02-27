@@ -97,7 +97,7 @@ namespace font {
 
         return vector;
     }
-
+/*
     std::shared_ptr<gfx::Bitmap> FontRenderer::render(
             const std::string &text,
             Font *font,
@@ -156,7 +156,7 @@ namespace font {
         }
 
         return bitmap;
-    }
+    }*/
 
     void FontRenderer::render(
             const std::string &text, Font *font,

@@ -1,5 +1,6 @@
 #include "../Catch.hpp"
 #include <ananasgfx/font/FontRenderer.hpp>
+#include <ananasgfx/font/FontManager.hpp>
 #include <map>
 
 TEST_CASE("font::FontRenderer") {
@@ -42,5 +43,24 @@ TEST_CASE("font::FontRenderer") {
             REQUIRE(font::FontRenderer::convert("بوابة بالحرب المزيفة ذلك").size() == 24);
             REQUIRE(font::FontRenderer::convert("速請連著提囲春受二位並本復済石計転旅証落").size() == 20);
         }
+    }
+
+    SECTION("void render(const std::string&,Font*,font::size_t,gfx::Bitmap&,gfx::HorizontalAlign,gfx::VerticalAlign) noexcept") {
+        // Load font
+        font::FontManager fontManager;
+        REQUIRE(fontManager.registerFont("resource/Roboto-Bold.ttf", "Roboto", "Bold"));
+        auto font = fontManager.get("Roboto", "Bold");
+        REQUIRE(font.has_value());
+
+        // Create a bitmap
+        gfx::Bitmap bitmap(malloc(256*256*1), 256, 256, 1);
+
+        // Render into the given bitmap
+        font::FontRenderer::render(
+                "Text to render",
+                *font,
+                12,
+                bitmap, gfx::HorizontalAlign::Center,
+                gfx::VerticalAlign::Middle);
     }
 }

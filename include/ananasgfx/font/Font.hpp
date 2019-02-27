@@ -13,6 +13,9 @@ namespace font {
 
     typedef unsigned short size_t;
 
+    /**
+     * @brief Manages the creation and storage of the characters for a single font-family.
+     */
     class Font {
     public:
         /**
@@ -21,10 +24,8 @@ namespace font {
          * @param face The freetype face handle.
          * @param familyName The font family name.
          * @param subFamilyName The sub font family name.
-         * @param verticalDpi The vertical screen dpi.
-         * @param horizontalDpi The horizontal screen dpi.
          */
-        Font(FT_Face face, const std::string& familyName, const std::string& subFamilyName, unsigned short horizontalDpi, unsigned short verticalDpi) noexcept;
+        Font(FT_Face face, const std::string& familyName, const std::string& subFamilyName) noexcept;
 
         /**
          * @brief Destructor.
@@ -44,23 +45,6 @@ namespace font {
          * @return The sub font family.
          */
         const std::string& getSubFamilyName() const noexcept;
-
-        /**
-         * @brief Returns the vertical dpi.
-         *
-         * @return Vertical dpi.
-         */
-        unsigned short getVerticalDpi() const noexcept;
-
-        void setVerticalDpi(unsigned short dpi) noexcept;
-
-        /**
-         * @brief Returns the horizontal dpi
-         * @return
-         */
-        unsigned short getHorizontalDpi() const noexcept;
-
-        void setHorizontalDpi(unsigned short dpi) noexcept;
 
         /**
          * @brief Returns a reference to the character cache map.
@@ -100,16 +84,6 @@ namespace font {
          * @brief The font sub family name. (e.g.: Italic)
          */
         std::string mSubFamilyName;
-
-        /**
-         * @brief Holds the horizontal dpi.
-         */
-        unsigned short mHorizontalDpi = 0;
-
-        /**
-         * @brief Holds the vertical dpi.
-         */
-        unsigned short mVerticalDpi = 0;
 
         /**
          * @brief Holds the different characters for the different font sizes

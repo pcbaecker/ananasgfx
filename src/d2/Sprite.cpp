@@ -78,4 +78,16 @@ namespace d2 {
         this->pWindow->getRenderer()->bindTexture(this->pTexture->getName());
         VertexNode::draw();
     }
+
+    const std::string &Sprite::getFilename() const noexcept {
+        return this->mFilename;
+    }
+
+    gfx::Texture *Sprite::getTexture() const noexcept {
+        return this->pTexture;
+    }
+
+    bool Sprite::isVerticallyFlipped() const noexcept {
+        return this->mVerticalFlip;
+    }
 }

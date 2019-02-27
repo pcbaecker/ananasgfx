@@ -1,9 +1,10 @@
-#ifndef GFX_APPLICATIONMANANGER_H
-#define GFX_APPLICATIONMANANGER_H
+#ifndef GFX_INTERNAL_APPLICATIONMANANGER_H
+#define GFX_INTERNAL_APPLICATIONMANANGER_H
 
 #include <thread>
 #include <functional>
-#include <ananasgfx/gfx/Application.hpp>
+#include "../Application.hpp"
+#include "ApplicationStore.hpp"
 
 namespace gfx::_internal {
 

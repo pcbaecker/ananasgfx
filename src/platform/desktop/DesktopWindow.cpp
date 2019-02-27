@@ -72,10 +72,6 @@ namespace platform::desktop {
                 static_cast<float>(this->mHeight),
                 0.0f);
 
-        // Update font manager
-        this->mFontManager.setHorizontalDpi(static_cast<unsigned short>(this->mHorizontalDpi));
-        this->mFontManager.setVerticalDpi(static_cast<unsigned short>(this->mVerticalDpi));
-
         // Window successfully created
         ee::Log::log(ee::LogLevel::Info, "", __PRETTY_FUNCTION__, "Window created", {
                 ee::Note("Width", this->mWidth),

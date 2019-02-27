@@ -3,7 +3,7 @@
 #include <ananasgfx/platform/desktop/DesktopWindow.hpp>
 #include <ananasgfx/platform/desktop/CommandLineParameters.hpp>
 #include <ananasgfx/gfx/Application.hpp>
-#include <ananasgfx/gfx/ApplicationManager.hpp>
+#include <ananasgfx/gfx/internal/ApplicationManager.hpp>
 
 #include <ee/Log.hpp>
 #include <iostream>

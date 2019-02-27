@@ -58,4 +58,27 @@ namespace d2 {
         }
     }
 
+    void Ring::setThickness(float thickness) noexcept {
+        this->mThickness = thickness;
+    }
+
+    float Ring::getThickness() const noexcept {
+        return this->mThickness;
+    }
+
+    void Ring::setAngle(float angle) noexcept {
+        this->mAngle = angle;
+    }
+
+    float Ring::getAngle() const noexcept {
+        return this->mAngle;
+    }
+
+    void Ring::setStartAngle(float angle) noexcept {
+        this->mStartAngle = angle;
+    }
+
+    float Ring::getStartAngle() const noexcept {
+        return this->mStartAngle;
+    }
 }

@@ -49,7 +49,7 @@ namespace font {
         // Check if font family and fontSubFamily is predefined
         if (!fontFamily.empty() && !fontSubFamily.empty()) {
             // Create the font object in cache
-            this->mFontCache.emplace_back(face, fontFamily, fontSubFamily, this->mHorizontalDpi, this->mVerticalDpi);
+            this->mFontCache.emplace_back(face, fontFamily, fontSubFamily);
             return true;
         }
 
@@ -62,7 +62,7 @@ namespace font {
         }
 
         // create the font object in cache
-        this->mFontCache.emplace_back(face, std::get<0>(*familyName), std::get<1>(*familyName), this->mHorizontalDpi, this->mVerticalDpi);
+        this->mFontCache.emplace_back(face, std::get<0>(*familyName), std::get<1>(*familyName));
         return true;
     }
 
@@ -117,24 +117,6 @@ namespace font {
 
     const std::vector<Font> &FontManager::getFontFache() const noexcept {
         return this->mFontCache;
-    }
-
-    void FontManager::setHorizontalDpi(unsigned short dpi) noexcept {
-        this->mHorizontalDpi = dpi;
-
-        // Propagate the new dpi to the cached fonts
-        for (auto& font : this->mFontCache) {
-            font.setHorizontalDpi(dpi);
-        }
-    }
-
-    void FontManager::setVerticalDpi(unsigned short dpi) noexcept {
-        this->mVerticalDpi = dpi;
-
-        // Propagate the new dpi to the cached fonts
-        for (auto& font : this->mFontCache) {
-            font.setVerticalDpi(dpi);
-        }
     }
 
     std::optional<Font *> FontManager::get(const std::string &family, const std::string &subfamily) noexcept {

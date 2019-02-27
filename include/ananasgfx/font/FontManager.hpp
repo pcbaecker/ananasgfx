@@ -14,6 +14,9 @@ namespace font {
 
     DEFINE_EXCEPTION(FontManagerException);
 
+    /**
+     * @brief Manages all basic font related things like finding and caching font files.
+     */
     class FontManager {
     public:
         /**
@@ -45,23 +48,16 @@ namespace font {
          */
         const std::vector<Font>& getFontFache() const noexcept;
 
-        void setHorizontalDpi(unsigned short dpi) noexcept;
-
-        void setVerticalDpi(unsigned short dpi) noexcept;
-
+        /**
+         * @brief Tries to find a font entry for the given font family.
+         *
+         * @param family The name of the font family.
+         * @param subfamily The name of the font sub family.
+         * @return Optional that can contain a pointer to the requested font.
+         */
         std::optional<Font*> get(const std::string& family, const std::string& subfamily) noexcept;
 
     private:
-        /**
-         * @brief The horizontal dpi of the screen.
-         */
-        unsigned short mHorizontalDpi = 0;
-
-        /**
-         * @brief The vertical dpi of the screen.
-         */
-        unsigned short mVerticalDpi = 0;
-
         /**
          * @brief The library main handle that must be created at the beginning and destroyed at the end.
          */

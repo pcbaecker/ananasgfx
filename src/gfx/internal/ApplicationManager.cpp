@@ -1,4 +1,4 @@
-#include <ananasgfx/gfx/ApplicationManager.hpp>
+#include <ananasgfx/gfx/internal/ApplicationManager.hpp>
 #include <ananasgfx/gfx/Application.hpp>
 #include <ananasgfx/test/ApplicationTest.hpp>
 #include <ee/Log.hpp>

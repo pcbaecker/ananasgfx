@@ -27,11 +27,9 @@ TEST_CASE("font::FontManager") {
         FT_Done_FreeType(library);
     }
 
-    font::FontManager fontManager;
-    fontManager.setHorizontalDpi(76.0f);
-    fontManager.setVerticalDpi(72.0f);
-
     SECTION("bool registerFont(const std::string&)") {
+
+        font::FontManager fontManager;
 
         SECTION("File not found") {
             REQUIRE(ee::Log::getNumberOfLogEntries() == 0);
@@ -45,8 +43,6 @@ TEST_CASE("font::FontManager") {
             REQUIRE(fontManager.getFontFache().size() == 1);
             REQUIRE(fontManager.getFontFache()[0].getFamilyName() == "MyFontFamily");
             REQUIRE(fontManager.getFontFache()[0].getSubFamilyName() == "MyFontSubFamily");
-            REQUIRE(fontManager.getFontFache()[0].getHorizontalDpi() == Approx(76.0f));
-            REQUIRE(fontManager.getFontFache()[0].getVerticalDpi() == Approx(72.0f));
         }
 
         SECTION("Read fontFamily from file") {
@@ -55,19 +51,24 @@ TEST_CASE("font::FontManager") {
             REQUIRE(fontManager.getFontFache().size() == 1);
             REQUIRE(fontManager.getFontFache()[0].getFamilyName() == "Roboto");
             REQUIRE(fontManager.getFontFache()[0].getSubFamilyName() == "Bold");
-            REQUIRE(fontManager.getFontFache()[0].getHorizontalDpi() == Approx(76.0f));
-            REQUIRE(fontManager.getFontFache()[0].getVerticalDpi() == Approx(72.0f));
         }
     }
 
+    font::FontManager fontManager;
+    REQUIRE(fontManager.getFontFache().empty());
+    REQUIRE(fontManager.registerFont("resource/Roboto-Bold.ttf"));
+
     SECTION("const std::vector<Font>& getFontFache() const noexcept") {
-        REQUIRE(fontManager.getFontFache().empty());
-        REQUIRE(fontManager.registerFont("resource/Roboto-Bold.ttf"));
         REQUIRE(fontManager.getFontFache().size() == 1);
         REQUIRE(fontManager.getFontFache()[0].getFamilyName() == "Roboto");
         REQUIRE(fontManager.getFontFache()[0].getSubFamilyName() == "Bold");
-        REQUIRE(fontManager.getFontFache()[0].getHorizontalDpi() == Approx(76.0f));
-        REQUIRE(fontManager.getFontFache()[0].getVerticalDpi() == Approx(72.0f));
+    }
+
+    SECTION("std::optional<Font*> get(const std::string& family, const std::string& subfamily) noexcept") {
+        // Search not existing font
+        REQUIRE_FALSE(fontManager.get("unknown", "sub").has_value());
+
+        REQUIRE(fontManager.get("Roboto", "Bold").has_value());
     }
 
 }
