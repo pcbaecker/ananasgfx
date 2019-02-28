@@ -103,8 +103,6 @@ namespace gfx {
             }
         }
 
-        // TODO event handling here
-
         // Iterate through all windows
         for (auto it = this->mWindows.begin(); it != this->mWindows.end(); it++) {
             auto& window = (*it);
@@ -197,5 +195,9 @@ namespace gfx {
         }
 
         return node;
+    }
+
+    long Application::getMaxLifetime() const noexcept {
+        return this->mMaxLifetime;
     }
 }

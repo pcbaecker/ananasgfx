@@ -1,5 +1,5 @@
-#include "../Catch.hpp"
-#include <ananasgfx/gfx/ApplicationManager.hpp>
+#include "../../Catch.hpp"
+#include <ananasgfx/gfx/internal/ApplicationManager.hpp>
 #include <ee/Log.hpp>
 
 TEST_CASE("gfx::_internal::ApplicationManager") {
@@ -43,6 +43,30 @@ TEST_CASE("gfx::_internal::ApplicationManager") {
             REQUIRE(appsToKeep.size() == 1);
             REQUIRE(appsToKeep[0] == "notexist");
         }
+    }
+
+    gfx::_internal::ApplicationManager applicationManager(
+            true,
+            {"appname"},
+            123,
+            "resourcespace",
+            "userspace",
+            true,
+            true);
+
+    SECTION("void tick() noexcept") {
+        // Because there are no applications to launch the tick() should do nothing
+        applicationManager.tick();
+    }
+
+    SECTION("bool isDone() const noexcept") {
+        // There are no applications to launch that means we are done
+        REQUIRE(applicationManager.isDone());
+    }
+
+    SECTION("const std::shared_ptr<Application>& getCurrentApplication() noexcept") {
+        // There are no applications launched
+        REQUIRE(applicationManager.getCurrentApplication() == nullptr);
     }
 
 }

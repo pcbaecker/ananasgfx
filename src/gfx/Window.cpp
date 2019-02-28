@@ -8,7 +8,10 @@ namespace gfx {
 #ifdef __UNITTEST__
     class UnittestWindow : public gfx::Window {
     public:
-        UnittestWindow(const WindowConfiguration& windowConfiguration) noexcept : Window(windowConfiguration) {}
+        UnittestWindow(const WindowConfiguration& windowConfiguration) noexcept : Window(windowConfiguration) {
+            this->mWidth = 1;
+            this->mHeight = 1;
+        }
         bool init() noexcept override {return false;}
         bool shouldClose() noexcept override {return false;}
         void makeContext() noexcept override {}

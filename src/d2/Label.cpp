@@ -47,7 +47,7 @@ namespace d2 {
         // Create the new bitmap
         auto w = static_cast<unsigned short>(this->mSize.x);
         auto h = static_cast<unsigned short>(this->mSize.y);
-        this->mBitmap = std::make_unique<gfx::Bitmap>(malloc(w*h), w, h, 1);
+        this->mBitmap = std::make_unique<gfx::Bitmap>(w, h, 1);
     }
 
     bool Label::setFont(const std::string &fontFamily, const std::string &fontSubFamily) noexcept {

@@ -140,11 +140,7 @@ namespace gfx::_internal {
                && this->mIterator == this->mApplications.end();
     }
 
-    void ApplicationManager::surfaceAvailable() noexcept {
-
-    }
-
-    std::shared_ptr<Application> ApplicationManager::getCurrentApplication() noexcept {
+    const std::shared_ptr<Application>& ApplicationManager::getCurrentApplication() noexcept {
         return this->pCurrentApplication;
     }
 

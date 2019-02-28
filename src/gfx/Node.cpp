@@ -104,10 +104,6 @@ namespace gfx {
         });
     }
 
-    bool NodeComparator::operator()(const std::shared_ptr<Node> &lhs, const std::shared_ptr<Node> &rhs) const noexcept {
-        return lhs->getPriority() <= rhs->getPriority();
-    }
-
     void Node::setId(const std::string &id) noexcept {
         this->mId = id;
     }
@@ -134,5 +130,9 @@ namespace gfx {
 
     void Node::setVisible(bool visible) noexcept {
         this->mVisible = visible;
+    }
+
+    Node *Node::getParent() const noexcept {
+        return this->pParent;
     }
 }

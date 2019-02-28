@@ -76,6 +76,27 @@ TEST_CASE("gfx::Bitmap") {
         REQUIRE(bitmap.getHeight() == 2);
     }
 
+    SECTION("void clear(uint8_t) noexcept") {
+        gfx::Bitmap bitmap(1,1,1);
+        bitmap.clear(12);
+        REQUIRE(reinterpret_cast<const uint8_t*>(bitmap.getData())[0] == 12);
+        bitmap.clear(0);
+        REQUIRE(reinterpret_cast<const uint8_t*>(bitmap.getData())[0] == 0);
+    }
+
+    SECTION("void flipVertical() noexcept") {
+        gfx::Bitmap bitmap(2,2,1);
+        bitmap.setPixel(0,0,44);
+        bitmap.setPixel(1,0,55);
+        bitmap.setPixel(0,1,88);
+        bitmap.setPixel(1,1,99);
+        bitmap.flipVertical();
+        REQUIRE(bitmap.getPixelGrayscale(0,0) == 88);
+        REQUIRE(bitmap.getPixelGrayscale(1,0) == 99);
+        REQUIRE(bitmap.getPixelGrayscale(0,1) == 44);
+        REQUIRE(bitmap.getPixelGrayscale(1,1) == 55);
+    }
+
     SECTION("bool saveAsFile(const std::string &) const noexcept") {
         // Try to save to an invalid path
         REQUIRE_FALSE(bitmap.saveAsFile("/doesnt/exist/f.png"));

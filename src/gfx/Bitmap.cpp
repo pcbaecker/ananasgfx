@@ -29,6 +29,11 @@ namespace gfx {
 
     }
 
+    Bitmap::Bitmap(size_t width, size_t height, uint8_t channels) noexcept :
+    pData(malloc(width * height * channels)), mWidth(width), mHeight(height), mChannels(channels) {
+
+    }
+
     Bitmap::Bitmap(Bitmap &&bitmap) noexcept :
     pData(bitmap.pData),
     mWidth(bitmap.mWidth),
@@ -370,7 +375,6 @@ namespace gfx {
     std::shared_ptr<Bitmap> Bitmap::asGrayscale() const noexcept {
         // Create the raw bitmap data
         auto bitmap = std::make_shared<Bitmap>(
-                malloc(this->mWidth * this->mHeight),
                 this->mWidth, this->mHeight, 1);
 
         // Iterate through all pixels
