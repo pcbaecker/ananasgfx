@@ -135,4 +135,8 @@ namespace gfx {
     Node *Node::getParent() const noexcept {
         return this->pParent;
     }
+
+    const std::list<std::shared_ptr<Node>> &Node::getChildren() const noexcept {
+        return this->mChildren;
+    }
 }

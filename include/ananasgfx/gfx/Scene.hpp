@@ -10,6 +10,9 @@ namespace gfx {
 
     class Window;
 
+    /**
+     * @brief Is the root node.
+     */
     class Scene : public Node {
         friend class Window;
     public:

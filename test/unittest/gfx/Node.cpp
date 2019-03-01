@@ -5,7 +5,7 @@
 
 class MyNode : public gfx::Node {
 public:
-    gfx::nodePriority_t getPriority() noexcept const override {
+    gfx::nodePriority_t getPriority() const noexcept override {
         return this->mPriority;
     }
 
@@ -63,7 +63,7 @@ TEST_CASE("gfx::Node") {
     }
 
     SECTION("std::optional<Node*> getChildWithId(const std::string&) const noexcept") {
-        auto child = node.createChild<d2::Rectangle>();
+        auto child = node.createChild<MyNode>();
         child->setId("one");
 
         REQUIRE_FALSE(node.getChildWithId("two").has_value());
@@ -104,6 +104,54 @@ TEST_CASE("gfx::Node") {
 
     SECTION("void resortChildren() noexcept") {
         auto one = node.createChild<MyNode>();
+        auto two = node.createChild<MyNode>();
+
+        // One is the first element
+        one->setPriority(1);
+        two->setPriority(2);
+        node.resortChildren();
+        auto it = node.getChildren().begin();
+        REQUIRE((*it++).get() == one);
+        REQUIRE((*it).get() == two);
+
+        // Two is the first element
+        one->setPriority(2);
+        two->setPriority(1);
+        node.resortChildren();
+        it = node.getChildren().begin();
+        REQUIRE((*it++).get() == two);
+        REQUIRE((*it).get() == one);
+    }
+
+    SECTION("Node* getParent() const noexcept") {
+        auto one = node.createChild<MyNode>();
+        REQUIRE(nullptr == node.getParent());
+        REQUIRE(&node == one->getParent());
+    }
+
+    SECTION("bool isVisible() const noexcept") {
+        // Default value
+        REQUIRE(node.isVisible());
+
+        // Set value
+        node.setVisible(false);
+        REQUIRE_FALSE(node.isVisible());
+    }
+
+    SECTION("void setVisible(bool visible) noexcept") {
+        // Default value
+        REQUIRE(node.isVisible());
+
+        // Set value
+        node.setVisible(false);
+        REQUIRE_FALSE(node.isVisible());
+    }
+
+    SECTION("const std::list<std::shared_ptr<Node>>& getChildren() const noexcept") {
+        REQUIRE(node.getChildren().empty());
+        auto one = node.createChild<MyNode>();
+        auto two = node.createChild<MyNode>();
+        REQUIRE(node.getChildren().size() == 2);
     }
 
 }

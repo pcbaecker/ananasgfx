@@ -146,6 +146,13 @@ namespace gfx {
          */
         void setVisible(bool visible) noexcept;
 
+        /**
+         * @brief Returns the list of children.
+         *
+         * @return List of children.
+         */
+        const std::list<std::shared_ptr<Node>>& getChildren() const noexcept;
+
     protected:
         /**
          * @brief This callback will be called everytime a new child is added.
