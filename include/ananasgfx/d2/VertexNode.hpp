@@ -1,7 +1,7 @@
 #ifndef D2_VERTEXNODE_H
 #define D2_VERTEXNODE_H
 
-#include <ananasgfx/gfx/Vertex.hpp>
+#include <ananasgfx/gfx/Vertices.hpp>
 #include <ananasgfx/gfx/Shader.hpp>
 #include "Node.hpp"
 

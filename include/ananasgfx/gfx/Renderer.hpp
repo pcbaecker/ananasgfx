@@ -5,7 +5,7 @@
 #include <memory>
 #include <string>
 
-#include "Vertex.hpp"
+#include "Vertices.hpp"
 #include "Shader.hpp"
 #include "Texture.hpp"
 

@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <ee/Log.hpp>
 
-#include <ananasgfx/gfx/ApplicationManager.hpp>
+#include <ananasgfx/gfx/internal/ApplicationManager.hpp>
 #include <ananasgfx/platform/android/AndroidWindow.hpp>
 
 #define NN_LOGGER_NAME "AnanasGfx"

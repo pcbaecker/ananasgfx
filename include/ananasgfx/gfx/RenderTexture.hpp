@@ -1,7 +1,7 @@
 #ifndef GFX_RENDERTEXTURE_H
 #define GFX_RENDERTEXTURE_H
 
-#include "Vertex.hpp"
+#include "Vertices.hpp"
 #include "Texture.hpp"
 #include "Bitmap.hpp"
 
