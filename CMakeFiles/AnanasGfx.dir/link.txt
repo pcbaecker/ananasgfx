@@ -1,1 +1,0 @@
-/emsdk_portable/sdk/emar rc libAnanasGfx.a  @CMakeFiles/AnanasGfx.dir/objects1.rsp

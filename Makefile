@@ -113,10 +113,21 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
+	cd /src/cmake-build-emscripten && /opt/cmake/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
+
+# Special rule for the target package
+package/fast: package
+
+.PHONY : package/fast
+
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/opt/cmake/bin/cpack --config ./CPackSourceConfig.cmake /src/cmake-build-emscripten/CPackSourceConfig.cmake
+	cd /src/cmake-build-emscripten && /opt/cmake/bin/cpack --config ./CPackSourceConfig.cmake /src/cmake-build-emscripten/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -135,27 +146,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	/opt/cmake/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
-
-# Special rule for the target package
-package/fast: package
-
-.PHONY : package/fast
-
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /src/cmake-build-emscripten/CMakeFiles /src/cmake-build-emscripten/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /src/cmake-build-emscripten && $(CMAKE_COMMAND) -E cmake_progress_start /src/cmake-build-emscripten/CMakeFiles /src/cmake-build-emscripten/examples/CMakeFiles/progress.marks
+	cd /src/cmake-build-emscripten && $(MAKE) -f CMakeFiles/Makefile2 examples/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /src/cmake-build-emscripten/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /src/cmake-build-emscripten && $(MAKE) -f CMakeFiles/Makefile2 examples/clean
 .PHONY : clean
 
 # The main clean target
@@ -165,1393 +165,141 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /src/cmake-build-emscripten && $(MAKE) -f CMakeFiles/Makefile2 examples/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /src/cmake-build-emscripten && $(MAKE) -f CMakeFiles/Makefile2 examples/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /src/cmake-build-emscripten && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named AnanasGfx
+# Convenience name for target.
+examples/CMakeFiles/AnanasGfxExamples.dir/rule:
+	cd /src/cmake-build-emscripten && $(MAKE) -f CMakeFiles/Makefile2 examples/CMakeFiles/AnanasGfxExamples.dir/rule
+.PHONY : examples/CMakeFiles/AnanasGfxExamples.dir/rule
 
-# Build rule for target.
-AnanasGfx: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 AnanasGfx
-.PHONY : AnanasGfx
+# Convenience name for target.
+AnanasGfxExamples: examples/CMakeFiles/AnanasGfxExamples.dir/rule
 
-# fast build rule for target.
-AnanasGfx/fast:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/build
-.PHONY : AnanasGfx/fast
-
-#=============================================================================
-# Target rules for targets named freetype
-
-# Build rule for target.
-freetype: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 freetype
-.PHONY : freetype
-
-# fast build rule for target.
-freetype/fast:
-	$(MAKE) -f dependencies/freetype2/CMakeFiles/freetype.dir/build.make dependencies/freetype2/CMakeFiles/freetype.dir/build
-.PHONY : freetype/fast
-
-#=============================================================================
-# Target rules for targets named EasyException
-
-# Build rule for target.
-EasyException: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 EasyException
-.PHONY : EasyException
-
-# fast build rule for target.
-EasyException/fast:
-	$(MAKE) -f dependencies/easy-exception/CMakeFiles/EasyException.dir/build.make dependencies/easy-exception/CMakeFiles/EasyException.dir/build
-.PHONY : EasyException/fast
-
-#=============================================================================
-# Target rules for targets named AnanasGfxExamples
-
-# Build rule for target.
-AnanasGfxExamples: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 AnanasGfxExamples
 .PHONY : AnanasGfxExamples
 
 # fast build rule for target.
 AnanasGfxExamples/fast:
-	$(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/build
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/build
 .PHONY : AnanasGfxExamples/fast
 
-src/d2/Circle.o: src/d2/Circle.cpp.o
+src/multiwindow/MultiWindow.o: src/multiwindow/MultiWindow.cpp.o
 
-.PHONY : src/d2/Circle.o
-
-# target to build an object file
-src/d2/Circle.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Circle.cpp.o
-.PHONY : src/d2/Circle.cpp.o
-
-src/d2/Circle.i: src/d2/Circle.cpp.i
-
-.PHONY : src/d2/Circle.i
-
-# target to preprocess a source file
-src/d2/Circle.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Circle.cpp.i
-.PHONY : src/d2/Circle.cpp.i
-
-src/d2/Circle.s: src/d2/Circle.cpp.s
-
-.PHONY : src/d2/Circle.s
-
-# target to generate assembly for a file
-src/d2/Circle.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Circle.cpp.s
-.PHONY : src/d2/Circle.cpp.s
-
-src/d2/Label.o: src/d2/Label.cpp.o
-
-.PHONY : src/d2/Label.o
+.PHONY : src/multiwindow/MultiWindow.o
 
 # target to build an object file
-src/d2/Label.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Label.cpp.o
-.PHONY : src/d2/Label.cpp.o
+src/multiwindow/MultiWindow.cpp.o:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o
+.PHONY : src/multiwindow/MultiWindow.cpp.o
 
-src/d2/Label.i: src/d2/Label.cpp.i
+src/multiwindow/MultiWindow.i: src/multiwindow/MultiWindow.cpp.i
 
-.PHONY : src/d2/Label.i
+.PHONY : src/multiwindow/MultiWindow.i
 
 # target to preprocess a source file
-src/d2/Label.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Label.cpp.i
-.PHONY : src/d2/Label.cpp.i
+src/multiwindow/MultiWindow.cpp.i:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.i
+.PHONY : src/multiwindow/MultiWindow.cpp.i
 
-src/d2/Label.s: src/d2/Label.cpp.s
+src/multiwindow/MultiWindow.s: src/multiwindow/MultiWindow.cpp.s
 
-.PHONY : src/d2/Label.s
+.PHONY : src/multiwindow/MultiWindow.s
 
 # target to generate assembly for a file
-src/d2/Label.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Label.cpp.s
-.PHONY : src/d2/Label.cpp.s
+src/multiwindow/MultiWindow.cpp.s:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.s
+.PHONY : src/multiwindow/MultiWindow.cpp.s
 
-src/d2/Node2d.o: src/d2/Node2d.cpp.o
+src/primitives2d/Primitives2d.o: src/primitives2d/Primitives2d.cpp.o
 
-.PHONY : src/d2/Node2d.o
+.PHONY : src/primitives2d/Primitives2d.o
 
 # target to build an object file
-src/d2/Node2d.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Node2d.cpp.o
-.PHONY : src/d2/Node2d.cpp.o
+src/primitives2d/Primitives2d.cpp.o:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o
+.PHONY : src/primitives2d/Primitives2d.cpp.o
 
-src/d2/Node2d.i: src/d2/Node2d.cpp.i
+src/primitives2d/Primitives2d.i: src/primitives2d/Primitives2d.cpp.i
 
-.PHONY : src/d2/Node2d.i
+.PHONY : src/primitives2d/Primitives2d.i
 
 # target to preprocess a source file
-src/d2/Node2d.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Node2d.cpp.i
-.PHONY : src/d2/Node2d.cpp.i
+src/primitives2d/Primitives2d.cpp.i:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.i
+.PHONY : src/primitives2d/Primitives2d.cpp.i
 
-src/d2/Node2d.s: src/d2/Node2d.cpp.s
+src/primitives2d/Primitives2d.s: src/primitives2d/Primitives2d.cpp.s
 
-.PHONY : src/d2/Node2d.s
+.PHONY : src/primitives2d/Primitives2d.s
 
 # target to generate assembly for a file
-src/d2/Node2d.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Node2d.cpp.s
-.PHONY : src/d2/Node2d.cpp.s
+src/primitives2d/Primitives2d.cpp.s:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.s
+.PHONY : src/primitives2d/Primitives2d.cpp.s
 
-src/d2/Rectangle.o: src/d2/Rectangle.cpp.o
+src/primitives3d/Primitives3d.o: src/primitives3d/Primitives3d.cpp.o
 
-.PHONY : src/d2/Rectangle.o
+.PHONY : src/primitives3d/Primitives3d.o
 
 # target to build an object file
-src/d2/Rectangle.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Rectangle.cpp.o
-.PHONY : src/d2/Rectangle.cpp.o
+src/primitives3d/Primitives3d.cpp.o:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o
+.PHONY : src/primitives3d/Primitives3d.cpp.o
 
-src/d2/Rectangle.i: src/d2/Rectangle.cpp.i
+src/primitives3d/Primitives3d.i: src/primitives3d/Primitives3d.cpp.i
 
-.PHONY : src/d2/Rectangle.i
+.PHONY : src/primitives3d/Primitives3d.i
 
 # target to preprocess a source file
-src/d2/Rectangle.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Rectangle.cpp.i
-.PHONY : src/d2/Rectangle.cpp.i
+src/primitives3d/Primitives3d.cpp.i:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.i
+.PHONY : src/primitives3d/Primitives3d.cpp.i
 
-src/d2/Rectangle.s: src/d2/Rectangle.cpp.s
+src/primitives3d/Primitives3d.s: src/primitives3d/Primitives3d.cpp.s
 
-.PHONY : src/d2/Rectangle.s
+.PHONY : src/primitives3d/Primitives3d.s
 
 # target to generate assembly for a file
-src/d2/Rectangle.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Rectangle.cpp.s
-.PHONY : src/d2/Rectangle.cpp.s
+src/primitives3d/Primitives3d.cpp.s:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.s
+.PHONY : src/primitives3d/Primitives3d.cpp.s
 
-src/d2/RectangleRoundCorner.o: src/d2/RectangleRoundCorner.cpp.o
+src/rendertexture/Rendertexture.o: src/rendertexture/Rendertexture.cpp.o
 
-.PHONY : src/d2/RectangleRoundCorner.o
+.PHONY : src/rendertexture/Rendertexture.o
 
 # target to build an object file
-src/d2/RectangleRoundCorner.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/RectangleRoundCorner.cpp.o
-.PHONY : src/d2/RectangleRoundCorner.cpp.o
+src/rendertexture/Rendertexture.cpp.o:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.o
+.PHONY : src/rendertexture/Rendertexture.cpp.o
 
-src/d2/RectangleRoundCorner.i: src/d2/RectangleRoundCorner.cpp.i
+src/rendertexture/Rendertexture.i: src/rendertexture/Rendertexture.cpp.i
 
-.PHONY : src/d2/RectangleRoundCorner.i
-
-# target to preprocess a source file
-src/d2/RectangleRoundCorner.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/RectangleRoundCorner.cpp.i
-.PHONY : src/d2/RectangleRoundCorner.cpp.i
-
-src/d2/RectangleRoundCorner.s: src/d2/RectangleRoundCorner.cpp.s
-
-.PHONY : src/d2/RectangleRoundCorner.s
-
-# target to generate assembly for a file
-src/d2/RectangleRoundCorner.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/RectangleRoundCorner.cpp.s
-.PHONY : src/d2/RectangleRoundCorner.cpp.s
-
-src/d2/Ring.o: src/d2/Ring.cpp.o
-
-.PHONY : src/d2/Ring.o
-
-# target to build an object file
-src/d2/Ring.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Ring.cpp.o
-.PHONY : src/d2/Ring.cpp.o
-
-src/d2/Ring.i: src/d2/Ring.cpp.i
-
-.PHONY : src/d2/Ring.i
+.PHONY : src/rendertexture/Rendertexture.i
 
 # target to preprocess a source file
-src/d2/Ring.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Ring.cpp.i
-.PHONY : src/d2/Ring.cpp.i
+src/rendertexture/Rendertexture.cpp.i:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.i
+.PHONY : src/rendertexture/Rendertexture.cpp.i
 
-src/d2/Ring.s: src/d2/Ring.cpp.s
+src/rendertexture/Rendertexture.s: src/rendertexture/Rendertexture.cpp.s
 
-.PHONY : src/d2/Ring.s
-
-# target to generate assembly for a file
-src/d2/Ring.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Ring.cpp.s
-.PHONY : src/d2/Ring.cpp.s
-
-src/d2/Sprite.o: src/d2/Sprite.cpp.o
-
-.PHONY : src/d2/Sprite.o
-
-# target to build an object file
-src/d2/Sprite.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Sprite.cpp.o
-.PHONY : src/d2/Sprite.cpp.o
-
-src/d2/Sprite.i: src/d2/Sprite.cpp.i
-
-.PHONY : src/d2/Sprite.i
-
-# target to preprocess a source file
-src/d2/Sprite.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Sprite.cpp.i
-.PHONY : src/d2/Sprite.cpp.i
-
-src/d2/Sprite.s: src/d2/Sprite.cpp.s
-
-.PHONY : src/d2/Sprite.s
+.PHONY : src/rendertexture/Rendertexture.s
 
 # target to generate assembly for a file
-src/d2/Sprite.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/Sprite.cpp.s
-.PHONY : src/d2/Sprite.cpp.s
-
-src/d2/VertexNode2d.o: src/d2/VertexNode2d.cpp.o
-
-.PHONY : src/d2/VertexNode2d.o
-
-# target to build an object file
-src/d2/VertexNode2d.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/VertexNode2d.cpp.o
-.PHONY : src/d2/VertexNode2d.cpp.o
-
-src/d2/VertexNode2d.i: src/d2/VertexNode2d.cpp.i
-
-.PHONY : src/d2/VertexNode2d.i
-
-# target to preprocess a source file
-src/d2/VertexNode2d.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/VertexNode2d.cpp.i
-.PHONY : src/d2/VertexNode2d.cpp.i
-
-src/d2/VertexNode2d.s: src/d2/VertexNode2d.cpp.s
-
-.PHONY : src/d2/VertexNode2d.s
-
-# target to generate assembly for a file
-src/d2/VertexNode2d.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d2/VertexNode2d.cpp.s
-.PHONY : src/d2/VertexNode2d.cpp.s
-
-src/d3/Cube.o: src/d3/Cube.cpp.o
-
-.PHONY : src/d3/Cube.o
-
-# target to build an object file
-src/d3/Cube.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d3/Cube.cpp.o
-.PHONY : src/d3/Cube.cpp.o
-
-src/d3/Cube.i: src/d3/Cube.cpp.i
-
-.PHONY : src/d3/Cube.i
-
-# target to preprocess a source file
-src/d3/Cube.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d3/Cube.cpp.i
-.PHONY : src/d3/Cube.cpp.i
-
-src/d3/Cube.s: src/d3/Cube.cpp.s
-
-.PHONY : src/d3/Cube.s
-
-# target to generate assembly for a file
-src/d3/Cube.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d3/Cube.cpp.s
-.PHONY : src/d3/Cube.cpp.s
-
-src/d3/Node3d.o: src/d3/Node3d.cpp.o
-
-.PHONY : src/d3/Node3d.o
-
-# target to build an object file
-src/d3/Node3d.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d3/Node3d.cpp.o
-.PHONY : src/d3/Node3d.cpp.o
-
-src/d3/Node3d.i: src/d3/Node3d.cpp.i
-
-.PHONY : src/d3/Node3d.i
-
-# target to preprocess a source file
-src/d3/Node3d.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d3/Node3d.cpp.i
-.PHONY : src/d3/Node3d.cpp.i
-
-src/d3/Node3d.s: src/d3/Node3d.cpp.s
-
-.PHONY : src/d3/Node3d.s
-
-# target to generate assembly for a file
-src/d3/Node3d.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d3/Node3d.cpp.s
-.PHONY : src/d3/Node3d.cpp.s
-
-src/d3/VertexNode3d.o: src/d3/VertexNode3d.cpp.o
-
-.PHONY : src/d3/VertexNode3d.o
-
-# target to build an object file
-src/d3/VertexNode3d.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d3/VertexNode3d.cpp.o
-.PHONY : src/d3/VertexNode3d.cpp.o
-
-src/d3/VertexNode3d.i: src/d3/VertexNode3d.cpp.i
-
-.PHONY : src/d3/VertexNode3d.i
-
-# target to preprocess a source file
-src/d3/VertexNode3d.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d3/VertexNode3d.cpp.i
-.PHONY : src/d3/VertexNode3d.cpp.i
-
-src/d3/VertexNode3d.s: src/d3/VertexNode3d.cpp.s
-
-.PHONY : src/d3/VertexNode3d.s
-
-# target to generate assembly for a file
-src/d3/VertexNode3d.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/d3/VertexNode3d.cpp.s
-.PHONY : src/d3/VertexNode3d.cpp.s
-
-src/font/Character.o: src/font/Character.cpp.o
-
-.PHONY : src/font/Character.o
-
-# target to build an object file
-src/font/Character.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/Character.cpp.o
-.PHONY : src/font/Character.cpp.o
-
-src/font/Character.i: src/font/Character.cpp.i
-
-.PHONY : src/font/Character.i
-
-# target to preprocess a source file
-src/font/Character.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/Character.cpp.i
-.PHONY : src/font/Character.cpp.i
-
-src/font/Character.s: src/font/Character.cpp.s
-
-.PHONY : src/font/Character.s
-
-# target to generate assembly for a file
-src/font/Character.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/Character.cpp.s
-.PHONY : src/font/Character.cpp.s
-
-src/font/Font.o: src/font/Font.cpp.o
-
-.PHONY : src/font/Font.o
-
-# target to build an object file
-src/font/Font.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/Font.cpp.o
-.PHONY : src/font/Font.cpp.o
-
-src/font/Font.i: src/font/Font.cpp.i
-
-.PHONY : src/font/Font.i
-
-# target to preprocess a source file
-src/font/Font.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/Font.cpp.i
-.PHONY : src/font/Font.cpp.i
-
-src/font/Font.s: src/font/Font.cpp.s
-
-.PHONY : src/font/Font.s
-
-# target to generate assembly for a file
-src/font/Font.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/Font.cpp.s
-.PHONY : src/font/Font.cpp.s
-
-src/font/FontManager.o: src/font/FontManager.cpp.o
-
-.PHONY : src/font/FontManager.o
-
-# target to build an object file
-src/font/FontManager.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/FontManager.cpp.o
-.PHONY : src/font/FontManager.cpp.o
-
-src/font/FontManager.i: src/font/FontManager.cpp.i
-
-.PHONY : src/font/FontManager.i
-
-# target to preprocess a source file
-src/font/FontManager.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/FontManager.cpp.i
-.PHONY : src/font/FontManager.cpp.i
-
-src/font/FontManager.s: src/font/FontManager.cpp.s
-
-.PHONY : src/font/FontManager.s
-
-# target to generate assembly for a file
-src/font/FontManager.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/FontManager.cpp.s
-.PHONY : src/font/FontManager.cpp.s
-
-src/font/FontRenderer.o: src/font/FontRenderer.cpp.o
-
-.PHONY : src/font/FontRenderer.o
-
-# target to build an object file
-src/font/FontRenderer.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/FontRenderer.cpp.o
-.PHONY : src/font/FontRenderer.cpp.o
-
-src/font/FontRenderer.i: src/font/FontRenderer.cpp.i
-
-.PHONY : src/font/FontRenderer.i
-
-# target to preprocess a source file
-src/font/FontRenderer.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/FontRenderer.cpp.i
-.PHONY : src/font/FontRenderer.cpp.i
-
-src/font/FontRenderer.s: src/font/FontRenderer.cpp.s
-
-.PHONY : src/font/FontRenderer.s
-
-# target to generate assembly for a file
-src/font/FontRenderer.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/font/FontRenderer.cpp.s
-.PHONY : src/font/FontRenderer.cpp.s
-
-src/gfx/Application.o: src/gfx/Application.cpp.o
-
-.PHONY : src/gfx/Application.o
-
-# target to build an object file
-src/gfx/Application.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Application.cpp.o
-.PHONY : src/gfx/Application.cpp.o
-
-src/gfx/Application.i: src/gfx/Application.cpp.i
-
-.PHONY : src/gfx/Application.i
-
-# target to preprocess a source file
-src/gfx/Application.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Application.cpp.i
-.PHONY : src/gfx/Application.cpp.i
-
-src/gfx/Application.s: src/gfx/Application.cpp.s
-
-.PHONY : src/gfx/Application.s
-
-# target to generate assembly for a file
-src/gfx/Application.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Application.cpp.s
-.PHONY : src/gfx/Application.cpp.s
-
-src/gfx/Bitmap.o: src/gfx/Bitmap.cpp.o
-
-.PHONY : src/gfx/Bitmap.o
-
-# target to build an object file
-src/gfx/Bitmap.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Bitmap.cpp.o
-.PHONY : src/gfx/Bitmap.cpp.o
-
-src/gfx/Bitmap.i: src/gfx/Bitmap.cpp.i
-
-.PHONY : src/gfx/Bitmap.i
-
-# target to preprocess a source file
-src/gfx/Bitmap.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Bitmap.cpp.i
-.PHONY : src/gfx/Bitmap.cpp.i
-
-src/gfx/Bitmap.s: src/gfx/Bitmap.cpp.s
-
-.PHONY : src/gfx/Bitmap.s
-
-# target to generate assembly for a file
-src/gfx/Bitmap.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Bitmap.cpp.s
-.PHONY : src/gfx/Bitmap.cpp.s
-
-src/gfx/Camera.o: src/gfx/Camera.cpp.o
-
-.PHONY : src/gfx/Camera.o
-
-# target to build an object file
-src/gfx/Camera.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Camera.cpp.o
-.PHONY : src/gfx/Camera.cpp.o
-
-src/gfx/Camera.i: src/gfx/Camera.cpp.i
-
-.PHONY : src/gfx/Camera.i
-
-# target to preprocess a source file
-src/gfx/Camera.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Camera.cpp.i
-.PHONY : src/gfx/Camera.cpp.i
-
-src/gfx/Camera.s: src/gfx/Camera.cpp.s
-
-.PHONY : src/gfx/Camera.s
-
-# target to generate assembly for a file
-src/gfx/Camera.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Camera.cpp.s
-.PHONY : src/gfx/Camera.cpp.s
-
-src/gfx/ClippingNode.o: src/gfx/ClippingNode.cpp.o
-
-.PHONY : src/gfx/ClippingNode.o
-
-# target to build an object file
-src/gfx/ClippingNode.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/ClippingNode.cpp.o
-.PHONY : src/gfx/ClippingNode.cpp.o
-
-src/gfx/ClippingNode.i: src/gfx/ClippingNode.cpp.i
-
-.PHONY : src/gfx/ClippingNode.i
-
-# target to preprocess a source file
-src/gfx/ClippingNode.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/ClippingNode.cpp.i
-.PHONY : src/gfx/ClippingNode.cpp.i
-
-src/gfx/ClippingNode.s: src/gfx/ClippingNode.cpp.s
-
-.PHONY : src/gfx/ClippingNode.s
-
-# target to generate assembly for a file
-src/gfx/ClippingNode.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/ClippingNode.cpp.s
-.PHONY : src/gfx/ClippingNode.cpp.s
-
-src/gfx/FileManager.o: src/gfx/FileManager.cpp.o
-
-.PHONY : src/gfx/FileManager.o
-
-# target to build an object file
-src/gfx/FileManager.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/FileManager.cpp.o
-.PHONY : src/gfx/FileManager.cpp.o
-
-src/gfx/FileManager.i: src/gfx/FileManager.cpp.i
-
-.PHONY : src/gfx/FileManager.i
-
-# target to preprocess a source file
-src/gfx/FileManager.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/FileManager.cpp.i
-.PHONY : src/gfx/FileManager.cpp.i
-
-src/gfx/FileManager.s: src/gfx/FileManager.cpp.s
-
-.PHONY : src/gfx/FileManager.s
-
-# target to generate assembly for a file
-src/gfx/FileManager.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/FileManager.cpp.s
-.PHONY : src/gfx/FileManager.cpp.s
-
-src/gfx/Node.o: src/gfx/Node.cpp.o
-
-.PHONY : src/gfx/Node.o
-
-# target to build an object file
-src/gfx/Node.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Node.cpp.o
-.PHONY : src/gfx/Node.cpp.o
-
-src/gfx/Node.i: src/gfx/Node.cpp.i
-
-.PHONY : src/gfx/Node.i
-
-# target to preprocess a source file
-src/gfx/Node.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Node.cpp.i
-.PHONY : src/gfx/Node.cpp.i
-
-src/gfx/Node.s: src/gfx/Node.cpp.s
-
-.PHONY : src/gfx/Node.s
-
-# target to generate assembly for a file
-src/gfx/Node.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Node.cpp.s
-.PHONY : src/gfx/Node.cpp.s
-
-src/gfx/RenderTexture.o: src/gfx/RenderTexture.cpp.o
-
-.PHONY : src/gfx/RenderTexture.o
-
-# target to build an object file
-src/gfx/RenderTexture.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/RenderTexture.cpp.o
-.PHONY : src/gfx/RenderTexture.cpp.o
-
-src/gfx/RenderTexture.i: src/gfx/RenderTexture.cpp.i
-
-.PHONY : src/gfx/RenderTexture.i
-
-# target to preprocess a source file
-src/gfx/RenderTexture.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/RenderTexture.cpp.i
-.PHONY : src/gfx/RenderTexture.cpp.i
-
-src/gfx/RenderTexture.s: src/gfx/RenderTexture.cpp.s
-
-.PHONY : src/gfx/RenderTexture.s
-
-# target to generate assembly for a file
-src/gfx/RenderTexture.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/RenderTexture.cpp.s
-.PHONY : src/gfx/RenderTexture.cpp.s
-
-src/gfx/Renderer.o: src/gfx/Renderer.cpp.o
-
-.PHONY : src/gfx/Renderer.o
-
-# target to build an object file
-src/gfx/Renderer.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Renderer.cpp.o
-.PHONY : src/gfx/Renderer.cpp.o
-
-src/gfx/Renderer.i: src/gfx/Renderer.cpp.i
-
-.PHONY : src/gfx/Renderer.i
-
-# target to preprocess a source file
-src/gfx/Renderer.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Renderer.cpp.i
-.PHONY : src/gfx/Renderer.cpp.i
-
-src/gfx/Renderer.s: src/gfx/Renderer.cpp.s
-
-.PHONY : src/gfx/Renderer.s
-
-# target to generate assembly for a file
-src/gfx/Renderer.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Renderer.cpp.s
-.PHONY : src/gfx/Renderer.cpp.s
-
-src/gfx/Scene.o: src/gfx/Scene.cpp.o
-
-.PHONY : src/gfx/Scene.o
-
-# target to build an object file
-src/gfx/Scene.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Scene.cpp.o
-.PHONY : src/gfx/Scene.cpp.o
-
-src/gfx/Scene.i: src/gfx/Scene.cpp.i
-
-.PHONY : src/gfx/Scene.i
-
-# target to preprocess a source file
-src/gfx/Scene.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Scene.cpp.i
-.PHONY : src/gfx/Scene.cpp.i
-
-src/gfx/Scene.s: src/gfx/Scene.cpp.s
-
-.PHONY : src/gfx/Scene.s
-
-# target to generate assembly for a file
-src/gfx/Scene.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Scene.cpp.s
-.PHONY : src/gfx/Scene.cpp.s
-
-src/gfx/Task.o: src/gfx/Task.cpp.o
-
-.PHONY : src/gfx/Task.o
-
-# target to build an object file
-src/gfx/Task.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Task.cpp.o
-.PHONY : src/gfx/Task.cpp.o
-
-src/gfx/Task.i: src/gfx/Task.cpp.i
-
-.PHONY : src/gfx/Task.i
-
-# target to preprocess a source file
-src/gfx/Task.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Task.cpp.i
-.PHONY : src/gfx/Task.cpp.i
-
-src/gfx/Task.s: src/gfx/Task.cpp.s
-
-.PHONY : src/gfx/Task.s
-
-# target to generate assembly for a file
-src/gfx/Task.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Task.cpp.s
-.PHONY : src/gfx/Task.cpp.s
-
-src/gfx/Texture.o: src/gfx/Texture.cpp.o
-
-.PHONY : src/gfx/Texture.o
-
-# target to build an object file
-src/gfx/Texture.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Texture.cpp.o
-.PHONY : src/gfx/Texture.cpp.o
-
-src/gfx/Texture.i: src/gfx/Texture.cpp.i
-
-.PHONY : src/gfx/Texture.i
-
-# target to preprocess a source file
-src/gfx/Texture.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Texture.cpp.i
-.PHONY : src/gfx/Texture.cpp.i
-
-src/gfx/Texture.s: src/gfx/Texture.cpp.s
-
-.PHONY : src/gfx/Texture.s
-
-# target to generate assembly for a file
-src/gfx/Texture.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Texture.cpp.s
-.PHONY : src/gfx/Texture.cpp.s
-
-src/gfx/TextureManager.o: src/gfx/TextureManager.cpp.o
-
-.PHONY : src/gfx/TextureManager.o
-
-# target to build an object file
-src/gfx/TextureManager.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/TextureManager.cpp.o
-.PHONY : src/gfx/TextureManager.cpp.o
-
-src/gfx/TextureManager.i: src/gfx/TextureManager.cpp.i
-
-.PHONY : src/gfx/TextureManager.i
-
-# target to preprocess a source file
-src/gfx/TextureManager.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/TextureManager.cpp.i
-.PHONY : src/gfx/TextureManager.cpp.i
-
-src/gfx/TextureManager.s: src/gfx/TextureManager.cpp.s
-
-.PHONY : src/gfx/TextureManager.s
-
-# target to generate assembly for a file
-src/gfx/TextureManager.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/TextureManager.cpp.s
-.PHONY : src/gfx/TextureManager.cpp.s
-
-src/gfx/Touch.o: src/gfx/Touch.cpp.o
-
-.PHONY : src/gfx/Touch.o
-
-# target to build an object file
-src/gfx/Touch.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Touch.cpp.o
-.PHONY : src/gfx/Touch.cpp.o
-
-src/gfx/Touch.i: src/gfx/Touch.cpp.i
-
-.PHONY : src/gfx/Touch.i
-
-# target to preprocess a source file
-src/gfx/Touch.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Touch.cpp.i
-.PHONY : src/gfx/Touch.cpp.i
-
-src/gfx/Touch.s: src/gfx/Touch.cpp.s
-
-.PHONY : src/gfx/Touch.s
-
-# target to generate assembly for a file
-src/gfx/Touch.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Touch.cpp.s
-.PHONY : src/gfx/Touch.cpp.s
-
-src/gfx/VertexBuffer.o: src/gfx/VertexBuffer.cpp.o
-
-.PHONY : src/gfx/VertexBuffer.o
-
-# target to build an object file
-src/gfx/VertexBuffer.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/VertexBuffer.cpp.o
-.PHONY : src/gfx/VertexBuffer.cpp.o
-
-src/gfx/VertexBuffer.i: src/gfx/VertexBuffer.cpp.i
-
-.PHONY : src/gfx/VertexBuffer.i
-
-# target to preprocess a source file
-src/gfx/VertexBuffer.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/VertexBuffer.cpp.i
-.PHONY : src/gfx/VertexBuffer.cpp.i
-
-src/gfx/VertexBuffer.s: src/gfx/VertexBuffer.cpp.s
-
-.PHONY : src/gfx/VertexBuffer.s
-
-# target to generate assembly for a file
-src/gfx/VertexBuffer.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/VertexBuffer.cpp.s
-.PHONY : src/gfx/VertexBuffer.cpp.s
-
-src/gfx/Vertices.o: src/gfx/Vertices.cpp.o
-
-.PHONY : src/gfx/Vertices.o
-
-# target to build an object file
-src/gfx/Vertices.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Vertices.cpp.o
-.PHONY : src/gfx/Vertices.cpp.o
-
-src/gfx/Vertices.i: src/gfx/Vertices.cpp.i
-
-.PHONY : src/gfx/Vertices.i
-
-# target to preprocess a source file
-src/gfx/Vertices.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Vertices.cpp.i
-.PHONY : src/gfx/Vertices.cpp.i
-
-src/gfx/Vertices.s: src/gfx/Vertices.cpp.s
-
-.PHONY : src/gfx/Vertices.s
-
-# target to generate assembly for a file
-src/gfx/Vertices.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Vertices.cpp.s
-.PHONY : src/gfx/Vertices.cpp.s
-
-src/gfx/Window.o: src/gfx/Window.cpp.o
-
-.PHONY : src/gfx/Window.o
-
-# target to build an object file
-src/gfx/Window.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Window.cpp.o
-.PHONY : src/gfx/Window.cpp.o
-
-src/gfx/Window.i: src/gfx/Window.cpp.i
-
-.PHONY : src/gfx/Window.i
-
-# target to preprocess a source file
-src/gfx/Window.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Window.cpp.i
-.PHONY : src/gfx/Window.cpp.i
-
-src/gfx/Window.s: src/gfx/Window.cpp.s
-
-.PHONY : src/gfx/Window.s
-
-# target to generate assembly for a file
-src/gfx/Window.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/Window.cpp.s
-.PHONY : src/gfx/Window.cpp.s
-
-src/gfx/WindowConfiguration.o: src/gfx/WindowConfiguration.cpp.o
-
-.PHONY : src/gfx/WindowConfiguration.o
-
-# target to build an object file
-src/gfx/WindowConfiguration.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/WindowConfiguration.cpp.o
-.PHONY : src/gfx/WindowConfiguration.cpp.o
-
-src/gfx/WindowConfiguration.i: src/gfx/WindowConfiguration.cpp.i
-
-.PHONY : src/gfx/WindowConfiguration.i
-
-# target to preprocess a source file
-src/gfx/WindowConfiguration.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/WindowConfiguration.cpp.i
-.PHONY : src/gfx/WindowConfiguration.cpp.i
-
-src/gfx/WindowConfiguration.s: src/gfx/WindowConfiguration.cpp.s
-
-.PHONY : src/gfx/WindowConfiguration.s
-
-# target to generate assembly for a file
-src/gfx/WindowConfiguration.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/WindowConfiguration.cpp.s
-.PHONY : src/gfx/WindowConfiguration.cpp.s
-
-src/gfx/internal/ApplicationManager.o: src/gfx/internal/ApplicationManager.cpp.o
-
-.PHONY : src/gfx/internal/ApplicationManager.o
-
-# target to build an object file
-src/gfx/internal/ApplicationManager.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/internal/ApplicationManager.cpp.o
-.PHONY : src/gfx/internal/ApplicationManager.cpp.o
-
-src/gfx/internal/ApplicationManager.i: src/gfx/internal/ApplicationManager.cpp.i
-
-.PHONY : src/gfx/internal/ApplicationManager.i
-
-# target to preprocess a source file
-src/gfx/internal/ApplicationManager.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/internal/ApplicationManager.cpp.i
-.PHONY : src/gfx/internal/ApplicationManager.cpp.i
-
-src/gfx/internal/ApplicationManager.s: src/gfx/internal/ApplicationManager.cpp.s
-
-.PHONY : src/gfx/internal/ApplicationManager.s
-
-# target to generate assembly for a file
-src/gfx/internal/ApplicationManager.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/internal/ApplicationManager.cpp.s
-.PHONY : src/gfx/internal/ApplicationManager.cpp.s
-
-src/gfx/internal/ApplicationStore.o: src/gfx/internal/ApplicationStore.cpp.o
-
-.PHONY : src/gfx/internal/ApplicationStore.o
-
-# target to build an object file
-src/gfx/internal/ApplicationStore.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/internal/ApplicationStore.cpp.o
-.PHONY : src/gfx/internal/ApplicationStore.cpp.o
-
-src/gfx/internal/ApplicationStore.i: src/gfx/internal/ApplicationStore.cpp.i
-
-.PHONY : src/gfx/internal/ApplicationStore.i
-
-# target to preprocess a source file
-src/gfx/internal/ApplicationStore.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/internal/ApplicationStore.cpp.i
-.PHONY : src/gfx/internal/ApplicationStore.cpp.i
-
-src/gfx/internal/ApplicationStore.s: src/gfx/internal/ApplicationStore.cpp.s
-
-.PHONY : src/gfx/internal/ApplicationStore.s
-
-# target to generate assembly for a file
-src/gfx/internal/ApplicationStore.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/internal/ApplicationStore.cpp.s
-.PHONY : src/gfx/internal/ApplicationStore.cpp.s
-
-src/gfx/renderer/opengl/OpenGlShader.o: src/gfx/renderer/opengl/OpenGlShader.cpp.o
-
-.PHONY : src/gfx/renderer/opengl/OpenGlShader.o
-
-# target to build an object file
-src/gfx/renderer/opengl/OpenGlShader.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/OpenGlShader.cpp.o
-.PHONY : src/gfx/renderer/opengl/OpenGlShader.cpp.o
-
-src/gfx/renderer/opengl/OpenGlShader.i: src/gfx/renderer/opengl/OpenGlShader.cpp.i
-
-.PHONY : src/gfx/renderer/opengl/OpenGlShader.i
-
-# target to preprocess a source file
-src/gfx/renderer/opengl/OpenGlShader.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/OpenGlShader.cpp.i
-.PHONY : src/gfx/renderer/opengl/OpenGlShader.cpp.i
-
-src/gfx/renderer/opengl/OpenGlShader.s: src/gfx/renderer/opengl/OpenGlShader.cpp.s
-
-.PHONY : src/gfx/renderer/opengl/OpenGlShader.s
-
-# target to generate assembly for a file
-src/gfx/renderer/opengl/OpenGlShader.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/OpenGlShader.cpp.s
-.PHONY : src/gfx/renderer/opengl/OpenGlShader.cpp.s
-
-src/gfx/renderer/opengl/OpenglRenderer.o: src/gfx/renderer/opengl/OpenglRenderer.cpp.o
-
-.PHONY : src/gfx/renderer/opengl/OpenglRenderer.o
-
-# target to build an object file
-src/gfx/renderer/opengl/OpenglRenderer.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/OpenglRenderer.cpp.o
-.PHONY : src/gfx/renderer/opengl/OpenglRenderer.cpp.o
-
-src/gfx/renderer/opengl/OpenglRenderer.i: src/gfx/renderer/opengl/OpenglRenderer.cpp.i
-
-.PHONY : src/gfx/renderer/opengl/OpenglRenderer.i
-
-# target to preprocess a source file
-src/gfx/renderer/opengl/OpenglRenderer.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/OpenglRenderer.cpp.i
-.PHONY : src/gfx/renderer/opengl/OpenglRenderer.cpp.i
-
-src/gfx/renderer/opengl/OpenglRenderer.s: src/gfx/renderer/opengl/OpenglRenderer.cpp.s
-
-.PHONY : src/gfx/renderer/opengl/OpenglRenderer.s
-
-# target to generate assembly for a file
-src/gfx/renderer/opengl/OpenglRenderer.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/OpenglRenderer.cpp.s
-.PHONY : src/gfx/renderer/opengl/OpenglRenderer.cpp.s
-
-src/gfx/renderer/opengl/SimpleColorShader.o: src/gfx/renderer/opengl/SimpleColorShader.cpp.o
-
-.PHONY : src/gfx/renderer/opengl/SimpleColorShader.o
-
-# target to build an object file
-src/gfx/renderer/opengl/SimpleColorShader.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/SimpleColorShader.cpp.o
-.PHONY : src/gfx/renderer/opengl/SimpleColorShader.cpp.o
-
-src/gfx/renderer/opengl/SimpleColorShader.i: src/gfx/renderer/opengl/SimpleColorShader.cpp.i
-
-.PHONY : src/gfx/renderer/opengl/SimpleColorShader.i
-
-# target to preprocess a source file
-src/gfx/renderer/opengl/SimpleColorShader.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/SimpleColorShader.cpp.i
-.PHONY : src/gfx/renderer/opengl/SimpleColorShader.cpp.i
-
-src/gfx/renderer/opengl/SimpleColorShader.s: src/gfx/renderer/opengl/SimpleColorShader.cpp.s
-
-.PHONY : src/gfx/renderer/opengl/SimpleColorShader.s
-
-# target to generate assembly for a file
-src/gfx/renderer/opengl/SimpleColorShader.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/SimpleColorShader.cpp.s
-.PHONY : src/gfx/renderer/opengl/SimpleColorShader.cpp.s
-
-src/gfx/renderer/opengl/TextureGrayAlphaShader.o: src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.o
-
-.PHONY : src/gfx/renderer/opengl/TextureGrayAlphaShader.o
-
-# target to build an object file
-src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.o
-.PHONY : src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.o
-
-src/gfx/renderer/opengl/TextureGrayAlphaShader.i: src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.i
-
-.PHONY : src/gfx/renderer/opengl/TextureGrayAlphaShader.i
-
-# target to preprocess a source file
-src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.i
-.PHONY : src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.i
-
-src/gfx/renderer/opengl/TextureGrayAlphaShader.s: src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.s
-
-.PHONY : src/gfx/renderer/opengl/TextureGrayAlphaShader.s
-
-# target to generate assembly for a file
-src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.s
-.PHONY : src/gfx/renderer/opengl/TextureGrayAlphaShader.cpp.s
-
-src/gfx/renderer/opengl/TextureGrayscaleShader.o: src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.o
-
-.PHONY : src/gfx/renderer/opengl/TextureGrayscaleShader.o
-
-# target to build an object file
-src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.o
-.PHONY : src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.o
-
-src/gfx/renderer/opengl/TextureGrayscaleShader.i: src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.i
-
-.PHONY : src/gfx/renderer/opengl/TextureGrayscaleShader.i
-
-# target to preprocess a source file
-src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.i
-.PHONY : src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.i
-
-src/gfx/renderer/opengl/TextureGrayscaleShader.s: src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.s
-
-.PHONY : src/gfx/renderer/opengl/TextureGrayscaleShader.s
-
-# target to generate assembly for a file
-src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.s
-.PHONY : src/gfx/renderer/opengl/TextureGrayscaleShader.cpp.s
-
-src/gfx/renderer/opengl/TextureRgbaShader.o: src/gfx/renderer/opengl/TextureRgbaShader.cpp.o
-
-.PHONY : src/gfx/renderer/opengl/TextureRgbaShader.o
-
-# target to build an object file
-src/gfx/renderer/opengl/TextureRgbaShader.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/TextureRgbaShader.cpp.o
-.PHONY : src/gfx/renderer/opengl/TextureRgbaShader.cpp.o
-
-src/gfx/renderer/opengl/TextureRgbaShader.i: src/gfx/renderer/opengl/TextureRgbaShader.cpp.i
-
-.PHONY : src/gfx/renderer/opengl/TextureRgbaShader.i
-
-# target to preprocess a source file
-src/gfx/renderer/opengl/TextureRgbaShader.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/TextureRgbaShader.cpp.i
-.PHONY : src/gfx/renderer/opengl/TextureRgbaShader.cpp.i
-
-src/gfx/renderer/opengl/TextureRgbaShader.s: src/gfx/renderer/opengl/TextureRgbaShader.cpp.s
-
-.PHONY : src/gfx/renderer/opengl/TextureRgbaShader.s
-
-# target to generate assembly for a file
-src/gfx/renderer/opengl/TextureRgbaShader.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/gfx/renderer/opengl/TextureRgbaShader.cpp.s
-.PHONY : src/gfx/renderer/opengl/TextureRgbaShader.cpp.s
-
-src/platform/android/AndroidWindow.o: src/platform/android/AndroidWindow.cpp.o
-
-.PHONY : src/platform/android/AndroidWindow.o
-
-# target to build an object file
-src/platform/android/AndroidWindow.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/android/AndroidWindow.cpp.o
-.PHONY : src/platform/android/AndroidWindow.cpp.o
-
-src/platform/android/AndroidWindow.i: src/platform/android/AndroidWindow.cpp.i
-
-.PHONY : src/platform/android/AndroidWindow.i
-
-# target to preprocess a source file
-src/platform/android/AndroidWindow.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/android/AndroidWindow.cpp.i
-.PHONY : src/platform/android/AndroidWindow.cpp.i
-
-src/platform/android/AndroidWindow.s: src/platform/android/AndroidWindow.cpp.s
-
-.PHONY : src/platform/android/AndroidWindow.s
-
-# target to generate assembly for a file
-src/platform/android/AndroidWindow.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/android/AndroidWindow.cpp.s
-.PHONY : src/platform/android/AndroidWindow.cpp.s
-
-src/platform/android/android_main.o: src/platform/android/android_main.cpp.o
-
-.PHONY : src/platform/android/android_main.o
-
-# target to build an object file
-src/platform/android/android_main.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/android/android_main.cpp.o
-.PHONY : src/platform/android/android_main.cpp.o
-
-src/platform/android/android_main.i: src/platform/android/android_main.cpp.i
-
-.PHONY : src/platform/android/android_main.i
-
-# target to preprocess a source file
-src/platform/android/android_main.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/android/android_main.cpp.i
-.PHONY : src/platform/android/android_main.cpp.i
-
-src/platform/android/android_main.s: src/platform/android/android_main.cpp.s
-
-.PHONY : src/platform/android/android_main.s
-
-# target to generate assembly for a file
-src/platform/android/android_main.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/android/android_main.cpp.s
-.PHONY : src/platform/android/android_main.cpp.s
-
-src/platform/desktop/CommandLineParameters.o: src/platform/desktop/CommandLineParameters.cpp.o
-
-.PHONY : src/platform/desktop/CommandLineParameters.o
-
-# target to build an object file
-src/platform/desktop/CommandLineParameters.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/desktop/CommandLineParameters.cpp.o
-.PHONY : src/platform/desktop/CommandLineParameters.cpp.o
-
-src/platform/desktop/CommandLineParameters.i: src/platform/desktop/CommandLineParameters.cpp.i
-
-.PHONY : src/platform/desktop/CommandLineParameters.i
-
-# target to preprocess a source file
-src/platform/desktop/CommandLineParameters.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/desktop/CommandLineParameters.cpp.i
-.PHONY : src/platform/desktop/CommandLineParameters.cpp.i
-
-src/platform/desktop/CommandLineParameters.s: src/platform/desktop/CommandLineParameters.cpp.s
-
-.PHONY : src/platform/desktop/CommandLineParameters.s
-
-# target to generate assembly for a file
-src/platform/desktop/CommandLineParameters.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/desktop/CommandLineParameters.cpp.s
-.PHONY : src/platform/desktop/CommandLineParameters.cpp.s
-
-src/platform/desktop/DesktopWindow.o: src/platform/desktop/DesktopWindow.cpp.o
-
-.PHONY : src/platform/desktop/DesktopWindow.o
-
-# target to build an object file
-src/platform/desktop/DesktopWindow.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/desktop/DesktopWindow.cpp.o
-.PHONY : src/platform/desktop/DesktopWindow.cpp.o
-
-src/platform/desktop/DesktopWindow.i: src/platform/desktop/DesktopWindow.cpp.i
-
-.PHONY : src/platform/desktop/DesktopWindow.i
-
-# target to preprocess a source file
-src/platform/desktop/DesktopWindow.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/desktop/DesktopWindow.cpp.i
-.PHONY : src/platform/desktop/DesktopWindow.cpp.i
-
-src/platform/desktop/DesktopWindow.s: src/platform/desktop/DesktopWindow.cpp.s
-
-.PHONY : src/platform/desktop/DesktopWindow.s
-
-# target to generate assembly for a file
-src/platform/desktop/DesktopWindow.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/desktop/DesktopWindow.cpp.s
-.PHONY : src/platform/desktop/DesktopWindow.cpp.s
-
-src/platform/desktop/main.o: src/platform/desktop/main.cpp.o
-
-.PHONY : src/platform/desktop/main.o
-
-# target to build an object file
-src/platform/desktop/main.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/desktop/main.cpp.o
-.PHONY : src/platform/desktop/main.cpp.o
-
-src/platform/desktop/main.i: src/platform/desktop/main.cpp.i
-
-.PHONY : src/platform/desktop/main.i
-
-# target to preprocess a source file
-src/platform/desktop/main.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/desktop/main.cpp.i
-.PHONY : src/platform/desktop/main.cpp.i
-
-src/platform/desktop/main.s: src/platform/desktop/main.cpp.s
-
-.PHONY : src/platform/desktop/main.s
-
-# target to generate assembly for a file
-src/platform/desktop/main.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/platform/desktop/main.cpp.s
-.PHONY : src/platform/desktop/main.cpp.s
-
-src/test/ApplicationTest.o: src/test/ApplicationTest.cpp.o
-
-.PHONY : src/test/ApplicationTest.o
-
-# target to build an object file
-src/test/ApplicationTest.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/ApplicationTest.cpp.o
-.PHONY : src/test/ApplicationTest.cpp.o
-
-src/test/ApplicationTest.i: src/test/ApplicationTest.cpp.i
-
-.PHONY : src/test/ApplicationTest.i
-
-# target to preprocess a source file
-src/test/ApplicationTest.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/ApplicationTest.cpp.i
-.PHONY : src/test/ApplicationTest.cpp.i
-
-src/test/ApplicationTest.s: src/test/ApplicationTest.cpp.s
-
-.PHONY : src/test/ApplicationTest.s
-
-# target to generate assembly for a file
-src/test/ApplicationTest.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/ApplicationTest.cpp.s
-.PHONY : src/test/ApplicationTest.cpp.s
-
-src/test/PHash.o: src/test/PHash.cpp.o
-
-.PHONY : src/test/PHash.o
-
-# target to build an object file
-src/test/PHash.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/PHash.cpp.o
-.PHONY : src/test/PHash.cpp.o
-
-src/test/PHash.i: src/test/PHash.cpp.i
-
-.PHONY : src/test/PHash.i
-
-# target to preprocess a source file
-src/test/PHash.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/PHash.cpp.i
-.PHONY : src/test/PHash.cpp.i
-
-src/test/PHash.s: src/test/PHash.cpp.s
-
-.PHONY : src/test/PHash.s
-
-# target to generate assembly for a file
-src/test/PHash.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/PHash.cpp.s
-.PHONY : src/test/PHash.cpp.s
-
-src/test/TestTasks.o: src/test/TestTasks.cpp.o
-
-.PHONY : src/test/TestTasks.o
-
-# target to build an object file
-src/test/TestTasks.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/TestTasks.cpp.o
-.PHONY : src/test/TestTasks.cpp.o
-
-src/test/TestTasks.i: src/test/TestTasks.cpp.i
-
-.PHONY : src/test/TestTasks.i
-
-# target to preprocess a source file
-src/test/TestTasks.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/TestTasks.cpp.i
-.PHONY : src/test/TestTasks.cpp.i
-
-src/test/TestTasks.s: src/test/TestTasks.cpp.s
-
-.PHONY : src/test/TestTasks.s
-
-# target to generate assembly for a file
-src/test/TestTasks.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/TestTasks.cpp.s
-.PHONY : src/test/TestTasks.cpp.s
-
-src/test/internal/ApplicationTestStore.o: src/test/internal/ApplicationTestStore.cpp.o
-
-.PHONY : src/test/internal/ApplicationTestStore.o
-
-# target to build an object file
-src/test/internal/ApplicationTestStore.cpp.o:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/internal/ApplicationTestStore.cpp.o
-.PHONY : src/test/internal/ApplicationTestStore.cpp.o
-
-src/test/internal/ApplicationTestStore.i: src/test/internal/ApplicationTestStore.cpp.i
-
-.PHONY : src/test/internal/ApplicationTestStore.i
-
-# target to preprocess a source file
-src/test/internal/ApplicationTestStore.cpp.i:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/internal/ApplicationTestStore.cpp.i
-.PHONY : src/test/internal/ApplicationTestStore.cpp.i
-
-src/test/internal/ApplicationTestStore.s: src/test/internal/ApplicationTestStore.cpp.s
-
-.PHONY : src/test/internal/ApplicationTestStore.s
-
-# target to generate assembly for a file
-src/test/internal/ApplicationTestStore.cpp.s:
-	$(MAKE) -f CMakeFiles/AnanasGfx.dir/build.make CMakeFiles/AnanasGfx.dir/src/test/internal/ApplicationTestStore.cpp.s
-.PHONY : src/test/internal/ApplicationTestStore.cpp.s
+src/rendertexture/Rendertexture.cpp.s:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.s
+.PHONY : src/rendertexture/Rendertexture.cpp.s
 
 # Help Target
 help:
@@ -1564,160 +312,22 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... AnanasGfx"
+	@echo "... AnanasGfxExamples"
+	@echo "... package"
 	@echo "... package_source"
 	@echo "... edit_cache"
-	@echo "... package"
-	@echo "... freetype"
-	@echo "... EasyException"
-	@echo "... AnanasGfxExamples"
-	@echo "... src/d2/Circle.o"
-	@echo "... src/d2/Circle.i"
-	@echo "... src/d2/Circle.s"
-	@echo "... src/d2/Label.o"
-	@echo "... src/d2/Label.i"
-	@echo "... src/d2/Label.s"
-	@echo "... src/d2/Node2d.o"
-	@echo "... src/d2/Node2d.i"
-	@echo "... src/d2/Node2d.s"
-	@echo "... src/d2/Rectangle.o"
-	@echo "... src/d2/Rectangle.i"
-	@echo "... src/d2/Rectangle.s"
-	@echo "... src/d2/RectangleRoundCorner.o"
-	@echo "... src/d2/RectangleRoundCorner.i"
-	@echo "... src/d2/RectangleRoundCorner.s"
-	@echo "... src/d2/Ring.o"
-	@echo "... src/d2/Ring.i"
-	@echo "... src/d2/Ring.s"
-	@echo "... src/d2/Sprite.o"
-	@echo "... src/d2/Sprite.i"
-	@echo "... src/d2/Sprite.s"
-	@echo "... src/d2/VertexNode2d.o"
-	@echo "... src/d2/VertexNode2d.i"
-	@echo "... src/d2/VertexNode2d.s"
-	@echo "... src/d3/Cube.o"
-	@echo "... src/d3/Cube.i"
-	@echo "... src/d3/Cube.s"
-	@echo "... src/d3/Node3d.o"
-	@echo "... src/d3/Node3d.i"
-	@echo "... src/d3/Node3d.s"
-	@echo "... src/d3/VertexNode3d.o"
-	@echo "... src/d3/VertexNode3d.i"
-	@echo "... src/d3/VertexNode3d.s"
-	@echo "... src/font/Character.o"
-	@echo "... src/font/Character.i"
-	@echo "... src/font/Character.s"
-	@echo "... src/font/Font.o"
-	@echo "... src/font/Font.i"
-	@echo "... src/font/Font.s"
-	@echo "... src/font/FontManager.o"
-	@echo "... src/font/FontManager.i"
-	@echo "... src/font/FontManager.s"
-	@echo "... src/font/FontRenderer.o"
-	@echo "... src/font/FontRenderer.i"
-	@echo "... src/font/FontRenderer.s"
-	@echo "... src/gfx/Application.o"
-	@echo "... src/gfx/Application.i"
-	@echo "... src/gfx/Application.s"
-	@echo "... src/gfx/Bitmap.o"
-	@echo "... src/gfx/Bitmap.i"
-	@echo "... src/gfx/Bitmap.s"
-	@echo "... src/gfx/Camera.o"
-	@echo "... src/gfx/Camera.i"
-	@echo "... src/gfx/Camera.s"
-	@echo "... src/gfx/ClippingNode.o"
-	@echo "... src/gfx/ClippingNode.i"
-	@echo "... src/gfx/ClippingNode.s"
-	@echo "... src/gfx/FileManager.o"
-	@echo "... src/gfx/FileManager.i"
-	@echo "... src/gfx/FileManager.s"
-	@echo "... src/gfx/Node.o"
-	@echo "... src/gfx/Node.i"
-	@echo "... src/gfx/Node.s"
-	@echo "... src/gfx/RenderTexture.o"
-	@echo "... src/gfx/RenderTexture.i"
-	@echo "... src/gfx/RenderTexture.s"
-	@echo "... src/gfx/Renderer.o"
-	@echo "... src/gfx/Renderer.i"
-	@echo "... src/gfx/Renderer.s"
-	@echo "... src/gfx/Scene.o"
-	@echo "... src/gfx/Scene.i"
-	@echo "... src/gfx/Scene.s"
-	@echo "... src/gfx/Task.o"
-	@echo "... src/gfx/Task.i"
-	@echo "... src/gfx/Task.s"
-	@echo "... src/gfx/Texture.o"
-	@echo "... src/gfx/Texture.i"
-	@echo "... src/gfx/Texture.s"
-	@echo "... src/gfx/TextureManager.o"
-	@echo "... src/gfx/TextureManager.i"
-	@echo "... src/gfx/TextureManager.s"
-	@echo "... src/gfx/Touch.o"
-	@echo "... src/gfx/Touch.i"
-	@echo "... src/gfx/Touch.s"
-	@echo "... src/gfx/VertexBuffer.o"
-	@echo "... src/gfx/VertexBuffer.i"
-	@echo "... src/gfx/VertexBuffer.s"
-	@echo "... src/gfx/Vertices.o"
-	@echo "... src/gfx/Vertices.i"
-	@echo "... src/gfx/Vertices.s"
-	@echo "... src/gfx/Window.o"
-	@echo "... src/gfx/Window.i"
-	@echo "... src/gfx/Window.s"
-	@echo "... src/gfx/WindowConfiguration.o"
-	@echo "... src/gfx/WindowConfiguration.i"
-	@echo "... src/gfx/WindowConfiguration.s"
-	@echo "... src/gfx/internal/ApplicationManager.o"
-	@echo "... src/gfx/internal/ApplicationManager.i"
-	@echo "... src/gfx/internal/ApplicationManager.s"
-	@echo "... src/gfx/internal/ApplicationStore.o"
-	@echo "... src/gfx/internal/ApplicationStore.i"
-	@echo "... src/gfx/internal/ApplicationStore.s"
-	@echo "... src/gfx/renderer/opengl/OpenGlShader.o"
-	@echo "... src/gfx/renderer/opengl/OpenGlShader.i"
-	@echo "... src/gfx/renderer/opengl/OpenGlShader.s"
-	@echo "... src/gfx/renderer/opengl/OpenglRenderer.o"
-	@echo "... src/gfx/renderer/opengl/OpenglRenderer.i"
-	@echo "... src/gfx/renderer/opengl/OpenglRenderer.s"
-	@echo "... src/gfx/renderer/opengl/SimpleColorShader.o"
-	@echo "... src/gfx/renderer/opengl/SimpleColorShader.i"
-	@echo "... src/gfx/renderer/opengl/SimpleColorShader.s"
-	@echo "... src/gfx/renderer/opengl/TextureGrayAlphaShader.o"
-	@echo "... src/gfx/renderer/opengl/TextureGrayAlphaShader.i"
-	@echo "... src/gfx/renderer/opengl/TextureGrayAlphaShader.s"
-	@echo "... src/gfx/renderer/opengl/TextureGrayscaleShader.o"
-	@echo "... src/gfx/renderer/opengl/TextureGrayscaleShader.i"
-	@echo "... src/gfx/renderer/opengl/TextureGrayscaleShader.s"
-	@echo "... src/gfx/renderer/opengl/TextureRgbaShader.o"
-	@echo "... src/gfx/renderer/opengl/TextureRgbaShader.i"
-	@echo "... src/gfx/renderer/opengl/TextureRgbaShader.s"
-	@echo "... src/platform/android/AndroidWindow.o"
-	@echo "... src/platform/android/AndroidWindow.i"
-	@echo "... src/platform/android/AndroidWindow.s"
-	@echo "... src/platform/android/android_main.o"
-	@echo "... src/platform/android/android_main.i"
-	@echo "... src/platform/android/android_main.s"
-	@echo "... src/platform/desktop/CommandLineParameters.o"
-	@echo "... src/platform/desktop/CommandLineParameters.i"
-	@echo "... src/platform/desktop/CommandLineParameters.s"
-	@echo "... src/platform/desktop/DesktopWindow.o"
-	@echo "... src/platform/desktop/DesktopWindow.i"
-	@echo "... src/platform/desktop/DesktopWindow.s"
-	@echo "... src/platform/desktop/main.o"
-	@echo "... src/platform/desktop/main.i"
-	@echo "... src/platform/desktop/main.s"
-	@echo "... src/test/ApplicationTest.o"
-	@echo "... src/test/ApplicationTest.i"
-	@echo "... src/test/ApplicationTest.s"
-	@echo "... src/test/PHash.o"
-	@echo "... src/test/PHash.i"
-	@echo "... src/test/PHash.s"
-	@echo "... src/test/TestTasks.o"
-	@echo "... src/test/TestTasks.i"
-	@echo "... src/test/TestTasks.s"
-	@echo "... src/test/internal/ApplicationTestStore.o"
-	@echo "... src/test/internal/ApplicationTestStore.i"
-	@echo "... src/test/internal/ApplicationTestStore.s"
+	@echo "... src/multiwindow/MultiWindow.o"
+	@echo "... src/multiwindow/MultiWindow.i"
+	@echo "... src/multiwindow/MultiWindow.s"
+	@echo "... src/primitives2d/Primitives2d.o"
+	@echo "... src/primitives2d/Primitives2d.i"
+	@echo "... src/primitives2d/Primitives2d.s"
+	@echo "... src/primitives3d/Primitives3d.o"
+	@echo "... src/primitives3d/Primitives3d.i"
+	@echo "... src/primitives3d/Primitives3d.s"
+	@echo "... src/rendertexture/Rendertexture.o"
+	@echo "... src/rendertexture/Rendertexture.i"
+	@echo "... src/rendertexture/Rendertexture.s"
 .PHONY : help
 
 
@@ -1729,6 +339,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /src/cmake-build-emscripten && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
