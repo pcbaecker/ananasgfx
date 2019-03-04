@@ -31,16 +31,9 @@ matrix:
       - echo y | sdkmanager "patcher;v4"
     script:
       - cd $TRAVIS_BUILD_DIR/examples/android && ./gradlew assembleDebug
-    deploy:
-      provider: pages
-      skip-cleanup: true
-      github-token: $GITHUB_TOKEN
-      keep-history: true
-      verbose: true
-      local-dir: examples/android/app/build/outputs/apk/debug/
-
+#examples/android/app/build/outputs/apk/debug/
   ### Build emscripten app
-  - name: "Emscripten"
+  - name: "Emscripten & documentation"
     language: cpp
     before_script:
       - mkdir -p $TRAVIS_BUILD_DIR/cmake-build-emscripten
@@ -49,6 +42,17 @@ matrix:
       - docker exec -it emscripten emcmake cmake -Bcmake-build-emscripten -H.
       - sudo cp -r $TRAVIS_BUILD_DIR/examples/resource $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples/resource
       - docker exec -it emscripten make --directory=cmake-build-emscripten
+    deploy:
+      provider: pages
+      skip-cleanup: true
+      github-token: $GITHUB_TOKEN
+      keep-history: true
+      verbose: true
+      local-dir: $TRAVIS_BUILD_DIR/cmake-build-emscripten
+      #local-dir: cmake-build-test/docs/doc_doxygen/html
+      on:
+        all_branches: true
+        condition: $TRAVIS_BRANCH =~ ^master|develop
 
 ### Build and test linux app
   - name: "Linux app"
