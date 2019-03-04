@@ -1,0 +1,1 @@
+/emsdk_portable/sdk/em++     --bind -s USE_GLFW=3 -s WASM=1 -s USE_WEBGL2=1 -s DISABLE_EXCEPTION_CATCHING=0 -s BINARYEN_TRAP_MODE='clamp' -g4 --preload-file resource @CMakeFiles/AnanasGfxExamples.dir/objects1.rsp  -o AnanasGfxExamples.html @CMakeFiles/AnanasGfxExamples.dir/linklibs.rsp

@@ -1,0 +1,1 @@
+-I/src/include -I/src/dependencies/glfw/include -I/src/dependencies/glm -I/src/dependencies/stb -I/src/dependencies/freetype2/include -I/src/dependencies/easy-exception/include -I/sources/android 

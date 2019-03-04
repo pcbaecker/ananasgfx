@@ -1,0 +1,1 @@
+../dependencies/easy-exception/libEasyException.a ../libAnanasGfx.a ../dependencies/easy-exception/libEasyException.a -ldl -lglfw ../dependencies/freetype2/libfreetype.a 

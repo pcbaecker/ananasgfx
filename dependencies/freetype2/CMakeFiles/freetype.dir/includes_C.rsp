@@ -1,0 +1,1 @@
+-I/src/cmake-build-emscripten/dependencies/freetype2/include -I/src/dependencies/freetype2/include 

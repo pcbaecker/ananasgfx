@@ -1,0 +1,1 @@
+/emsdk_portable/sdk/emar rc libfreetype.a  @CMakeFiles/freetype.dir/objects1.rsp
