@@ -51,7 +51,7 @@ matrix:
       # Build doxygen
       - mkdir cmake-build-test
       - cd cmake-build-test
-      - cmake ..
+      - cmake .. --target AnanasGfxDoc
       - make AnanasGfxDoc
 
     before_deploy:
