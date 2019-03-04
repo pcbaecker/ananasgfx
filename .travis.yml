@@ -67,7 +67,7 @@ matrix:
       github-token: $GITHUB_TOKEN
       keep-history: true
       verbose: true
-      local-dir: $TRAVIS_BUILD_DIR/pages/examples
+      local-dir: $TRAVIS_BUILD_DIR/pages
       on:
         branch: master
 
