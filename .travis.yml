@@ -59,8 +59,8 @@ matrix:
 
     before_deploy:
       - mkdir -p $TRAVIS_BUILD_DIR/pages/examples
-      - cp -r $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples $TRAVIS_BUILD_DIR/pages/examples
-      - cp -r $TRAVIS_BUILD_DIR/cmake-build-test/docs/doc_doxygen/html $TRAVIS_BUILD_DIR/pages
+      - cp -r $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples/ $TRAVIS_BUILD_DIR/pages/examples/
+      - cp -r $TRAVIS_BUILD_DIR/cmake-build-test/docs/doc_doxygen/html/ $TRAVIS_BUILD_DIR/pages/
     deploy:
       provider: pages
       skip-cleanup: true
