@@ -8,6 +8,9 @@ namespace test {
 
     typedef uint64_t phash_t;
 
+    /**
+     * @brief Creates and compares phashes.
+     */
     class PHash {
     public:
         /**

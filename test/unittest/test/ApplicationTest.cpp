@@ -1,21 +1,23 @@
 #include "../Catch.hpp"
 #include <ananasgfx/test/ApplicationTest.hpp>
-/*
-APPLICATION_TEST("apptest") {
+
+class MyApplication : public gfx::Application {
 public:
-    std::string getDescription() noexcept override {
-        return "Hallo";
-    }
+    bool init() noexcept override { return true; }
+};
+
+class MyApplicationTest : public test::ApplicationTest {
+public:
+    void run() override {}
 };
 
 TEST_CASE("test::ApplicationTest") {
-    // TODO Write unittest for test::ApplicationTest
+
+    MyApplicationTest applicationTest;
+
+    SECTION("void setApplication(std::string, std::shared_ptr<gfx::Application>) noexcept") {
+        auto app = std::make_shared<MyApplication>();
+        applicationTest.setApplication("myapp", app);
+    }
+
 }
-
-TEST_CASE("test::_internal::ApplicationTestStore") {
-
-    REQUIRE(test::_internal::ApplicationTestStore::getInstance().getApplicationTests().size() == 1);
-    REQUIRE(test::_internal::ApplicationTestStore::getInstance().getApplicationTests().count("apptest") == 1);
-    REQUIRE(test::_internal::ApplicationTestStore::getInstance().getApplicationTests().at("apptest").size() == 1);
-
-}*/
