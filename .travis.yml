@@ -39,6 +39,8 @@ matrix:
       apt:
         packages:
         - doxygen
+        - libglew-dev
+        - freeglut3-dev
     before_script:
       - mkdir -p $TRAVIS_BUILD_DIR/cmake-build-emscripten
       - docker run -dit --name emscripten -v $TRAVIS_BUILD_DIR:/src trzeci/emscripten:sdk-incoming-64bit bash
