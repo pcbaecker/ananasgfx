@@ -1,0 +1,28 @@
+var classgfx_1_1_bitmap =
+[
+    [ "Bitmap", "classgfx_1_1_bitmap.html#a9a6cdb96068350c5f08e531b0c517f48", null ],
+    [ "Bitmap", "classgfx_1_1_bitmap.html#aeae782470fec0bb5ff9504823d3230a3", null ],
+    [ "Bitmap", "classgfx_1_1_bitmap.html#a682a091d46d9cf69fee20f5e83de7fe5", null ],
+    [ "~Bitmap", "classgfx_1_1_bitmap.html#ab4214ff73aa0bbcd98fe1761121d5853", null ],
+    [ "asGrayscale", "classgfx_1_1_bitmap.html#ad60ab4610c5a55b7e9b02eed7cf92c89", null ],
+    [ "clear", "classgfx_1_1_bitmap.html#aa75280d04e0289b138209853704fa3c5", null ],
+    [ "flipVertical", "classgfx_1_1_bitmap.html#ade6af08f9e4633251dc8458b78d18906", null ],
+    [ "getChannels", "classgfx_1_1_bitmap.html#a5dc758e422c8e20ca8cde5b145221dbd", null ],
+    [ "getData", "classgfx_1_1_bitmap.html#ae73083f20864809c1a67a5c7bcdfe46d", null ],
+    [ "getHeight", "classgfx_1_1_bitmap.html#acb1c0d9074fa3a3b27221193287cf9d9", null ],
+    [ "getPixelGrayAlpha", "classgfx_1_1_bitmap.html#a14433ba199b03297d4e4a6e4a367f79d", null ],
+    [ "getPixelGrayscale", "classgfx_1_1_bitmap.html#a11c0d9dd020d0d2fa447f4e8919823f9", null ],
+    [ "getPixelRgb", "classgfx_1_1_bitmap.html#a591fa9e89ba6f0b7c05339d37d34af65", null ],
+    [ "getPixelRgba", "classgfx_1_1_bitmap.html#a60da2010ec09d7f32f3828455eb51a08", null ],
+    [ "getWidth", "classgfx_1_1_bitmap.html#a8a48f2989dfdd7a89947ecfc8974e272", null ],
+    [ "resize", "classgfx_1_1_bitmap.html#ad6b6fab6edef141c055e2544d49f89da", null ],
+    [ "saveAsFile", "classgfx_1_1_bitmap.html#ab1f000cad90849d59f10a3b1dc1c0d93", null ],
+    [ "setPixel", "classgfx_1_1_bitmap.html#a2a96087519232bf470ff5305cb55a62b", null ],
+    [ "setPixel", "classgfx_1_1_bitmap.html#aafc38626ac388dc262c2bae510ac6833", null ],
+    [ "setPixel", "classgfx_1_1_bitmap.html#ace92e51d9870ebe240060fa90975e2a1", null ],
+    [ "setPixel", "classgfx_1_1_bitmap.html#a2105b7912999a0d9129e6d1504a45686", null ],
+    [ "mChannels", "classgfx_1_1_bitmap.html#ac3f4ec8c5d8b61b45585462329c245c9", null ],
+    [ "mHeight", "classgfx_1_1_bitmap.html#a169360e5c8ffb1ad3707de1d02991033", null ],
+    [ "mWidth", "classgfx_1_1_bitmap.html#a676d8e735409fcebe6d8c9653d816558", null ],
+    [ "pData", "classgfx_1_1_bitmap.html#a4bde2afdaacd636f0c771a0da415296e", null ]
+];
