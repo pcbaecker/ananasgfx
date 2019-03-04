@@ -48,7 +48,7 @@ matrix:
       github-token: $GITHUB_TOKEN
       keep-history: true
       verbose: true
-      local-dir: $TRAVIS_BUILD_DIR/cmake-build-emscripten
+      local-dir: $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples
       #local-dir: cmake-build-test/docs/doc_doxygen/html
       on:
         all_branches: true
