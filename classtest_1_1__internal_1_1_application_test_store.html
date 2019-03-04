@@ -107,37 +107,175 @@ $(document).ready(function(){initNavTree('classtest_1_1__internal_1_1_applicatio
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classtest_1_1__internal_1_1_application_test_store-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">test::_internal::ApplicationTestStore Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The store where all ApplicationTests are registered.  
+ <a href="classtest_1_1__internal_1_1_application_test_store.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_application_test_store_8hpp_source.html">ananasgfx/test/internal/ApplicationTestStore.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a31c2b8f838477bccb0247b925de7c211"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31c2b8f838477bccb0247b925de7c211"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>registerApplicationTestProxy</b> (const std::string &amp;appname, <a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html">ApplicationTestProxyBase</a> *pApplicationTest) noexcept</td></tr>
+<tr class="memitem:a31c2b8f838477bccb0247b925de7c211"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1__internal_1_1_application_test_store.html#a31c2b8f838477bccb0247b925de7c211">registerApplicationTestProxy</a> (const std::string &amp;appname, <a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html">ApplicationTestProxyBase</a> *pApplicationTest) noexcept</td></tr>
+<tr class="memdesc:a31c2b8f838477bccb0247b925de7c211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a new <a class="el" href="classtest_1_1_application_test.html" title="Executes an Application test. ">ApplicationTest</a> in the store.  <a href="#a31c2b8f838477bccb0247b925de7c211">More...</a><br /></td></tr>
 <tr class="separator:a31c2b8f838477bccb0247b925de7c211"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69c9b5688add145634b9fe757087e752"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69c9b5688add145634b9fe757087e752"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>getNumberOfApplicationTests</b> () const noexcept</td></tr>
+<tr class="memitem:a69c9b5688add145634b9fe757087e752"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1__internal_1_1_application_test_store.html#a69c9b5688add145634b9fe757087e752">getNumberOfApplicationTests</a> () const noexcept</td></tr>
+<tr class="memdesc:a69c9b5688add145634b9fe757087e752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of ApplicationTests registered.  <a href="#a69c9b5688add145634b9fe757087e752">More...</a><br /></td></tr>
 <tr class="separator:a69c9b5688add145634b9fe757087e752"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c026d67519ba3c984f61751f78f1e9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c026d67519ba3c984f61751f78f1e9a"></a>
-const std::map&lt; std::string, std::list&lt; <a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html">ApplicationTestProxyBase</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getApplicationTests</b> () const noexcept</td></tr>
+<tr class="memitem:a0c026d67519ba3c984f61751f78f1e9a"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, std::list&lt; <a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html">ApplicationTestProxyBase</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1__internal_1_1_application_test_store.html#a0c026d67519ba3c984f61751f78f1e9a">getApplicationTests</a> () const noexcept</td></tr>
+<tr class="memdesc:a0c026d67519ba3c984f61751f78f1e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the map containing all ApplicationTests.  <a href="#a0c026d67519ba3c984f61751f78f1e9a">More...</a><br /></td></tr>
 <tr class="separator:a0c026d67519ba3c984f61751f78f1e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a27e3ce82e5c8ab6b6cc03b68037d50cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27e3ce82e5c8ab6b6cc03b68037d50cd"></a>
-static <a class="el" href="classtest_1_1__internal_1_1_application_test_store.html">ApplicationTestStore</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> () noexcept</td></tr>
+<tr class="memitem:a27e3ce82e5c8ab6b6cc03b68037d50cd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classtest_1_1__internal_1_1_application_test_store.html">ApplicationTestStore</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1__internal_1_1_application_test_store.html#a27e3ce82e5c8ab6b6cc03b68037d50cd">getInstance</a> () noexcept</td></tr>
+<tr class="memdesc:a27e3ce82e5c8ab6b6cc03b68037d50cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the instance of the <a class="el" href="classtest_1_1__internal_1_1_application_test_store.html" title="The store where all ApplicationTests are registered. ">ApplicationTestStore</a>.  <a href="#a27e3ce82e5c8ab6b6cc03b68037d50cd">More...</a><br /></td></tr>
 <tr class="separator:a27e3ce82e5c8ab6b6cc03b68037d50cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a699d682e9890462f88fcf15b6e146f72"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a699d682e9890462f88fcf15b6e146f72"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1__internal_1_1_application_test_store.html#a699d682e9890462f88fcf15b6e146f72">ApplicationTestStore</a> () noexcept</td></tr>
+<tr class="memdesc:a699d682e9890462f88fcf15b6e146f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hidden constructor. <br /></td></tr>
+<tr class="separator:a699d682e9890462f88fcf15b6e146f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a5073fced5dd8ddd087c6aa7bf666dd76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5073fced5dd8ddd087c6aa7bf666dd76"></a>
-std::map&lt; std::string, std::list&lt; <a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html">ApplicationTestProxyBase</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mApplications</b></td></tr>
+std::map&lt; std::string, std::list&lt; <a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html">ApplicationTestProxyBase</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1__internal_1_1_application_test_store.html#a5073fced5dd8ddd087c6aa7bf666dd76">mApplications</a></td></tr>
+<tr class="memdesc:a5073fced5dd8ddd087c6aa7bf666dd76"><td class="mdescLeft">&#160;</td><td class="mdescRight">The map with all ApplicationTests. <br /></td></tr>
 <tr class="separator:a5073fced5dd8ddd087c6aa7bf666dd76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The store where all ApplicationTests are registered. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a0c026d67519ba3c984f61751f78f1e9a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::map&lt;std::string, std::list&lt;<a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html">ApplicationTestProxyBase</a> *&gt; &gt; test::_internal::ApplicationTestStore::getApplicationTests </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the map containing all ApplicationTests. </p>
+<dl class="section return"><dt>Returns</dt><dd>The map containing all ApplicationTests. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a27e3ce82e5c8ab6b6cc03b68037d50cd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classtest_1_1__internal_1_1_application_test_store.html">ApplicationTestStore</a>&amp; test::_internal::ApplicationTestStore::getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the instance of the <a class="el" href="classtest_1_1__internal_1_1_application_test_store.html" title="The store where all ApplicationTests are registered. ">ApplicationTestStore</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The global instance. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a69c9b5688add145634b9fe757087e752"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t test::_internal::ApplicationTestStore::getNumberOfApplicationTests </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of ApplicationTests registered. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of ApplicationTests registered. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a31c2b8f838477bccb0247b925de7c211"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test::_internal::ApplicationTestStore::registerApplicationTestProxy </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>appname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html">ApplicationTestProxyBase</a> *&#160;</td>
+          <td class="paramname"><em>pApplicationTest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers a new <a class="el" href="classtest_1_1_application_test.html" title="Executes an Application test. ">ApplicationTest</a> in the store. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">appname</td><td>The name of the application we want to test. </td></tr>
+    <tr><td class="paramname">pApplicationTest</td><td>Pointer to the applicationTestProxyBase. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/pcbaecker/ananasgfx/include/ananasgfx/test/internal/<a class="el" href="_application_test_store_8hpp_source.html">ApplicationTestStore.hpp</a></li>
 </ul>

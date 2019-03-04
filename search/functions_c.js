@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['offerrecreation',['offerRecreation',['../classtest_1_1_compare.html#a626f995feb7a19006fb50f058a799cb3',1,'test::Compare']]],
   ['onchildadded',['onChildAdded',['../classd2_1_1_node.html#a59496f111b34daaa240c5a1fbca10141',1,'d2::Node::onChildAdded()'],['../classgfx_1_1_node.html#a8e46796c0ac15681f40861c7101cdb62',1,'gfx::Node::onChildAdded()']]],
   ['ontouchbegan',['onTouchBegan',['../classgfx_1_1_node.html#aa5bea0910fbc48ea8f490485423472bb',1,'gfx::Node::onTouchBegan()'],['../classgfx_1_1_window.html#a1bf22192266d0f57b19e9653cb199d1a',1,'gfx::Window::onTouchBegan()']]],
   ['ontouchended',['onTouchEnded',['../classgfx_1_1_node.html#a868903c91d3e9b4af5ee1ee8a551832b',1,'gfx::Node::onTouchEnded()'],['../classgfx_1_1_window.html#a58762d10eb2b9a8ed5aa79a76819f32f',1,'gfx::Window::onTouchEnded()']]],

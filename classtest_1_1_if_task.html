@@ -112,6 +112,11 @@ $(document).ready(function(){initNavTree('classtest_1_1_if_task.html','');});
 <div class="title">test::IfTask Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Runs an conditional task that will execute a different callback depending on the condition.  
+ <a href="classtest_1_1_if_task.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_test_tasks_8hpp_source.html">ananasgfx/test/TestTasks.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for test::IfTask:</div>
 <div class="dyncontent">
@@ -124,28 +129,92 @@ Inheritance diagram for test::IfTask:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af935a9957c2039f9825fd5871ee9011c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af935a9957c2039f9825fd5871ee9011c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>IfTask</b> (std::function&lt; bool(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt; condition, std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt; thenDo, std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt; elseDo, std::promise&lt; bool &gt; promise) noexcept</td></tr>
+<tr class="memitem:af935a9957c2039f9825fd5871ee9011c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_if_task.html#af935a9957c2039f9825fd5871ee9011c">IfTask</a> (std::function&lt; bool(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt; condition, std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt; thenDo, std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt; elseDo, std::promise&lt; bool &gt; promise) noexcept</td></tr>
+<tr class="memdesc:af935a9957c2039f9825fd5871ee9011c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#af935a9957c2039f9825fd5871ee9011c">More...</a><br /></td></tr>
 <tr class="separator:af935a9957c2039f9825fd5871ee9011c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6610d1ed4cfe054260a7cfeb2140d02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_if_task.html#ab6610d1ed4cfe054260a7cfeb2140d02">run</a> (<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *application) noexceptoverride</td></tr>
-<tr class="memdesc:ab6610d1ed4cfe054260a7cfeb2140d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will be called if the task begins to run.  <a href="#ab6610d1ed4cfe054260a7cfeb2140d02">More...</a><br /></td></tr>
+<tr class="memdesc:ab6610d1ed4cfe054260a7cfeb2140d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the task.  <a href="#ab6610d1ed4cfe054260a7cfeb2140d02">More...</a><br /></td></tr>
 <tr class="separator:ab6610d1ed4cfe054260a7cfeb2140d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a6a09b5a871fc64607f3a76c2d096876a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a09b5a871fc64607f3a76c2d096876a"></a>
-std::function&lt; bool(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mCondition</b></td></tr>
+std::function&lt; bool(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_if_task.html#a6a09b5a871fc64607f3a76c2d096876a">mCondition</a></td></tr>
+<tr class="memdesc:a6a09b5a871fc64607f3a76c2d096876a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The condition. <br /></td></tr>
 <tr class="separator:a6a09b5a871fc64607f3a76c2d096876a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab40556e44208e4848465c3b47d7e8e2c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab40556e44208e4848465c3b47d7e8e2c"></a>
-std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mThenDo</b></td></tr>
+std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_if_task.html#ab40556e44208e4848465c3b47d7e8e2c">mThenDo</a></td></tr>
+<tr class="memdesc:ab40556e44208e4848465c3b47d7e8e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The then to. <br /></td></tr>
 <tr class="separator:ab40556e44208e4848465c3b47d7e8e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ff38b81acef18d8b3dc8e24490b35d1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ff38b81acef18d8b3dc8e24490b35d1"></a>
-std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mElseDo</b></td></tr>
+std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_if_task.html#a8ff38b81acef18d8b3dc8e24490b35d1">mElseDo</a></td></tr>
+<tr class="memdesc:a8ff38b81acef18d8b3dc8e24490b35d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The else do. <br /></td></tr>
 <tr class="separator:a8ff38b81acef18d8b3dc8e24490b35d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3ea56fb89c7538b162031d2a5b79bc1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3ea56fb89c7538b162031d2a5b79bc1"></a>
-std::promise&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mPromise</b></td></tr>
+std::promise&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_if_task.html#ad3ea56fb89c7538b162031d2a5b79bc1">mPromise</a></td></tr>
+<tr class="memdesc:ad3ea56fb89c7538b162031d2a5b79bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The promise. <br /></td></tr>
 <tr class="separator:ad3ea56fb89c7538b162031d2a5b79bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Runs an conditional task that will execute a different callback depending on the condition. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="af935a9957c2039f9825fd5871ee9011c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">test::IfTask::IfTask </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; bool(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td>
+          <td class="paramname"><em>condition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td>
+          <td class="paramname"><em>thenDo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td>
+          <td class="paramname"><em>elseDo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::promise&lt; bool &gt;&#160;</td>
+          <td class="paramname"><em>promise</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">condition</td><td>The condition. </td></tr>
+    <tr><td class="paramname">thenDo</td><td>The then do. </td></tr>
+    <tr><td class="paramname">elseDo</td><td>The else do. </td></tr>
+    <tr><td class="paramname">promise</td><td>The result promise. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ab6610d1ed4cfe054260a7cfeb2140d02"></a>
 <div class="memitem">
@@ -169,14 +238,14 @@ std::promise&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 </table>
 </div><div class="memdoc">
 
-<p>Will be called if the task begins to run. </p>
+<p>Executes the task. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">application</td><td>Pointer to the connected application. </td></tr>
+    <tr><td class="paramname">application</td><td>Pointer to the application that will execute this task. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the task should be executed again or False if the task is done. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if we want to retain the task. </dd></dl>
 
 <p>Implements <a class="el" href="classgfx_1_1_task.html#a77f1ace2648efea780165579e32171a8">gfx::Task</a>.</p>
 

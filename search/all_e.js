@@ -10,5 +10,5 @@ var searchData=
   ['prenderer',['pRenderer',['../classgfx_1_1_texture.html#a9b78aa69d535d3426192e91858e5dada',1,'gfx::Texture::pRenderer()'],['../classgfx_1_1_texture_manager.html#a7f007df0e59cf60a364a701cbcad7d9c',1,'gfx::TextureManager::pRenderer()'],['../classgfx_1_1_vertex_buffer.html#a73c8813dfde30fa69896a7bd3873fde2',1,'gfx::VertexBuffer::pRenderer()'],['../classgfx_1_1_vertices.html#a189e8dcfbdc1f0714287cb232ba74a14',1,'gfx::Vertices::pRenderer()'],['../classgfx_1_1_window.html#a0646e3e04d3460d1024f568c80b77fb1',1,'gfx::Window::pRenderer()']]],
   ['pshader',['pShader',['../classd2_1_1_vertex_node.html#acf5918924b246c5bbe3c46c7cad9a8e2',1,'d2::VertexNode']]],
   ['ptexture',['pTexture',['../classd2_1_1_sprite.html#a8569ee73d99ea2aa168963f3a5d45969',1,'d2::Sprite']]],
-  ['pwindow',['pWindow',['../classgfx_1_1_node.html#a5e12c31878d1dc1822e68cdd847e60fd',1,'gfx::Node::pWindow()'],['../classgfx_1_1_render_texture.html#a2f4d4f470256785c1cdb99d8a62baa00',1,'gfx::RenderTexture::pWindow()']]]
+  ['pwindow',['pWindow',['../classgfx_1_1_node.html#a5e12c31878d1dc1822e68cdd847e60fd',1,'gfx::Node::pWindow()'],['../classgfx_1_1_render_texture.html#a2f4d4f470256785c1cdb99d8a62baa00',1,'gfx::RenderTexture::pWindow()'],['../classplatform_1_1desktop_1_1_desktop_window.html#ade6df49a50c1b129ba502108ef499dff',1,'platform::desktop::DesktopWindow::pWindow()']]]
 ];

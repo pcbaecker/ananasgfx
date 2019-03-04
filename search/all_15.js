@@ -1,7 +1,9 @@
 var searchData=
 [
   ['_7eapplicationmanager',['~ApplicationManager',['../classgfx_1_1__internal_1_1_application_manager.html#a7d42fc49ca26a76d15f8034907acfb32',1,'gfx::_internal::ApplicationManager']]],
+  ['_7eapplicationtest',['~ApplicationTest',['../classtest_1_1_application_test.html#a4bd9967873e9a17d5ad21789af98f16d',1,'test::ApplicationTest']]],
   ['_7ebitmap',['~Bitmap',['../classgfx_1_1_bitmap.html#ab4214ff73aa0bbcd98fe1761121d5853',1,'gfx::Bitmap']]],
+  ['_7edesktopwindow',['~DesktopWindow',['../classplatform_1_1desktop_1_1_desktop_window.html#a11e5eb8be0b9832c8bf835fe68fa4e94',1,'platform::desktop::DesktopWindow']]],
   ['_7efont',['~Font',['../classfont_1_1_font.html#af1ed5ecaedc7c70906e661ba3d9d0668',1,'font::Font']]],
   ['_7efontmanager',['~FontManager',['../classfont_1_1_font_manager.html#aa1448a44807918bf457e968be028569d',1,'font::FontManager']]],
   ['_7erendertexture',['~RenderTexture',['../classgfx_1_1_render_texture.html#a6a459433b25019880ec8700b809b258b',1,'gfx::RenderTexture']]],

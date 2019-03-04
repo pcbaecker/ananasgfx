@@ -113,6 +113,11 @@ $(document).ready(function(){initNavTree('classtest_1_1_compare.html','');});
 <div class="title">test::Compare Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Compares a node with an imagefile.  
+ <a href="classtest_1_1_compare.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_test_tasks_8hpp_source.html">ananasgfx/test/TestTasks.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for test::Compare:</div>
 <div class="dyncontent">
@@ -125,32 +130,121 @@ Inheritance diagram for test::Compare:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab01eb9dccf140540ecadcc7ae444afc0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab01eb9dccf140540ecadcc7ae444afc0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Compare</b> (const std::string &amp;nodepath, const std::string &amp;filepath, std::promise&lt; bool &gt; promise) noexcept</td></tr>
+<tr class="memitem:ab01eb9dccf140540ecadcc7ae444afc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_compare.html#ab01eb9dccf140540ecadcc7ae444afc0">Compare</a> (const std::string &amp;nodepath, const std::string &amp;filepath, std::promise&lt; bool &gt; promise) noexcept</td></tr>
+<tr class="memdesc:ab01eb9dccf140540ecadcc7ae444afc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ab01eb9dccf140540ecadcc7ae444afc0">More...</a><br /></td></tr>
 <tr class="separator:ab01eb9dccf140540ecadcc7ae444afc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade9cd3c9298bb33f8c16461d0a378e98"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_compare.html#ade9cd3c9298bb33f8c16461d0a378e98">run</a> (<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *application) noexceptoverride</td></tr>
-<tr class="memdesc:ade9cd3c9298bb33f8c16461d0a378e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will be called if the task begins to run.  <a href="#ade9cd3c9298bb33f8c16461d0a378e98">More...</a><br /></td></tr>
+<tr class="memdesc:ade9cd3c9298bb33f8c16461d0a378e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes this task.  <a href="#ade9cd3c9298bb33f8c16461d0a378e98">More...</a><br /></td></tr>
 <tr class="separator:ade9cd3c9298bb33f8c16461d0a378e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a626f995feb7a19006fb50f058a799cb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a626f995feb7a19006fb50f058a799cb3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>offerRecreation</b> (<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *application) noexcept</td></tr>
+<tr class="memitem:a626f995feb7a19006fb50f058a799cb3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_compare.html#a626f995feb7a19006fb50f058a799cb3">offerRecreation</a> (<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *application) noexcept</td></tr>
+<tr class="memdesc:a626f995feb7a19006fb50f058a799cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offer the user a creation / recreation of the imagefile.  <a href="#a626f995feb7a19006fb50f058a799cb3">More...</a><br /></td></tr>
 <tr class="separator:a626f995feb7a19006fb50f058a799cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a3657bc4e79d6097861244112a38e7981"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3657bc4e79d6097861244112a38e7981"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>mNodepath</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_compare.html#a3657bc4e79d6097861244112a38e7981">mNodepath</a></td></tr>
+<tr class="memdesc:a3657bc4e79d6097861244112a38e7981"><td class="mdescLeft">&#160;</td><td class="mdescRight">The node path. <br /></td></tr>
 <tr class="separator:a3657bc4e79d6097861244112a38e7981"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74ae157a758ed4ea4e62400a90f84a42"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74ae157a758ed4ea4e62400a90f84a42"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>mFilepath</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_compare.html#a74ae157a758ed4ea4e62400a90f84a42">mFilepath</a></td></tr>
+<tr class="memdesc:a74ae157a758ed4ea4e62400a90f84a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file path. <br /></td></tr>
 <tr class="separator:a74ae157a758ed4ea4e62400a90f84a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8549fadce0a75a6b698b7c43f5cef0a1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8549fadce0a75a6b698b7c43f5cef0a1"></a>
-std::promise&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mPromise</b></td></tr>
+std::promise&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_compare.html#a8549fadce0a75a6b698b7c43f5cef0a1">mPromise</a></td></tr>
+<tr class="memdesc:a8549fadce0a75a6b698b7c43f5cef0a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The promise. <br /></td></tr>
 <tr class="separator:a8549fadce0a75a6b698b7c43f5cef0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Compares a node with an imagefile. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab01eb9dccf140540ecadcc7ae444afc0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">test::Compare::Compare </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>nodepath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filepath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::promise&lt; bool &gt;&#160;</td>
+          <td class="paramname"><em>promise</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodepath</td><td>The path of the node we want to compare. </td></tr>
+    <tr><td class="paramname">filepath</td><td>The path of the file we want to compare. </td></tr>
+    <tr><td class="paramname">promise</td><td>The promise that will get the result of this execution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a626f995feb7a19006fb50f058a799cb3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool test::Compare::offerRecreation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *&#160;</td>
+          <td class="paramname"><em>application</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Offer the user a creation / recreation of the imagefile. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">application</td><td>The application that executes this task. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ade9cd3c9298bb33f8c16461d0a378e98"></a>
 <div class="memitem">
 <div class="memproto">
@@ -173,14 +267,13 @@ std::promise&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 </table>
 </div><div class="memdoc">
 
-<p>Will be called if the task begins to run. </p>
+<p>Executes this task. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">application</td><td>Pointer to the connected application. </td></tr>
+    <tr><td class="paramname">application</td><td>The application that executes this task. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the task should be executed again or False if the task is done. </dd></dl>
 
 <p>Implements <a class="el" href="classgfx_1_1_task.html#a77f1ace2648efea780165579e32171a8">gfx::Task</a>.</p>
 

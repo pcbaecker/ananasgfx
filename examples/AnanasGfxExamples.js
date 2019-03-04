@@ -194,7 +194,7 @@ Module['FS_createPath']('/', 'resource', true, true);
   }
 
  }
- loadPackage({"files": [{"start": 0, "audio": 0, "end": 19234, "filename": "/resource/compare.png"}, {"start": 19234, "audio": 0, "end": 35411, "filename": "/resource/icon_circle.png"}, {"start": 35411, "audio": 0, "end": 50105, "filename": "/resource/icon_arrowdropdown.png"}, {"start": 50105, "audio": 0, "end": 177849, "filename": "/resource/Roboto-Bold.ttf"}, {"start": 177849, "audio": 0, "end": 305337, "filename": "/resource/Roboto-Medium.ttf"}, {"start": 305337, "audio": 0, "end": 307152, "filename": "/resource/icon_lightbulb.png"}], "remote_package_size": 307152, "package_uuid": "07a34456-4ce4-42d1-aa64-50903b3eb38e"});
+ loadPackage({"files": [{"start": 0, "audio": 0, "end": 19234, "filename": "/resource/compare.png"}, {"start": 19234, "audio": 0, "end": 35411, "filename": "/resource/icon_circle.png"}, {"start": 35411, "audio": 0, "end": 50105, "filename": "/resource/icon_arrowdropdown.png"}, {"start": 50105, "audio": 0, "end": 177849, "filename": "/resource/Roboto-Bold.ttf"}, {"start": 177849, "audio": 0, "end": 305337, "filename": "/resource/Roboto-Medium.ttf"}, {"start": 305337, "audio": 0, "end": 307152, "filename": "/resource/icon_lightbulb.png"}], "remote_package_size": 307152, "package_uuid": "26333716-cfa7-4c72-83a4-c444195b9461"});
 
 })();
 

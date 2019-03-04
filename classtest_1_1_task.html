@@ -112,6 +112,11 @@ $(document).ready(function(){initNavTree('classtest_1_1_task.html','');});
 <div class="title">test::Task Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A basic test task.  
+ <a href="classtest_1_1_task.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_test_tasks_8hpp_source.html">ananasgfx/test/TestTasks.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for test::Task:</div>
 <div class="dyncontent">
@@ -124,19 +129,55 @@ Inheritance diagram for test::Task:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1b680f4e4e1773e65a2f8777460e26e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b680f4e4e1773e65a2f8777460e26e5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Task</b> (std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt; task) noexcept</td></tr>
+<tr class="memitem:a1b680f4e4e1773e65a2f8777460e26e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_task.html#a1b680f4e4e1773e65a2f8777460e26e5">Task</a> (std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt; task) noexcept</td></tr>
+<tr class="memdesc:a1b680f4e4e1773e65a2f8777460e26e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a1b680f4e4e1773e65a2f8777460e26e5">More...</a><br /></td></tr>
 <tr class="separator:a1b680f4e4e1773e65a2f8777460e26e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bedc5a155003c5b0b85e4a11134b333"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_task.html#a5bedc5a155003c5b0b85e4a11134b333">run</a> (<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *application) noexceptoverride</td></tr>
-<tr class="memdesc:a5bedc5a155003c5b0b85e4a11134b333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will be called if the task begins to run.  <a href="#a5bedc5a155003c5b0b85e4a11134b333">More...</a><br /></td></tr>
+<tr class="memdesc:a5bedc5a155003c5b0b85e4a11134b333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes this task.  <a href="#a5bedc5a155003c5b0b85e4a11134b333">More...</a><br /></td></tr>
 <tr class="separator:a5bedc5a155003c5b0b85e4a11134b333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a159c0af5af87dca6f6b7a3e1bd32ef55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a159c0af5af87dca6f6b7a3e1bd32ef55"></a>
-std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mTask</b></td></tr>
+std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1_task.html#a159c0af5af87dca6f6b7a3e1bd32ef55">mTask</a></td></tr>
+<tr class="memdesc:a159c0af5af87dca6f6b7a3e1bd32ef55"><td class="mdescLeft">&#160;</td><td class="mdescRight">The task we want to execute. <br /></td></tr>
 <tr class="separator:a159c0af5af87dca6f6b7a3e1bd32ef55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A basic test task. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a1b680f4e4e1773e65a2f8777460e26e5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">test::Task::Task </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::Application</a> *)&gt;&#160;</td>
+          <td class="paramname"><em>task</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>The function we want to execute. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a5bedc5a155003c5b0b85e4a11134b333"></a>
 <div class="memitem">
@@ -160,14 +201,14 @@ std::function&lt; void(<a class="el" href="classgfx_1_1_application.html">gfx::A
 </table>
 </div><div class="memdoc">
 
-<p>Will be called if the task begins to run. </p>
+<p>Executes this task. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">application</td><td>Pointer to the connected application. </td></tr>
+    <tr><td class="paramname">application</td><td>The application that executes this test. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the task should be executed again or False if the task is done. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if we want to retain this task. </dd></dl>
 
 <p>Implements <a class="el" href="classgfx_1_1_task.html#a77f1ace2648efea780165579e32171a8">gfx::Task</a>.</p>
 

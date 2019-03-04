@@ -111,25 +111,101 @@ $(document).ready(function(){initNavTree('classtest_1_1__internal_1_1_applicatio
 <div class="title">test::_internal::ApplicationTestProxyBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The proxy base for the <a class="el" href="classtest_1_1_application_test.html" title="Executes an Application test. ">ApplicationTest</a> instances.  
+ <a href="classtest_1_1__internal_1_1_application_test_proxy_base.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_application_test_store_8hpp_source.html">ananasgfx/test/internal/ApplicationTestStore.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for test::_internal::ApplicationTestProxyBase:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classtest_1_1__internal_1_1_application_test_proxy_base.png" usemap="#test::_5Finternal::ApplicationTestProxyBase_map" alt=""/>
   <map id="test::_5Finternal::ApplicationTestProxyBase_map" name="test::_internal::ApplicationTestProxyBase_map">
-<area href="classtest_1_1__internal_1_1_application_test_proxy.html" alt="test::_internal::ApplicationTestProxy&lt; T &gt;" shape="rect" coords="0,56,242,80"/>
+<area href="classtest_1_1__internal_1_1_application_test_proxy.html" title="The template ApplicationTest proxy. " alt="test::_internal::ApplicationTestProxy&lt; T &gt;" shape="rect" coords="0,56,242,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa7e77684eb5fa4d466f56a12ca9e2062"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7e77684eb5fa4d466f56a12ca9e2062"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ApplicationTestProxyBase</b> (const std::string &amp;appname) noexcept</td></tr>
+<tr class="memitem:aa7e77684eb5fa4d466f56a12ca9e2062"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html#aa7e77684eb5fa4d466f56a12ca9e2062">ApplicationTestProxyBase</a> (const std::string &amp;appname) noexcept</td></tr>
+<tr class="memdesc:aa7e77684eb5fa4d466f56a12ca9e2062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#aa7e77684eb5fa4d466f56a12ca9e2062">More...</a><br /></td></tr>
 <tr class="separator:aa7e77684eb5fa4d466f56a12ca9e2062"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71a6805d7b5c234525db9653aaa4b9cc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71a6805d7b5c234525db9653aaa4b9cc"></a>
-virtual std::shared_ptr&lt; <a class="el" href="classtest_1_1_application_test.html">ApplicationTest</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>createInstance</b> (std::shared_ptr&lt; <a class="el" href="classgfx_1_1_application.html">gfx::Application</a> &gt; application) noexcept=0</td></tr>
+<tr class="memitem:a71a6805d7b5c234525db9653aaa4b9cc"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classtest_1_1_application_test.html">ApplicationTest</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest_1_1__internal_1_1_application_test_proxy_base.html#a71a6805d7b5c234525db9653aaa4b9cc">createInstance</a> (std::shared_ptr&lt; <a class="el" href="classgfx_1_1_application.html">gfx::Application</a> &gt; application) noexcept=0</td></tr>
+<tr class="memdesc:a71a6805d7b5c234525db9653aaa4b9cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new instance of the <a class="el" href="classtest_1_1_application_test.html" title="Executes an Application test. ">ApplicationTest</a>.  <a href="#a71a6805d7b5c234525db9653aaa4b9cc">More...</a><br /></td></tr>
 <tr class="separator:a71a6805d7b5c234525db9653aaa4b9cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The proxy base for the <a class="el" href="classtest_1_1_application_test.html" title="Executes an Application test. ">ApplicationTest</a> instances. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aa7e77684eb5fa4d466f56a12ca9e2062"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">test::_internal::ApplicationTestProxyBase::ApplicationTestProxyBase </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>appname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">appname</td><td>The name of the app that we want to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a71a6805d7b5c234525db9653aaa4b9cc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="classtest_1_1_application_test.html">ApplicationTest</a>&gt; test::_internal::ApplicationTestProxyBase::createInstance </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classgfx_1_1_application.html">gfx::Application</a> &gt;&#160;</td>
+          <td class="paramname"><em>application</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new instance of the <a class="el" href="classtest_1_1_application_test.html" title="Executes an Application test. ">ApplicationTest</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">application</td><td>The application we want to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The created <a class="el" href="classtest_1_1_application_test.html" title="Executes an Application test. ">ApplicationTest</a> instance. </dd></dl>
+
+<p>Implemented in <a class="el" href="classtest_1_1__internal_1_1_application_test_proxy.html#a8dd4b197c7f8829415229bf6b7dc5c36">test::_internal::ApplicationTestProxy&lt; T &gt;</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/pcbaecker/ananasgfx/include/ananasgfx/test/internal/<a class="el" href="_application_test_store_8hpp_source.html">ApplicationTestStore.hpp</a></li>
 </ul>
