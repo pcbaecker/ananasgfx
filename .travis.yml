@@ -43,7 +43,7 @@ matrix:
 
     before_deploy:
       - mkdir -p $TRAVIS_BUILD_DIR/pages/examples
-      - cp $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples $TRAVIS_BUILD_DIR/pages/examples
+      - cp -r $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples $TRAVIS_BUILD_DIR/pages/examples
     deploy:
       provider: pages
       skip-cleanup: true
