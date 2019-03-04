@@ -33,17 +33,31 @@ matrix:
   ### Build emscripten app
   - name: "Emscripten & documentation"
     language: cpp
+    os: linux
+    dist: xenial
+    addons:
+      apt:
+        packages:
+        - doxygen
     before_script:
       - mkdir -p $TRAVIS_BUILD_DIR/cmake-build-emscripten
       - docker run -dit --name emscripten -v $TRAVIS_BUILD_DIR:/src trzeci/emscripten:sdk-incoming-64bit bash
     script:
+      # Build emscripten
       - docker exec -it emscripten emcmake cmake -Bcmake-build-emscripten -H.
       - sudo cp -r $TRAVIS_BUILD_DIR/examples/resource $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples/resource
       - docker exec -it emscripten make --directory=cmake-build-emscripten
 
+      # Build doxygen
+      - mkdir cmake-build-test
+      - cd cmake-build-test
+      - cmake ..
+      - make AnanasGfxDoc
+
     before_deploy:
       - mkdir -p $TRAVIS_BUILD_DIR/pages/examples
       - cp -r $TRAVIS_BUILD_DIR/cmake-build-emscripten/examples $TRAVIS_BUILD_DIR/pages/examples
+      - cp -r $TRAVIS_BUILD_DIR/cmake-build-test/docs/doc_doxygen/html $TRAVIS_BUILD_DIR/pages
     deploy:
       provider: pages
       skip-cleanup: true
@@ -51,7 +65,6 @@ matrix:
       keep-history: true
       verbose: true
       local-dir: $TRAVIS_BUILD_DIR/pages/examples
-      #local-dir: cmake-build-test/docs/doc_doxygen/html
       on:
         branch: master
 

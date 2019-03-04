@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.6)
 
 project(AnanasGfx)
-option(USE_DOC "Build documentation" ON)
-option(USE_EXAMPLES "Use examples" ON)
+option(GFX_BUILD_DOCS "Build documentation" ON)
+option(GFX_BUILD_EXAMPLES "Use examples" ON)
 
 add_subdirectory(dependencies/freetype2)
 
@@ -60,7 +60,7 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Android")
 endif()
 
 ### Examples
-if(USE_EXAMPLES)
+if(GFX_BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()
 
@@ -69,10 +69,11 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "Darwin-
     add_subdirectory(test/unittest)
     add_subdirectory(test/integrationtest)
 endif()
-### Documentation
-#if (USE_DOC)
-#    add_subdirectory(docs)
-#endif()
+
+### Build documentation
+if (GFX_BUILD_DOCS)
+    add_subdirectory(docs)
+endif()
 
 
 
