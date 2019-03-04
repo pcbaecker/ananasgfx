@@ -29,6 +29,16 @@ matrix:
       - echo y | sdkmanager "patcher;v4"
     script:
       - cd $TRAVIS_BUILD_DIR/examples/android && ./gradlew assembleDebug
+    before_deploy:
+      - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+      - git tag $TRAVIS_TAG
+    deploy:
+      provider: releases
+      api_key: $GITHUB_TOKEN
+      file: $TRAVIS_BUILD_DIR/examples/android/app/build/outputs/apk/debug/app-debug.apk
+      skip_cleanup: true
+
+
 #examples/android/app/build/outputs/apk/debug/
   ### Build emscripten app
   - name: "Emscripten & documentation"
