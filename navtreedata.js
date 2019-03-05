@@ -21,8 +21,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"classfont_1_1_font_manager.html#ad122263df740bb0e49f1efd14c56849c",
-"classgfx_1_1_window.html#a0646e3e04d3460d1024f568c80b77fb1"
+"classfont_1_1_font_manager.html#a78926ec256dac1ed2cf83206ff390bd0",
+"classgfx_1_1_vertices.html#af4e8ed095af5849bbae86f2e17e21b2a",
+"functions.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

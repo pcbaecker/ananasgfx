@@ -301,6 +301,33 @@ src/rendertexture/Rendertexture.cpp.s:
 	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.s
 .PHONY : src/rendertexture/Rendertexture.cpp.s
 
+src/uiviews/UIViews.o: src/uiviews/UIViews.cpp.o
+
+.PHONY : src/uiviews/UIViews.o
+
+# target to build an object file
+src/uiviews/UIViews.cpp.o:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o
+.PHONY : src/uiviews/UIViews.cpp.o
+
+src/uiviews/UIViews.i: src/uiviews/UIViews.cpp.i
+
+.PHONY : src/uiviews/UIViews.i
+
+# target to preprocess a source file
+src/uiviews/UIViews.cpp.i:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.i
+.PHONY : src/uiviews/UIViews.cpp.i
+
+src/uiviews/UIViews.s: src/uiviews/UIViews.cpp.s
+
+.PHONY : src/uiviews/UIViews.s
+
+# target to generate assembly for a file
+src/uiviews/UIViews.cpp.s:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.s
+.PHONY : src/uiviews/UIViews.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -328,6 +355,9 @@ help:
 	@echo "... src/rendertexture/Rendertexture.o"
 	@echo "... src/rendertexture/Rendertexture.i"
 	@echo "... src/rendertexture/Rendertexture.s"
+	@echo "... src/uiviews/UIViews.o"
+	@echo "... src/uiviews/UIViews.i"
+	@echo "... src/uiviews/UIViews.s"
 .PHONY : help
 
 

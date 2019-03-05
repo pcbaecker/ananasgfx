@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o"
   "CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o"
   "CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.o"
+  "CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o"
   "AnanasGfxExamples.pdb"
   "AnanasGfxExamples.html"
 )

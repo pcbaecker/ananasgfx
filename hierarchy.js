@@ -19,6 +19,7 @@ var hierarchy =
     [ "font::Font", "classfont_1_1_font.html", null ],
     [ "font::FontManager", "classfont_1_1_font_manager.html", null ],
     [ "font::FontRenderer", "classfont_1_1_font_renderer.html", null ],
+    [ "ui::Margin", "classui_1_1_margin.html", null ],
     [ "gfx::Node", "classgfx_1_1_node.html", [
       [ "d2::Node", "classd2_1_1_node.html", [
         [ "d2::VertexNode", "classd2_1_1_vertex_node.html", [
@@ -30,6 +31,12 @@ var hierarchy =
           ] ],
           [ "d2::RectangleRoundCorner", "classd2_1_1_rectangle_round_corner.html", null ],
           [ "d2::Ring", "classd2_1_1_ring.html", null ]
+        ] ],
+        [ "ui::Node", "classui_1_1_node.html", [
+          [ "ui::Button", "classui_1_1_button.html", null ],
+          [ "ui::View", "classui_1_1_view.html", [
+            [ "ui::LinearLayout", "classui_1_1_linear_layout.html", null ]
+          ] ]
         ] ]
       ] ],
       [ "d3::Node", "classd3_1_1_node.html", [

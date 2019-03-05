@@ -11,6 +11,7 @@ var searchData=
   ['mapplication',['mApplication',['../classtest_1_1_application_test.html#ae0eb4ff87c4792eed44ecd355f342739',1,'test::ApplicationTest']]],
   ['mapplications',['mApplications',['../classgfx_1_1__internal_1_1_application_manager.html#afab088d96f1d8634108431248076420e',1,'gfx::_internal::ApplicationManager::mApplications()'],['../classgfx_1_1__internal_1_1_application_store.html#ae30e4d19be3c29ae0bb769e28ded4371',1,'gfx::_internal::ApplicationStore::mApplications()'],['../classtest_1_1__internal_1_1_application_test_store.html#a5073fced5dd8ddd087c6aa7bf666dd76',1,'test::_internal::ApplicationTestStore::mApplications()']]],
   ['mappname',['mAppname',['../classtest_1_1__internal_1_1_application_test_proxy.html#ab2c21636c3b81fe9b387a869f0facb98',1,'test::_internal::ApplicationTestProxy']]],
+  ['margin',['Margin',['../classui_1_1_margin.html',1,'ui']]],
   ['mbitmap',['mBitmap',['../classd2_1_1_label.html#a7e8bb9ffe24937069c60e63c6a823772',1,'d2::Label::mBitmap()'],['../classfont_1_1_character.html#a1d28f9ef1be027d96955fd220194d8d3',1,'font::Character::mBitmap()']]],
   ['mbufferindex',['mBufferIndex',['../classgfx_1_1_vertex_buffer.html#a1eda3b4532b38e8a41a4a0ffde8504c3',1,'gfx::VertexBuffer']]],
   ['mcamera',['mCamera',['../classgfx_1_1_window.html#a6be7391b8e1fe0000746859ef142c954',1,'gfx::Window']]],

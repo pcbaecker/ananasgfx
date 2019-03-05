@@ -1,5 +1,8 @@
 var NAVTREEINDEX1 =
 {
+"classfont_1_1_font_manager.html#a78926ec256dac1ed2cf83206ff390bd0":[1,0,2,2,2],
+"classfont_1_1_font_manager.html#a854241a1de61ece25756ba1245ecaf17":[1,0,2,2,3],
+"classfont_1_1_font_manager.html#aa1448a44807918bf457e968be028569d":[1,0,2,2,1],
 "classfont_1_1_font_manager.html#ad122263df740bb0e49f1efd14c56849c":[1,0,2,2,0],
 "classfont_1_1_font_renderer.html":[1,0,2,3],
 "classgfx_1_1__internal_1_1_application_manager.html":[1,0,3,0,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "classgfx_1_1_vertices.html#ac21480a9e793d7a833dc4fd67e21a93b":[1,0,3,18,9],
 "classgfx_1_1_vertices.html#ac80b8f3e2c1d1043f928d9159f26b173":[1,0,3,18,8],
 "classgfx_1_1_vertices.html#ad7b2892d41f010078da4631622f26154":[1,0,3,18,16],
-"classgfx_1_1_vertices.html#ae1c245cba31fae75b0662511e0ac03c7":[1,0,3,18,15],
-"classgfx_1_1_vertices.html#af4e8ed095af5849bbae86f2e17e21b2a":[1,0,3,18,5],
-"classgfx_1_1_window.html":[1,0,3,19],
-"classgfx_1_1_window.html#a03dcfb2a0a03a4c514dea7b19757224b":[1,0,3,19,26]
+"classgfx_1_1_vertices.html#ae1c245cba31fae75b0662511e0ac03c7":[1,0,3,18,15]
 };

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/src/examples/src/primitives2d/Primitives2d.cpp" "/src/cmake-build-emscripten/examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o"
   "/src/examples/src/primitives3d/Primitives3d.cpp" "/src/cmake-build-emscripten/examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o"
   "/src/examples/src/rendertexture/Rendertexture.cpp" "/src/cmake-build-emscripten/examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.o"
+  "/src/examples/src/uiviews/UIViews.cpp" "/src/cmake-build-emscripten/examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

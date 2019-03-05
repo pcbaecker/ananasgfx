@@ -77,5 +77,12 @@ var annotated_dup =
       [ "IfTask", "classtest_1_1_if_task.html", "classtest_1_1_if_task" ],
       [ "PHash", "classtest_1_1_p_hash.html", null ],
       [ "Task", "classtest_1_1_task.html", "classtest_1_1_task" ]
+    ] ],
+    [ "ui", null, [
+      [ "Button", "classui_1_1_button.html", "classui_1_1_button" ],
+      [ "LinearLayout", "classui_1_1_linear_layout.html", "classui_1_1_linear_layout" ],
+      [ "Margin", "classui_1_1_margin.html", "classui_1_1_margin" ],
+      [ "Node", "classui_1_1_node.html", "classui_1_1_node" ],
+      [ "View", "classui_1_1_view.html", "classui_1_1_view" ]
     ] ]
 ];
