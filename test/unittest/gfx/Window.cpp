@@ -87,4 +87,12 @@ TEST_CASE("gfx::Window") {
         REQUIRE_THROWS_AS(pWindow->getFileManager(), gfx::WindowException);
     }
 
+    SECTION("float getVerticalDpi() const noexcept") {
+        REQUIRE(0 == pWindow->getVerticalDpi());
+    }
+
+    SECTION("float getHorizontalDpi() const noexcept") {
+        REQUIRE(0 == pWindow->getHorizontalDpi());
+    }
+
 }

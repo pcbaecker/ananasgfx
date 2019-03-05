@@ -161,6 +161,20 @@ namespace gfx {
          */
         const FileManager& getFileManager() const;
 
+        /**
+         * @brief Returns the vertical dpi.
+         *
+         * @return The vertical dpi.
+         */
+        float getVerticalDpi() const noexcept;
+
+        /**
+         * @brief Returns the horizontal dpi.
+         *
+         * @return The horizontal dpi.
+         */
+        float getHorizontalDpi() const noexcept;
+
     protected:
         /**
          * @brief The hidden constructor.

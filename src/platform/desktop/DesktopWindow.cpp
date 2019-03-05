@@ -63,6 +63,10 @@ namespace platform::desktop {
         const GLFWvidmode* mode = glfwGetVideoMode(pPrimaryMonitor);
         this->mHorizontalDpi = mode->width / (widthMM / 25.4f);
         this->mVerticalDpi = mode->height / (heightMM / 25.4f);
+#ifdef __APPLE__
+        this->mHorizontalDpi *= 2.0f;
+        this->mVerticalDpi *= 2.0f;
+#endif
 
         // Update camera
         this->mCamera.updateWindow(this);

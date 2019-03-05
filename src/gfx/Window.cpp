@@ -126,6 +126,14 @@ namespace gfx {
         return *this->mFileManager;
     }
 
+    float Window::getVerticalDpi() const noexcept {
+        return this->mVerticalDpi;
+    }
+
+    float Window::getHorizontalDpi() const noexcept {
+        return this->mHorizontalDpi;
+    }
+
     void Window::onTouchBegan(const Touch &touch) noexcept {
         //TRACE("Touch began", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
 
