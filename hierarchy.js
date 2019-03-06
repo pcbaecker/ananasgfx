@@ -32,11 +32,16 @@ var hierarchy =
           [ "d2::RectangleRoundCorner", "classd2_1_1_rectangle_round_corner.html", null ],
           [ "d2::Ring", "classd2_1_1_ring.html", null ]
         ] ],
+        [ "ui::ListItem", "classui_1_1_list_item.html", null ],
         [ "ui::Node", "classui_1_1_node.html", [
           [ "ui::Button", "classui_1_1_button.html", null ],
-          [ "ui::View", "classui_1_1_view.html", [
-            [ "ui::LinearLayout", "classui_1_1_linear_layout.html", null ]
-          ] ]
+          [ "ui::Container", "classui_1_1_container.html", [
+            [ "ui::LinearLayout", "classui_1_1_linear_layout.html", [
+              [ "ui::HorizontalLinearLayout", "classui_1_1_horizontal_linear_layout.html", null ],
+              [ "ui::VerticalLinearLayout", "classui_1_1_vertical_linear_layout.html", null ]
+            ] ]
+          ] ],
+          [ "ui::List", "classui_1_1_list.html", null ]
         ] ]
       ] ],
       [ "d3::Node", "classd3_1_1_node.html", [

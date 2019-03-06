@@ -939,9 +939,12 @@ examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/gfx/WindowConfiguration.hpp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/gfx/internal/ApplicationStore.hpp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/ui/Button.hpp
+examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/ui/Container.hpp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/ui/Defines.hpp
+examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/ui/HorizontalLinearLayout.hpp
+examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/ui/LinearLayout.hpp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/ui/Margin.hpp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/ui/Node.hpp
-examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/ui/View.hpp
+examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../include/ananasgfx/ui/VerticalLinearLayout.hpp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../examples/src/uiviews/UIViews.cpp
 

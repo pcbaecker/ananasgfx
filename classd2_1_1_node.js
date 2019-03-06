@@ -1,6 +1,7 @@
 var classd2_1_1_node =
 [
     [ "asRenderTexture", "classd2_1_1_node.html#a038dd0bb8084ae6f5e722ab918418671", null ],
+    [ "contains", "classd2_1_1_node.html#a663ab2169b7f637e83ef61fa9b0b7041", null ],
     [ "getAnchorPoint", "classd2_1_1_node.html#aa3f1f4927da57e4b8bfbb935a3cd4d3b", null ],
     [ "getParentPositionOffset", "classd2_1_1_node.html#a771e3f1de56f932c19d83e3f831bdc93", null ],
     [ "getParentRotationOffset", "classd2_1_1_node.html#aba5e5d3068913a99ba6ee88e67251c82", null ],
@@ -13,6 +14,12 @@ var classd2_1_1_node =
     [ "getZIndex", "classd2_1_1_node.html#ad05ec54364e6c33d6e1c0afce006a654", null ],
     [ "init", "classd2_1_1_node.html#a9094b1bd300981456cea69990555b870", null ],
     [ "onChildAdded", "classd2_1_1_node.html#a59496f111b34daaa240c5a1fbca10141", null ],
+    [ "onTouchBegan", "classd2_1_1_node.html#a4be29fa3fe6ec9c5af2897f369e31811", null ],
+    [ "onTouchBegan", "classd2_1_1_node.html#ad60d53d66b07ecaabe4fb15d07828c32", null ],
+    [ "onTouchEnded", "classd2_1_1_node.html#a4939e3824fec9c874c62ba4ce728df56", null ],
+    [ "onTouchEnded", "classd2_1_1_node.html#ab8da4a8eef254a99e14e3ddc9b57fee4", null ],
+    [ "onTouchMoved", "classd2_1_1_node.html#a79c873ba38c294777ebe97d697de40f5", null ],
+    [ "onTouchMoved", "classd2_1_1_node.html#a15db0330ed1a80762468c917781d290b", null ],
     [ "setAnchorPoint", "classd2_1_1_node.html#a6bee82e248f3678f668024e3cba8a1b6", null ],
     [ "setAnchorPoint", "classd2_1_1_node.html#aff105805e62cc6417c6aca561329ac44", null ],
     [ "setParentPositionOffset", "classd2_1_1_node.html#a1454a19be5e4b5410441f1f923ce8abe", null ],

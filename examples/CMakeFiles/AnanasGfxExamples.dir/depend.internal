@@ -940,8 +940,11 @@ examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o
  ../include/ananasgfx/gfx/WindowConfiguration.hpp
  ../include/ananasgfx/gfx/internal/ApplicationStore.hpp
  ../include/ananasgfx/ui/Button.hpp
+ ../include/ananasgfx/ui/Container.hpp
  ../include/ananasgfx/ui/Defines.hpp
+ ../include/ananasgfx/ui/HorizontalLinearLayout.hpp
+ ../include/ananasgfx/ui/LinearLayout.hpp
  ../include/ananasgfx/ui/Margin.hpp
  ../include/ananasgfx/ui/Node.hpp
- ../include/ananasgfx/ui/View.hpp
+ ../include/ananasgfx/ui/VerticalLinearLayout.hpp
  /src/examples/src/uiviews/UIViews.cpp

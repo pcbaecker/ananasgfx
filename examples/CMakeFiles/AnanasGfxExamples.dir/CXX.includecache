@@ -1434,8 +1434,22 @@ map
 Node.hpp
 ../include/ananasgfx/ui/Node.hpp
 
+../include/ananasgfx/ui/Container.hpp
+Node.hpp
+../include/ananasgfx/ui/Node.hpp
+
 ../include/ananasgfx/ui/Defines.hpp
 glm/glm.hpp
+-
+
+../include/ananasgfx/ui/HorizontalLinearLayout.hpp
+LinearLayout.hpp
+../include/ananasgfx/ui/LinearLayout.hpp
+
+../include/ananasgfx/ui/LinearLayout.hpp
+Container.hpp
+../include/ananasgfx/ui/Container.hpp
+unordered_map
 -
 
 ../include/ananasgfx/ui/Margin.hpp
@@ -1448,9 +1462,9 @@ ananasgfx/d2/Node.hpp
 Margin.hpp
 ../include/ananasgfx/ui/Margin.hpp
 
-../include/ananasgfx/ui/View.hpp
-Node.hpp
-../include/ananasgfx/ui/Node.hpp
+../include/ananasgfx/ui/VerticalLinearLayout.hpp
+LinearLayout.hpp
+../include/ananasgfx/ui/LinearLayout.hpp
 
 /src/examples/src/multiwindow/MultiWindow.cpp
 ananasgfx/gfx/Application.hpp
@@ -1527,8 +1541,10 @@ ananasgfx/gfx/Application.hpp
 -
 ananasgfx/gfx/Scene.hpp
 -
-ananasgfx/ui/View.hpp
+ananasgfx/ui/HorizontalLinearLayout.hpp
 -
 ananasgfx/ui/Button.hpp
+-
+ananasgfx/ui/VerticalLinearLayout.hpp
 -
 

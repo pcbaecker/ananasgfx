@@ -80,9 +80,13 @@ var annotated_dup =
     ] ],
     [ "ui", null, [
       [ "Button", "classui_1_1_button.html", "classui_1_1_button" ],
+      [ "Container", "classui_1_1_container.html", "classui_1_1_container" ],
+      [ "HorizontalLinearLayout", "classui_1_1_horizontal_linear_layout.html", "classui_1_1_horizontal_linear_layout" ],
       [ "LinearLayout", "classui_1_1_linear_layout.html", "classui_1_1_linear_layout" ],
+      [ "List", "classui_1_1_list.html", null ],
+      [ "ListItem", "classui_1_1_list_item.html", null ],
       [ "Margin", "classui_1_1_margin.html", "classui_1_1_margin" ],
       [ "Node", "classui_1_1_node.html", "classui_1_1_node" ],
-      [ "View", "classui_1_1_view.html", "classui_1_1_view" ]
+      [ "VerticalLinearLayout", "classui_1_1_vertical_linear_layout.html", "classui_1_1_vertical_linear_layout" ]
     ] ]
 ];
