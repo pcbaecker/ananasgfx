@@ -197,6 +197,43 @@ namespace d2 {
          */
         std::shared_ptr<gfx::RenderTexture> asRenderTexture() noexcept override;
 
+        /**
+         * @brief Called when a touch begins.
+         *
+         * @param x The X-Coordinate in parent space.
+         * @param y The Y-Coordinate in parent space.
+         * @param touch The touch object.
+         */
+        virtual void onTouchBegan(const float x, const float y, const gfx::Touch& touch) noexcept;
+
+        /**
+         * @brief Called when a touch moves.
+         *
+         * @param x The X-Coordinate in parent space.
+         * @param y The Y-Coordinate in parent space.
+         * @param touch The touch object.
+         */
+        virtual void onTouchMoved(const float x, const float y, const gfx::Touch& touch) noexcept;
+
+        /**
+         * @brief Called when a touch ends.
+         *
+         * @param x The X-Coordinate in parent space.
+         * @param y The Y-Coordinate in parent space.
+         * @param touch The touch object.
+         */
+        virtual void onTouchEnded(const float x, const float y,const gfx::Touch& touch) noexcept;
+
+        /**
+         * @brief Checks if the given position is inside this 2d node.
+         *
+         * Checks inside the parent space and not screen space.
+         * @param x The X-Coordinate.
+         * @param y The Y-Coordinate.
+         * @return True if given coordinates are inside this rect.
+         */
+        bool contains(float x, float y) noexcept;
+
     protected:
         /**
          * @brief Is called when a new child is added.
@@ -219,6 +256,27 @@ namespace d2 {
          * @param pNode If this optional paramater is set, only this single node will be updated.
          */
         void updateChildrenRotationOffset(d2::Node* pNode = nullptr) const noexcept;
+
+        /**
+         * @brief Called when a touch begins.
+         *
+         * @param touch The touch object.
+         */
+        void onTouchBegan(const gfx::Touch& touch) noexcept override;
+
+        /**
+         * @brief Called when a touch moves.
+         *
+         * @param touch The touch object.
+         */
+        void onTouchMoved(const gfx::Touch& touch) noexcept override;
+
+        /**
+         * @brief Called when a touch ends.
+         *
+         * @param touch The touch object.
+         */
+        void onTouchEnded(const gfx::Touch& touch) noexcept override;
 
     protected:
         /**

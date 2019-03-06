@@ -19,6 +19,8 @@ namespace ui {
 
         void setColor(glm::vec4 color) noexcept;
 
+        void onTouchBegan(const float x, const float y, const gfx::Touch &touch) noexcept override;
+
     private:
         d2::Node* pBackground = nullptr;
         glm::vec4 mColor;

@@ -28,4 +28,8 @@ namespace ui {
         return Node::init();
     }
 
+    void Button::onTouchBegan(const float x, const float y, const gfx::Touch &touch) noexcept {
+        std::cout << this->mColor.r << " | " << this->mColor.g << " | " << this->mColor.b << std::endl;
+    }
+
 }

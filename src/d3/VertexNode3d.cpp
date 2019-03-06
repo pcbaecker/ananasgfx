@@ -11,12 +11,12 @@
 /*
 // TODO The projection and view matrix must come from outside, this is just for testing
 glm::mat4 Projection = glm::perspective(glm::radians(45.0f), (float) 640 / (float)480, 0.1f, 100.0f);
-glm::mat4 View = glm::lookAt(
+glm::mat4 Container = glm::lookAt(
         glm::vec3(4,3,3), // Camera is at (4,3,3), in World Space
         glm::vec3(0,0,0), // and looks at the origin
         glm::vec3(0,1,0)  // Head is up (set to 0,-1,0 to look upside-down)
 );*/
-//glm::mat4 mvp = Projection * View * Model;
+//glm::mat4 mvp = Projection * Container * Model;
 
 namespace d3 {
 

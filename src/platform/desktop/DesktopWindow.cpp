@@ -102,8 +102,12 @@ namespace platform::desktop {
         glfwPollEvents();
 
         // Get cursor position
-        double mx = 0.0f, my = 0.0f;
+        double mx = 0.0, my = 0.0;
         glfwGetCursorPos(this->pWindow, &mx,&my);
+#ifdef __APPLE__
+        mx *= 2.0;
+        my *= 2.0;
+#endif
 
         // Calculate touch position
         //my = this->mHeight - my;

@@ -205,4 +205,32 @@ TEST_CASE("d2::Node") {
         REQUIRE(childTwo->getParentRotationOffset() == Approx(97.0f));
     }
 
+    SECTION("void onTouchBegan(const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchMoved(const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchEnded(const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("bool contains(float, float) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchBegan(const float, const float, const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchMoved(const float, const float, const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchEnded(const float, const float,const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
 }

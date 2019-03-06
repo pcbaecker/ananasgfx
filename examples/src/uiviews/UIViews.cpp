@@ -1,7 +1,8 @@
 #include <ananasgfx/gfx/Application.hpp>
 #include <ananasgfx/gfx/Scene.hpp>
-#include <ananasgfx/ui/View.hpp>
+#include <ananasgfx/ui/HorizontalLinearLayout.hpp>
 #include <ananasgfx/ui/Button.hpp>
+#include <ananasgfx/ui/VerticalLinearLayout.hpp>
 
 class UIViewsScene : public gfx::Scene {
 public:
@@ -9,7 +10,7 @@ public:
         // Set background color
         this->pWindow->getRenderer()->setClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
-        auto layout = this->createChild<ui::LinearLayout>();
+        auto layout = this->createChild<ui::VerticalLinearLayout>();
         layout->setSize(this->pWindow->getWidth(), this->pWindow->getHeight());
 
         auto buttonOne = layout->createChild<ui::Button>();
@@ -23,7 +24,8 @@ public:
         auto buttonTwo = layout->createChild<ui::Button>();
         buttonTwo->setColor(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f));
         //buttonTwo->setMaxSize(ui::vec2{16,16});
-        buttonTwo->getMargin().setBottom(32);
+        buttonTwo->getMargin().setRight(32);
+        buttonTwo->getMargin().setLeft(32);
 
         auto buttonThree = layout->createChild<ui::Button>();
         buttonThree->setColor(glm::vec4(0.0f, 0.0f, 1.0f, 1.0f));

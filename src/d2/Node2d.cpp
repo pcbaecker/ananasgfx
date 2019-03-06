@@ -237,4 +237,56 @@ namespace d2 {
     uint8_t Node::getZIndex() const noexcept {
         return this->mZIndex;
     }
+
+    void Node::onTouchBegan(const gfx::Touch &touch) noexcept {
+        this->onTouchBegan(static_cast<float>(touch.getLastX()), static_cast<float>(touch.getLastY()), touch);
+    }
+
+    void Node::onTouchMoved(const gfx::Touch &touch) noexcept {
+        this->onTouchMoved(static_cast<float>(touch.getLastX()), static_cast<float>(touch.getLastY()), touch);
+    }
+
+    void Node::onTouchEnded(const gfx::Touch &touch) noexcept {
+        this->onTouchEnded(static_cast<float>(touch.getLastX()), static_cast<float>(touch.getLastY()), touch);
+    }
+
+    void Node::onTouchBegan(const float x, const float y, const gfx::Touch &touch) noexcept {
+        for (auto& child : this->mChildren2d) {
+            if (child->contains(x,y)) {
+                child->onTouchBegan(
+                        child->getPosition().x - child->getAnchorPoint().x * child->getSize().x,
+                        child->getPosition().y - child->getAnchorPoint().y * child->getSize().y,
+                        touch);
+            }
+        }
+    }
+
+    void Node::onTouchMoved(const float x, const float y, const gfx::Touch &touch) noexcept {
+        for (auto& child : this->mChildren2d) {
+            if (child->contains(x,y)) {
+                child->onTouchMoved(
+                        child->getPosition().x - child->getAnchorPoint().x * child->getSize().x,
+                        child->getPosition().y - child->getAnchorPoint().y * child->getSize().y,
+                        touch);
+            }
+        }
+    }
+
+    void Node::onTouchEnded(const float x, const float y, const gfx::Touch &touch) noexcept {
+        for (auto& child : this->mChildren2d) {
+            if (child->contains(x,y)) {
+                child->onTouchEnded(
+                        child->getPosition().x - child->getAnchorPoint().x * child->getSize().x,
+                        child->getPosition().y - child->getAnchorPoint().y * child->getSize().y,
+                        touch);
+            }
+        }
+    }
+
+    bool Node::contains(float x, float y) noexcept {
+        float beginX = this->mPosition.x - this->mAnchorPoint.x * this->mSize.x;
+        float beginY = this->mPosition.y - this->mAnchorPoint.y * this->mSize.y;
+        return beginX <= x && beginX + this->mSize.x > x
+            && beginY <= y && beginY + this->mSize.y > y;
+    }
 }
