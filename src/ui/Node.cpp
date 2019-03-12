@@ -3,8 +3,8 @@
 
 namespace ui {
 
-    vec2 Node::getOptimalSize(const vec2 &constraint) noexcept {
-        return {0,0};
+    Node::Node() noexcept {
+        this->mZIndex = 128;
     }
 
     densityPixel_t Node::toHorizontalDp(float pixel) const noexcept {
@@ -32,6 +32,10 @@ namespace ui {
 
     std::optional<vec2> Node::getFixedSize() const noexcept {
         return this->mFixedSize;
+    }
+
+    void Node::setFixedSize(vec2 fixSize) noexcept {
+        this->mFixedSize = fixSize;
     }
 
     std::optional<vec2> Node::getMinSize() const noexcept {

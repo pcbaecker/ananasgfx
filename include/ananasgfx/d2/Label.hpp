@@ -89,6 +89,20 @@ namespace d2 {
          */
         void setSize(float x, float y) noexcept override;
 
+        /**
+         * @brief Defines that the internal bitmap auto resizes depending on the needed space to render.
+         *
+         * @param value True if we want autoresize.
+         */
+        void setAutoResize(bool value) noexcept;
+
+        /**
+         * @brief Sets the font size.
+         *
+         * @param size The new font size.
+         */
+        void setFontSize(font::size_t size) noexcept;
+
     private:
         /**
          * @brief Renders the text to a bitmap and uses that as texture to display.
@@ -135,6 +149,11 @@ namespace d2 {
          * @brief The bitmap.
          */
         std::unique_ptr<gfx::Bitmap> mBitmap;
+
+        /**
+         * @brief Defines that the bitmap should auto resize depending on the needed space of the font renderer.
+         */
+        bool mBitmapAutoResize = false;
     };
 
 }

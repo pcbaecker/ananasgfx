@@ -63,4 +63,8 @@ TEST_CASE("font::FontRenderer") {
                 bitmap, gfx::HorizontalAlign::Center,
                 gfx::VerticalAlign::Middle);
     }
+
+    SECTION("std::unique_ptr<gfx::Bitmap> render(const std::string&,Font*,font::size_t,const glm::vec2&) noexcept") {
+        // TODO
+    }
 }

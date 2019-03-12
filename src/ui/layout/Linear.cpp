@@ -1,21 +1,14 @@
-#include <ananasgfx/ui/LinearLayout.hpp>
+#include <ananasgfx/ui/layout/Linear.hpp>
+#include <ananasgfx/ui/Container.hpp>
 
-namespace ui {
+namespace ui::layout {
 
-    bool LinearLayout::init() noexcept {
-        if (!arrangeChildren()) {
-            return false;
-        }
-
-        return Container::init();
-    }
-
-    bool LinearLayout::arrangeChildren() noexcept {
+    bool Linear::arrangeChildren(ui::Container* container) noexcept {
         std::unordered_map<Node*,densityPixel_t> children;
-        densityPixel_t remainingSpace = getFullSpace();
+        densityPixel_t remainingSpace = getFullSpace(container);
 
         // Go through all children
-        for (auto& child : this->getUiChildren()) {
+        for (auto& child : container->getUiChildren()) {
             // Check if we have a fixed size
             if (child->getFixedSize().has_value()) {
                 auto fixedSpace = getFixedSpace(child);
@@ -28,11 +21,11 @@ namespace ui {
         }
 
         // Find minSize collisions
-        if (this->getUiChildren().size() - children.size() != 0) {
+        if (container->getUiChildren().size() - children.size() != 0) {
             densityPixel_t spacePerItem = static_cast<densityPixel_t>(
-                    remainingSpace / (this->getUiChildren().size() - children.size()));
+                    remainingSpace / (container->getUiChildren().size() - children.size()));
 
-            for (auto& child : this->getUiChildren()) {
+            for (auto& child : container->getUiChildren()) {
                 if (children.count(child) == 0
                     && child->getMinSize().has_value()) {
                     auto minSpace = getMinSpace(child);
@@ -48,12 +41,12 @@ namespace ui {
         }
 
         // Distribute the remaining space
-        if (this->getUiChildren().size() - children.size() != 0) {
+        if (container->getUiChildren().size() - children.size() != 0) {
             densityPixel_t space = static_cast<densityPixel_t>(
-                    remainingSpace / (this->getUiChildren().size() - children.size()));
+                    remainingSpace / (container->getUiChildren().size() - children.size()));
 
-            for (auto& child : this->getUiChildren()) {
-                    if (children.count(child) == 0) {
+            for (auto& child : container->getUiChildren()) {
+                if (children.count(child) == 0) {
                     children.emplace(child, space);
                     remainingSpace -= space;
                 }
@@ -95,7 +88,8 @@ namespace ui {
         }
 
         // Apply the distributed widths to the ui::Nodes
-        distribute(children);
+        distribute(container, children);
         return true;
     }
+
 }

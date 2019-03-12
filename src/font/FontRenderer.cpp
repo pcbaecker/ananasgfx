@@ -97,8 +97,8 @@ namespace font {
 
         return vector;
     }
-/*
-    std::shared_ptr<gfx::Bitmap> FontRenderer::render(
+
+    std::unique_ptr<gfx::Bitmap> FontRenderer::render(
             const std::string &text,
             Font *font,
             font::size_t fontSize,
@@ -134,7 +134,7 @@ namespace font {
         // Create bitmap
         auto w = static_cast<size_t>(width);
         auto h = static_cast<size_t>(height);
-        auto bitmap = std::make_shared<gfx::Bitmap>(malloc(w*h), w, h, 1);
+        auto bitmap = std::make_unique<gfx::Bitmap>(malloc(w*h), w, h, 1);
         bitmap->clear();
 
         // Write the characters into the bitmap
@@ -156,7 +156,7 @@ namespace font {
         }
 
         return bitmap;
-    }*/
+    }
 
     void FontRenderer::render(
             const std::string &text, Font *font,

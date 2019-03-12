@@ -25,12 +25,12 @@ namespace font {
          * @return A vector containing a long for every utf8 char.
          */
         static std::vector<long> convert(const std::string& string) noexcept;
-/*
-        static std::shared_ptr<gfx::Bitmap> render(
+
+        static std::unique_ptr<gfx::Bitmap> render(
                 const std::string& text,
                 Font* font,
                 font::size_t fontSize,
-                const glm::vec2& maxSize) noexcept;*/
+                const glm::vec2& maxSize) noexcept;
 
         /**
          * @brief Renders the given text into the given bitmap.

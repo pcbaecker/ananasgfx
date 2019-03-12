@@ -9,9 +9,11 @@ namespace ui {
 
     class Node : public d2::Node {
     public:
-        virtual vec2 getOptimalSize(const vec2& constraint) noexcept;
+        Node() noexcept;
 
         std::optional<vec2> getFixedSize() const noexcept;
+
+        void setFixedSize(vec2 fixSize) noexcept;
 
         std::optional<vec2> getMinSize() const noexcept;
 

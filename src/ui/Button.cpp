@@ -8,28 +8,69 @@ namespace ui {
     }
 
     void Button::setSize(float x, float y) noexcept {
-        Node::setSize(x, y);
-
-        if (this->pBackground) {
-            this->pBackground->setSize(x,y);
+        if (this->mBlurBackground.has_value()) {
+            (*this->mBlurBackground)->setSize(x,y);
         }
-    }
-
-    void Button::setColor(glm::vec4 color) noexcept {
-        this->mColor = color;
+        if (this->mFocusBackground.has_value()) {
+            (*this->mFocusBackground)->setSize(x,y);
+        }
+        Node::setSize(x, y);
     }
 
     bool Button::init() noexcept {
-        auto rect = this->createChild<d2::Rectangle>();
-        rect->setColor(this->mColor);
-        this->pBackground = rect;
-        this->pBackground->setSize(this->mSize);
+        this->mBlurBackground = getBlurBackground();
+        this->mFocusBackground = getFocusBackground();
 
+        if (this->mBlurBackground.has_value()) {
+            (*this->mBlurBackground)->setSize(this->mSize);
+        }
+        if (this->mFocusBackground.has_value()) {
+            (*this->mFocusBackground)->setSize(this->mSize);
+            (*this->mFocusBackground)->setVisible(false);
+        }
         return Node::init();
     }
 
     void Button::onTouchBegan(const float x, const float y, const gfx::Touch &touch) noexcept {
-        std::cout << this->mColor.r << " | " << this->mColor.g << " | " << this->mColor.b << std::endl;
+        if (!this->mActiveTouch.has_value()) {
+            this->mActiveTouch = &touch;
+            this->onFocus();
+        }
     }
 
+    void Button::onTouchEnded(const float x, const float y, const gfx::Touch &touch) noexcept {
+        if (this->mActiveTouch.has_value()) {
+            if (this->mCallback) {
+                this->mCallback(this);
+            }
+            this->mActiveTouch.reset();
+            this->onBlur();
+        }
+    }
+
+    void Button::setCallback(std::function<void(Button *)> callback) noexcept {
+        this->mCallback = std::move(callback);
+    }
+
+    const std::function<void(Button *)> &Button::getCallback() const noexcept {
+        return this->mCallback;
+    }
+
+    void Button::onFocus() noexcept {
+        if (this->mFocusBackground.has_value()) {
+            (*this->mFocusBackground)->setVisible(true);
+        }
+        if (this->mBlurBackground.has_value()) {
+            (*this->mBlurBackground)->setVisible(false);
+        }
+    }
+
+    void Button::onBlur() noexcept {
+        if (this->mFocusBackground.has_value()) {
+            (*this->mFocusBackground)->setVisible(false);
+        }
+        if (this->mBlurBackground.has_value()) {
+            (*this->mBlurBackground)->setVisible(true);
+        }
+    }
 }

@@ -63,4 +63,12 @@ TEST_CASE("d2::Label") {
         REQUIRE(label.getSize().x == Approx(125.0f));
         REQUIRE(label.getSize().y == Approx(267.0f));
     }
+
+    SECTION("void setAutoResize(bool) noexcept") {
+        // TODO
+    }
+
+    SECTION("void setFontSize(font::size_t) noexcept") {
+        // TODO
+    }
 }

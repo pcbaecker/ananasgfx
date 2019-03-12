@@ -254,8 +254,8 @@ namespace d2 {
         for (auto& child : this->mChildren2d) {
             if (child->contains(x,y)) {
                 child->onTouchBegan(
-                        child->getPosition().x - child->getAnchorPoint().x * child->getSize().x,
-                        child->getPosition().y - child->getAnchorPoint().y * child->getSize().y,
+                        x - child->getPosition().x - child->getAnchorPoint().x * child->getSize().x,
+                        y - child->getPosition().y - child->getAnchorPoint().y * child->getSize().y,
                         touch);
             }
         }
@@ -265,8 +265,8 @@ namespace d2 {
         for (auto& child : this->mChildren2d) {
             if (child->contains(x,y)) {
                 child->onTouchMoved(
-                        child->getPosition().x - child->getAnchorPoint().x * child->getSize().x,
-                        child->getPosition().y - child->getAnchorPoint().y * child->getSize().y,
+                        x - child->getPosition().x - child->getAnchorPoint().x * child->getSize().x,
+                        y - child->getPosition().y - child->getAnchorPoint().y * child->getSize().y,
                         touch);
             }
         }
@@ -276,8 +276,8 @@ namespace d2 {
         for (auto& child : this->mChildren2d) {
             if (child->contains(x,y)) {
                 child->onTouchEnded(
-                        child->getPosition().x - child->getAnchorPoint().x * child->getSize().x,
-                        child->getPosition().y - child->getAnchorPoint().y * child->getSize().y,
+                        x - child->getPosition().x - child->getAnchorPoint().x * child->getSize().x,
+                        y - child->getPosition().y - child->getAnchorPoint().y * child->getSize().y,
                         touch);
             }
         }

@@ -19,17 +19,21 @@ namespace d2 {
             return;
         }
 
-        // Make sure there is a bitmap
-        if (!this->mBitmap) {
-            ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Attempt to render text without a bitmap", {}, ee::Stacktrace::create());
-            return;
+        if (this->mBitmapAutoResize) {
+            this->mBitmap = font::FontRenderer::render(this->mText, this->pFont, 24, this->mSize);
+        } else {
+            // Make sure there is a bitmap
+            if (!this->mBitmap) {
+                ee::Log::log(ee::LogLevel::Error, "", __PRETTY_FUNCTION__, "Attempt to render text without a bitmap", {}, ee::Stacktrace::create());
+                return;
+            }
+
+            // Clear the bitmap before rendering
+            this->mBitmap->clear();
+
+            // Render the text to the bitmap
+            font::FontRenderer::render(this->mText, this->pFont, this->mFontSize, *this->mBitmap, this->mHorizontalAlign, this->mVerticalAlign);
         }
-
-        // Clear the bitmap before rendering
-        this->mBitmap->clear();
-
-        // Render the text to the bitmap
-        font::FontRenderer::render(this->mText, this->pFont, 24, *this->mBitmap, this->mHorizontalAlign, this->mVerticalAlign);
 
         // Convert the bitmap to a texture
         auto texture = gfx::Texture::create(this->pWindow->getRenderer(), *this->mBitmap);
@@ -123,5 +127,13 @@ namespace d2 {
             this->createBitmap();
             this->renderText();
         }
+    }
+
+    void Label::setAutoResize(bool value) noexcept {
+        this->mBitmapAutoResize = value;
+    }
+
+    void Label::setFontSize(font::size_t size) noexcept {
+        this->mFontSize = size;
     }
 }

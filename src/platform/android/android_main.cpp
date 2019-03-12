@@ -250,7 +250,7 @@ static void engine_handle_cmd(struct android_app* app, int32_t cmd) {
                 platform::android::AndroidWindow::pAndroidApp = app;
 
                 // Create the ApplicationManager, so that it will manage creating and update of the applications
-                pApplicationManager = new gfx::_internal::ApplicationManager(false, {"Rendertexture"}, 0, resourcePath, userPath, true, true);
+                pApplicationManager = new gfx::_internal::ApplicationManager(false, {"overview"}, 0, resourcePath, userPath, true, true);
             }
             return;
 

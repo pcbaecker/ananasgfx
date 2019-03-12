@@ -204,7 +204,7 @@ namespace d2 {
          * @param y The Y-Coordinate in parent space.
          * @param touch The touch object.
          */
-        virtual void onTouchBegan(const float x, const float y, const gfx::Touch& touch) noexcept;
+        virtual void onTouchBegan(float x, float y, const gfx::Touch& touch) noexcept;
 
         /**
          * @brief Called when a touch moves.
@@ -213,7 +213,7 @@ namespace d2 {
          * @param y The Y-Coordinate in parent space.
          * @param touch The touch object.
          */
-        virtual void onTouchMoved(const float x, const float y, const gfx::Touch& touch) noexcept;
+        virtual void onTouchMoved(float x, float y, const gfx::Touch& touch) noexcept;
 
         /**
          * @brief Called when a touch ends.
@@ -222,7 +222,7 @@ namespace d2 {
          * @param y The Y-Coordinate in parent space.
          * @param touch The touch object.
          */
-        virtual void onTouchEnded(const float x, const float y,const gfx::Touch& touch) noexcept;
+        virtual void onTouchEnded(float x, float y,const gfx::Touch& touch) noexcept;
 
         /**
          * @brief Checks if the given position is inside this 2d node.
