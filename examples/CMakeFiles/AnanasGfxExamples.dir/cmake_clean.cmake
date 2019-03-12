@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o"
   "CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o"
   "CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o"
   "CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o"

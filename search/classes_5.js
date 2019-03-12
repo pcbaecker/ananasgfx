@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['horizontallinearlayout',['HorizontalLinearLayout',['../classui_1_1_horizontal_linear_layout.html',1,'ui']]]
+  ['horizontallinear',['HorizontalLinear',['../classui_1_1layout_1_1_horizontal_linear.html',1,'ui::layout']]]
 ];

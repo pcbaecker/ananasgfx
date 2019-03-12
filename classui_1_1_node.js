@@ -1,10 +1,11 @@
 var classui_1_1_node =
 [
+    [ "Node", "classui_1_1_node.html#a5f3168f91856c5c9ee9574e55d16b0cd", null ],
     [ "getFixedSize", "classui_1_1_node.html#a17f1b0aebb17c11dd6b39548d8b35ce4", null ],
     [ "getMargin", "classui_1_1_node.html#a46fe125cb3ab7c1df13cd0d3b8fdc37b", null ],
     [ "getMaxSize", "classui_1_1_node.html#a06e365e312b424174b12ef664fd69cfa", null ],
     [ "getMinSize", "classui_1_1_node.html#a2994c56276821f15a10f6544f00ade67", null ],
-    [ "getOptimalSize", "classui_1_1_node.html#ac1ff681315e5a80364855774d4bfc1bd", null ],
+    [ "setFixedSize", "classui_1_1_node.html#a6869b120007859e948b53fbe7a249f2d", null ],
     [ "setMaxSize", "classui_1_1_node.html#ad83d6a6bef35273b1562f51694c3ce81", null ],
     [ "setMinSize", "classui_1_1_node.html#a158fc957af0d319c97d3e024786999de", null ],
     [ "toHorizontalDp", "classui_1_1_node.html#a188c1a6191d01d7c3f12df7a2ec352a6", null ],

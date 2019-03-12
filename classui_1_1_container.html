@@ -119,27 +119,41 @@ Inheritance diagram for ui::Container:</div>
  <div class="center">
   <img src="classui_1_1_container.png" usemap="#ui::Container_map" alt=""/>
   <map id="ui::Container_map" name="ui::Container_map">
-<area href="classui_1_1_node.html" alt="ui::Node" shape="rect" coords="84,112,243,136"/>
-<area href="classd2_1_1_node.html" title="The basis 2d node class that does not draw anything but provides basic 2d methods. " alt="d2::Node" shape="rect" coords="84,56,243,80"/>
-<area href="classgfx_1_1_node.html" title="The base node class for everything that should be drawn. " alt="gfx::Node" shape="rect" coords="84,0,243,24"/>
-<area href="classui_1_1_linear_layout.html" alt="ui::LinearLayout" shape="rect" coords="84,224,243,248"/>
-<area href="classui_1_1_horizontal_linear_layout.html" alt="ui::HorizontalLinearLayout" shape="rect" coords="0,280,159,304"/>
-<area href="classui_1_1_vertical_linear_layout.html" alt="ui::VerticalLinearLayout" shape="rect" coords="169,280,328,304"/>
+<area href="classui_1_1_node.html" alt="ui::Node" shape="rect" coords="116,112,338,136"/>
+<area href="classd2_1_1_node.html" title="The basis 2d node class that does not draw anything but provides basic 2d methods. " alt="d2::Node" shape="rect" coords="116,56,338,80"/>
+<area href="classgfx_1_1_node.html" title="The base node class for everything that should be drawn. " alt="gfx::Node" shape="rect" coords="116,0,338,24"/>
+<area href="classui_1_1design_1_1material_1_1_topbar.html" alt="ui::design::material::Topbar" shape="rect" coords="0,224,222,248"/>
+<area href="classui_1_1_list_item.html" alt="ui::ListItem" shape="rect" coords="232,224,454,248"/>
+<area href="classui_1_1design_1_1material_1_1_list_item_simple_text.html" alt="ui::design::material::ListItemSimpleText" shape="rect" coords="232,280,454,304"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a6669eeccd78e72f1d5115a06d490e271"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6669eeccd78e72f1d5115a06d490e271"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classui_1_1_container.html#a6669eeccd78e72f1d5115a06d490e271">init</a> () noexceptoverride</td></tr>
+<tr class="memdesc:a6669eeccd78e72f1d5115a06d490e271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the object. <br /></td></tr>
+<tr class="separator:a6669eeccd78e72f1d5115a06d490e271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace7a45fe0d2982159fe110c24a65ddd1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace7a45fe0d2982159fe110c24a65ddd1"></a>
 const std::list&lt; <a class="el" href="classui_1_1_node.html">Node</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getUiChildren</b> () const noexcept</td></tr>
 <tr class="separator:ace7a45fe0d2982159fe110c24a65ddd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3021ffbbca42309ab2bcffc0cd0c935"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3021ffbbca42309ab2bcffc0cd0c935"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setBackground</b> (<a class="el" href="classd2_1_1_node.html">d2::Node</a> *pNode) noexcept</td></tr>
+<tr class="separator:aa3021ffbbca42309ab2bcffc0cd0c935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a714f3409dd12fce568c818faee0c1e6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classui_1_1_container.html#a714f3409dd12fce568c818faee0c1e6e">setSize</a> (float x, float y) noexceptoverride</td></tr>
+<tr class="memdesc:a714f3409dd12fce568c818faee0c1e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of this node.  <a href="#a714f3409dd12fce568c818faee0c1e6e">More...</a><br /></td></tr>
+<tr class="separator:a714f3409dd12fce568c818faee0c1e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a722369f3feac2361d045f27bbf51b6"><td class="memTemplParams" colspan="2"><a class="anchor" id="a7a722369f3feac2361d045f27bbf51b6"></a>
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:a7a722369f3feac2361d045f27bbf51b6"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>createLayout</b> () noexcept</td></tr>
+<tr class="separator:a7a722369f3feac2361d045f27bbf51b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classui_1_1_node"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classui_1_1_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classui_1_1_node.html">ui::Node</a></td></tr>
-<tr class="memitem:ac1ff681315e5a80364855774d4bfc1bd inherit pub_methods_classui_1_1_node"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1ff681315e5a80364855774d4bfc1bd"></a>
-virtual vec2&#160;</td><td class="memItemRight" valign="bottom"><b>getOptimalSize</b> (const vec2 &amp;constraint) noexcept</td></tr>
-<tr class="separator:ac1ff681315e5a80364855774d4bfc1bd inherit pub_methods_classui_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17f1b0aebb17c11dd6b39548d8b35ce4 inherit pub_methods_classui_1_1_node"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17f1b0aebb17c11dd6b39548d8b35ce4"></a>
 std::optional&lt; vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getFixedSize</b> () const noexcept</td></tr>
 <tr class="separator:a17f1b0aebb17c11dd6b39548d8b35ce4 inherit pub_methods_classui_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6869b120007859e948b53fbe7a249f2d inherit pub_methods_classui_1_1_node"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6869b120007859e948b53fbe7a249f2d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFixedSize</b> (vec2 fixSize) noexcept</td></tr>
+<tr class="separator:a6869b120007859e948b53fbe7a249f2d inherit pub_methods_classui_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2994c56276821f15a10f6544f00ade67 inherit pub_methods_classui_1_1_node"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2994c56276821f15a10f6544f00ade67"></a>
 std::optional&lt; vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getMinSize</b> () const noexcept</td></tr>
 <tr class="separator:a2994c56276821f15a10f6544f00ade67 inherit pub_methods_classui_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,10 +185,6 @@ glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><b>toPixel</b> (con
 <a class="el" href="classui_1_1_margin.html">Margin</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getMargin</b> () noexcept</td></tr>
 <tr class="separator:a46fe125cb3ab7c1df13cd0d3b8fdc37b inherit pub_methods_classui_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classd2_1_1_node"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classd2_1_1_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classd2_1_1_node.html">d2::Node</a></td></tr>
-<tr class="memitem:a9094b1bd300981456cea69990555b870 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9094b1bd300981456cea69990555b870"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#a9094b1bd300981456cea69990555b870">init</a> () noexceptoverride</td></tr>
-<tr class="memdesc:a9094b1bd300981456cea69990555b870 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the object. <br /></td></tr>
-<tr class="separator:a9094b1bd300981456cea69990555b870 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e6d3d889b9e3fd566bca28106245f53 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#a0e6d3d889b9e3fd566bca28106245f53">setPosition</a> (float x, float y) noexcept</td></tr>
 <tr class="memdesc:a0e6d3d889b9e3fd566bca28106245f53 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of this 2d node.  <a href="#a0e6d3d889b9e3fd566bca28106245f53">More...</a><br /></td></tr>
 <tr class="separator:a0e6d3d889b9e3fd566bca28106245f53 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,9 +206,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:afa31a221e34e9f719c01b6824c04d9ae inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">const glm::vec2 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#afa31a221e34e9f719c01b6824c04d9ae">getScale</a> () const noexcept</td></tr>
 <tr class="memdesc:afa31a221e34e9f719c01b6824c04d9ae inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a 2d vector that holds the scale for X- and Y-Axis.  <a href="#afa31a221e34e9f719c01b6824c04d9ae">More...</a><br /></td></tr>
 <tr class="separator:afa31a221e34e9f719c01b6824c04d9ae inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a901a91bf3d7c0ee93a7f1cf67769e672 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#a901a91bf3d7c0ee93a7f1cf67769e672">setSize</a> (float x, float y) noexcept</td></tr>
-<tr class="memdesc:a901a91bf3d7c0ee93a7f1cf67769e672 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of this node.  <a href="#a901a91bf3d7c0ee93a7f1cf67769e672">More...</a><br /></td></tr>
-<tr class="separator:a901a91bf3d7c0ee93a7f1cf67769e672 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3ea22714901e98693ec6c4328cd53c8 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#ac3ea22714901e98693ec6c4328cd53c8">setSize</a> (const glm::vec2 &amp;size) noexcept</td></tr>
 <tr class="memdesc:ac3ea22714901e98693ec6c4328cd53c8 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of this node.  <a href="#ac3ea22714901e98693ec6c4328cd53c8">More...</a><br /></td></tr>
 <tr class="separator:ac3ea22714901e98693ec6c4328cd53c8 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -250,15 +257,15 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a038dd0bb8084ae6f5e722ab918418671 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classgfx_1_1_render_texture.html">gfx::RenderTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#a038dd0bb8084ae6f5e722ab918418671">asRenderTexture</a> () noexceptoverride</td></tr>
 <tr class="memdesc:a038dd0bb8084ae6f5e722ab918418671 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders this 2d node into a rendertexture.  <a href="#a038dd0bb8084ae6f5e722ab918418671">More...</a><br /></td></tr>
 <tr class="separator:a038dd0bb8084ae6f5e722ab918418671 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4be29fa3fe6ec9c5af2897f369e31811 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#a4be29fa3fe6ec9c5af2897f369e31811">onTouchBegan</a> (const float x, const float y, const <a class="el" href="classgfx_1_1_touch.html">gfx::Touch</a> &amp;touch) noexcept</td></tr>
-<tr class="memdesc:a4be29fa3fe6ec9c5af2897f369e31811 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch begins.  <a href="#a4be29fa3fe6ec9c5af2897f369e31811">More...</a><br /></td></tr>
-<tr class="separator:a4be29fa3fe6ec9c5af2897f369e31811 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79c873ba38c294777ebe97d697de40f5 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#a79c873ba38c294777ebe97d697de40f5">onTouchMoved</a> (const float x, const float y, const <a class="el" href="classgfx_1_1_touch.html">gfx::Touch</a> &amp;touch) noexcept</td></tr>
-<tr class="memdesc:a79c873ba38c294777ebe97d697de40f5 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch moves.  <a href="#a79c873ba38c294777ebe97d697de40f5">More...</a><br /></td></tr>
-<tr class="separator:a79c873ba38c294777ebe97d697de40f5 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4939e3824fec9c874c62ba4ce728df56 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#a4939e3824fec9c874c62ba4ce728df56">onTouchEnded</a> (const float x, const float y, const <a class="el" href="classgfx_1_1_touch.html">gfx::Touch</a> &amp;touch) noexcept</td></tr>
-<tr class="memdesc:a4939e3824fec9c874c62ba4ce728df56 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch ends.  <a href="#a4939e3824fec9c874c62ba4ce728df56">More...</a><br /></td></tr>
-<tr class="separator:a4939e3824fec9c874c62ba4ce728df56 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4edc2071144656b5b7d978cfb29016c3 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#a4edc2071144656b5b7d978cfb29016c3">onTouchBegan</a> (float x, float y, const <a class="el" href="classgfx_1_1_touch.html">gfx::Touch</a> &amp;touch) noexcept</td></tr>
+<tr class="memdesc:a4edc2071144656b5b7d978cfb29016c3 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch begins.  <a href="#a4edc2071144656b5b7d978cfb29016c3">More...</a><br /></td></tr>
+<tr class="separator:a4edc2071144656b5b7d978cfb29016c3 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1c6f13223ffa4dd496fc8a8a95bd50a inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#ad1c6f13223ffa4dd496fc8a8a95bd50a">onTouchMoved</a> (float x, float y, const <a class="el" href="classgfx_1_1_touch.html">gfx::Touch</a> &amp;touch) noexcept</td></tr>
+<tr class="memdesc:ad1c6f13223ffa4dd496fc8a8a95bd50a inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch moves.  <a href="#ad1c6f13223ffa4dd496fc8a8a95bd50a">More...</a><br /></td></tr>
+<tr class="separator:ad1c6f13223ffa4dd496fc8a8a95bd50a inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff43ed9be736870f371d010b84ff6fdc inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#aff43ed9be736870f371d010b84ff6fdc">onTouchEnded</a> (float x, float y, const <a class="el" href="classgfx_1_1_touch.html">gfx::Touch</a> &amp;touch) noexcept</td></tr>
+<tr class="memdesc:aff43ed9be736870f371d010b84ff6fdc inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch ends.  <a href="#aff43ed9be736870f371d010b84ff6fdc">More...</a><br /></td></tr>
+<tr class="separator:aff43ed9be736870f371d010b84ff6fdc inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a663ab2169b7f637e83ef61fa9b0b7041 inherit pub_methods_classd2_1_1_node"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classd2_1_1_node.html#a663ab2169b7f637e83ef61fa9b0b7041">contains</a> (float x, float y) noexcept</td></tr>
 <tr class="memdesc:a663ab2169b7f637e83ef61fa9b0b7041 inherit pub_methods_classd2_1_1_node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the given position is inside this 2d node.  <a href="#a663ab2169b7f637e83ef61fa9b0b7041">More...</a><br /></td></tr>
 <tr class="separator:a663ab2169b7f637e83ef61fa9b0b7041 inherit pub_methods_classd2_1_1_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -318,9 +325,15 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a8e7894aead27ed8e777187f8d99e8504"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e7894aead27ed8e777187f8d99e8504"></a>
+std::unique_ptr&lt; <a class="el" href="classui_1_1layout_1_1_layout.html">layout::Layout</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mLayout</b></td></tr>
+<tr class="separator:a8e7894aead27ed8e777187f8d99e8504"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a586fe67ab3874a23269b7480f2328460"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a586fe67ab3874a23269b7480f2328460"></a>
 std::list&lt; <a class="el" href="classui_1_1_node.html">Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mUiChildren</b></td></tr>
 <tr class="separator:a586fe67ab3874a23269b7480f2328460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac28db182b2435152f0920d07ab1e3fdb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac28db182b2435152f0920d07ab1e3fdb"></a>
+std::optional&lt; <a class="el" href="classd2_1_1_node.html">d2::Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mBackground</b></td></tr>
+<tr class="separator:ac28db182b2435152f0920d07ab1e3fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -448,6 +461,51 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 
 <p>Reimplemented from <a class="el" href="classd2_1_1_node.html#a59496f111b34daaa240c5a1fbca10141">d2::Node</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a714f3409dd12fce568c818faee0c1e6e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ui::Container::setSize </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the size of this node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The width of this node. </td></tr>
+    <tr><td class="paramname">y</td><td>The height of this node. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classd2_1_1_node.html#a901a91bf3d7c0ee93a7f1cf67769e672">d2::Node</a>.</p>
 
 </div>
 </div>

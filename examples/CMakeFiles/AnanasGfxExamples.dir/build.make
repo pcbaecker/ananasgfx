@@ -57,10 +57,24 @@ include examples/CMakeFiles/AnanasGfxExamples.dir/progress.make
 # Include the compile flags for this target's objects.
 include examples/CMakeFiles/AnanasGfxExamples.dir/flags.make
 
+examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/flags.make
+examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/includes_CXX.rsp
+examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o: ../examples/src/Overview.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o"
+	cd /src/cmake-build-emscripten/examples && /emsdk_portable/sdk/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o -c /src/examples/src/Overview.cpp
+
+examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.i"
+	cd /src/cmake-build-emscripten/examples && /emsdk_portable/sdk/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /src/examples/src/Overview.cpp > CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.i
+
+examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.s"
+	cd /src/cmake-build-emscripten/examples && /emsdk_portable/sdk/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /src/examples/src/Overview.cpp -o CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.s
+
 examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/flags.make
 examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/includes_CXX.rsp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o: ../examples/src/multiwindow/MultiWindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o"
 	cd /src/cmake-build-emscripten/examples && /emsdk_portable/sdk/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o -c /src/examples/src/multiwindow/MultiWindow.cpp
 
 examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.i: cmake_force
@@ -74,7 +88,7 @@ examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.s: cma
 examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/flags.make
 examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/includes_CXX.rsp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o: ../examples/src/primitives2d/Primitives2d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o"
 	cd /src/cmake-build-emscripten/examples && /emsdk_portable/sdk/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o -c /src/examples/src/primitives2d/Primitives2d.cpp
 
 examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.i: cmake_force
@@ -88,7 +102,7 @@ examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.s: c
 examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/flags.make
 examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/includes_CXX.rsp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o: ../examples/src/primitives3d/Primitives3d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o"
 	cd /src/cmake-build-emscripten/examples && /emsdk_portable/sdk/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o -c /src/examples/src/primitives3d/Primitives3d.cpp
 
 examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.i: cmake_force
@@ -102,7 +116,7 @@ examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.s: c
 examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/flags.make
 examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/includes_CXX.rsp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.o: ../examples/src/rendertexture/Rendertexture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.o"
 	cd /src/cmake-build-emscripten/examples && /emsdk_portable/sdk/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.o -c /src/examples/src/rendertexture/Rendertexture.cpp
 
 examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.i: cmake_force
@@ -116,7 +130,7 @@ examples/CMakeFiles/AnanasGfxExamples.dir/src/rendertexture/Rendertexture.cpp.s:
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/flags.make
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: examples/CMakeFiles/AnanasGfxExamples.dir/includes_CXX.rsp
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o: ../examples/src/uiviews/UIViews.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o"
 	cd /src/cmake-build-emscripten/examples && /emsdk_portable/sdk/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.o -c /src/examples/src/uiviews/UIViews.cpp
 
 examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.i: cmake_force
@@ -129,6 +143,7 @@ examples/CMakeFiles/AnanasGfxExamples.dir/src/uiviews/UIViews.cpp.s: cmake_force
 
 # Object files for target AnanasGfxExamples
 AnanasGfxExamples_OBJECTS = \
+"CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o" \
 "CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o" \
 "CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o" \
 "CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o" \
@@ -138,6 +153,7 @@ AnanasGfxExamples_OBJECTS = \
 # External object files for target AnanasGfxExamples
 AnanasGfxExamples_EXTERNAL_OBJECTS =
 
+examples/AnanasGfxExamples.html: examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o
 examples/AnanasGfxExamples.html: examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o
 examples/AnanasGfxExamples.html: examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o
 examples/AnanasGfxExamples.html: examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o
@@ -151,7 +167,7 @@ examples/AnanasGfxExamples.html: dependencies/freetype2/libfreetype.a
 examples/AnanasGfxExamples.html: examples/CMakeFiles/AnanasGfxExamples.dir/linklibs.rsp
 examples/AnanasGfxExamples.html: examples/CMakeFiles/AnanasGfxExamples.dir/objects1.rsp
 examples/AnanasGfxExamples.html: examples/CMakeFiles/AnanasGfxExamples.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable AnanasGfxExamples.html"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/src/cmake-build-emscripten/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable AnanasGfxExamples.html"
 	cd /src/cmake-build-emscripten/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AnanasGfxExamples.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

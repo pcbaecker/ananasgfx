@@ -79,14 +79,29 @@ var annotated_dup =
       [ "Task", "classtest_1_1_task.html", "classtest_1_1_task" ]
     ] ],
     [ "ui", null, [
+      [ "design", null, [
+        [ "material", null, [
+          [ "ButtonGreen", "classui_1_1design_1_1material_1_1_button_green.html", "classui_1_1design_1_1material_1_1_button_green" ],
+          [ "ListItemSimpleText", "classui_1_1design_1_1material_1_1_list_item_simple_text.html", "classui_1_1design_1_1material_1_1_list_item_simple_text" ],
+          [ "MaterialDesign", "classui_1_1design_1_1material_1_1_material_design.html", "classui_1_1design_1_1material_1_1_material_design" ],
+          [ "Topbar", "classui_1_1design_1_1material_1_1_topbar.html", "classui_1_1design_1_1material_1_1_topbar" ]
+        ] ]
+      ] ],
+      [ "layout", null, [
+        [ "HorizontalLinear", "classui_1_1layout_1_1_horizontal_linear.html", "classui_1_1layout_1_1_horizontal_linear" ],
+        [ "Layout", "classui_1_1layout_1_1_layout.html", "classui_1_1layout_1_1_layout" ],
+        [ "Linear", "classui_1_1layout_1_1_linear.html", "classui_1_1layout_1_1_linear" ],
+        [ "VerticalLinear", "classui_1_1layout_1_1_vertical_linear.html", "classui_1_1layout_1_1_vertical_linear" ]
+      ] ],
       [ "Button", "classui_1_1_button.html", "classui_1_1_button" ],
       [ "Container", "classui_1_1_container.html", "classui_1_1_container" ],
-      [ "HorizontalLinearLayout", "classui_1_1_horizontal_linear_layout.html", "classui_1_1_horizontal_linear_layout" ],
-      [ "LinearLayout", "classui_1_1_linear_layout.html", "classui_1_1_linear_layout" ],
-      [ "List", "classui_1_1_list.html", null ],
-      [ "ListItem", "classui_1_1_list_item.html", null ],
+      [ "Label", "classui_1_1_label.html", "classui_1_1_label" ],
+      [ "List", "classui_1_1_list.html", "classui_1_1_list" ],
+      [ "ListItem", "classui_1_1_list_item.html", "classui_1_1_list_item" ],
       [ "Margin", "classui_1_1_margin.html", "classui_1_1_margin" ],
       [ "Node", "classui_1_1_node.html", "classui_1_1_node" ],
-      [ "VerticalLinearLayout", "classui_1_1_vertical_linear_layout.html", "classui_1_1_vertical_linear_layout" ]
+      [ "Scrollable", "classui_1_1_scrollable.html", "classui_1_1_scrollable" ],
+      [ "TextButton", "classui_1_1_text_button.html", "classui_1_1_text_button" ],
+      [ "Touchable", "classui_1_1_touchable.html", "classui_1_1_touchable" ]
     ] ]
 ];

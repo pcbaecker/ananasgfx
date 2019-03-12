@@ -193,6 +193,33 @@ AnanasGfxExamples/fast:
 	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/build
 .PHONY : AnanasGfxExamples/fast
 
+src/Overview.o: src/Overview.cpp.o
+
+.PHONY : src/Overview.o
+
+# target to build an object file
+src/Overview.cpp.o:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o
+.PHONY : src/Overview.cpp.o
+
+src/Overview.i: src/Overview.cpp.i
+
+.PHONY : src/Overview.i
+
+# target to preprocess a source file
+src/Overview.cpp.i:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.i
+.PHONY : src/Overview.cpp.i
+
+src/Overview.s: src/Overview.cpp.s
+
+.PHONY : src/Overview.s
+
+# target to generate assembly for a file
+src/Overview.cpp.s:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.s
+.PHONY : src/Overview.cpp.s
+
 src/multiwindow/MultiWindow.o: src/multiwindow/MultiWindow.cpp.o
 
 .PHONY : src/multiwindow/MultiWindow.o
@@ -343,6 +370,9 @@ help:
 	@echo "... package"
 	@echo "... package_source"
 	@echo "... edit_cache"
+	@echo "... src/Overview.o"
+	@echo "... src/Overview.i"
+	@echo "... src/Overview.s"
 	@echo "... src/multiwindow/MultiWindow.o"
 	@echo "... src/multiwindow/MultiWindow.i"
 	@echo "... src/multiwindow/MultiWindow.s"
