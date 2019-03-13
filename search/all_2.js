@@ -10,5 +10,6 @@ var searchData=
   ['bitmap',['Bitmap',['../classgfx_1_1_bitmap.html#a9a6cdb96068350c5f08e531b0c517f48',1,'gfx::Bitmap::Bitmap(void *pData, size_t width, size_t height, uint8_t channels) noexcept'],['../classgfx_1_1_bitmap.html#aeae782470fec0bb5ff9504823d3230a3',1,'gfx::Bitmap::Bitmap(size_t width, size_t height, uint8_t channels) noexcept'],['../classgfx_1_1_bitmap.html#a682a091d46d9cf69fee20f5e83de7fe5',1,'gfx::Bitmap::Bitmap(Bitmap &amp;&amp;bitmap) noexcept']]],
   ['buffervertices',['bufferVertices',['../classgfx_1_1renderer_1_1opengl_1_1_opengl_renderer.html#ac5257f4db4da73c4bed2b3a91fabe7b1',1,'gfx::renderer::opengl::OpenglRenderer::bufferVertices()'],['../classgfx_1_1_renderer.html#a774b3c5251c53a9e02f9b25f7fbc6a68',1,'gfx::Renderer::bufferVertices()']]],
   ['button',['Button',['../classui_1_1_button.html',1,'ui']]],
+  ['buttonblue',['ButtonBlue',['../classui_1_1design_1_1material_1_1_button_blue.html',1,'ui::design::material']]],
   ['buttongreen',['ButtonGreen',['../classui_1_1design_1_1material_1_1_button_green.html',1,'ui::design::material']]]
 ];

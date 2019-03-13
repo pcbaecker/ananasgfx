@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['scene',['Scene',['../classgfx_1_1_scene.html',1,'gfx']]],
   ['scrollable',['Scrollable',['../classui_1_1_scrollable.html',1,'ui']]],
   ['sectioninfo',['SectionInfo',['../structui_1_1_list_1_1_section_info.html',1,'ui::List']]],
   ['shader',['Shader',['../classgfx_1_1_shader.html',1,'gfx']]],

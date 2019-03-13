@@ -1,7 +1,7 @@
 var searchData=
 [
   ['activatestencilbuffer',['activateStencilBuffer',['../classgfx_1_1renderer_1_1opengl_1_1_opengl_renderer.html#a4cf11dbfa51ede33c24148a0f29e3c94',1,'gfx::renderer::opengl::OpenglRenderer::activateStencilBuffer()'],['../classgfx_1_1_renderer.html#a6af72d43303abe385bf74b39ac8d5925',1,'gfx::Renderer::activateStencilBuffer()']]],
-  ['addscene',['addScene',['../classgfx_1_1_window.html#a7d75aa465d38fa6dadf636dfb57d6131',1,'gfx::Window']]],
+  ['addrootnode',['addRootNode',['../classgfx_1_1_window.html#a25a8bad307827b589c6b5daff6b0eee6',1,'gfx::Window']]],
   ['addtask',['addTask',['../classgfx_1_1_application.html#ae505bc41e71e21d457af3545d092c558',1,'gfx::Application']]],
   ['application',['Application',['../classgfx_1_1_application.html',1,'gfx']]],
   ['applicationmanager',['ApplicationManager',['../classgfx_1_1__internal_1_1_application_manager.html',1,'gfx::_internal']]],

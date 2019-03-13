@@ -22,8 +22,8 @@ var NAVTREEINDEX =
 [
 ".html",
 "classfont_1_1_character.html#a21bf1135cc2b002ae467bc90853e55a1",
-"classgfx_1_1_vertex_buffer.html#ad791f17e821931c619441c5b85fbfbc3",
-"classui_1_1_list.html#a785afed47ad64bf856ebbf11187ca04d"
+"classgfx_1_1_vertex_buffer.html#a5df5e07b318c654c8707ca49466ff137",
+"classui_1_1_label.html#afaabe2f43e6dfe8dddbf879500fe9354"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

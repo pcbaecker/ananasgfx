@@ -22,6 +22,7 @@ var classgfx_1_1_node =
     [ "setWindow", "classgfx_1_1_node.html#a10ef32c5bfb4897bc5e80dc143b74f82", null ],
     [ "update", "classgfx_1_1_node.html#aab77d8dc6475b8ddee994588dafb1de3", null ],
     [ "ClippingNode", "classgfx_1_1_node.html#a370e816bf5e4435797fb585c829548b9", null ],
+    [ "Window", "classgfx_1_1_node.html#a553f958a25683445088050a69d3de8e9", null ],
     [ "mChildren", "classgfx_1_1_node.html#a392ecb58460d84b5aa1f7b7f4dbc151d", null ],
     [ "mId", "classgfx_1_1_node.html#aad97d58ebfc52b2e4632bc8b26de8cf3", null ],
     [ "mInitialized", "classgfx_1_1_node.html#a5e9938e5d31abf735abe216c995180d7", null ],

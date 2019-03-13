@@ -47,7 +47,6 @@ var annotated_dup =
       [ "Node", "classgfx_1_1_node.html", "classgfx_1_1_node" ],
       [ "Renderer", "classgfx_1_1_renderer.html", "classgfx_1_1_renderer" ],
       [ "RenderTexture", "classgfx_1_1_render_texture.html", "classgfx_1_1_render_texture" ],
-      [ "Scene", "classgfx_1_1_scene.html", "classgfx_1_1_scene" ],
       [ "Shader", "classgfx_1_1_shader.html", "classgfx_1_1_shader" ],
       [ "ShaderUniform", "classgfx_1_1_shader_uniform.html", "classgfx_1_1_shader_uniform" ],
       [ "Task", "classgfx_1_1_task.html", "classgfx_1_1_task" ],
@@ -81,7 +80,9 @@ var annotated_dup =
     [ "ui", null, [
       [ "design", null, [
         [ "material", null, [
+          [ "ButtonBlue", "classui_1_1design_1_1material_1_1_button_blue.html", "classui_1_1design_1_1material_1_1_button_blue" ],
           [ "ButtonGreen", "classui_1_1design_1_1material_1_1_button_green.html", "classui_1_1design_1_1material_1_1_button_green" ],
+          [ "List", "classui_1_1design_1_1material_1_1_list.html", "classui_1_1design_1_1material_1_1_list" ],
           [ "ListItemSimpleText", "classui_1_1design_1_1material_1_1_list_item_simple_text.html", "classui_1_1design_1_1material_1_1_list_item_simple_text" ],
           [ "MaterialDesign", "classui_1_1design_1_1material_1_1_material_design.html", "classui_1_1design_1_1material_1_1_material_design" ],
           [ "Topbar", "classui_1_1design_1_1material_1_1_topbar.html", "classui_1_1design_1_1material_1_1_topbar" ]

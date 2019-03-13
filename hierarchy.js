@@ -42,6 +42,7 @@ var hierarchy =
         [ "ui::Node", "classui_1_1_node.html", [
           [ "ui::Button", "classui_1_1_button.html", [
             [ "ui::TextButton", "classui_1_1_text_button.html", [
+              [ "ui::design::material::ButtonBlue", "classui_1_1design_1_1material_1_1_button_blue.html", null ],
               [ "ui::design::material::ButtonGreen", "classui_1_1design_1_1material_1_1_button_green.html", null ]
             ] ]
           ] ],
@@ -52,7 +53,9 @@ var hierarchy =
             ] ]
           ] ],
           [ "ui::Label", "classui_1_1_label.html", null ],
-          [ "ui::List", "classui_1_1_list.html", null ],
+          [ "ui::List", "classui_1_1_list.html", [
+            [ "ui::design::material::List", "classui_1_1design_1_1material_1_1_list.html", null ]
+          ] ],
           [ "ui::Scrollable", "classui_1_1_scrollable.html", null ]
         ] ]
       ] ],
@@ -61,8 +64,7 @@ var hierarchy =
           [ "d3::Cube", "classd3_1_1_cube.html", null ]
         ] ]
       ] ],
-      [ "gfx::ClippingNode", "classgfx_1_1_clipping_node.html", null ],
-      [ "gfx::Scene", "classgfx_1_1_scene.html", null ]
+      [ "gfx::ClippingNode", "classgfx_1_1_clipping_node.html", null ]
     ] ],
     [ "test::PHash", "classtest_1_1_p_hash.html", null ],
     [ "gfx::Renderer", "classgfx_1_1_renderer.html", [

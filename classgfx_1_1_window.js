@@ -1,7 +1,8 @@
 var classgfx_1_1_window =
 [
     [ "Window", "classgfx_1_1_window.html#ad009c6246a2fae6e51a027c28c584508", null ],
-    [ "addScene", "classgfx_1_1_window.html#a7d75aa465d38fa6dadf636dfb57d6131", null ],
+    [ "addRootNode", "classgfx_1_1_window.html#a25a8bad307827b589c6b5daff6b0eee6", null ],
+    [ "getApplication", "classgfx_1_1_window.html#a6d7ee18d806cc52fe40e114f609a5f87", null ],
     [ "getCamera", "classgfx_1_1_window.html#a90282e9eed3839c3402230f586bf303c", null ],
     [ "getConfiguration", "classgfx_1_1_window.html#a1817b58fb73f5cfd983d4f89e51400dc", null ],
     [ "getFileManager", "classgfx_1_1_window.html#a4e422748e690ac1fa92af10d60bd2a88", null ],
@@ -10,7 +11,7 @@ var classgfx_1_1_window =
     [ "getHorizontalDpi", "classgfx_1_1_window.html#aaba887e7d293dc8b98cfd3fb3443519a", null ],
     [ "getProjection2dMatrix", "classgfx_1_1_window.html#ae14cc847a2deadfc0469f16ed2e2e068", null ],
     [ "getRenderer", "classgfx_1_1_window.html#a9a754a0d2037b7541e98aa1df433235d", null ],
-    [ "getScene", "classgfx_1_1_window.html#a22500cade9258e625827d9857d44b50c", null ],
+    [ "getRootNode", "classgfx_1_1_window.html#a3fadc831091e3af1562e6d950f83c8ca", null ],
     [ "getTextureManager", "classgfx_1_1_window.html#a93770d39e812a3c883e5f17d1bc0c164", null ],
     [ "getVerticalDpi", "classgfx_1_1_window.html#a3b6d606e4438e5b4e63e634517ca237c", null ],
     [ "getWidth", "classgfx_1_1_window.html#a4703ed156bde1a46a01815c38e281c13", null ],
@@ -21,6 +22,7 @@ var classgfx_1_1_window =
     [ "onTouchEnded", "classgfx_1_1_window.html#a58762d10eb2b9a8ed5aa79a76819f32f", null ],
     [ "onTouchMoved", "classgfx_1_1_window.html#a800b41d57071205ffab4aa51c1a5ea5f", null ],
     [ "removeTemporaryProjection2dMatrix", "classgfx_1_1_window.html#ad4e71e26c69c44b3a2894d03cd9d33f0", null ],
+    [ "setApplication", "classgfx_1_1_window.html#a23a00ce334b6f31b1158ce32aed87bfb", null ],
     [ "setRenderer", "classgfx_1_1_window.html#a666fded7c941c8610731c806eb2ba5cc", null ],
     [ "setTemporaryProjection2dMatrix", "classgfx_1_1_window.html#a1579e6641a4d954028f1fde29c327a54", null ],
     [ "shouldClose", "classgfx_1_1_window.html#a90b480721b737995045653244b50259a", null ],
@@ -34,10 +36,11 @@ var classgfx_1_1_window =
     [ "mHeight", "classgfx_1_1_window.html#ac3685db8af3051df889be54bcb6f3bff", null ],
     [ "mHorizontalDpi", "classgfx_1_1_window.html#abff8ebf69e2aeacde358691be9e34513", null ],
     [ "mProjection2dMatrix", "classgfx_1_1_window.html#a9b969e8fbc11c49e4472a06e7f04c778", null ],
-    [ "mSceneStack", "classgfx_1_1_window.html#ac63b2ebe48c0bd8c83f6723ae6f8cee7", null ],
+    [ "mRootNodeStack", "classgfx_1_1_window.html#adae417b9ab337978c0823864fb01ac54", null ],
     [ "mTempProjection2dMatrix", "classgfx_1_1_window.html#a65be8c0a23117767fcd2e93aa18dec06", null ],
     [ "mTextureManager", "classgfx_1_1_window.html#a1f00d1c58596e3b4b764ace2dc9770dd", null ],
     [ "mVerticalDpi", "classgfx_1_1_window.html#aba32d91ca324b41f9754e859e93cdb35", null ],
     [ "mWidth", "classgfx_1_1_window.html#a31b4d3045eedf501fb86459027aa03b5", null ],
+    [ "pApplication", "classgfx_1_1_window.html#a303efdd37e3552d9464d275aec83c7dd", null ],
     [ "pRenderer", "classgfx_1_1_window.html#a0646e3e04d3460d1024f568c80b77fb1", null ]
 ];

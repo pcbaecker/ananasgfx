@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/src/examples/src/Overview.cpp" "/src/cmake-build-emscripten/examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.o"
+  "/src/examples/src/materialdesign/MaterialDesign.cpp" "/src/cmake-build-emscripten/examples/CMakeFiles/AnanasGfxExamples.dir/src/materialdesign/MaterialDesign.cpp.o"
   "/src/examples/src/multiwindow/MultiWindow.cpp" "/src/cmake-build-emscripten/examples/CMakeFiles/AnanasGfxExamples.dir/src/multiwindow/MultiWindow.cpp.o"
   "/src/examples/src/primitives2d/Primitives2d.cpp" "/src/cmake-build-emscripten/examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives2d/Primitives2d.cpp.o"
   "/src/examples/src/primitives3d/Primitives3d.cpp" "/src/cmake-build-emscripten/examples/CMakeFiles/AnanasGfxExamples.dir/src/primitives3d/Primitives3d.cpp.o"

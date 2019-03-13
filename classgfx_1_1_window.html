@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('classgfx_1_1_window.html','');});
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classgfx_1_1_window-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -153,9 +154,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a1817b58fb73f5cfd983d4f89e51400dc"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classgfx_1_1_window_configuration.html">WindowConfiguration</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a1817b58fb73f5cfd983d4f89e51400dc">getConfiguration</a> () const noexcept</td></tr>
 <tr class="memdesc:a1817b58fb73f5cfd983d4f89e51400dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the window configuration.  <a href="#a1817b58fb73f5cfd983d4f89e51400dc">More...</a><br /></td></tr>
 <tr class="separator:a1817b58fb73f5cfd983d4f89e51400dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d75aa465d38fa6dadf636dfb57d6131"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a7d75aa465d38fa6dadf636dfb57d6131">addScene</a> (std::shared_ptr&lt; <a class="el" href="classgfx_1_1_scene.html">Scene</a> &gt; scene) noexcept</td></tr>
-<tr class="memdesc:a7d75aa465d38fa6dadf636dfb57d6131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new scene to the window.  <a href="#a7d75aa465d38fa6dadf636dfb57d6131">More...</a><br /></td></tr>
-<tr class="separator:a7d75aa465d38fa6dadf636dfb57d6131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25a8bad307827b589c6b5daff6b0eee6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a25a8bad307827b589c6b5daff6b0eee6">addRootNode</a> (std::shared_ptr&lt; <a class="el" href="classgfx_1_1_node.html">Node</a> &gt; rootNode) noexcept</td></tr>
+<tr class="memdesc:a25a8bad307827b589c6b5daff6b0eee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new root node to the window.  <a href="#a25a8bad307827b589c6b5daff6b0eee6">More...</a><br /></td></tr>
+<tr class="separator:a25a8bad307827b589c6b5daff6b0eee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a754a0d2037b7541e98aa1df433235d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgfx_1_1_renderer.html">Renderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a9a754a0d2037b7541e98aa1df433235d">getRenderer</a> () noexcept</td></tr>
 <tr class="memdesc:a9a754a0d2037b7541e98aa1df433235d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the renderer that is used in this window.  <a href="#a9a754a0d2037b7541e98aa1df433235d">More...</a><br /></td></tr>
 <tr class="separator:a9a754a0d2037b7541e98aa1df433235d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,9 +185,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#ad4e71e26c69c44b3a2894d03cd9d33f0">removeTemporaryProjection2dMatrix</a> () noexcept</td></tr>
 <tr class="memdesc:ad4e71e26c69c44b3a2894d03cd9d33f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the temporary 2d projection matrix. <br /></td></tr>
 <tr class="separator:ad4e71e26c69c44b3a2894d03cd9d33f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22500cade9258e625827d9857d44b50c"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classgfx_1_1_scene.html">gfx::Scene</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a22500cade9258e625827d9857d44b50c">getScene</a> () const noexcept</td></tr>
-<tr class="memdesc:a22500cade9258e625827d9857d44b50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current scene or empty if no scene is active.  <a href="#a22500cade9258e625827d9857d44b50c">More...</a><br /></td></tr>
-<tr class="separator:a22500cade9258e625827d9857d44b50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fadc831091e3af1562e6d950f83c8ca"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classgfx_1_1_node.html">gfx::Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a3fadc831091e3af1562e6d950f83c8ca">getRootNode</a> () const noexcept</td></tr>
+<tr class="memdesc:a3fadc831091e3af1562e6d950f83c8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current root node or empty if no root node is active.  <a href="#a3fadc831091e3af1562e6d950f83c8ca">More...</a><br /></td></tr>
+<tr class="separator:a3fadc831091e3af1562e6d950f83c8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acca0f533935790d4c99f6e6897149939"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfont_1_1_font_manager.html">font::FontManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#acca0f533935790d4c99f6e6897149939">getFontManager</a> () noexcept</td></tr>
 <tr class="memdesc:acca0f533935790d4c99f6e6897149939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the font manager of this window.  <a href="#acca0f533935790d4c99f6e6897149939">More...</a><br /></td></tr>
 <tr class="separator:acca0f533935790d4c99f6e6897149939"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,6 +200,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:aaba887e7d293dc8b98cfd3fb3443519a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#aaba887e7d293dc8b98cfd3fb3443519a">getHorizontalDpi</a> () const noexcept</td></tr>
 <tr class="memdesc:aaba887e7d293dc8b98cfd3fb3443519a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the horizontal dpi.  <a href="#aaba887e7d293dc8b98cfd3fb3443519a">More...</a><br /></td></tr>
 <tr class="separator:aaba887e7d293dc8b98cfd3fb3443519a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d7ee18d806cc52fe40e114f609a5f87"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgfx_1_1_application.html">Application</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a6d7ee18d806cc52fe40e114f609a5f87">getApplication</a> () const noexcept</td></tr>
+<tr class="memdesc:a6d7ee18d806cc52fe40e114f609a5f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the application.  <a href="#a6d7ee18d806cc52fe40e114f609a5f87">More...</a><br /></td></tr>
+<tr class="separator:a6d7ee18d806cc52fe40e114f609a5f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -234,10 +238,10 @@ std::shared_ptr&lt; <a class="el" href="classgfx_1_1_renderer.html">Renderer</a>
 <a class="el" href="classgfx_1_1_window_configuration.html">WindowConfiguration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a03dcfb2a0a03a4c514dea7b19757224b">mConfiguration</a></td></tr>
 <tr class="memdesc:a03dcfb2a0a03a4c514dea7b19757224b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The window configuration. <br /></td></tr>
 <tr class="separator:a03dcfb2a0a03a4c514dea7b19757224b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac63b2ebe48c0bd8c83f6723ae6f8cee7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac63b2ebe48c0bd8c83f6723ae6f8cee7"></a>
-std::stack&lt; std::shared_ptr&lt; <a class="el" href="classgfx_1_1_scene.html">Scene</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#ac63b2ebe48c0bd8c83f6723ae6f8cee7">mSceneStack</a></td></tr>
-<tr class="memdesc:ac63b2ebe48c0bd8c83f6723ae6f8cee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scene stack. <br /></td></tr>
-<tr class="separator:ac63b2ebe48c0bd8c83f6723ae6f8cee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae417b9ab337978c0823864fb01ac54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adae417b9ab337978c0823864fb01ac54"></a>
+std::stack&lt; std::shared_ptr&lt; <a class="el" href="classgfx_1_1_node.html">Node</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#adae417b9ab337978c0823864fb01ac54">mRootNodeStack</a></td></tr>
+<tr class="memdesc:adae417b9ab337978c0823864fb01ac54"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root node stack. <br /></td></tr>
+<tr class="separator:adae417b9ab337978c0823864fb01ac54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31b4d3045eedf501fb86459027aa03b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31b4d3045eedf501fb86459027aa03b5"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a31b4d3045eedf501fb86459027aa03b5">mWidth</a> = 0</td></tr>
 <tr class="memdesc:a31b4d3045eedf501fb86459027aa03b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The width of the window. <br /></td></tr>
@@ -278,6 +282,16 @@ std::optional&lt; glm::mat4 &gt;&#160;</td><td class="memItemRight" valign="bott
 std::shared_ptr&lt; <a class="el" href="classgfx_1_1_file_manager.html">FileManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#aef6a5957f29b8128db2a9da3e6a4588d">mFileManager</a></td></tr>
 <tr class="memdesc:aef6a5957f29b8128db2a9da3e6a4588d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The filemanager. <br /></td></tr>
 <tr class="separator:aef6a5957f29b8128db2a9da3e6a4588d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a303efdd37e3552d9464d275aec83c7dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a303efdd37e3552d9464d275aec83c7dd"></a>
+<a class="el" href="classgfx_1_1_application.html">Application</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a303efdd37e3552d9464d275aec83c7dd">pApplication</a> = nullptr</td></tr>
+<tr class="memdesc:a303efdd37e3552d9464d275aec83c7dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the overlaying application. <br /></td></tr>
+<tr class="separator:a303efdd37e3552d9464d275aec83c7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a23a00ce334b6f31b1158ce32aed87bfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_window.html#a23a00ce334b6f31b1158ce32aed87bfb">setApplication</a> (<a class="el" href="classgfx_1_1_application.html">Application</a> *application) noexcept</td></tr>
+<tr class="memdesc:a23a00ce334b6f31b1158ce32aed87bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the application.  <a href="#a23a00ce334b6f31b1158ce32aed87bfb">More...</a><br /></td></tr>
+<tr class="separator:a23a00ce334b6f31b1158ce32aed87bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -321,7 +335,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b></td>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a7d75aa465d38fa6dadf636dfb57d6131"></a>
+<a class="anchor" id="a25a8bad307827b589c6b5daff6b0eee6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -329,10 +343,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b></td>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gfx::Window::addScene </td>
+          <td class="memname">void gfx::Window::addRootNode </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classgfx_1_1_scene.html">Scene</a> &gt;&#160;</td>
-          <td class="paramname"><em>scene</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classgfx_1_1_node.html">Node</a> &gt;&#160;</td>
+          <td class="paramname"><em>rootNode</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -343,10 +357,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b></td>
 </table>
 </div><div class="memdoc">
 
-<p>Adds a new scene to the window. </p>
+<p>Adds a new root node to the window. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>The new scene. </td></tr>
+    <tr><td class="paramname">scene</td><td>The new root node. </td></tr>
   </table>
   </dd>
 </dl>
@@ -383,6 +397,32 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b></td>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Shared pointer to the newly generated window. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6d7ee18d806cc52fe40e114f609a5f87"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgfx_1_1_application.html">Application</a>* gfx::Window::getApplication </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a pointer to the application. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the application. </dd></dl>
 
 </div>
 </div>
@@ -586,7 +626,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b></td>
 
 </div>
 </div>
-<a class="anchor" id="a22500cade9258e625827d9857d44b50c"></a>
+<a class="anchor" id="a3fadc831091e3af1562e6d950f83c8ca"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -594,7 +634,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b></td>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt;<a class="el" href="classgfx_1_1_scene.html">gfx::Scene</a>*&gt; gfx::Window::getScene </td>
+          <td class="memname">std::optional&lt;<a class="el" href="classgfx_1_1_node.html">gfx::Node</a>*&gt; gfx::Window::getRootNode </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -607,8 +647,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b></td>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the current scene or empty if no scene is active. </p>
-<dl class="section return"><dt>Returns</dt><dd>Optional that can contain the current scene. </dd></dl>
+<p>Returns the current root node or empty if no root node is active. </p>
+<dl class="section return"><dt>Returns</dt><dd>Optional that can contain the current root node. </dd></dl>
 
 </div>
 </div>
@@ -808,6 +848,38 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Application</b></td>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">touch</td><td>The touch moved. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a23a00ce334b6f31b1158ce32aed87bfb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx::Window::setApplication </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgfx_1_1_application.html">Application</a> *&#160;</td>
+          <td class="paramname"><em>application</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the application. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">application</td><td>Pointer to the application </td></tr>
   </table>
   </dd>
 </dl>

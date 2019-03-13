@@ -6,6 +6,7 @@ var classui_1_1_margin =
     [ "getRight", "classui_1_1_margin.html#a46a72686ab968dca1c29c9ae11cdf87a", null ],
     [ "getTop", "classui_1_1_margin.html#ac8f8624d02549cb4909baed99857b1cd", null ],
     [ "getVertical", "classui_1_1_margin.html#adb3f93e3ba9835b077cd74e21dcb9994", null ],
+    [ "set", "classui_1_1_margin.html#a77fcf52829b350ca6fed57cbe9d5be3b", null ],
     [ "setBottom", "classui_1_1_margin.html#a723aa527e64d1b39243c7bce5c727d26", null ],
     [ "setLeft", "classui_1_1_margin.html#ab3eacede7fd18c9bb17e3b44ddea532b", null ],
     [ "setRight", "classui_1_1_margin.html#ad5358c2769149bdac6087c61a844214c", null ],

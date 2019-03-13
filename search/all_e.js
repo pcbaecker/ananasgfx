@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['papplication',['pApplication',['../classgfx_1_1_window.html#a303efdd37e3552d9464d275aec83c7dd',1,'gfx::Window']]],
+  ['papplicationmanager',['pApplicationManager',['../classgfx_1_1_application.html#aea83cf120a304052251239bd157bc8c4',1,'gfx::Application']]],
   ['pcoloruniform',['pColorUniform',['../classd2_1_1_vertex_node.html#abe331854fca4c1709a5ea5b58d9d92a1',1,'d2::VertexNode']]],
   ['pcurrentapplication',['pCurrentApplication',['../classgfx_1_1__internal_1_1_application_manager.html#a242ca3c9e7f8c3a2f38bc47e69c55769',1,'gfx::_internal::ApplicationManager']]],
   ['pdata',['pData',['../classgfx_1_1_bitmap.html#a4bde2afdaacd636f0c771a0da415296e',1,'gfx::Bitmap']]],

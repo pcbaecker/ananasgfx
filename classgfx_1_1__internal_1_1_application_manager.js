@@ -4,6 +4,7 @@ var classgfx_1_1__internal_1_1_application_manager =
     [ "~ApplicationManager", "classgfx_1_1__internal_1_1_application_manager.html#a7d42fc49ca26a76d15f8034907acfb32", null ],
     [ "getCurrentApplication", "classgfx_1_1__internal_1_1_application_manager.html#ade3c425b2c66bcf548856d3b542f35a4", null ],
     [ "isDone", "classgfx_1_1__internal_1_1_application_manager.html#aa35a2c6e1e1b98f2a5803d037f5185e0", null ],
+    [ "setNextApplication", "classgfx_1_1__internal_1_1_application_manager.html#a3d20f711fc1efff39e2943585ec7cbe1", null ],
     [ "setupApplicationTest", "classgfx_1_1__internal_1_1_application_manager.html#a5e26eb6e40be78a71c7bc88a2e70d97a", null ],
     [ "tick", "classgfx_1_1__internal_1_1_application_manager.html#a5fdd376023e94d92450980444c922c98", null ],
     [ "mApplications", "classgfx_1_1__internal_1_1_application_manager.html#afab088d96f1d8634108431248076420e", null ],

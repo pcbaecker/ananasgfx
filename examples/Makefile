@@ -220,6 +220,33 @@ src/Overview.cpp.s:
 	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.s
 .PHONY : src/Overview.cpp.s
 
+src/materialdesign/MaterialDesign.o: src/materialdesign/MaterialDesign.cpp.o
+
+.PHONY : src/materialdesign/MaterialDesign.o
+
+# target to build an object file
+src/materialdesign/MaterialDesign.cpp.o:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/materialdesign/MaterialDesign.cpp.o
+.PHONY : src/materialdesign/MaterialDesign.cpp.o
+
+src/materialdesign/MaterialDesign.i: src/materialdesign/MaterialDesign.cpp.i
+
+.PHONY : src/materialdesign/MaterialDesign.i
+
+# target to preprocess a source file
+src/materialdesign/MaterialDesign.cpp.i:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/materialdesign/MaterialDesign.cpp.i
+.PHONY : src/materialdesign/MaterialDesign.cpp.i
+
+src/materialdesign/MaterialDesign.s: src/materialdesign/MaterialDesign.cpp.s
+
+.PHONY : src/materialdesign/MaterialDesign.s
+
+# target to generate assembly for a file
+src/materialdesign/MaterialDesign.cpp.s:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/materialdesign/MaterialDesign.cpp.s
+.PHONY : src/materialdesign/MaterialDesign.cpp.s
+
 src/multiwindow/MultiWindow.o: src/multiwindow/MultiWindow.cpp.o
 
 .PHONY : src/multiwindow/MultiWindow.o
@@ -373,6 +400,9 @@ help:
 	@echo "... src/Overview.o"
 	@echo "... src/Overview.i"
 	@echo "... src/Overview.s"
+	@echo "... src/materialdesign/MaterialDesign.o"
+	@echo "... src/materialdesign/MaterialDesign.i"
+	@echo "... src/materialdesign/MaterialDesign.s"
 	@echo "... src/multiwindow/MultiWindow.o"
 	@echo "... src/multiwindow/MultiWindow.i"
 	@echo "... src/multiwindow/MultiWindow.s"

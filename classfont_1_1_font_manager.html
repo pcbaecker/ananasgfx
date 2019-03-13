@@ -131,9 +131,9 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a40d12b8b0b31d3b4a82e012f7327e83f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40d12b8b0b31d3b4a82e012f7327e83f"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>registerFont</b> (const std::string &amp;filename, const std::string &amp;fontFamily=&quot;&quot;, const std::string &amp;subFamily=&quot;&quot;) noexcept</td></tr>
 <tr class="separator:a40d12b8b0b31d3b4a82e012f7327e83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a854241a1de61ece25756ba1245ecaf17"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="classfont_1_1_font.html">Font</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfont_1_1_font_manager.html#a854241a1de61ece25756ba1245ecaf17">getFontFache</a> () const noexcept</td></tr>
-<tr class="memdesc:a854241a1de61ece25756ba1245ecaf17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the font cache.  <a href="#a854241a1de61ece25756ba1245ecaf17">More...</a><br /></td></tr>
-<tr class="separator:a854241a1de61ece25756ba1245ecaf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb3b2b924da72ee253437d5039bb91d7"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; std::unique_ptr&lt; <a class="el" href="classfont_1_1_font.html">Font</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfont_1_1_font_manager.html#afb3b2b924da72ee253437d5039bb91d7">getFontFache</a> () const noexcept</td></tr>
+<tr class="memdesc:afb3b2b924da72ee253437d5039bb91d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the font cache.  <a href="#afb3b2b924da72ee253437d5039bb91d7">More...</a><br /></td></tr>
+<tr class="separator:afb3b2b924da72ee253437d5039bb91d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78926ec256dac1ed2cf83206ff390bd0"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classfont_1_1_font.html">Font</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfont_1_1_font_manager.html#a78926ec256dac1ed2cf83206ff390bd0">get</a> (const std::string &amp;family, const std::string &amp;subfamily) noexcept</td></tr>
 <tr class="memdesc:a78926ec256dac1ed2cf83206ff390bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to find a font entry for the given font family.  <a href="#a78926ec256dac1ed2cf83206ff390bd0">More...</a><br /></td></tr>
 <tr class="separator:a78926ec256dac1ed2cf83206ff390bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,10 +150,10 @@ Private Attributes</h2></td></tr>
 FT_Library&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfont_1_1_font_manager.html#a42f29ac85a442685c453c6a83adba99d">mLibrary</a></td></tr>
 <tr class="memdesc:a42f29ac85a442685c453c6a83adba99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The library main handle that must be created at the beginning and destroyed at the end. <br /></td></tr>
 <tr class="separator:a42f29ac85a442685c453c6a83adba99d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57981fff2bd5539de69f4734e7d8c517"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57981fff2bd5539de69f4734e7d8c517"></a>
-std::vector&lt; <a class="el" href="classfont_1_1_font.html">Font</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfont_1_1_font_manager.html#a57981fff2bd5539de69f4734e7d8c517">mFontCache</a></td></tr>
-<tr class="memdesc:a57981fff2bd5539de69f4734e7d8c517"><td class="mdescLeft">&#160;</td><td class="mdescRight">This vector contains all cached fonts. <br /></td></tr>
-<tr class="separator:a57981fff2bd5539de69f4734e7d8c517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1f6755afd0919d025947c8dbba44df3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1f6755afd0919d025947c8dbba44df3"></a>
+std::vector&lt; std::unique_ptr&lt; <a class="el" href="classfont_1_1_font.html">Font</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfont_1_1_font_manager.html#af1f6755afd0919d025947c8dbba44df3">mFontCache</a></td></tr>
+<tr class="memdesc:af1f6755afd0919d025947c8dbba44df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This vector contains all cached fonts. <br /></td></tr>
+<tr class="separator:af1f6755afd0919d025947c8dbba44df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages all basic font related things like finding and caching font files. </p>
@@ -226,7 +226,7 @@ std::vector&lt; <a class="el" href="classfont_1_1_font.html">Font</a> &gt;&#160;
 
 </div>
 </div>
-<a class="anchor" id="a854241a1de61ece25756ba1245ecaf17"></a>
+<a class="anchor" id="afb3b2b924da72ee253437d5039bb91d7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -234,7 +234,7 @@ std::vector&lt; <a class="el" href="classfont_1_1_font.html">Font</a> &gt;&#160;
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::vector&lt;<a class="el" href="classfont_1_1_font.html">Font</a>&gt;&amp; font::FontManager::getFontFache </td>
+          <td class="memname">const std::vector&lt;std::unique_ptr&lt;<a class="el" href="classfont_1_1_font.html">Font</a>&gt; &gt;&amp; font::FontManager::getFontFache </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
