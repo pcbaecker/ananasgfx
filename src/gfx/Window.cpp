@@ -30,12 +30,12 @@ namespace gfx {
 #endif
     }
 
-    void Window::addScene(std::shared_ptr<Scene> scene) noexcept {
-        // Every scene needs a pointer to this window, because the scene will be rendered inside this window
-        scene->pWindow = this;
+    void Window::addRootNode(std::shared_ptr<Node> rootNode) noexcept {
+        // Every root node needs a pointer to this window, because the root node will be rendered inside this window
+        rootNode->pWindow = this;
 
         // Put scene on the scene stack
-        this->mSceneStack.push(scene);
+        this->mRootNodeStack.push(rootNode);
     }
 
     const WindowConfiguration &Window::getConfiguration() const noexcept {
@@ -48,9 +48,9 @@ namespace gfx {
 
     void Window::tick(float dt) noexcept {
         // Make sure that there is at least one scene
-        if (!this->mSceneStack.empty()) {
+        if (!this->mRootNodeStack.empty()) {
             // Get the top scene
-            auto& scene = this->mSceneStack.top();
+            auto& scene = this->mRootNodeStack.top();
 
             // Clear the scene
             this->pRenderer->clearScreen();
@@ -108,11 +108,11 @@ namespace gfx {
         return this->mFontManager;
     }
 
-    std::optional<gfx::Scene *> Window::getScene() const noexcept {
-        if (this->mSceneStack.empty()) {
-            return std::nullopt;
+    std::optional<gfx::Node *> Window::getRootNode() const noexcept {
+        if (this->mRootNodeStack.empty()) {
+            return {};
         } else {
-            return this->mSceneStack.top().get();
+            return this->mRootNodeStack.top().get();
         }
     }
 
@@ -138,9 +138,9 @@ namespace gfx {
         //TRACE("Touch began", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
 
         // Make sure a scene exists
-        if (!this->mSceneStack.empty()) {
+        if (!this->mRootNodeStack.empty()) {
             // Get the top scene
-            auto& scene = this->mSceneStack.top();
+            auto& scene = this->mRootNodeStack.top();
 
             // Propagate the touch to the scene
             scene->onTouchBegan(touch);
@@ -151,9 +151,9 @@ namespace gfx {
         //TRACE("Touch moved", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
 
         // Make sure a scene exists
-        if (!this->mSceneStack.empty()) {
+        if (!this->mRootNodeStack.empty()) {
             // Get the top scene
-            auto& scene = this->mSceneStack.top();
+            auto& scene = this->mRootNodeStack.top();
 
             // Propagate the touch to the scene
             scene->onTouchMoved(touch);
@@ -164,12 +164,20 @@ namespace gfx {
         //TRACE("Touch ended", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
 
         // Make sure a scene exists
-        if (!this->mSceneStack.empty()) {
+        if (!this->mRootNodeStack.empty()) {
             // Get the top scene
-            auto& scene = this->mSceneStack.top();
+            auto& scene = this->mRootNodeStack.top();
 
             // Propagate the touch to the scene
             scene->onTouchEnded(touch);
         }
+    }
+
+    Application *Window::getApplication() const noexcept {
+        return this->pApplication;
+    }
+
+    void Window::setApplication(Application *application) noexcept {
+        this->pApplication = application;
     }
 }

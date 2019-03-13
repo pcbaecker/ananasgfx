@@ -8,8 +8,8 @@
 
 #include <ananasgfx/font/FontManager.hpp>
 
+#include "Node.hpp"
 #include "WindowConfiguration.hpp"
-#include "Scene.hpp"
 #include "Renderer.hpp"
 #include "Camera.hpp"
 #include "TextureManager.hpp"
@@ -73,11 +73,11 @@ namespace gfx {
         const WindowConfiguration& getConfiguration() const noexcept;
 
         /**
-         * @brief Adds a new scene to the window.
+         * @brief Adds a new root node to the window.
          *
-         * @param scene The new scene.
+         * @param scene The new root node.
          */
-        void addScene(std::shared_ptr<Scene> scene) noexcept;
+        void addRootNode(std::shared_ptr<Node> rootNode) noexcept;
 
         /**
          * @brief Returns the renderer that is used in this window.
@@ -141,11 +141,11 @@ namespace gfx {
         void removeTemporaryProjection2dMatrix() noexcept;
 
         /**
-         * @brief Returns the current scene or empty if no scene is active.
+         * @brief Returns the current root node or empty if no root node is active.
          *
-         * @return Optional that can contain the current scene.
+         * @return Optional that can contain the current root node.
          */
-        std::optional<gfx::Scene*> getScene() const noexcept;
+        std::optional<gfx::Node*> getRootNode() const noexcept;
 
         /**
          * @brief Returns the font manager of this window.
@@ -174,6 +174,13 @@ namespace gfx {
          * @return The horizontal dpi.
          */
         float getHorizontalDpi() const noexcept;
+
+        /**
+         * @brief Returns a pointer to the application.
+         *
+         * @return Pointer to the application.
+         */
+        Application* getApplication() const noexcept;
 
     protected:
         /**
@@ -211,6 +218,14 @@ namespace gfx {
          */
         void onTouchEnded(const Touch& touch) noexcept;
 
+    private:
+        /**
+         * @brief Sets the application.
+         *
+         * @param application Pointer to the application
+         */
+        void setApplication(Application* application) noexcept;
+
     protected:
         /**
          * @brief The renderer of this window.
@@ -223,9 +238,9 @@ namespace gfx {
         WindowConfiguration mConfiguration;
 
         /**
-         * @brief The scene stack.
+         * @brief The root node stack.
          */
-        std::stack<std::shared_ptr<Scene>> mSceneStack;
+        std::stack<std::shared_ptr<Node>> mRootNodeStack;
 
         /**
          * @brief The width of the window.
@@ -276,6 +291,11 @@ namespace gfx {
          * @brief The filemanager.
          */
         std::shared_ptr<FileManager> mFileManager;
+
+        /**
+         * @brief Pointer to the overlaying application.
+         */
+        Application* pApplication = nullptr;
     };
 }
 

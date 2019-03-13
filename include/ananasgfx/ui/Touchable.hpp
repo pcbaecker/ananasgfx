@@ -72,7 +72,7 @@ namespace ui {
         void touchEnds() noexcept {
             if (this->mActiveTouch.has_value()) {
                 if (this->mCallback) {
-                    //this->mCallback(this);
+                    this->mCallback();
                 }
                 this->mActiveTouch.reset();
                 this->onBlur();

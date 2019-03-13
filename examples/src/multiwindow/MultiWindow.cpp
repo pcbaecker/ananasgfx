@@ -9,7 +9,7 @@ glm::vec2 getRandomPosition(float maxWidth, float maxHeight) {
             static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/maxHeight)));
 }
 
-class MultiWindowSceneOne : public gfx::Scene {
+class MultiWindowSceneOne : public gfx::Node {
 public:
     bool init() noexcept override {
         // Create the rectangle
@@ -19,11 +19,11 @@ public:
         this->pRRC->setPosition(64.0f, 128.0f);
         this->pRRC->setColor(glm::vec4(1.0f, 0.0f, 0.3f, 1.0f));
 
-        return gfx::Scene::init();
+        return gfx::Node::init();
     }
 
     void update(float dt) noexcept override {
-        Scene::update(dt);
+        Node::update(dt);
 
         this->mUpdate += dt;
         if (this->mUpdate >= 1.0f) {
@@ -38,7 +38,7 @@ private:
     d2::RectangleRoundCorner* pRRC = nullptr;
 };
 
-class MultiWindowSceneTwo : public gfx::Scene {
+class MultiWindowSceneTwo : public gfx::Node {
 public:
     bool init() noexcept override {
         // Create the rectangle
@@ -48,11 +48,11 @@ public:
         this->pRRC->setPosition(64.0f, 128.0f);
         this->pRRC->setColor(glm::vec4(0.0f, 1.0f, 0.3f, 1.0f));
 
-        return gfx::Scene::init();
+        return gfx::Node::init();
     }
 
     void update(float dt) noexcept override {
-        Scene::update(dt);
+        Node::update(dt);
 
         this->mUpdate += dt;
         if (this->mUpdate >= 1.0f) {
@@ -78,13 +78,13 @@ public:
         // Create window one
         windowConfiguration.setTitle("My first window");
         auto windowOne = gfx::Window::create(windowConfiguration);
-        windowOne->addScene(std::make_shared<MultiWindowSceneOne>());
+        windowOne->addRootNode(std::make_shared<MultiWindowSceneOne>());
         registerWindow(windowOne);
 
         // Create window two
         windowConfiguration.setTitle("My second window");
         auto windowTwo = gfx::Window::create(windowConfiguration);
-        windowTwo->addScene(std::make_shared<MultiWindowSceneTwo>());
+        windowTwo->addRootNode(std::make_shared<MultiWindowSceneTwo>());
         registerWindow(windowTwo);
 
         return true;

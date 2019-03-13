@@ -56,11 +56,6 @@ namespace gfx {
         void close() noexcept;
 
         /**
-         * @brief Sets the max lifetime of this application.
-         */
-        void setMaxLifetime(long maxlifetime) noexcept;
-
-        /**
          * @brief Returns the max lifetime of this application.
          *
          * @return The max lifetime of this application.
@@ -90,13 +85,6 @@ namespace gfx {
         std::optional<gfx::Node*> getNode(const std::string& nodepath) noexcept;
 
         /**
-         * @brief Sets this application to devmode.
-         *
-         * @param devmode Defines wheather the devmode is enabled or not.
-         */
-        void setDevmode(bool devmode) noexcept;
-
-        /**
          * @brief Returns true if devmode is enabled for this application.
          *
          * @return True if devmode is enabled.
@@ -113,17 +101,48 @@ namespace gfx {
         const FileManager& getFileManager() const;
 
         /**
-         * @brief Sets the filemanager for this application.
+         * @brief Returns a pointer to the overlaying application manager.
          *
-         * @param fileManager The filemanager for this application.
+         * @return Pointer to the overlaying application manager.
          */
-        void setFileManager(std::shared_ptr<FileManager> fileManager) noexcept;
+        _internal::ApplicationManager* getApplicationManager() const noexcept;
+
+        /**
+         * @brief Queues the close command until the moment to close the application is best.
+         */
+        void gracefulClose() noexcept;
 
     private:
         /**
          * @brief Initializes all registered windows.
          */
         bool initWindows() noexcept;
+
+        /**
+         * @brief Sets the filemanager for this application.
+         *
+         * @param fileManager The filemanager for this application.
+         */
+        void setFileManager(std::shared_ptr<FileManager> fileManager) noexcept;
+
+        /**
+         * @brief Sets the application manager of this application.
+         *
+         * @param applicationManager Pointer to the application manager.
+         */
+        void setApplicationManager(_internal::ApplicationManager* applicationManager) noexcept;
+
+        /**
+         * @brief Sets this application to devmode.
+         *
+         * @param devmode Defines wheather the devmode is enabled or not.
+         */
+        void setDevmode(bool devmode) noexcept;
+
+        /**
+         * @brief Sets the max lifetime of this application.
+         */
+        void setMaxLifetime(long maxlifetime) noexcept;
 
     private:
         /**
@@ -165,6 +184,16 @@ namespace gfx {
          * @brief The file manager for this application.
          */
         std::shared_ptr<FileManager> mFileManager;
+
+        /**
+         * @brief The overlaying application manager.
+         */
+        _internal::ApplicationManager* pApplicationManager = nullptr;
+
+        /**
+         * @brief If true the application will close itself on next tick().
+         */
+        bool mGracefulClose = false;
     };
 
 }

@@ -7,14 +7,19 @@
 
 namespace font {
 
-    Font::Font(FT_Face face, const std::string &familyName, const std::string &subFamilyName) noexcept :
-    mFaceHandle(face), mFamilyName(familyName), mSubFamilyName(subFamilyName) {
+    Font::Font(FT_Face face, std::string familyName, std::string subFamilyName) noexcept :
+    mFaceHandle(face), mFamilyName(std::move(familyName)), mSubFamilyName(std::move(subFamilyName)) {
 
     }
 
     Font::~Font() noexcept {
         if (this->mFaceHandle) {
-            FT_Done_Face(this->mFaceHandle);
+            auto error = FT_Done_Face(this->mFaceHandle);
+            if (error != 0) {
+                WARN("Error occured during FT_Done_Face()", {
+                    ee::Note("ErrorCode", error)
+                });
+            }
         }
     }
 

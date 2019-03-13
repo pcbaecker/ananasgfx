@@ -18,6 +18,7 @@ namespace gfx {
      * @brief The base node class for everything that should be drawn.
      */
     class Node {
+        friend class Window;
         friend class ClippingNode;
     public:
         /**

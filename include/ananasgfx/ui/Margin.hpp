@@ -13,6 +13,7 @@ namespace ui {
         densityPixel_t getLeft() const noexcept;
         densityPixel_t getRight() const noexcept;
 
+        void set(densityPixel_t top, densityPixel_t bottom, densityPixel_t left, densityPixel_t right) noexcept;
         void setTop(densityPixel_t top) noexcept;
         void setBottom(densityPixel_t bottom) noexcept;
         void setLeft(densityPixel_t left) noexcept;

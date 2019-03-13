@@ -1,12 +1,11 @@
 #include <ananasgfx/gfx/Application.hpp>
-#include <ananasgfx/gfx/Scene.hpp>
 #include <ananasgfx/ui/Button.hpp>
 #include <ananasgfx/ui/Label.hpp>
 #include <ananasgfx/d2/Rectangle.hpp>
 #include <ananasgfx/ui/design/material/ButtonGreen.hpp>
 #include <ee/Log.hpp>
 
-class UIViewsScene : public gfx::Scene {
+class UIViewsScene : public gfx::Node {
 public:
     bool init() noexcept override {
         // Set background color
@@ -41,7 +40,7 @@ public:
         buttonThree->setMaxSize(ui::vec2{16,16});
         buttonThree->getMargin().setRight(32);
 */
-        return gfx::Scene::init();
+        return gfx::Node::init();
     }
 };
 
@@ -54,7 +53,7 @@ public:
         windowConfiguration.setHeight(480);
         windowConfiguration.setTitle("UIViews example");
         auto window = gfx::Window::create(windowConfiguration);
-        window->addScene(std::make_shared<UIViewsScene>());
+        window->addRootNode(std::make_shared<UIViewsScene>());
         registerWindow(window);
 
             if (!window->getFontManager().registerFont(getFileManager().getResource("Roboto-Bold.ttf"), "Roboto", "Bold")) {

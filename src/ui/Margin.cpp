@@ -18,6 +18,13 @@ namespace ui {
         return this->mRight;
     }
 
+    void Margin::set(densityPixel_t top, densityPixel_t bottom, densityPixel_t left, densityPixel_t right) noexcept {
+        setTop(top);
+        setBottom(bottom);
+        setLeft(left);
+        setRight(right);
+    }
+
     void Margin::setTop(densityPixel_t top) noexcept {
         this->mTop = top;
     }

@@ -25,7 +25,7 @@ namespace font {
          * @param familyName The font family name.
          * @param subFamilyName The sub font family name.
          */
-        Font(FT_Face face, const std::string& familyName, const std::string& subFamilyName) noexcept;
+        Font(FT_Face face, std::string familyName, std::string subFamilyName) noexcept;
 
         /**
          * @brief Destructor.

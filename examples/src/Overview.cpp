@@ -1,10 +1,11 @@
 #include <ananasgfx/gfx/Application.hpp>
-#include <ananasgfx/gfx/Scene.hpp>
+#include <ananasgfx/gfx/internal/ApplicationManager.hpp>
 #include <ananasgfx/d2/Rectangle.hpp>
 #include <ananasgfx/ui/List.hpp>
 #include <ananasgfx/ui/Label.hpp>
 #include <ee/Log.hpp>
 #include <ananasgfx/ui/design/material/ButtonGreen.hpp>
+#include <ananasgfx/ui/design/material/List.hpp>
 #include <ananasgfx/ui/layout/HorizontalLinear.hpp>
 #include <ananasgfx/ui/Scrollable.hpp>
 #include <ananasgfx/ui/layout/VerticalLinear.hpp>
@@ -12,65 +13,17 @@
 #include <ananasgfx/ui/design/material/ListItemSimpleText.hpp>
 #include <ananasgfx/ui/design/material/MaterialDesign.hpp>
 
-class MyList : public ui::List {
-public:
-
-    d2::Node* createDivider() noexcept override {
-        auto rect = createChild<d2::Rectangle>();
-        rect->setColor(glm::vec4(0,0,1,1));
-        return rect;
-    }
-
-    ui::densityPixel_t getDividerHeight() noexcept override {
-        return 2;
-    }
-};
-/*
-class MyListItem : public ui::ListItem {
-public:
-    bool init() noexcept override {
-        createLayout<ui::layout::HorizontalLinear>();
-
-        auto label = this->createChild<ui::Label>();
-        label->setText("One");
-        label->setFont("Roboto", "Bold");
-
-        auto labelTwo = this->createChild<ui::Label>();
-        labelTwo->setText("Two");
-        labelTwo->setFont("Roboto", "Bold");
-
-        return ui::ListItem::init();
-    }
-
-    ui::densityPixel_t getHeight() noexcept override {
-        return 48;
-    }
-
-    std::optional<d2::Node*> getBackgroundBlur() noexcept override {
-        auto bg = createChild<d2::Rectangle>();
-        bg->setColor(glm::vec4(0.0f, 1.0f, 0.25f, 1.0f));
-        return bg;
-    }
-
-    std::optional<d2::Node*> getBackgroundFocus() noexcept override {
-        auto bg = createChild<d2::Rectangle>();
-        bg->setColor(glm::vec4(0.0f, 1.0f, 1.0f, 1.0f));
-        return bg;
-    }
-
-};*/
-
-class OverviewScene : public gfx::Scene {
+class OverviewScene : public ui::Container {
 public:
     bool init() noexcept override {
         // Set background color
         this->pWindow->getRenderer()->setClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
-        auto layout = this->createChild<ui::Container>();
-        layout->createLayout<ui::layout::VerticalLinear>();
-        layout->setSize(this->pWindow->getWidth(), this->pWindow->getHeight());
+        // Set the layout
+        createLayout<ui::layout::VerticalLinear>();
 
-        auto topbar = layout->createChild<ui::design::material::Topbar>();
+        // Create topbar
+        auto topbar = createChild<ui::design::material::Topbar>();
         auto title = topbar->createChild<ui::Label>();
         title->setColor(glm::vec4(1.0f,1.0f,1.0f,1.0f));
         title->setText("AnanasGfx examples");
@@ -85,13 +38,52 @@ public:
             return false;
         }
 
-        auto list = layout->createChild<MyList>();
-        for (int i = 0; i < 10; i++) {
-            auto listItem = list->createListItem<ui::design::material::ListItemSimpleText>();
-            listItem->setText("I am listitem number " + std::to_string(i + 1));
-        }
+        // Create the list
+        auto list = createChild<ui::design::material::List>();
 
-        return gfx::Scene::init();
+        // Rendertexture
+        auto liRendertexture = list->createListItem<ui::design::material::ListItemSimpleText>();
+        liRendertexture->setText("Rendertexture");
+        liRendertexture->setCallback([this](){
+            this->pWindow->getApplication()->getApplicationManager()->setNextApplication("Rendertexture");
+            this->pWindow->getApplication()->gracefulClose();
+        });
+
+        // Primitives 3d
+        auto liPrimitives3d = list->createListItem<ui::design::material::ListItemSimpleText>();
+        liPrimitives3d->setText("Primitives 3d");
+        liPrimitives3d->setCallback([this](){
+            this->pWindow->getApplication()->getApplicationManager()->setNextApplication("Primitives3d");
+            this->pWindow->getApplication()->gracefulClose();
+        });
+
+        // Primitives 2d
+        auto liPrimitives2d = list->createListItem<ui::design::material::ListItemSimpleText>();
+        liPrimitives2d->setText("Primitives 2d");
+        liPrimitives2d->setCallback([this](){
+            this->pWindow->getApplication()->getApplicationManager()->setNextApplication("Primitives2d");
+            this->pWindow->getApplication()->gracefulClose();
+        });
+
+        // MaterialDesignApp
+        auto liMaterialDesign = list->createListItem<ui::design::material::ListItemSimpleText>();
+        liMaterialDesign->setText("Material design");
+        liMaterialDesign->setCallback([this](){
+            this->pWindow->getApplication()->getApplicationManager()->setNextApplication("MaterialDesign");
+            this->pWindow->getApplication()->gracefulClose();
+        });
+
+#if !defined(__ANDROID__) && !defined(__EMSCRIPTEN__)
+        // Multiwindow
+        auto liMultiwindow = list->createListItem<ui::design::material::ListItemSimpleText>();
+        liMultiwindow->setText("Multiple windows");
+        liMultiwindow->setCallback([this](){
+            this->pWindow->getApplication()->getApplicationManager()->setNextApplication("MultiWindowApp");
+            this->pWindow->getApplication()->gracefulClose();
+        });
+#endif
+
+        return ui::Container::init();
     }
 };
 
@@ -104,7 +96,7 @@ public:
         windowConfiguration.setHeight(480);
         windowConfiguration.setTitle("Overview example");
         auto window = gfx::Window::create(windowConfiguration);
-        window->addScene(std::make_shared<OverviewScene>());
+        window->addRootNode(std::make_shared<OverviewScene>());
         registerWindow(window);
 
         if (!window->getFontManager().registerFont(getFileManager().getResource("Roboto-Bold.ttf"), "Roboto", "Bold")) {

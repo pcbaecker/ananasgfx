@@ -45,22 +45,13 @@ TEST_CASE("gfx::Application") {
         REQUIRE(application.isDone());
     }
 
-    SECTION("void setMaxLifetime(long) noexcept") {
-        // Check default value
-        REQUIRE(0 == application.getMaxLifetime());
-
-        // Set value
-        application.setMaxLifetime(123);
-        REQUIRE(123 == application.getMaxLifetime());
-    }
-
     SECTION("long getMaxLifetime() const noexcept") {
         // Check default value
         REQUIRE(0 == application.getMaxLifetime());
 
         // Set value
-        application.setMaxLifetime(123);
-        REQUIRE(123 == application.getMaxLifetime());
+        //application.setMaxLifetime(123);
+        //REQUIRE(123 == application.getMaxLifetime());
     }
 
     SECTION("void addTask(std::shared_ptr<Task>) noexcept") {
@@ -77,11 +68,11 @@ TEST_CASE("gfx::Application") {
     SECTION("std::optional<gfx::Node*> getNode(const std::string&) noexcept") {
         auto window = gfx::Window::create(gfx::WindowConfiguration());
         application.registerWindow(window);
-        auto scene = std::make_shared<gfx::Scene>();
-        window->addScene(scene);
+        auto scene = std::make_shared<gfx::Node>();
+        window->addRootNode(scene);
 
         SECTION("Get the scene") {
-            auto sceneOpt = application.getNode("window.scene");
+            auto sceneOpt = application.getNode("window.root");
             REQUIRE(sceneOpt.has_value());
             REQUIRE(*sceneOpt == scene.get());
         }
@@ -90,11 +81,11 @@ TEST_CASE("gfx::Application") {
         plainNode->setId("mynode");
 
         SECTION("Get a node at the root") {
-            auto plainNodeOpt = application.getNode("window.scene.mynode");
+            auto plainNodeOpt = application.getNode("window.root.mynode");
             REQUIRE(plainNodeOpt.has_value());
             REQUIRE(*plainNodeOpt == plainNode);
 
-            auto unknownNodeOpt = application.getNode("window.scene.unknown");
+            auto unknownNodeOpt = application.getNode("window.root.unknown");
             REQUIRE_FALSE(unknownNodeOpt.has_value());
         }
 
@@ -102,22 +93,13 @@ TEST_CASE("gfx::Application") {
         secondLevelNode->setId("secLvlNode");
 
         SECTION("Get a node at the second level") {
-            auto secLvlNodeOpt = application.getNode("window.scene.mynode.secLvlNode");
+            auto secLvlNodeOpt = application.getNode("window.root.mynode.secLvlNode");
             REQUIRE(secLvlNodeOpt.has_value());
             REQUIRE(*secLvlNodeOpt == secondLevelNode);
 
-            auto unknownNodeOpt = application.getNode("window.scene.secLvlNode");
+            auto unknownNodeOpt = application.getNode("window.root.secLvlNode");
             REQUIRE_FALSE(unknownNodeOpt.has_value());
         }
-    }
-
-    SECTION("void setDevmode(bool devmode) noexcept") {
-        // Default value
-        REQUIRE_FALSE(application.isDevmode());
-
-        // Set value
-        application.setDevmode(true);
-        REQUIRE(application.isDevmode());
     }
 
     SECTION("bool isDevmode() const noexcept") {
@@ -125,27 +107,16 @@ TEST_CASE("gfx::Application") {
         REQUIRE_FALSE(application.isDevmode());
 
         // Set value
-        application.setDevmode(true);
-        REQUIRE(application.isDevmode());
+        //application.setDevmode(true);
+        //REQUIRE(application.isDevmode());
     }
 
     SECTION("const FileManager& getFileManager() const") {
         // Default value
         REQUIRE_THROWS_AS(application.getFileManager(), gfx::ApplicationException);
-
-        // Set value
-        auto fm = std::make_shared<gfx::FileManager>("","");
-        application.setFileManager(fm);
-        REQUIRE(fm.get() == &application.getFileManager());
     }
 
-    SECTION("void setFileManager(std::shared_ptr<FileManager>) noexcept") {
-        // Default value
-        REQUIRE_THROWS_AS(application.getFileManager(), gfx::ApplicationException);
-
-        // Set value
-        auto fm = std::make_shared<gfx::FileManager>("","");
-        application.setFileManager(fm);
-        REQUIRE(fm.get() == &application.getFileManager());
+    SECTION("_internal::ApplicationManager* getApplicationManager() const noexcept") {
+        // TODO
     }
 }

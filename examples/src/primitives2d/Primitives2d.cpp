@@ -8,12 +8,11 @@
 #include <ananasgfx/d2/Label.hpp>
 #include <ananasgfx/d2/RectangleRoundCorner.hpp>
 #include <ananasgfx/test/ApplicationTest.hpp>
-#include <ananasgfx/gfx/Scene.hpp>
 #include <ananasgfx/gfx/Window.hpp>
 #include <ananasgfx/font/FontManager.hpp>
 #include <ee/Log.hpp>
 
-class Primitives2dScene : public gfx::Scene {
+class Primitives2dScene : public gfx::Node {
 public:
     bool init() noexcept override {
         // Set background color
@@ -81,11 +80,11 @@ public:
         ring->setAnchorPoint(0.0f, 1.0f);
         ring->setPosition(10, this->getWindow()->getHeight() - 10);
 
-        return gfx::Scene::init();
+        return gfx::Node::init();
     }
 
     void update(float dt) noexcept override {
-        Scene::update(dt);
+        Node::update(dt);
 
         // Move the rectangle
         float rectangleSpeed = dt * 125.0f * (!this->mRectangleGoRight ? -1.0f : 1.0f);
@@ -128,7 +127,7 @@ public:
         windowConfiguration.setHeight(480);
         windowConfiguration.setTitle("2d primitives example");
         auto window = gfx::Window::create(windowConfiguration);
-        window->addScene(std::make_shared<Primitives2dScene>());
+        window->addRootNode(std::make_shared<Primitives2dScene>());
         registerWindow(window);
 
         if (!window->getFontManager().registerFont(getFileManager().getResource("Roboto-Bold.ttf"), "Roboto", "Bold")) {

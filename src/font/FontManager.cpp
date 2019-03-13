@@ -49,7 +49,7 @@ namespace font {
         // Check if font family and fontSubFamily is predefined
         if (!fontFamily.empty() && !fontSubFamily.empty()) {
             // Create the font object in cache
-            this->mFontCache.emplace_back(face, fontFamily, fontSubFamily);
+            this->mFontCache.push_back(std::make_unique<Font>(face, fontFamily, fontSubFamily));
             return true;
         }
 
@@ -62,7 +62,7 @@ namespace font {
         }
 
         // create the font object in cache
-        this->mFontCache.emplace_back(face, std::get<0>(*familyName), std::get<1>(*familyName));
+        this->mFontCache.push_back(std::make_unique<Font>(face, std::get<0>(*familyName), std::get<1>(*familyName)));
         return true;
     }
 
@@ -115,15 +115,15 @@ namespace font {
         return std::make_tuple(fontFamily, fontSubFamily);
     }
 
-    const std::vector<Font> &FontManager::getFontFache() const noexcept {
+    const std::vector<std::unique_ptr<Font>> &FontManager::getFontFache() const noexcept {
         return this->mFontCache;
     }
 
     std::optional<Font *> FontManager::get(const std::string &family, const std::string &subfamily) noexcept {
         // Try to find font
         for (auto& font : this->mFontCache) {
-            if (font.getFamilyName() == family && font.getSubFamilyName() == subfamily) {
-                return &font;
+            if (font->getFamilyName() == family && font->getSubFamilyName() == subfamily) {
+                return font.get();
             }
         }
 

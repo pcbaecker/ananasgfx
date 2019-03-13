@@ -76,6 +76,8 @@ namespace gfx::_internal {
          */
         const std::shared_ptr<Application>& getCurrentApplication() noexcept;
 
+        bool setNextApplication(const std::string& appname) noexcept;
+
     private:
         /**
          * @brief Sets up the application test.

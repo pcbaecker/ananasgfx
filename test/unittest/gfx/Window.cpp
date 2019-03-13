@@ -16,11 +16,11 @@ TEST_CASE("gfx::Window") {
         REQUIRE(123 == pWindow->getConfiguration().getWidth());
     }
 
-    SECTION("void addScene(std::shared_ptr<Scene>) noexcept") {
-        REQUIRE_FALSE(pWindow->getScene().has_value());
-        auto scene = std::make_shared<gfx::Scene>();
-        pWindow->addScene(scene);
-        auto opt = pWindow->getScene();
+    SECTION("void addRootNode(std::shared_ptr<Node> rootNode) noexcept") {
+        REQUIRE_FALSE(pWindow->getRootNode().has_value());
+        auto scene = std::make_shared<gfx::Node>();
+        pWindow->addRootNode(scene);
+        auto opt = pWindow->getRootNode();
         REQUIRE(opt.has_value());
         REQUIRE(scene->getWindow() == pWindow.get());
     }
@@ -70,11 +70,11 @@ TEST_CASE("gfx::Window") {
         REQUIRE(Approx(33.33f) != pWindow->getProjection2dMatrix()[0][0]);
     }
 
-    SECTION("std::optional<gfx::Scene*> getScene() const noexcept") {
-        REQUIRE_FALSE(pWindow->getScene().has_value());
-        auto scene = std::make_shared<gfx::Scene>();
-        pWindow->addScene(scene);
-        auto opt = pWindow->getScene();
+    SECTION("std::optional<gfx::Node*> getRootNode() const noexcept") {
+        REQUIRE_FALSE(pWindow->getRootNode().has_value());
+        auto scene = std::make_shared<gfx::Node>();
+        pWindow->addRootNode(scene);
+        auto opt = pWindow->getRootNode();
         REQUIRE(opt.has_value());
         REQUIRE(scene->getWindow() == pWindow.get());
     }
@@ -93,6 +93,10 @@ TEST_CASE("gfx::Window") {
 
     SECTION("float getHorizontalDpi() const noexcept") {
         REQUIRE(0 == pWindow->getHorizontalDpi());
+    }
+
+    SECTION("Application* getApplication() const noexcept") {
+        // TODO
     }
 
 }

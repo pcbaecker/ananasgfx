@@ -1,5 +1,6 @@
 #include <ee/Log.hpp>
 #include <ananasgfx/gfx/Application.hpp>
+#include <ananasgfx/d2/Node.hpp>
 
 namespace gfx {
 
@@ -20,6 +21,10 @@ namespace gfx {
         this->mWindows.push_back(window);
     }
 
+    void Application::setApplicationManager(_internal::ApplicationManager *applicationManager) noexcept {
+        this->pApplicationManager = applicationManager;
+    }
+
     bool Application::initWindows() noexcept {
         // Go through windows
         for (auto& window : this->mWindows) {
@@ -35,9 +40,21 @@ namespace gfx {
                 // Provide the FileManager to the window
                 window->mFileManager = this->mFileManager;
 
+                // Provide this application
+                window->setApplication(this);
+
                 // Initialize the top
-                if (!window->mSceneStack.empty()) {
-                    window->mSceneStack.top()->init();
+                if (!window->mRootNodeStack.empty()) {
+                    // Get the top root node
+                    auto& rootNode = window->mRootNodeStack.top();
+
+                    // Check if the topscene is 2d
+                    auto scene2d = dynamic_cast<d2::Node*>(rootNode.get());
+                    if (scene2d != nullptr) {
+                        scene2d->setSize(window->getWidth(), window->getHeight());
+                    }
+
+                    rootNode->init();
                 }
             } catch (ee::Exception& e) {
                 ee::Log::log(ee::LogLevel::Error, e);
@@ -57,6 +74,10 @@ namespace gfx {
         return this->mWindows.empty();
     }
 
+    void Application::gracefulClose() noexcept {
+        this->mGracefulClose = true;
+    }
+
     void Application::close() noexcept {
         this->mWindows.clear();
     }
@@ -66,6 +87,12 @@ namespace gfx {
     }
 
     void Application::tick() noexcept {
+        // Check if we want to gracefully close
+        if (this->mGracefulClose) {
+            this->close();
+            return;
+        }
+
         // Calculate delta time
         float delta = std::chrono::duration<float, std::ratio<1>>(std::chrono::steady_clock::now() - this->mLastUpdate).count();
         this->mLastUpdate = std::chrono::steady_clock::now();
@@ -164,13 +191,13 @@ namespace gfx {
         if (steps.size() < 2 ) {
             return std::nullopt;
         }
-        if (steps[0] != "window" || steps[1] != "scene") {
+        if (steps[0] != "window" || steps[1] != "root") {
             return std::nullopt;
         }
 
         // Get the root scene
         auto window = *this->getWindows().begin();
-        auto sceneOpt = window->getScene();
+        auto sceneOpt = window->getRootNode();
         if (!sceneOpt.has_value()) {
             return std::nullopt;
         }
@@ -195,6 +222,10 @@ namespace gfx {
         }
 
         return node;
+    }
+
+    _internal::ApplicationManager *Application::getApplicationManager() const noexcept {
+        return this->pApplicationManager;
     }
 
     long Application::getMaxLifetime() const noexcept {

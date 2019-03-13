@@ -97,6 +97,7 @@ namespace gfx::_internal {
             this->pCurrentApplication->setMaxLifetime(this->mMaxAppLifetime);
             this->pCurrentApplication->setDevmode(this->mDevmode);
             this->pCurrentApplication->setFileManager(std::make_shared<FileManager>(this->mResourcePath, this->mUserPath));
+            this->pCurrentApplication->setApplicationManager(this);
 
             // Setup ApplicationTest for the launched Application (if not test exist, nothing will be done)
             this->setupApplicationTest(app.first, this->pCurrentApplication);
@@ -142,6 +143,29 @@ namespace gfx::_internal {
 
     const std::shared_ptr<Application>& ApplicationManager::getCurrentApplication() noexcept {
         return this->pCurrentApplication;
+    }
+
+    bool ApplicationManager::setNextApplication(const std::string &appname) noexcept {
+        // Look if the application is already in the list
+        if (this->mApplications.count(appname)) {
+            // Just set the iterator to the app
+            this->mIterator = this->mApplications.find(appname);
+            return true;
+        }
+
+        // Look if the application is in the ApplicationStore
+        auto& apps = ApplicationStore::getInstance().getApplications();
+        if (apps.count(appname)) {
+            // Store the app in the applist
+            this->mApplications.emplace(appname,apps.at(appname));
+
+            // Set the iterator to the app
+            this->mIterator = this->mApplications.find(appname);
+            return true;
+        }
+
+        // No application with given name found
+        return false;
     }
 
     void ApplicationManager::setupApplicationTest(const std::string &appname,

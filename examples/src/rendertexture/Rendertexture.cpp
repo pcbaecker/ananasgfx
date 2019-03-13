@@ -8,11 +8,10 @@
 #include <ananasgfx/d2/Label.hpp>
 #include <ananasgfx/d2/RectangleRoundCorner.hpp>
 #include <ananasgfx/test/ApplicationTest.hpp>
-#include <ananasgfx/gfx/Scene.hpp>
 #include <ananasgfx/font/FontManager.hpp>
 #include <random>
 
-class RendertextureScene : public gfx::Scene {
+class RendertextureScene : public gfx::Node {
 public:
     RendertextureScene() :
     mRandomEngine(mRandomDevice()),
@@ -43,7 +42,7 @@ public:
         this->pCircle->setPosition(0.0f, 0.0f);
         this->pCircle->setVisible(false);
 
-        return gfx::Scene::init();
+        return gfx::Node::init();
     }
 
 protected:
@@ -92,7 +91,7 @@ public:
         windowConfiguration.setHeight(480);
         windowConfiguration.setTitle("Rendertexture example");
         auto window = gfx::Window::create(windowConfiguration);
-        window->addScene(std::make_shared<RendertextureScene>());
+        window->addRootNode(std::make_shared<RendertextureScene>());
         registerWindow(window);
 
         return true;

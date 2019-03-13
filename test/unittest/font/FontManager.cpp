@@ -41,16 +41,16 @@ TEST_CASE("font::FontManager") {
             REQUIRE(fontManager.getFontFache().empty());
             REQUIRE(fontManager.registerFont("resource/Roboto-Bold.ttf", "MyFontFamily", "MyFontSubFamily"));
             REQUIRE(fontManager.getFontFache().size() == 1);
-            REQUIRE(fontManager.getFontFache()[0].getFamilyName() == "MyFontFamily");
-            REQUIRE(fontManager.getFontFache()[0].getSubFamilyName() == "MyFontSubFamily");
+            REQUIRE(fontManager.getFontFache()[0]->getFamilyName() == "MyFontFamily");
+            REQUIRE(fontManager.getFontFache()[0]->getSubFamilyName() == "MyFontSubFamily");
         }
 
         SECTION("Read fontFamily from file") {
             REQUIRE(fontManager.getFontFache().empty());
             REQUIRE(fontManager.registerFont("resource/Roboto-Bold.ttf"));
             REQUIRE(fontManager.getFontFache().size() == 1);
-            REQUIRE(fontManager.getFontFache()[0].getFamilyName() == "Roboto");
-            REQUIRE(fontManager.getFontFache()[0].getSubFamilyName() == "Bold");
+            REQUIRE(fontManager.getFontFache()[0]->getFamilyName() == "Roboto");
+            REQUIRE(fontManager.getFontFache()[0]->getSubFamilyName() == "Bold");
         }
     }
 
@@ -58,10 +58,10 @@ TEST_CASE("font::FontManager") {
     REQUIRE(fontManager.getFontFache().empty());
     REQUIRE(fontManager.registerFont("resource/Roboto-Bold.ttf"));
 
-    SECTION("const std::vector<Font>& getFontFache() const noexcept") {
+    SECTION("const std::vector<std::unique_ptr<Font>>& getFontFache() const noexcept") {
         REQUIRE(fontManager.getFontFache().size() == 1);
-        REQUIRE(fontManager.getFontFache()[0].getFamilyName() == "Roboto");
-        REQUIRE(fontManager.getFontFache()[0].getSubFamilyName() == "Bold");
+        REQUIRE(fontManager.getFontFache()[0]->getFamilyName() == "Roboto");
+        REQUIRE(fontManager.getFontFache()[0]->getSubFamilyName() == "Bold");
     }
 
     SECTION("std::optional<Font*> get(const std::string& family, const std::string& subfamily) noexcept") {

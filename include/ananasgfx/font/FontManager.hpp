@@ -46,7 +46,7 @@ namespace font {
          *
          * @return Reference to the font cache.
          */
-        const std::vector<Font>& getFontFache() const noexcept;
+        const std::vector<std::unique_ptr<Font>>& getFontFache() const noexcept;
 
         /**
          * @brief Tries to find a font entry for the given font family.
@@ -66,7 +66,7 @@ namespace font {
         /**
          * @brief This vector contains all cached fonts.
          */
-        std::vector<Font> mFontCache;
+        std::vector<std::unique_ptr<Font>> mFontCache;
     };
 
 }
