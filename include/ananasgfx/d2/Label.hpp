@@ -3,6 +3,7 @@
 
 #include <ananasgfx/gfx/Defines.hpp>
 #include <ananasgfx/font/Font.hpp>
+#include <ananasgfx/font/FontRenderer.hpp>
 
 #include "Sprite.hpp"
 
@@ -97,11 +98,34 @@ namespace d2 {
         void setAutoResize(bool value) noexcept;
 
         /**
+         * @brief Sets if we want to use multiline with this label.
+         *
+         * @param value True to activate.
+         */
+        void setMultiline(bool value) noexcept;
+
+        /**
          * @brief Sets the font size.
          *
          * @param size The new font size.
          */
         void setFontSize(font::size_t size) noexcept;
+
+        /**
+         * @brief Returns the optimal height for the given width.
+         *
+         * @param width The width that will be given.
+         * @return The optimal height.
+         */
+        float getHeight(float width) noexcept;
+
+        /**
+         * @brief Returns the optimal width for the given height.
+         *
+         * @param height The height that will be given.
+         * @return The optimal width.
+         */
+        float getWidth(float height) noexcept;
 
     private:
         /**
@@ -154,6 +178,16 @@ namespace d2 {
          * @brief Defines that the bitmap should auto resize depending on the needed space of the font renderer.
          */
         bool mBitmapAutoResize = false;
+
+        /**
+         * @brief The font renderer.
+         */
+        font::FontRenderer mFontRenderer;
+
+        /**
+         * @brief Defines wheater or not to use multiline.
+         */
+        bool mMultiline = false;
     };
 
 }

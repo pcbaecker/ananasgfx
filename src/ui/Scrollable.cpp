@@ -15,17 +15,17 @@ namespace ui {
 
         return Node::init();
     }
-
-    void Scrollable::onTouchBegan(float x, float y, const gfx::Touch &touch) noexcept {
+/*
+    void Scrollable::onTouchBegan(gfx::Touch &touch) noexcept {
         if (this->pScrollnode) {
-            this->pScrollnode->onTouchBegan(x,y,touch);
+            this->pScrollnode->onTouchBegan(touch);
             this->mLastTouchY = y;
         }
     }
 
-    void Scrollable::onTouchMoved(float x, float y, const gfx::Touch &touch) noexcept {
+    void Scrollable::onTouchMoved(gfx::Touch &touch) noexcept {
         if (this->pScrollnode) {
-            this->pScrollnode->onTouchMoved(x,y,touch);
+            this->pScrollnode->onTouchMoved(touch);
 
             float diff = -(this->mLastTouchY - y);
             this->mLastTouchY = y;
@@ -35,9 +35,9 @@ namespace ui {
         }
     }
 
-    void Scrollable::onTouchEnded(float x, float y, const gfx::Touch &touch) noexcept {
+    void Scrollable::onTouchEnded(gfx::Touch &touch) noexcept {
         if (this->pScrollnode) {
-            this->pScrollnode->onTouchEnded(x,y,touch);
+            this->pScrollnode->onTouchEnded(touch);
         }
-    }
+    }*/
 }

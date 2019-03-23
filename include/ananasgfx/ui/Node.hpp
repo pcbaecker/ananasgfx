@@ -35,6 +35,14 @@ namespace ui {
 
         Margin& getMargin() noexcept;
 
+        virtual densityPixel_t getOptimalWidth(densityPixel_t height) noexcept;
+
+        virtual densityPixel_t getOptimalHeight(densityPixel_t width) noexcept;
+
+        template<class T> T* createChild() noexcept {
+            return d2::Node::createChild<T>();
+        }
+
     protected:
         Margin mMargin;
         std::optional<vec2> mFixedSize;

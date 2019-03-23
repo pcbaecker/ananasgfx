@@ -116,16 +116,15 @@ namespace platform::desktop {
         if (glfwGetMouseButton(this->pWindow, 0) == GLFW_PRESS) {
             if (!this->mTouch.has_value()) {
                 this->mTouch.emplace(0, mx, my);
-                this->mTouch->setLast(mx, my);
                 this->onTouchBegan(*this->mTouch);
             } else if(static_cast<int>(mx) != static_cast<int>(this->mTouch->getLastX())
                    || static_cast<int>(my) != static_cast<int>(this->mTouch->getLastY())) {
-                this->mTouch->setLast(mx, my);
+                this->mTouch->move(mx, my);
                 this->onTouchMoved(*this->mTouch);
             }
         } else {
             if (this->mTouch.has_value()) {
-                this->mTouch->setLast(mx, my);
+                this->mTouch->end(mx, my);
                 this->onTouchEnded(*this->mTouch);
                 this->mTouch.reset();
             }

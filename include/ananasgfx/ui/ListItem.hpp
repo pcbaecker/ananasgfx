@@ -12,10 +12,7 @@ class ListItem : public Touchable, public ui::Container {
 
         virtual densityPixel_t getHeight() noexcept = 0;
 
-    void onTouchBegan(float x, float y, const gfx::Touch &touch) noexcept override;
-
-    void onTouchEnded(float x, float y, const gfx::Touch &touch) noexcept override;
-
+        void onTouchBegan(gfx::Touch &touch) noexcept override;
     };
 }
 

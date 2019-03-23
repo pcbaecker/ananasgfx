@@ -134,7 +134,7 @@ namespace gfx {
         return this->mHorizontalDpi;
     }
 
-    void Window::onTouchBegan(const Touch &touch) noexcept {
+    void Window::onTouchBegan(Touch &touch) noexcept {
         //TRACE("Touch began", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
 
         // Make sure a scene exists
@@ -147,7 +147,7 @@ namespace gfx {
         }
     }
 
-    void Window::onTouchMoved(const Touch &touch) noexcept {
+    void Window::onTouchMoved(Touch &touch) noexcept {
         //TRACE("Touch moved", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
 
         // Make sure a scene exists
@@ -160,7 +160,7 @@ namespace gfx {
         }
     }
 
-    void Window::onTouchEnded(const Touch &touch) noexcept {
+    void Window::onTouchEnded(Touch &touch) noexcept {
         //TRACE("Touch ended", {ee::Note("X", touch.getLastX()),ee::Note("Y", touch.getLastY())});
 
         // Make sure a scene exists

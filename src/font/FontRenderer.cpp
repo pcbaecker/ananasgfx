@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <list>
+#include <ee/Log.hpp>
 
 namespace font {
 
@@ -190,8 +191,8 @@ namespace font {
         }
 
         // Set start points
-        float startX = 0.0f;
         float startY = 0.0f;
+        float startX = 0.0f;
         switch (verticalAlign) {
             case gfx::Top:
                 startY = 0.0f;
@@ -232,4 +233,216 @@ namespace font {
         }
     }
 
+    std::list<Character *> FontRenderer::getCharacters(const std::string &text) noexcept {
+        if (!this->mFont.has_value()) {
+            WARN("A font must be present", {});
+            return {};
+        }
+        auto font = *this->mFont;
+
+        // Convert the given text into unicode characters
+        auto codes = convert(text);
+
+        // Get the characters for each code
+        std::list<Character*> characters;
+        for (auto& code : codes) {
+            auto opt = font->getCharacter(code, this->mFontSize);
+            if (opt.has_value()) {
+                characters.push_back(*opt);
+            }
+        }
+
+        return characters;
+    }
+
+    float FontRenderer::getHeight(const std::string &text, float width) noexcept {
+        Chunk chunk;
+        chunk.characters = getCharacters(text);
+        return chunk.height;
+    }
+
+    float FontRenderer::getWidth(const std::string &text, float height) noexcept {
+        Chunk chunk;
+        chunk.characters = getCharacters(text);
+        return chunk.width;
+    }
+
+    void FontRenderer::render(const std::string &text, gfx::Bitmap &bitmap) noexcept {
+        if (this->mMultiline) {
+            auto rows = getRows(getCharacters(text), bitmap.getWidth());
+
+            // Set start points
+            const float lineHeight = this->mFontSize * 1.5f;
+            float startY = 0.0f;
+            switch (this->mVerticalAlign) {
+                case gfx::Top:
+                    startY = 0.0f;
+                    break;
+                case gfx::Middle:
+                    startY = bitmap.getHeight()*0.5f - (rows.size() * lineHeight) * 0.5f;
+                    break;
+                case gfx::Bottom:
+                    startY = bitmap.getHeight() - rows.size() * lineHeight;
+                    break;
+            }
+            for (auto& row : rows) {
+                row.width = 0.0f;
+                setConstraints(row);
+
+                render(row, startY, bitmap);
+
+                startY += lineHeight;
+            }
+
+        } else {
+            Chunk chunk;
+            chunk.characters = getCharacters(text);
+
+            setConstraints(chunk);
+
+            // Set start points
+            float startY = 0.0f;
+            switch (this->mVerticalAlign) {
+                case gfx::Top:
+                    startY = 0.0f;
+                    break;
+                case gfx::Middle:
+                    startY = bitmap.getHeight()*0.5f - chunk.height*0.5f;
+                    break;
+                case gfx::Bottom:
+                    startY = bitmap.getHeight() - chunk.height;
+                    break;
+            }
+
+            render(chunk, startY, bitmap);
+        }
+    }
+
+    void FontRenderer::setConstraints(Chunk& chunk) noexcept {
+        // Iterate through all characters
+        for (auto& c : chunk.characters) {
+            if (chunk.maxOverBaseline < c->getOverBaseline())
+                chunk.maxOverBaseline = c->getOverBaseline();
+            if (chunk.maxUnderBaseline < c->getUnderBaseline())
+                chunk.maxUnderBaseline = c->getUnderBaseline();
+            chunk.width += c->getAdvanceX();
+        }
+
+        // Calculate the height
+        chunk.height = chunk.maxOverBaseline + chunk.maxUnderBaseline;
+    }
+
+    std::list<FontRenderer::Chunk> FontRenderer::getRows(const std::list<Character*>& characters, float width) noexcept {
+        std::list<Chunk> rows;
+        auto* row = &rows.emplace_back();
+        Character* whitespace = nullptr;
+
+        float wordWidth = 0.0f;
+        std::list<Character*> wordCharacters;
+        for (auto& c : characters) {
+
+            if (c->getCharCode() == ' ') {
+                whitespace = c;
+                // A word finished
+
+                // Check if the word fits into this row
+                if (row->width + c->getAdvanceX() + wordWidth <= width) {// TODO whitespace width will always be added here, but sometimes this is wrong
+                    // The word fits into this row -> add it
+                    row->width += c->getAdvanceX() + wordWidth;
+                    if (!row->characters.empty()) {
+                        row->characters.push_back(c);
+                    }
+                    row->characters.insert(row->characters.end(), wordCharacters.begin(), wordCharacters.end());
+                } else {
+                    // The word does NOT fit into this row -> start a new row
+                    row = &rows.emplace_back();
+
+                    // Add the word into the new row
+                    row->width += wordWidth;
+                    row->characters.insert(row->characters.end(), wordCharacters.begin(), wordCharacters.end());
+                }
+
+                // Clear the word buffer
+                wordWidth = 0.0f;
+                wordCharacters.clear();
+            } else {
+                wordWidth += c->getAdvanceX();
+                wordCharacters.push_back(c);
+            }
+        }
+
+        // Check if the word fits into this row
+        float whitespaceWidth = (whitespace != nullptr && !row->characters.empty() ? whitespace->getAdvanceX() : 0.0f);
+        if (row->width + whitespaceWidth + wordWidth <= width) {
+            // The word fits into this row -> add it
+            row->width += whitespaceWidth + wordWidth;
+            if (whitespace != nullptr && !row->characters.empty()) {
+                row->characters.push_back(whitespace);
+            }
+            row->characters.insert(row->characters.end(), wordCharacters.begin(), wordCharacters.end());
+        } else {
+            // The word does NOT fit into this row -> start a new row
+            row = &rows.emplace_back();
+
+            // Add the word into the new row
+            row->width += wordWidth;
+            row->characters.insert(row->characters.end(), wordCharacters.begin(), wordCharacters.end());
+        }
+
+        return rows;
+    }
+
+    void FontRenderer::render(const FontRenderer::Chunk &chunk, float yOffset, gfx::Bitmap& bitmap) noexcept {
+        float startX = 0.0f;
+        switch (this->mHorizontalAlign) {
+            case gfx::Left:
+                startX = 0.0f;
+                break;
+            case gfx::Center:
+                startX = bitmap.getWidth()*0.5f - chunk.width*0.5f;
+                break;
+            case gfx::Right:
+                startX = bitmap.getWidth() - chunk.width;
+                break;
+        }
+
+        for (auto& c : chunk.characters) {
+            auto data = static_cast<const uint8_t*>(c->getBitmap().getData());
+
+            //std::cout << (char)c->getCharCode();
+
+            size_t j = 0;
+            for (int y = 0; y < c->getBitmap().getHeight(); y++) {
+                for (int x = 0; x < c->getBitmap().getWidth(); x++) {
+                    if (data[j]) {
+                        //float t = startX + x;
+                        bitmap.setPixel(static_cast<uint16_t>(startX + x), static_cast<uint16_t>(y + yOffset + (chunk.maxOverBaseline - c->getOverBaseline())), data[j]);
+                    }
+                    j++;
+                }
+            }
+            startX += c->getAdvanceX();
+        }
+        //std::cout << std::endl;
+    }
+
+    void FontRenderer::setHorizontalAlign(gfx::HorizontalAlign horizontalAlign) noexcept {
+        this->mHorizontalAlign = horizontalAlign;
+    }
+
+    void FontRenderer::setVerticalAlign(gfx::VerticalAlign verticalAlign) noexcept {
+        this->mVerticalAlign = verticalAlign;
+    }
+
+    void FontRenderer::setFont(Font *font) noexcept {
+        this->mFont = font;
+    }
+
+    void FontRenderer::setFontSize(font::size_t fontSize) noexcept {
+        this->mFontSize = fontSize;
+    }
+
+    void FontRenderer::setMultiline(bool value) noexcept {
+        this->mMultiline = value;
+    }
 }

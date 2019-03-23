@@ -65,6 +65,14 @@ public:
             this->pWindow->getApplication()->gracefulClose();
         });
 
+        // Labels
+        auto liLabels = list->createListItem<ui::design::material::ListItemSimpleText>();
+        liLabels->setText("Labels");
+        liLabels->setCallback([this](){
+            this->pWindow->getApplication()->getApplicationManager()->setNextApplication("LabelsApp");
+            this->pWindow->getApplication()->gracefulClose();
+        });
+
         // MaterialDesignApp
         auto liMaterialDesign = list->createListItem<ui::design::material::ListItemSimpleText>();
         liMaterialDesign->setText("Material design");

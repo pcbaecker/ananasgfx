@@ -57,4 +57,12 @@ namespace ui {
     Margin &Node::getMargin() noexcept {
         return this->mMargin;
     }
+
+    densityPixel_t Node::getOptimalWidth(densityPixel_t height) noexcept {
+        return 0.0f;
+    }
+
+    densityPixel_t Node::getOptimalHeight(densityPixel_t width) noexcept {
+        return 128.0f;
+    }
 }

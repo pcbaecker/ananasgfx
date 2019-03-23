@@ -11,7 +11,8 @@ namespace ui::design::material {
     mMediumTextColor(0.0f, 0.0f, 0.0f, 0.6f),
     mDisabledTextColor(0.0f, 0.0f, 0.0f, 0.38f),
     mFontFamily("Roboto"),
-    mFontSubMedium("Medium") {
+    mFontSubMedium("Medium"),
+    mFontSubBold("Bold") {
 
     }
 
@@ -65,6 +66,14 @@ namespace ui::design::material {
 
     void MaterialDesign::setFontFamily(std::string fontFamily) noexcept {
         this->mFontFamily = std::move(fontFamily);
+    }
+
+    const std::string &MaterialDesign::getFontSubBold() const noexcept {
+        return this->mFontSubBold;
+    }
+
+    void MaterialDesign::setFontSubBold(std::string sub) noexcept {
+        this->mFontSubBold = std::move(sub);
     }
 
     const std::string &MaterialDesign::getFontSubMedium() const noexcept {

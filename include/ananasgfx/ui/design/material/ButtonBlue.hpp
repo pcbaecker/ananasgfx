@@ -7,9 +7,11 @@ namespace ui::design::material {
 
 class ButtonBlue : public ui::TextButton {
 public:
-    std::optional<d2::Node *> getBlurBackground() noexcept override;
+    std::optional<d2::Node *> getBackgroundBlur() noexcept override;
 
-    std::optional<d2::Node *> getFocusBackground() noexcept override;
+    std::optional<d2::Node *> getBackgroundFocus() noexcept override;
+
+    d2::Label* getLabel() noexcept override;
 };
 
 }

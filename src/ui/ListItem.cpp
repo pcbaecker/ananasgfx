@@ -4,13 +4,6 @@
 namespace ui {
 
     bool ListItem::init() noexcept {
-        /*this->pLayout = this->createLayout();
-        if (this->pLayout == nullptr) {
-            WARN("Layout container must not be nullptr", {});
-            return false;
-        }
-        this->pLayout->setSize(this->mSize.x, this->mSize.y);
-*/
         if (!_init(this->mSize)) {
             return false;
         }
@@ -18,16 +11,16 @@ namespace ui {
         return ui::Container::init();
     }
 
-    void ListItem::onTouchBegan(float x, float y, const gfx::Touch &touch) noexcept {
-        ui::Container::onTouchBegan(x, y, touch);
+    void ListItem::onTouchBegan(gfx::Touch &touch) noexcept {
+        ui::Container::onTouchBegan(touch);
 
-        Touchable::touchBegins(touch);
+        Touchable::touchBegins();
+
+        touch.registerHandler(gfx::Touch::Type::End, [this](gfx::Touch&t) {
+            auto pos = t.getLocalLast(this);
+
+            Touchable::touchEnds(0.0f < pos.x && pos.x < this->mSize.x
+                                 && 0.0f < pos.y && pos.y < this->mSize.y);
+        });
     }
-
-    void ListItem::onTouchEnded(float x, float y, const gfx::Touch &touch) noexcept {
-        ui::Container::onTouchEnded(x, y, touch);
-
-        Touchable::touchEnds();
-    }
-
 }

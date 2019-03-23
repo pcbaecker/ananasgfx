@@ -41,4 +41,14 @@ namespace ui {
 
         this->pLabel->setColor(color);
     }
+
+    densityPixel_t Label::getOptimalHeight(densityPixel_t width) noexcept {
+        this->createInlineLabel();
+        return toVerticalDp(this->pLabel->getHeight(width));
+    }
+
+    densityPixel_t Label::getOptimalWidth(densityPixel_t height) noexcept {
+        this->createInlineLabel();
+        return toHorizontalDp(this->pLabel->getWidth(height));
+    }
 }

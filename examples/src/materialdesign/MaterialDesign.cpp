@@ -7,7 +7,10 @@
 #include <ananasgfx/ui/design/material/MaterialDesign.hpp>
 #include <ananasgfx/ui/design/material/ButtonGreen.hpp>
 #include <ananasgfx/ui/design/material/ButtonBlue.hpp>
+#include <ananasgfx/ui/design/material/ButtonRed.hpp>
+#include <ananasgfx/ui/design/material/PopUpView.hpp>
 #include <ee/Log.hpp>
+#include <ananasgfx/ui/design/material/PopUpViewSimpleDialog.hpp>
 
 class MaterialDesignScene : public ui::Container {
 public:
@@ -37,14 +40,26 @@ public:
         // Green button
         auto btnGreen = createChild<ui::design::material::ButtonGreen>();
         btnGreen->setText("The green button");
-        btnGreen->getMargin().set(32,16,32,32);
+        btnGreen->getMargin().set(16,8,16,16);
 
         // Blue button
         auto btnBlue = createChild<ui::design::material::ButtonBlue>();
         btnBlue->setText("The blue button");
-        btnBlue->getMargin().set(16,16,32,32);
+        btnBlue->getMargin().set(8,8,16,16);
 
-        //
+        // Red button
+        auto btnRed = createChild<ui::design::material::ButtonRed>();
+        btnRed->setText("The red button");
+        btnRed->getMargin().set(8,8,16,16);
+        btnRed->setCallback([this]() {
+            auto dialog = this->createChildLazy<ui::design::material::PopUpViewSimpleDialog>();
+            dialog.get()->setTitle("This is my title");
+            dialog.get()->setButtonLeft("Cancel");
+            dialog.get()->setButtonRight("Agree");
+            dialog.get()->setOutsideTouchCallback([](ui::PopUpView*popUpView) {
+                popUpView->removeFromParent();
+            });
+        });
 
         return ui::Container::init();
     }

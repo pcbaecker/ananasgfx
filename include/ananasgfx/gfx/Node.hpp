@@ -3,9 +3,11 @@
 
 #include <list>
 #include <memory>
+#include <ee/Log.hpp>
 
 #include "RenderTexture.hpp"
 #include "Touch.hpp"
+#include "LazyInit.hpp"
 
 namespace gfx {
 
@@ -51,9 +53,10 @@ namespace gfx {
          * @brief Creates a new child.
          *
          * @tparam T The class of the new child.
+         * @param shouldInit Defines wether the created child should be initialized.
          * @return Pointer to the newly created child.
          */
-        template<class T> T* createChild() noexcept {
+        template<class T> T* createChild(bool shouldInit = true) noexcept {
             // Try to create an instance of the object
             auto object = std::make_shared<T>();
 
@@ -65,12 +68,33 @@ namespace gfx {
 
             // Try to cast it to the base node type and store it in the children list
             this->mChildren.push_back(std::dynamic_pointer_cast<Node>(object));
-            this->resortChildren();
 
             // Call the on child added callback for inheriting classes
             onChildAdded(object.get());
 
+            // Resort the children
+            this->resortChildren();
+
+            // Check if we already initialized
+            if (shouldInit && this->isInitialized()) {
+                // We have to init the child
+                if (!object->init()) {
+                    WARN("Could not initialize this child", {});
+                    // TODO Handle init() failure
+                }
+            }
+
             return object.get();
+        }
+
+        /**
+         * @brief Creates a child but doesnt initialize it.
+         *
+         * @tparam T The template class
+         * @return LazyInit class instance with a pointer to the created object.
+         */
+        template <class T> LazyInit<T> createChildLazy() noexcept {
+            return LazyInit(createChild<T>(false));
         }
 
         /**
@@ -154,6 +178,21 @@ namespace gfx {
          */
         const std::list<std::shared_ptr<Node>>& getChildren() const noexcept;
 
+        /**
+         * @brief Removes the given child from this node.
+         *
+         * @param node The node we want to remove.
+         * @return True if the node was successfully removed.
+         */
+        bool removeChild(Node* node) noexcept;
+
+        /**
+         * @brief Removes this child from parent.
+         *
+         * @return True on success.
+         */
+        bool removeFromParent() noexcept;
+
     protected:
         /**
          * @brief This callback will be called everytime a new child is added.
@@ -163,25 +202,32 @@ namespace gfx {
         virtual void onChildAdded(Node* pNode) noexcept;
 
         /**
+         * @brief This callback will be called everytime a child is removed.
+         *
+         * @param node The node that will be removed.
+         */
+        virtual void onChildRemoved(Node* node) noexcept;
+
+        /**
          * @brief Called when a touch begins.
          *
          * @param touch The touch object.
          */
-        virtual void onTouchBegan(const Touch& touch) noexcept;
+        virtual void onTouchBegan(Touch& touch) noexcept;
 
         /**
          * @brief Called when a touch moved.
          *
          * @param touch The touch object.
          */
-        virtual void onTouchMoved(const Touch& touch) noexcept;
+        virtual void onTouchMoved(Touch& touch) noexcept;
 
         /**
          * @brief Called when a touch ended.
          *
          * @param touch The touch object.
          */
-        virtual void onTouchEnded(const Touch& touch) noexcept;
+        virtual void onTouchEnded(Touch& touch) noexcept;
 
     protected:
         /**

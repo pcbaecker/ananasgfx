@@ -202,21 +202,21 @@ namespace gfx {
          *
          * @param touch The touch that began.
          */
-        void onTouchBegan(const Touch& touch) noexcept;
+        void onTouchBegan(Touch& touch) noexcept;
 
         /**
          * @brief Is called when a touch moves.
          *
          * @param touch The touch moved.
          */
-        void onTouchMoved(const Touch& touch) noexcept;
+        void onTouchMoved(Touch& touch) noexcept;
 
         /**
          * @brief Is called when a touch ended.
          *
          * @param touch The touch ended.
          */
-        void onTouchEnded(const Touch& touch) noexcept;
+        void onTouchEnded(Touch& touch) noexcept;
 
     private:
         /**

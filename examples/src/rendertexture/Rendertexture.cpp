@@ -56,15 +56,15 @@ protected:
         this->mRenderTexture->end();
     }
 
-    void onTouchBegan(const gfx::Touch &touch) noexcept override {
+    void onTouchBegan(gfx::Touch &touch) noexcept override {
         drawCircle(static_cast<float>(touch.getLastX()), static_cast<float>(touch.getLastY()));
     }
 
-    void onTouchMoved(const gfx::Touch &touch) noexcept override {
+    void onTouchMoved(gfx::Touch &touch) noexcept override {
         drawCircle(static_cast<float>(touch.getLastX()), static_cast<float>(touch.getLastY()));
     }
 
-    void onTouchEnded(const gfx::Touch &touch) noexcept override {
+    void onTouchEnded(gfx::Touch &touch) noexcept override {
         this->pCircle->setColor(glm::vec4(randomFloat(), randomFloat(), randomFloat(), 1.0f));
     }
 

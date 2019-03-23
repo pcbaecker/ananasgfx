@@ -17,13 +17,6 @@ public:
     bool init() noexcept override {
         // Set background color
         this->pWindow->getRenderer()->setClearColor(0.03f, 0.25f, 0.025f, 1.0f);
-/*
-        auto clippingNode = createChild<gfx::ClippingNode>();
-        auto stencil = clippingNode->createStencil<d2::Rectangle>();
-        stencil->setSize(this->pWindow->getWidth() * 0.5f, this->pWindow->getHeight());
-        stencil->setPosition(this->pWindow->getWidth() * 0.5f, this->pWindow->getHeight() * 0.5f);
-        stencil->setAnchorPoint(0.5f, 0.5f);
-*/
 
         // Create a label
         auto label = createChild<d2::Label>();
@@ -36,8 +29,9 @@ public:
         // Create rectangle
         this->pRectangle = this->createChild<d2::Rectangle>();
         this->pRectangle->setSize(50, 50);
-        this->pRectangle->setPosition(0,10);
+        this->pRectangle->setPosition(10,10);
         this->pRectangle->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
+        this->pRectangle->setZIndex(3);
 
         // Create a child ring that moves automatically with its parent
         auto childRing = this->pRectangle->createChild<d2::Ring>();
@@ -48,10 +42,10 @@ public:
         // Create sprite
         this->pSprite = createChild<d2::Sprite>();
         this->pSprite->setFilename(this->pWindow->getFileManager().getResource("icon_lightbulb.png"));
-        this->pSprite->setColor(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
-        this->pSprite->setZIndex(2);
-        this->pSprite->setPosition(75, 200);
-        this->pSprite->setAnchorPoint(0.5f, 0.5f);
+        this->pSprite->setColor(glm::vec4(1.0f, 1.0f, 0.0f, 1.0f));
+        this->pSprite->setZIndex(4);
+        this->pSprite->setPosition(25, 25);
+        this->pSprite->setAnchorPoint(0.0f, 0.0f);
 
         // Create other rectangle that is a child of the sprite
         this->pChildRect = this->pSprite->createChild<d2::Rectangle>();
@@ -85,7 +79,7 @@ public:
 
     void update(float dt) noexcept override {
         Node::update(dt);
-
+/*
         // Move the rectangle
         float rectangleSpeed = dt * 125.0f * (!this->mRectangleGoRight ? -1.0f : 1.0f);
         this->pRectangle->setPosition(this->pRectangle->getPosition().x + rectangleSpeed, this->pRectangle->getPosition().y);
@@ -94,7 +88,7 @@ public:
         }
         if (!this->mRectangleGoRight && this->pRectangle->getPosition().x <= 0.0f) {
             this->mRectangleGoRight = true;
-        }
+        }*/
 /*
         // Rotate the sprite
         this->pSprite->setRotation(this->pSprite->getRotation() + dt);

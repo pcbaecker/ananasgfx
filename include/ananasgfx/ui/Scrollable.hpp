@@ -22,33 +22,6 @@ namespace ui {
             return node;
         }
 
-        /**
-         * @brief Called when a touch begins.
-         *
-         * @param x The X-Coordinate in parent space.
-         * @param y The Y-Coordinate in parent space.
-         * @param touch The touch object.
-         */
-        void onTouchBegan(float x, float y, const gfx::Touch& touch) noexcept override;
-
-        /**
-         * @brief Called when a touch moves.
-         *
-         * @param x The X-Coordinate in parent space.
-         * @param y The Y-Coordinate in parent space.
-         * @param touch The touch object.
-         */
-        void onTouchMoved(float x, float y, const gfx::Touch& touch) noexcept override;
-
-        /**
-         * @brief Called when a touch ends.
-         *
-         * @param x The X-Coordinate in parent space.
-         * @param y The Y-Coordinate in parent space.
-         * @param touch The touch object.
-         */
-        void onTouchEnded(float x, float y,const gfx::Touch& touch) noexcept override;
-
     private:
         gfx::ClippingNode* pClippingNode = nullptr;
         ui::Node* pScrollnode = nullptr;

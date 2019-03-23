@@ -58,19 +58,19 @@ namespace gfx {
         }
     }
 
-    void Node::onTouchBegan(const Touch &touch) noexcept {
+    void Node::onTouchBegan(Touch &touch) noexcept {
         for (auto& child : this->mChildren) {
             child->onTouchBegan(touch);
         }
     }
 
-    void Node::onTouchMoved(const Touch &touch) noexcept {
+    void Node::onTouchMoved(Touch &touch) noexcept {
         for (auto& child : this->mChildren) {
             child->onTouchMoved(touch);
         }
     }
 
-    void Node::onTouchEnded(const Touch &touch) noexcept {
+    void Node::onTouchEnded(Touch &touch) noexcept {
         for (auto& child : this->mChildren) {
             child->onTouchEnded(touch);
         }
@@ -138,5 +138,40 @@ namespace gfx {
 
     const std::list<std::shared_ptr<Node>> &Node::getChildren() const noexcept {
         return this->mChildren;
+    }
+
+    void Node::onChildRemoved(Node *node) noexcept {
+        if (node == nullptr) {
+            WARN("Given node should not be null", {});
+        }
+    }
+
+    bool Node::removeChild(Node *node) noexcept {
+        // Iterate through all children
+        auto it = this->mChildren.begin();
+        while (it != this->mChildren.end()) {
+            // Check if this iterator contains the child
+            if ((*it).get() == node) {
+                // Callback
+                this->onChildRemoved(node);
+
+                // Remove the child
+                this->mChildren.erase(it);
+                return true;
+            }
+
+            it++;
+        }
+
+        // The child is not found
+        return false;
+    }
+
+    bool Node::removeFromParent() noexcept {
+        if (this->pParent == nullptr) {
+            return false;
+        }
+
+        return this->pParent->removeChild(this);
     }
 }

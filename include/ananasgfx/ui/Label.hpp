@@ -16,6 +16,10 @@ namespace ui {
         void setFontSize(font::size_t fontSize) noexcept;
         void setColor(const glm::vec4& color) noexcept;
 
+        densityPixel_t getOptimalHeight(densityPixel_t width) noexcept override;
+
+        densityPixel_t getOptimalWidth(densityPixel_t height) noexcept override;
+
     private:
         void createInlineLabel() noexcept;
 

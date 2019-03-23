@@ -198,33 +198,6 @@ namespace d2 {
         std::shared_ptr<gfx::RenderTexture> asRenderTexture() noexcept override;
 
         /**
-         * @brief Called when a touch begins.
-         *
-         * @param x The X-Coordinate in parent space.
-         * @param y The Y-Coordinate in parent space.
-         * @param touch The touch object.
-         */
-        virtual void onTouchBegan(float x, float y, const gfx::Touch& touch) noexcept;
-
-        /**
-         * @brief Called when a touch moves.
-         *
-         * @param x The X-Coordinate in parent space.
-         * @param y The Y-Coordinate in parent space.
-         * @param touch The touch object.
-         */
-        virtual void onTouchMoved(float x, float y, const gfx::Touch& touch) noexcept;
-
-        /**
-         * @brief Called when a touch ends.
-         *
-         * @param x The X-Coordinate in parent space.
-         * @param y The Y-Coordinate in parent space.
-         * @param touch The touch object.
-         */
-        virtual void onTouchEnded(float x, float y,const gfx::Touch& touch) noexcept;
-
-        /**
          * @brief Checks if the given position is inside this 2d node.
          *
          * Checks inside the parent space and not screen space.
@@ -234,6 +207,27 @@ namespace d2 {
          */
         bool contains(float x, float y) noexcept;
 
+        /**
+         * @brief Called when a touch begins.
+         *
+         * @param touch The touch object.
+         */
+        void onTouchBegan(gfx::Touch& touch) noexcept override;
+
+        /**
+         * @brief Called when a touch moves.
+         *
+         * @param touch The touch object.
+         */
+        void onTouchMoved(gfx::Touch& touch) noexcept override;
+
+        /**
+         * @brief Called when a touch ends.
+         *
+         * @param touch The touch object.
+         */
+        void onTouchEnded(gfx::Touch& touch) noexcept override;
+
     protected:
         /**
          * @brief Is called when a new child is added.
@@ -242,6 +236,13 @@ namespace d2 {
          * @param pNode The newly added node.
          */
         void onChildAdded(gfx::Node* pNode) noexcept override;
+
+        /**
+         * @brief Is called when a child is removed.
+         *
+         * @param node The node that will be removed.
+         */
+        void onChildRemoved(gfx::Node* node) noexcept override;
 
         /**
          * @brief Updates all children or only the given child nodes parent position offset.
@@ -256,27 +257,6 @@ namespace d2 {
          * @param pNode If this optional paramater is set, only this single node will be updated.
          */
         void updateChildrenRotationOffset(d2::Node* pNode = nullptr) const noexcept;
-
-        /**
-         * @brief Called when a touch begins.
-         *
-         * @param touch The touch object.
-         */
-        void onTouchBegan(const gfx::Touch& touch) noexcept override;
-
-        /**
-         * @brief Called when a touch moves.
-         *
-         * @param touch The touch object.
-         */
-        void onTouchMoved(const gfx::Touch& touch) noexcept override;
-
-        /**
-         * @brief Called when a touch ends.
-         *
-         * @param touch The touch object.
-         */
-        void onTouchEnded(const gfx::Touch& touch) noexcept override;
 
     protected:
         /**
@@ -322,7 +302,7 @@ namespace d2 {
         /**
          * @brief The z-index of this node.
          */
-        uint8_t mZIndex = 0;
+        uint8_t mZIndex = 64;
     };
 
 }

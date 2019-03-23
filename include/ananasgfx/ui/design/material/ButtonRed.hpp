@@ -1,12 +1,12 @@
-#ifndef UI_DESIGN_MATERIAL_BUTTONGREEN_H
-#define UI_DESIGN_MATERIAL_BUTTONGREEN_H
+#ifndef UI_DESIGN_MATERIAL_BUTTONRED_H
+#define UI_DESIGN_MATERIAL_BUTTONRED_H
 
 #include <ananasgfx/ui/TextButton.hpp>
 
 namespace ui::design::material {
 
-    class ButtonGreen : public ui::TextButton {
-    private:
+    class ButtonRed : public ui::TextButton {
+    public:
         std::optional<d2::Node *> getBackgroundBlur() noexcept override;
 
         std::optional<d2::Node *> getBackgroundFocus() noexcept override;

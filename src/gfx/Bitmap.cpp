@@ -145,13 +145,13 @@ namespace gfx {
 
         // Make sure the given coordinates do not exceed the boundary
         if (x >= this->mWidth || y >= this->mHeight) {
-            ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
+            /*ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
                     ee::Note("Channels", this->mChannels),
                     ee::Note("Width", this->mWidth),
                     ee::Note("Height", this->mHeight),
                     ee::Note("x", x),
                     ee::Note("y", y)
-            });
+            });*/
             return;
         }
 
@@ -174,13 +174,13 @@ namespace gfx {
 
         // Make sure the given coordinates do not exceed the boundary
         if (x >= this->mWidth || y >= this->mHeight) {
-            ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
+            /*ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
                     ee::Note("Channels", this->mChannels),
                     ee::Note("Width", this->mWidth),
                     ee::Note("Height", this->mHeight),
                     ee::Note("x", x),
                     ee::Note("y", y)
-            });
+            });*/
             return 0;
         }
 
@@ -203,13 +203,13 @@ namespace gfx {
 
         // Make sure the given coordinates do not exceed the boundary
         if (x >= this->mWidth || y >= this->mHeight) {
-            ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
+            /*ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
                     ee::Note("Channels", this->mChannels),
                     ee::Note("Width", this->mWidth),
                     ee::Note("Height", this->mHeight),
                     ee::Note("x", x),
                     ee::Note("y", y)
-            });
+            });*/
             return;
         }
 
@@ -233,13 +233,13 @@ namespace gfx {
 
         // Make sure the given coordinates do not exceed the boundary
         if (x >= this->mWidth || y >= this->mHeight) {
-            ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
+            /*ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
                     ee::Note("Channels", this->mChannels),
                     ee::Note("Width", this->mWidth),
                     ee::Note("Height", this->mHeight),
                     ee::Note("x", x),
                     ee::Note("y", y)
-            });
+            });*/
             return {0,0};
         }
 
@@ -262,13 +262,13 @@ namespace gfx {
 
         // Make sure the given coordinates do not exceed the boundary
         if (x >= this->mWidth || y >= this->mHeight) {
-            ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
+            /*ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
                     ee::Note("Channels", this->mChannels),
                     ee::Note("Width", this->mWidth),
                     ee::Note("Height", this->mHeight),
                     ee::Note("x", x),
                     ee::Note("y", y)
-            });
+            });*/
             return;
         }
 
@@ -293,13 +293,13 @@ namespace gfx {
 
         // Make sure the given coordinates do not exceed the boundary
         if (x >= this->mWidth || y >= this->mHeight) {
-            ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
+            /*ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
                     ee::Note("Channels", this->mChannels),
                     ee::Note("Width", this->mWidth),
                     ee::Note("Height", this->mHeight),
                     ee::Note("x", x),
                     ee::Note("y", y)
-            });
+            });*/
             return {0,0,0};
         }
 
@@ -322,13 +322,13 @@ namespace gfx {
 
         // Make sure the given coordinates do not exceed the boundary
         if (x >= this->mWidth || y >= this->mHeight) {
-            ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
+            /*ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
                     ee::Note("Channels", this->mChannels),
                     ee::Note("Width", this->mWidth),
                     ee::Note("Height", this->mHeight),
                     ee::Note("x", x),
                     ee::Note("y", y)
-            });
+            });*/
             return;
         }
 
@@ -354,13 +354,13 @@ namespace gfx {
 
         // Make sure the given coordinates do not exceed the boundary
         if (x >= this->mWidth || y >= this->mHeight) {
-            ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
+            /*ee::Log::log(ee::LogLevel::Warning, "", __PRETTY_FUNCTION__, "The given coordinates are out of bounds", {
                     ee::Note("Channels", this->mChannels),
                     ee::Note("Width", this->mWidth),
                     ee::Note("Height", this->mHeight),
                     ee::Note("x", x),
                     ee::Note("y", y)
-            });
+            });*/
             return {0,0,0,0};
         }
 

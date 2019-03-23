@@ -28,6 +28,9 @@ namespace ui::design::material {
         const std::string& getFontFamily() const noexcept;
         void setFontFamily(std::string fontFamily) noexcept;
 
+        const std::string& getFontSubBold() const noexcept;
+        void setFontSubBold(std::string sub) noexcept;
+
         const std::string& getFontSubMedium() const noexcept;
         void setFontSubMedium(std::string sub) noexcept;
 
@@ -42,6 +45,7 @@ namespace ui::design::material {
         glm::vec4 mMediumTextColor;
         glm::vec4 mDisabledTextColor;
         std::string mFontFamily;
+        std::string mFontSubBold;
         std::string mFontSubMedium;
     };
 

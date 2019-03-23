@@ -32,7 +32,8 @@ namespace d2 {
             this->mBitmap->clear();
 
             // Render the text to the bitmap
-            font::FontRenderer::render(this->mText, this->pFont, this->mFontSize, *this->mBitmap, this->mHorizontalAlign, this->mVerticalAlign);
+            this->mFontRenderer.render(this->mText, *this->mBitmap);
+            //font::FontRenderer::render(this->mText, this->pFont, this->mFontSize, *this->mBitmap, this->mHorizontalAlign, this->mVerticalAlign);
         }
 
         // Convert the bitmap to a texture
@@ -67,6 +68,7 @@ namespace d2 {
 
         // Font is found, we store it
         this->pFont = *font;
+        this->mFontRenderer.setFont(this->pFont);
 
         // Render the text with the new font again
         if (isInitialized()) {
@@ -95,6 +97,7 @@ namespace d2 {
 
     void Label::setHorizontalAlign(gfx::HorizontalAlign align) noexcept {
         this->mHorizontalAlign = align;
+        this->mFontRenderer.setHorizontalAlign(this->mHorizontalAlign);
 
         // Render text with new alignment
         if (isInitialized()) {
@@ -108,6 +111,7 @@ namespace d2 {
 
     void Label::setVerticalAlign(gfx::VerticalAlign align) noexcept {
         this->mVerticalAlign = align;
+        this->mFontRenderer.setVerticalAlign(this->mVerticalAlign);
 
         // Render text with new alignment
         if (isInitialized()) {
@@ -135,5 +139,19 @@ namespace d2 {
 
     void Label::setFontSize(font::size_t size) noexcept {
         this->mFontSize = size;
+        this->mFontRenderer.setFontSize(size);
+    }
+
+    float Label::getHeight(float width) noexcept {
+        return this->mFontRenderer.getHeight(this->mText, width);
+    }
+
+    float Label::getWidth(float height) noexcept {
+        return this->mFontRenderer.getWidth(this->mText, height);
+    }
+
+    void Label::setMultiline(bool value) noexcept {
+        this->mMultiline = value;
+        this->mFontRenderer.setMultiline(this->mMultiline);
     }
 }

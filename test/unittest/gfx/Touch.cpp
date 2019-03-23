@@ -34,4 +34,8 @@ TEST_CASE("gfx::Touch") {
         REQUIRE(Approx(7.8) == touch.getLastY());
     }
 
+    SECTION("glm::vec2 getLocalLast(d2::Node* node) noexcept") {
+
+    }
+
 }

@@ -144,7 +144,7 @@ TEST_CASE("d2::Node") {
 
     SECTION("void setZIndex(uint8_t) noexcept") {
         // Test default value
-        REQUIRE(0 == node.getZIndex());
+        REQUIRE(64 == node.getZIndex());
 
         // Set the z-index
         node.setZIndex(123);
@@ -153,7 +153,7 @@ TEST_CASE("d2::Node") {
 
     SECTION("uint8_t getZIndex() const noexcept") {
         // Test default value
-        REQUIRE(0 == node.getZIndex());
+        REQUIRE(64 == node.getZIndex());
 
         // Set the z-index
         node.setZIndex(123);
@@ -162,7 +162,7 @@ TEST_CASE("d2::Node") {
 
     SECTION("gfx::nodePriority_t getPriority() const noexcept") {
         // Test default value
-        REQUIRE(1024 == node.getPriority());
+        REQUIRE(1088 == node.getPriority());
 
         // Adjust by setting the z-index
         node.setZIndex(3);
@@ -171,6 +171,58 @@ TEST_CASE("d2::Node") {
 
     SECTION("std::shared_ptr<gfx::RenderTexture> asRenderTexture() noexcept") {
         // This method cannot be tested without a working OpenGL context
+    }
+
+    SECTION("void onTouchBegan(const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchMoved(const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchEnded(const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("bool contains(float, float) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchBegan(const float, const float, const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchMoved(const float, const float, const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("void onTouchEnded(const float, const float,const gfx::Touch&) noexcept") {
+        // TODO
+    }
+
+    SECTION("Sort the children by zindex") {
+        node.createChild<d2::Node>()->setZIndex(6);
+        node.createChild<d2::Node>()->setZIndex(3);
+        node.createChild<d2::Node>()->setZIndex(2);
+        node.createChild<d2::Node>()->setZIndex(8);
+        node.createChild<d2::Node>()->setZIndex(9);
+        node.createChild<d2::Node>()->setZIndex(1);
+        node.createChild<d2::Node>()->setZIndex(4);
+        node.createChild<d2::Node>()->setZIndex(7);
+        node.createChild<d2::Node>()->setZIndex(5);
+
+        auto it = node.getChildren().begin();
+        REQUIRE((*it)->getPriority() == 1025);it++;
+        REQUIRE((*it)->getPriority() == 1026);it++;
+        REQUIRE((*it)->getPriority() == 1027);it++;
+        REQUIRE((*it)->getPriority() == 1028);it++;
+        REQUIRE((*it)->getPriority() == 1029);it++;
+        REQUIRE((*it)->getPriority() == 1030);it++;
+        REQUIRE((*it)->getPriority() == 1031);it++;
+        REQUIRE((*it)->getPriority() == 1032);it++;
+        REQUIRE((*it)->getPriority() == 1033);it++;
+        REQUIRE(it == node.getChildren().end());
     }
 
     SECTION("Parent position and rotation offset propagated to child nodes") {
@@ -203,34 +255,6 @@ TEST_CASE("d2::Node") {
         REQUIRE(pos.y == Approx(98.0f));
         REQUIRE(childTwo->getRotation() == Approx(9.0f));
         REQUIRE(childTwo->getParentRotationOffset() == Approx(97.0f));
-    }
-
-    SECTION("void onTouchBegan(const gfx::Touch&) noexcept") {
-        // TODO
-    }
-
-    SECTION("void onTouchMoved(const gfx::Touch&) noexcept") {
-        // TODO
-    }
-
-    SECTION("void onTouchEnded(const gfx::Touch&) noexcept") {
-        // TODO
-    }
-
-    SECTION("bool contains(float, float) noexcept") {
-        // TODO
-    }
-
-    SECTION("void onTouchBegan(const float, const float, const gfx::Touch&) noexcept") {
-        // TODO
-    }
-
-    SECTION("void onTouchMoved(const float, const float, const gfx::Touch&) noexcept") {
-        // TODO
-    }
-
-    SECTION("void onTouchEnded(const float, const float,const gfx::Touch&) noexcept") {
-        // TODO
     }
 
 }
