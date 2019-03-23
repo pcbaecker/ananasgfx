@@ -105,7 +105,10 @@ $(document).ready(function(){initNavTree('classfont_1_1_font_renderer.html','');
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classfont_1_1_font_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">font::FontRenderer Class Reference</div>  </div>
@@ -117,6 +120,52 @@ $(document).ready(function(){initNavTree('classfont_1_1_font_renderer.html','');
 
 <p><code>#include &lt;<a class="el" href="_font_renderer_8hpp_source.html">ananasgfx/font/FontRenderer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfont_1_1_font_renderer_1_1_chunk.html">Chunk</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfont_1_1_font_renderer_1_1_constraints.html">Constraints</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aadcb9b318e6c34fafcd42b9635aa7dc8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aadcb9b318e6c34fafcd42b9635aa7dc8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (const std::string &amp;text, <a class="el" href="classgfx_1_1_bitmap.html">gfx::Bitmap</a> &amp;bitmap) noexcept</td></tr>
+<tr class="separator:aadcb9b318e6c34fafcd42b9635aa7dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f4b14fb1080fe8e6fd6a26c5bf787c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f4b14fb1080fe8e6fd6a26c5bf787c0"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> (const std::string &amp;text, float width) noexcept</td></tr>
+<tr class="separator:a1f4b14fb1080fe8e6fd6a26c5bf787c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d9ffecd5cf8dd6f28fb4c75bae7a05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4d9ffecd5cf8dd6f28fb4c75bae7a05"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> (const std::string &amp;text, float height) noexcept</td></tr>
+<tr class="separator:ac4d9ffecd5cf8dd6f28fb4c75bae7a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8f00212b5e2e5414b654f72a085f8e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8f00212b5e2e5414b654f72a085f8e9"></a>
+std::list&lt; <a class="el" href="classfont_1_1_character.html">Character</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCharacters</b> (const std::string &amp;text) noexcept</td></tr>
+<tr class="separator:ab8f00212b5e2e5414b654f72a085f8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeb78bec46021d676dc6ffd9b6917daf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeeb78bec46021d676dc6ffd9b6917daf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setConstraints</b> (<a class="el" href="structfont_1_1_font_renderer_1_1_chunk.html">Chunk</a> &amp;chunk) noexcept</td></tr>
+<tr class="separator:aeeb78bec46021d676dc6ffd9b6917daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dcaca0e9b156ad65d98410407628b98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dcaca0e9b156ad65d98410407628b98"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setHorizontalAlign</b> (gfx::HorizontalAlign horizontalAlign) noexcept</td></tr>
+<tr class="separator:a0dcaca0e9b156ad65d98410407628b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a370ded1796f511001c34d6f8c29f008c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a370ded1796f511001c34d6f8c29f008c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setVerticalAlign</b> (gfx::VerticalAlign verticalAlign) noexcept</td></tr>
+<tr class="separator:a370ded1796f511001c34d6f8c29f008c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1951710ce292334f1f6c6349fc9e4615"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1951710ce292334f1f6c6349fc9e4615"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFont</b> (<a class="el" href="classfont_1_1_font.html">Font</a> *font) noexcept</td></tr>
+<tr class="separator:a1951710ce292334f1f6c6349fc9e4615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d9f0adc49854bb9d9bb79025a35ef50"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d9f0adc49854bb9d9bb79025a35ef50"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFontSize</b> (font::size_t fontSize) noexcept</td></tr>
+<tr class="separator:a3d9f0adc49854bb9d9bb79025a35ef50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0998e7201491dec053f5322a6dda7cc9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0998e7201491dec053f5322a6dda7cc9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMultiline</b> (bool value) noexcept</td></tr>
+<tr class="separator:a0998e7201491dec053f5322a6dda7cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa07f42b3f1bc9fc05d935fd3a39e36a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa07f42b3f1bc9fc05d935fd3a39e36a7"></a>
+std::list&lt; <a class="el" href="structfont_1_1_font_renderer_1_1_chunk.html">Chunk</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getRows</b> (const std::list&lt; <a class="el" href="classfont_1_1_character.html">Character</a> * &gt; &amp;characters, float width) noexcept</td></tr>
+<tr class="separator:aa07f42b3f1bc9fc05d935fd3a39e36a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb7a8bb5e54da5a9af184b3b8a79da4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbb7a8bb5e54da5a9af184b3b8a79da4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (const <a class="el" href="structfont_1_1_font_renderer_1_1_chunk.html">Chunk</a> &amp;chunk, float yOffset, <a class="el" href="classgfx_1_1_bitmap.html">gfx::Bitmap</a> &amp;bitmap) noexcept</td></tr>
+<tr class="separator:abbb7a8bb5e54da5a9af184b3b8a79da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a96ce13423521d4a819d965468b96cd98"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfont_1_1_font_renderer.html#a96ce13423521d4a819d965468b96cd98">convert</a> (const std::string &amp;string) noexcept</td></tr>
@@ -128,6 +177,24 @@ static std::unique_ptr&lt; <a class="el" href="classgfx_1_1_bitmap.html">gfx::Bi
 <tr class="memitem:a33c6046269f6a15cebd760cd8e2457dc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfont_1_1_font_renderer.html#a33c6046269f6a15cebd760cd8e2457dc">render</a> (const std::string &amp;text, <a class="el" href="classfont_1_1_font.html">Font</a> *font, font::size_t fontSize, <a class="el" href="classgfx_1_1_bitmap.html">gfx::Bitmap</a> &amp;bitmap, gfx::HorizontalAlign horizontalAlign, gfx::VerticalAlign verticalAlign) noexcept</td></tr>
 <tr class="memdesc:a33c6046269f6a15cebd760cd8e2457dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the given text into the given bitmap.  <a href="#a33c6046269f6a15cebd760cd8e2457dc">More...</a><br /></td></tr>
 <tr class="separator:a33c6046269f6a15cebd760cd8e2457dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a532e2289a1da5cbc0dd79edb809eed87"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a532e2289a1da5cbc0dd79edb809eed87"></a>
+gfx::HorizontalAlign&#160;</td><td class="memItemRight" valign="bottom"><b>mHorizontalAlign</b> = gfx::HorizontalAlign::Center</td></tr>
+<tr class="separator:a532e2289a1da5cbc0dd79edb809eed87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95ac8823f80630ad0837cb8384934e85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95ac8823f80630ad0837cb8384934e85"></a>
+gfx::VerticalAlign&#160;</td><td class="memItemRight" valign="bottom"><b>mVerticalAlign</b> = gfx::VerticalAlign::Middle</td></tr>
+<tr class="separator:a95ac8823f80630ad0837cb8384934e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85b627495c2fb2b6a2589beb6fc4fb8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85b627495c2fb2b6a2589beb6fc4fb8b"></a>
+std::optional&lt; <a class="el" href="classfont_1_1_font.html">Font</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mFont</b></td></tr>
+<tr class="separator:a85b627495c2fb2b6a2589beb6fc4fb8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d5dfd96469fb77990c893461baf2749"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d5dfd96469fb77990c893461baf2749"></a>
+font::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>mFontSize</b> = 12</td></tr>
+<tr class="separator:a9d5dfd96469fb77990c893461baf2749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f77e5933d15eaedff879468a5968958"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f77e5933d15eaedff879468a5968958"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>mMultiline</b> = false</td></tr>
+<tr class="separator:a8f77e5933d15eaedff879468a5968958"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides some methods to render fonts into a bitmap. </p>

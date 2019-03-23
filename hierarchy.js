@@ -15,6 +15,9 @@ var hierarchy =
     [ "gfx::Camera", "classgfx_1_1_camera.html", null ],
     [ "font::Character", "classfont_1_1_character.html", null ],
     [ "platform::desktop::CommandLineParameters", "classplatform_1_1desktop_1_1_command_line_parameters.html", null ],
+    [ "font::FontRenderer::Constraints", "structfont_1_1_font_renderer_1_1_constraints.html", [
+      [ "font::FontRenderer::Chunk", "structfont_1_1_font_renderer_1_1_chunk.html", null ]
+    ] ],
     [ "gfx::FileManager", "classgfx_1_1_file_manager.html", null ],
     [ "font::Font", "classfont_1_1_font.html", null ],
     [ "font::FontManager", "classfont_1_1_font_manager.html", null ],
@@ -25,6 +28,7 @@ var hierarchy =
         [ "ui::layout::VerticalLinear", "classui_1_1layout_1_1_vertical_linear.html", null ]
       ] ]
     ] ],
+    [ "gfx::LazyInit< T >", "classgfx_1_1_lazy_init.html", null ],
     [ "ui::Margin", "classui_1_1_margin.html", null ],
     [ "ui::design::material::MaterialDesign", "classui_1_1design_1_1material_1_1_material_design.html", null ],
     [ "gfx::Node", "classgfx_1_1_node.html", [
@@ -43,13 +47,20 @@ var hierarchy =
           [ "ui::Button", "classui_1_1_button.html", [
             [ "ui::TextButton", "classui_1_1_text_button.html", [
               [ "ui::design::material::ButtonBlue", "classui_1_1design_1_1material_1_1_button_blue.html", null ],
-              [ "ui::design::material::ButtonGreen", "classui_1_1design_1_1material_1_1_button_green.html", null ]
+              [ "ui::design::material::ButtonFlat", "classui_1_1design_1_1material_1_1_button_flat.html", null ],
+              [ "ui::design::material::ButtonGreen", "classui_1_1design_1_1material_1_1_button_green.html", null ],
+              [ "ui::design::material::ButtonRed", "classui_1_1design_1_1material_1_1_button_red.html", null ]
             ] ]
           ] ],
           [ "ui::Container", "classui_1_1_container.html", [
             [ "ui::design::material::Topbar", "classui_1_1design_1_1material_1_1_topbar.html", null ],
             [ "ui::ListItem", "classui_1_1_list_item.html", [
               [ "ui::design::material::ListItemSimpleText", "classui_1_1design_1_1material_1_1_list_item_simple_text.html", null ]
+            ] ],
+            [ "ui::PopUpView", "classui_1_1_pop_up_view.html", [
+              [ "ui::design::material::PopUpView", "classui_1_1design_1_1material_1_1_pop_up_view.html", [
+                [ "ui::design::material::PopUpViewSimpleDialog", "classui_1_1design_1_1material_1_1_pop_up_view_simple_dialog.html", null ]
+              ] ]
             ] ]
           ] ],
           [ "ui::Label", "classui_1_1_label.html", null ],
@@ -94,6 +105,7 @@ var hierarchy =
     [ "gfx::TextureManager", "classgfx_1_1_texture_manager.html", null ],
     [ "gfx::Touch", "classgfx_1_1_touch.html", null ],
     [ "ui::Touchable", "classui_1_1_touchable.html", [
+      [ "ui::Button", "classui_1_1_button.html", null ],
       [ "ui::ListItem", "classui_1_1_list_item.html", null ]
     ] ],
     [ "gfx::VertexBuffer", "classgfx_1_1_vertex_buffer.html", null ],

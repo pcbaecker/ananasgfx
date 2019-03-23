@@ -19,7 +19,7 @@ var annotated_dup =
       [ "Character", "classfont_1_1_character.html", "classfont_1_1_character" ],
       [ "Font", "classfont_1_1_font.html", "classfont_1_1_font" ],
       [ "FontManager", "classfont_1_1_font_manager.html", "classfont_1_1_font_manager" ],
-      [ "FontRenderer", "classfont_1_1_font_renderer.html", null ]
+      [ "FontRenderer", "classfont_1_1_font_renderer.html", "classfont_1_1_font_renderer" ]
     ] ],
     [ "gfx", null, [
       [ "_internal", null, [
@@ -44,6 +44,7 @@ var annotated_dup =
       [ "Camera", "classgfx_1_1_camera.html", "classgfx_1_1_camera" ],
       [ "ClippingNode", "classgfx_1_1_clipping_node.html", "classgfx_1_1_clipping_node" ],
       [ "FileManager", "classgfx_1_1_file_manager.html", "classgfx_1_1_file_manager" ],
+      [ "LazyInit", "classgfx_1_1_lazy_init.html", "classgfx_1_1_lazy_init" ],
       [ "Node", "classgfx_1_1_node.html", "classgfx_1_1_node" ],
       [ "Renderer", "classgfx_1_1_renderer.html", "classgfx_1_1_renderer" ],
       [ "RenderTexture", "classgfx_1_1_render_texture.html", "classgfx_1_1_render_texture" ],
@@ -81,10 +82,14 @@ var annotated_dup =
       [ "design", null, [
         [ "material", null, [
           [ "ButtonBlue", "classui_1_1design_1_1material_1_1_button_blue.html", "classui_1_1design_1_1material_1_1_button_blue" ],
+          [ "ButtonFlat", "classui_1_1design_1_1material_1_1_button_flat.html", "classui_1_1design_1_1material_1_1_button_flat" ],
           [ "ButtonGreen", "classui_1_1design_1_1material_1_1_button_green.html", "classui_1_1design_1_1material_1_1_button_green" ],
+          [ "ButtonRed", "classui_1_1design_1_1material_1_1_button_red.html", "classui_1_1design_1_1material_1_1_button_red" ],
           [ "List", "classui_1_1design_1_1material_1_1_list.html", "classui_1_1design_1_1material_1_1_list" ],
           [ "ListItemSimpleText", "classui_1_1design_1_1material_1_1_list_item_simple_text.html", "classui_1_1design_1_1material_1_1_list_item_simple_text" ],
           [ "MaterialDesign", "classui_1_1design_1_1material_1_1_material_design.html", "classui_1_1design_1_1material_1_1_material_design" ],
+          [ "PopUpView", "classui_1_1design_1_1material_1_1_pop_up_view.html", "classui_1_1design_1_1material_1_1_pop_up_view" ],
+          [ "PopUpViewSimpleDialog", "classui_1_1design_1_1material_1_1_pop_up_view_simple_dialog.html", "classui_1_1design_1_1material_1_1_pop_up_view_simple_dialog" ],
           [ "Topbar", "classui_1_1design_1_1material_1_1_topbar.html", "classui_1_1design_1_1material_1_1_topbar" ]
         ] ]
       ] ],
@@ -101,6 +106,7 @@ var annotated_dup =
       [ "ListItem", "classui_1_1_list_item.html", "classui_1_1_list_item" ],
       [ "Margin", "classui_1_1_margin.html", "classui_1_1_margin" ],
       [ "Node", "classui_1_1_node.html", "classui_1_1_node" ],
+      [ "PopUpView", "classui_1_1_pop_up_view.html", "classui_1_1_pop_up_view" ],
       [ "Scrollable", "classui_1_1_scrollable.html", "classui_1_1_scrollable" ],
       [ "TextButton", "classui_1_1_text_button.html", "classui_1_1_text_button" ],
       [ "Touchable", "classui_1_1_touchable.html", "classui_1_1_touchable" ]

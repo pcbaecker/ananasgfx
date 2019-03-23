@@ -18,5 +18,6 @@ var searchData=
   ['touch',['Touch',['../classgfx_1_1_touch.html#a30202e3154cf860196cebdf6215e677d',1,'gfx::Touch']]],
   ['touchable',['Touchable',['../classui_1_1_touchable.html',1,'ui']]],
   ['tryresource',['tryResource',['../classgfx_1_1_file_manager.html#a1a5ea56c7329d9c354d87685ff32bc6d',1,'gfx::FileManager']]],
-  ['tryuserfile',['tryUserfile',['../classgfx_1_1_file_manager.html#a6efc08f446a403528bd578bed47b9c39',1,'gfx::FileManager']]]
+  ['tryuserfile',['tryUserfile',['../classgfx_1_1_file_manager.html#a6efc08f446a403528bd578bed47b9c39',1,'gfx::FileManager']]],
+  ['type',['Type',['../classgfx_1_1_touch.html#a1c6c0af5875e1313fae6d1761e58c2f5',1,'gfx::Touch']]]
 ];

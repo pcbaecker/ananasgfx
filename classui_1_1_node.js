@@ -1,10 +1,13 @@
 var classui_1_1_node =
 [
     [ "Node", "classui_1_1_node.html#a5f3168f91856c5c9ee9574e55d16b0cd", null ],
+    [ "createChild", "classui_1_1_node.html#abcf8cad490b888ab424407ab2bd98f04", null ],
     [ "getFixedSize", "classui_1_1_node.html#a17f1b0aebb17c11dd6b39548d8b35ce4", null ],
     [ "getMargin", "classui_1_1_node.html#a46fe125cb3ab7c1df13cd0d3b8fdc37b", null ],
     [ "getMaxSize", "classui_1_1_node.html#a06e365e312b424174b12ef664fd69cfa", null ],
     [ "getMinSize", "classui_1_1_node.html#a2994c56276821f15a10f6544f00ade67", null ],
+    [ "getOptimalHeight", "classui_1_1_node.html#a68371b0991d64317549a19ce4a8873f7", null ],
+    [ "getOptimalWidth", "classui_1_1_node.html#a496dfe0cf4768ab7d9286567663e03bb", null ],
     [ "setFixedSize", "classui_1_1_node.html#a6869b120007859e948b53fbe7a249f2d", null ],
     [ "setMaxSize", "classui_1_1_node.html#ad83d6a6bef35273b1562f51694c3ce81", null ],
     [ "setMinSize", "classui_1_1_node.html#a158fc957af0d319c97d3e024786999de", null ],

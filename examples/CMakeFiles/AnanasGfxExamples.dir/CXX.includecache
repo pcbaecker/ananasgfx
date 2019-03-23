@@ -78,6 +78,20 @@ optional
 
 ../dependencies/easy-exception/include/ee/SuspendLogging.hpp
 
+../dependencies/glm/glm/./detail/./compute_vector_relational.hpp
+setup.hpp
+../dependencies/glm/glm/./detail/./setup.hpp
+limits
+-
+
+../dependencies/glm/glm/./detail/_swizzle.hpp
+
+../dependencies/glm/glm/./detail/_swizzle_func.hpp
+
+../dependencies/glm/glm/./detail/qualifier.hpp
+setup.hpp
+../dependencies/glm/glm/./detail/setup.hpp
+
 ../dependencies/glm/glm/./detail/setup.hpp
 cassert
 -
@@ -231,6 +245,10 @@ cstddef
 -
 type_vec2.inl
 ../dependencies/glm/glm/./detail/type_vec2.inl
+
+../dependencies/glm/glm/./detail/type_vec2.inl
+./compute_vector_relational.hpp
+../dependencies/glm/glm/./detail/./compute_vector_relational.hpp
 
 ../dependencies/glm/glm/./detail/type_vec3.hpp
 qualifier.hpp
@@ -1161,6 +1179,8 @@ ananasgfx/gfx/Defines.hpp
 -
 ananasgfx/font/Font.hpp
 -
+ananasgfx/font/FontRenderer.hpp
+-
 Sprite.hpp
 ../include/ananasgfx/d2/Sprite.hpp
 
@@ -1240,6 +1260,24 @@ ee/Exception.hpp
 Font.hpp
 ../include/ananasgfx/font/Font.hpp
 
+../include/ananasgfx/font/FontRenderer.hpp
+string
+-
+vector
+-
+memory
+-
+list
+-
+glm/vec2.hpp
+-
+ananasgfx/gfx/Bitmap.hpp
+-
+ananasgfx/gfx/Defines.hpp
+-
+Font.hpp
+../include/ananasgfx/font/Font.hpp
+
 ../include/ananasgfx/gfx/Application.hpp
 memory
 -
@@ -1280,15 +1318,21 @@ string
 optional
 -
 
+../include/ananasgfx/gfx/LazyInit.hpp
+
 ../include/ananasgfx/gfx/Node.hpp
 list
 -
 memory
 -
+ee/Log.hpp
+-
 RenderTexture.hpp
 ../include/ananasgfx/gfx/RenderTexture.hpp
 Touch.hpp
 ../include/ananasgfx/gfx/Touch.hpp
+LazyInit.hpp
+../include/ananasgfx/gfx/LazyInit.hpp
 
 ../include/ananasgfx/gfx/RenderTexture.hpp
 Vertices.hpp
@@ -1342,6 +1386,14 @@ Renderer.hpp
 
 ../include/ananasgfx/gfx/Touch.hpp
 cstdint
+-
+functional
+-
+glm/glm.hpp
+-
+map
+-
+list
 -
 
 ../include/ananasgfx/gfx/VertexBuffer.hpp
@@ -1437,6 +1489,8 @@ functional
 -
 Node.hpp
 ../include/ananasgfx/ui/Node.hpp
+Touchable.hpp
+../include/ananasgfx/ui/Touchable.hpp
 
 ../include/ananasgfx/ui/Container.hpp
 Node.hpp
@@ -1478,6 +1532,12 @@ ananasgfx/d2/Node.hpp
 Margin.hpp
 ../include/ananasgfx/ui/Margin.hpp
 
+../include/ananasgfx/ui/PopUpView.hpp
+functional
+-
+Container.hpp
+../include/ananasgfx/ui/Container.hpp
+
 ../include/ananasgfx/ui/Scrollable.hpp
 ananasgfx/gfx/ClippingNode.hpp
 -
@@ -1489,7 +1549,11 @@ Button.hpp
 ../include/ananasgfx/ui/Button.hpp
 
 ../include/ananasgfx/ui/Touchable.hpp
-ananasgfx/d2/Node.hpp
+functional
+-
+optional
+-
+glm/glm.hpp
 -
 
 ../include/ananasgfx/ui/design/material/ButtonBlue.hpp
@@ -1497,6 +1561,10 @@ ananasgfx/ui/TextButton.hpp
 -
 
 ../include/ananasgfx/ui/design/material/ButtonGreen.hpp
+ananasgfx/ui/TextButton.hpp
+-
+
+../include/ananasgfx/ui/design/material/ButtonRed.hpp
 ananasgfx/ui/TextButton.hpp
 -
 
@@ -1515,6 +1583,14 @@ glm/glm.hpp
 -
 string
 -
+
+../include/ananasgfx/ui/design/material/PopUpView.hpp
+ananasgfx/ui/PopUpView.hpp
+-
+
+../include/ananasgfx/ui/design/material/PopUpViewSimpleDialog.hpp
+PopUpView.hpp
+../include/ananasgfx/ui/design/material/PopUpView.hpp
 
 ../include/ananasgfx/ui/design/material/Topbar.hpp
 ananasgfx/ui/Container.hpp
@@ -1568,6 +1644,12 @@ ananasgfx/ui/design/material/ListItemSimpleText.hpp
 ananasgfx/ui/design/material/MaterialDesign.hpp
 -
 
+/src/examples/src/labels/Labels.cpp
+ananasgfx/gfx/Application.hpp
+-
+ananasgfx/d2/Label.hpp
+-
+
 /src/examples/src/materialdesign/MaterialDesign.cpp
 ananasgfx/gfx/Application.hpp
 -
@@ -1587,7 +1669,13 @@ ananasgfx/ui/design/material/ButtonGreen.hpp
 -
 ananasgfx/ui/design/material/ButtonBlue.hpp
 -
+ananasgfx/ui/design/material/ButtonRed.hpp
+-
+ananasgfx/ui/design/material/PopUpView.hpp
+-
 ee/Log.hpp
+-
+ananasgfx/ui/design/material/PopUpViewSimpleDialog.hpp
 -
 
 /src/examples/src/multiwindow/MultiWindow.cpp

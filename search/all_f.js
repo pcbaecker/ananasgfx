@@ -7,7 +7,10 @@ var searchData=
   ['rectangleroundcorner',['RectangleRoundCorner',['../classd2_1_1_rectangle_round_corner.html',1,'d2']]],
   ['registerapplicationproxy',['registerApplicationProxy',['../classgfx_1_1__internal_1_1_application_store.html#a0c892ac36a50b9ae41a1bdaa05ba9a98',1,'gfx::_internal::ApplicationStore']]],
   ['registerapplicationtestproxy',['registerApplicationTestProxy',['../classtest_1_1__internal_1_1_application_test_store.html#a31c2b8f838477bccb0247b925de7c211',1,'test::_internal::ApplicationTestStore']]],
+  ['registerhandler',['registerHandler',['../classgfx_1_1_touch.html#a7bd39f96599be92e823183bfc070a118',1,'gfx::Touch']]],
   ['registerwindow',['registerWindow',['../classgfx_1_1_application.html#a197acef8474aafd2d6c7d69416956ea2',1,'gfx::Application']]],
+  ['removechild',['removeChild',['../classgfx_1_1_node.html#aad6d8b122b00a5a0eabd924f54677757',1,'gfx::Node']]],
+  ['removefromparent',['removeFromParent',['../classgfx_1_1_node.html#a9dff386507b3765a12ae0f980aaec82d',1,'gfx::Node']]],
   ['removetemporaryprojection2dmatrix',['removeTemporaryProjection2dMatrix',['../classgfx_1_1_window.html#ad4e71e26c69c44b3a2894d03cd9d33f0',1,'gfx::Window']]],
   ['removeunlisted',['removeUnlisted',['../classgfx_1_1__internal_1_1_application_manager.html#aacc7acd8d2e22b35fee59794a5e1358b',1,'gfx::_internal::ApplicationManager']]],
   ['render',['render',['../classfont_1_1_font_renderer.html#a33c6046269f6a15cebd760cd8e2457dc',1,'font::FontRenderer']]],
@@ -19,5 +22,5 @@ var searchData=
   ['resortchildren',['resortChildren',['../classgfx_1_1_node.html#a7431cda77c0d36695b9ad01342fd6e46',1,'gfx::Node']]],
   ['returncode',['ReturnCode',['../classgfx_1_1__internal_1_1_application_manager.html#ad35d3d3392389d5a1ec66c7e26b73433',1,'gfx::_internal::ApplicationManager']]],
   ['ring',['Ring',['../classd2_1_1_ring.html',1,'d2']]],
-  ['run',['run',['../classgfx_1_1_task.html#a77f1ace2648efea780165579e32171a8',1,'gfx::Task::run()'],['../classtest_1_1_application_test.html#af05610814c0ac29b286d487099520e68',1,'test::ApplicationTest::run()'],['../classtest_1_1_if_task.html#ab6610d1ed4cfe054260a7cfeb2140d02',1,'test::IfTask::run()'],['../classtest_1_1_compare.html#ade9cd3c9298bb33f8c16461d0a378e98',1,'test::Compare::run()'],['../classtest_1_1_task.html#a5bedc5a155003c5b0b85e4a11134b333',1,'test::Task::run()'],['../classtest_1_1_control.html#aa7e156935a1875299f0b18d7879d4875',1,'test::Control::run()'],['../classtest_1_1_application_test.html#aca01aaa197a1a09ba7ae711651aa49d5',1,'test::ApplicationTest::Run()']]]
+  ['run',['Run',['../classtest_1_1_application_test.html#aca01aaa197a1a09ba7ae711651aa49d5',1,'test::ApplicationTest::Run()'],['../classgfx_1_1_task.html#a77f1ace2648efea780165579e32171a8',1,'gfx::Task::run()'],['../classtest_1_1_application_test.html#af05610814c0ac29b286d487099520e68',1,'test::ApplicationTest::run()'],['../classtest_1_1_if_task.html#ab6610d1ed4cfe054260a7cfeb2140d02',1,'test::IfTask::run()'],['../classtest_1_1_compare.html#ade9cd3c9298bb33f8c16461d0a378e98',1,'test::Compare::run()'],['../classtest_1_1_task.html#a5bedc5a155003c5b0b85e4a11134b333',1,'test::Task::run()'],['../classtest_1_1_control.html#aa7e156935a1875299f0b18d7879d4875',1,'test::Control::run()']]]
 ];

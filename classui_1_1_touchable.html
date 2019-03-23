@@ -119,8 +119,14 @@ Inheritance diagram for ui::Touchable:</div>
  <div class="center">
   <img src="classui_1_1_touchable.png" usemap="#ui::Touchable_map" alt=""/>
   <map id="ui::Touchable_map" name="ui::Touchable_map">
-<area href="classui_1_1_list_item.html" alt="ui::ListItem" shape="rect" coords="0,56,222,80"/>
-<area href="classui_1_1design_1_1material_1_1_list_item_simple_text.html" alt="ui::design::material::ListItemSimpleText" shape="rect" coords="0,112,222,136"/>
+<area href="classui_1_1_button.html" alt="ui::Button" shape="rect" coords="348,56,570,80"/>
+<area href="classui_1_1_list_item.html" alt="ui::ListItem" shape="rect" coords="580,56,802,80"/>
+<area href="classui_1_1_text_button.html" alt="ui::TextButton" shape="rect" coords="348,112,570,136"/>
+<area href="classui_1_1design_1_1material_1_1_list_item_simple_text.html" alt="ui::design::material::ListItemSimpleText" shape="rect" coords="580,112,802,136"/>
+<area href="classui_1_1design_1_1material_1_1_button_blue.html" alt="ui::design::material::ButtonBlue" shape="rect" coords="0,168,222,192"/>
+<area href="classui_1_1design_1_1material_1_1_button_flat.html" alt="ui::design::material::ButtonFlat" shape="rect" coords="232,168,454,192"/>
+<area href="classui_1_1design_1_1material_1_1_button_green.html" alt="ui::design::material::ButtonGreen" shape="rect" coords="464,168,686,192"/>
+<area href="classui_1_1design_1_1material_1_1_button_red.html" alt="ui::design::material::ButtonRed" shape="rect" coords="696,168,918,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -153,12 +159,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_init</b> (const glm:
 <tr class="memitem:afa338c6577fe337a5548f69932e43f56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa338c6577fe337a5548f69932e43f56"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>_setSize</b> (float x, float y) noexcept</td></tr>
 <tr class="separator:afa338c6577fe337a5548f69932e43f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd6745c60427a74eabdd1781b435e722"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acd6745c60427a74eabdd1781b435e722"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>touchBegins</b> (const <a class="el" href="classgfx_1_1_touch.html">gfx::Touch</a> &amp;touch) noexcept</td></tr>
-<tr class="separator:acd6745c60427a74eabdd1781b435e722"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac75daa0ec9e0b77e94a7f4e034d3adbe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac75daa0ec9e0b77e94a7f4e034d3adbe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>touchEnds</b> () noexcept</td></tr>
-<tr class="separator:ac75daa0ec9e0b77e94a7f4e034d3adbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c0970b5526ee315c862b5fd3883d754"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c0970b5526ee315c862b5fd3883d754"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>touchBegins</b> () noexcept</td></tr>
+<tr class="separator:a8c0970b5526ee315c862b5fd3883d754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a134e0d6f5dcfd3b7f1665e4692ce99b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a134e0d6f5dcfd3b7f1665e4692ce99b1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>touchEnds</b> (bool success) noexcept</td></tr>
+<tr class="separator:a134e0d6f5dcfd3b7f1665e4692ce99b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -171,9 +177,9 @@ std::optional&lt; <a class="el" href="classd2_1_1_node.html">d2::Node</a> * &gt;
 <tr class="memitem:a92ba5630187d642b133297b29cfa6900"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92ba5630187d642b133297b29cfa6900"></a>
 std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mCallback</b></td></tr>
 <tr class="separator:a92ba5630187d642b133297b29cfa6900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7ae483574d63d0917225e004f5317ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7ae483574d63d0917225e004f5317ed"></a>
-std::optional&lt; const <a class="el" href="classgfx_1_1_touch.html">gfx::Touch</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mActiveTouch</b></td></tr>
-<tr class="separator:ab7ae483574d63d0917225e004f5317ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ac8b57ebb4e29ba6238a22b1f52e26"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07ac8b57ebb4e29ba6238a22b1f52e26"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>mTouchActive</b> = false</td></tr>
+<tr class="separator:a07ac8b57ebb4e29ba6238a22b1f52e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/pcbaecker/ananasgfx/include/ananasgfx/ui/<a class="el" href="_touchable_8hpp_source.html">Touchable.hpp</a></li>

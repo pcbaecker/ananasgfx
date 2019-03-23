@@ -159,10 +159,14 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a1e4b83483ce5b67bbd64e61ae0cbc6a1"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classgfx_1_1_render_texture.html">RenderTexture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a1e4b83483ce5b67bbd64e61ae0cbc6a1">asRenderTexture</a> () noexcept</td></tr>
 <tr class="memdesc:a1e4b83483ce5b67bbd64e61ae0cbc6a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws this node and its children into a rendertexture.  <a href="#a1e4b83483ce5b67bbd64e61ae0cbc6a1">More...</a><br /></td></tr>
 <tr class="separator:a1e4b83483ce5b67bbd64e61ae0cbc6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c72aa32c0e52df295f03f44881cc902"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a1c72aa32c0e52df295f03f44881cc902"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a1c72aa32c0e52df295f03f44881cc902">createChild</a> () noexcept</td></tr>
-<tr class="memdesc:a1c72aa32c0e52df295f03f44881cc902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new child.  <a href="#a1c72aa32c0e52df295f03f44881cc902">More...</a><br /></td></tr>
-<tr class="separator:a1c72aa32c0e52df295f03f44881cc902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a477375a040a7312660dad193dc3fa99a"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a477375a040a7312660dad193dc3fa99a"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a477375a040a7312660dad193dc3fa99a">createChild</a> (bool shouldInit=true) noexcept</td></tr>
+<tr class="memdesc:a477375a040a7312660dad193dc3fa99a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new child.  <a href="#a477375a040a7312660dad193dc3fa99a">More...</a><br /></td></tr>
+<tr class="separator:a477375a040a7312660dad193dc3fa99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae26adbd142e75507d221c91470f4262a"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ae26adbd142e75507d221c91470f4262a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgfx_1_1_lazy_init.html">LazyInit</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#ae26adbd142e75507d221c91470f4262a">createChildLazy</a> () noexcept</td></tr>
+<tr class="memdesc:ae26adbd142e75507d221c91470f4262a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a child but doesnt initialize it.  <a href="#ae26adbd142e75507d221c91470f4262a">More...</a><br /></td></tr>
+<tr class="separator:ae26adbd142e75507d221c91470f4262a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a606e055ff5bd07254d05d63ad9645412"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a606e055ff5bd07254d05d63ad9645412">setId</a> (const std::string &amp;id) noexcept</td></tr>
 <tr class="memdesc:a606e055ff5bd07254d05d63ad9645412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of this node.  <a href="#a606e055ff5bd07254d05d63ad9645412">More...</a><br /></td></tr>
 <tr class="separator:a606e055ff5bd07254d05d63ad9645412"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,21 +205,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a91ca9cdf62b7617b554fdb1987a626d3"><td class="memItemLeft" align="right" valign="top">const std::list&lt; std::shared_ptr&lt; <a class="el" href="classgfx_1_1_node.html">Node</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a91ca9cdf62b7617b554fdb1987a626d3">getChildren</a> () const noexcept</td></tr>
 <tr class="memdesc:a91ca9cdf62b7617b554fdb1987a626d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of children.  <a href="#a91ca9cdf62b7617b554fdb1987a626d3">More...</a><br /></td></tr>
 <tr class="separator:a91ca9cdf62b7617b554fdb1987a626d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6d8b122b00a5a0eabd924f54677757"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#aad6d8b122b00a5a0eabd924f54677757">removeChild</a> (<a class="el" href="classgfx_1_1_node.html">Node</a> *node) noexcept</td></tr>
+<tr class="memdesc:aad6d8b122b00a5a0eabd924f54677757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the given child from this node.  <a href="#aad6d8b122b00a5a0eabd924f54677757">More...</a><br /></td></tr>
+<tr class="separator:aad6d8b122b00a5a0eabd924f54677757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dff386507b3765a12ae0f980aaec82d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a9dff386507b3765a12ae0f980aaec82d">removeFromParent</a> () noexcept</td></tr>
+<tr class="memdesc:a9dff386507b3765a12ae0f980aaec82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes this child from parent.  <a href="#a9dff386507b3765a12ae0f980aaec82d">More...</a><br /></td></tr>
+<tr class="separator:a9dff386507b3765a12ae0f980aaec82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a8e46796c0ac15681f40861c7101cdb62"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a8e46796c0ac15681f40861c7101cdb62">onChildAdded</a> (<a class="el" href="classgfx_1_1_node.html">Node</a> *pNode) noexcept</td></tr>
 <tr class="memdesc:a8e46796c0ac15681f40861c7101cdb62"><td class="mdescLeft">&#160;</td><td class="mdescRight">This callback will be called everytime a new child is added.  <a href="#a8e46796c0ac15681f40861c7101cdb62">More...</a><br /></td></tr>
 <tr class="separator:a8e46796c0ac15681f40861c7101cdb62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5bea0910fbc48ea8f490485423472bb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#aa5bea0910fbc48ea8f490485423472bb">onTouchBegan</a> (const <a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;touch) noexcept</td></tr>
-<tr class="memdesc:aa5bea0910fbc48ea8f490485423472bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch begins.  <a href="#aa5bea0910fbc48ea8f490485423472bb">More...</a><br /></td></tr>
-<tr class="separator:aa5bea0910fbc48ea8f490485423472bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ed44a532676aee5acc9e5bf54e3d2b7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a7ed44a532676aee5acc9e5bf54e3d2b7">onTouchMoved</a> (const <a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;touch) noexcept</td></tr>
-<tr class="memdesc:a7ed44a532676aee5acc9e5bf54e3d2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch moved.  <a href="#a7ed44a532676aee5acc9e5bf54e3d2b7">More...</a><br /></td></tr>
-<tr class="separator:a7ed44a532676aee5acc9e5bf54e3d2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a868903c91d3e9b4af5ee1ee8a551832b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a868903c91d3e9b4af5ee1ee8a551832b">onTouchEnded</a> (const <a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;touch) noexcept</td></tr>
-<tr class="memdesc:a868903c91d3e9b4af5ee1ee8a551832b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch ended.  <a href="#a868903c91d3e9b4af5ee1ee8a551832b">More...</a><br /></td></tr>
-<tr class="separator:a868903c91d3e9b4af5ee1ee8a551832b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d41e6e2a9d7e1a3efd29688e7185ae0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a1d41e6e2a9d7e1a3efd29688e7185ae0">onChildRemoved</a> (<a class="el" href="classgfx_1_1_node.html">Node</a> *node) noexcept</td></tr>
+<tr class="memdesc:a1d41e6e2a9d7e1a3efd29688e7185ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This callback will be called everytime a child is removed.  <a href="#a1d41e6e2a9d7e1a3efd29688e7185ae0">More...</a><br /></td></tr>
+<tr class="separator:a1d41e6e2a9d7e1a3efd29688e7185ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1426bc86b1a2f5d76174d3c520882f63"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a1426bc86b1a2f5d76174d3c520882f63">onTouchBegan</a> (<a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;touch) noexcept</td></tr>
+<tr class="memdesc:a1426bc86b1a2f5d76174d3c520882f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch begins.  <a href="#a1426bc86b1a2f5d76174d3c520882f63">More...</a><br /></td></tr>
+<tr class="separator:a1426bc86b1a2f5d76174d3c520882f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a388e3d696a30ac32a7d0d454b90c3ee6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a388e3d696a30ac32a7d0d454b90c3ee6">onTouchMoved</a> (<a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;touch) noexcept</td></tr>
+<tr class="memdesc:a388e3d696a30ac32a7d0d454b90c3ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch moved.  <a href="#a388e3d696a30ac32a7d0d454b90c3ee6">More...</a><br /></td></tr>
+<tr class="separator:a388e3d696a30ac32a7d0d454b90c3ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94570beb6a50696625e059af839e4f84"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_node.html#a94570beb6a50696625e059af839e4f84">onTouchEnded</a> (<a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;touch) noexcept</td></tr>
+<tr class="memdesc:a94570beb6a50696625e059af839e4f84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when a touch ended.  <a href="#a94570beb6a50696625e059af839e4f84">More...</a><br /></td></tr>
+<tr class="separator:a94570beb6a50696625e059af839e4f84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -284,7 +297,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>ClippingNode</b></td
 
 </div>
 </div>
-<a class="anchor" id="a1c72aa32c0e52df295f03f44881cc902"></a>
+<a class="anchor" id="a477375a040a7312660dad193dc3fa99a"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -296,7 +309,8 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">T* gfx::Node::createChild </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>shouldInit</em> = <code>true</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -314,7 +328,47 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shouldInit</td><td>Defines wether the created child should be initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the newly created child. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae26adbd142e75507d221c91470f4262a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgfx_1_1_lazy_init.html">LazyInit</a>&lt;T&gt; gfx::Node::createChildLazy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a child but doesnt initialize it. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The template class </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classgfx_1_1_lazy_init.html">LazyInit</a> class instance with a pointer to the created object. </dd></dl>
 
 </div>
 </div>
@@ -481,7 +535,7 @@ template&lt;class T &gt; </div>
 <p>Initializes this node. </p>
 <dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classgfx_1_1_clipping_node.html#a4170101c06d982280bdff1e0c1d04670">gfx::ClippingNode</a>, <a class="el" href="classui_1_1_list.html#af93a0cd6df9a4b26a169c24926feefdc">ui::List</a>, <a class="el" href="classd2_1_1_vertex_node.html#a5cb2e95cad5ff7e69e58d114fc3938e5">d2::VertexNode</a>, <a class="el" href="classd2_1_1_label.html#a66cdbca6ead733eb3f2f267614b5be10">d2::Label</a>, <a class="el" href="classd2_1_1_sprite.html#a4dfbbef79ccd16a905d1d5f381f29813">d2::Sprite</a>, <a class="el" href="classd2_1_1_node.html#a9094b1bd300981456cea69990555b870">d2::Node</a>, <a class="el" href="classui_1_1_button.html#a79daac399401693a902cb90ec8d11544">ui::Button</a>, <a class="el" href="classd3_1_1_cube.html#aa4d7eb4f73d3964c07cf3b895cce7d97">d3::Cube</a>, <a class="el" href="classui_1_1_scrollable.html#a21a53f2435f535a270e85eb361eecea6">ui::Scrollable</a>, <a class="el" href="classd3_1_1_vertex_node.html#a49bb3a999d35a14fef25b204410093a9">d3::VertexNode</a>, <a class="el" href="classd3_1_1_node.html#a71dbc8b92ad28e4684b428d3c2f91727">d3::Node</a>, <a class="el" href="classui_1_1_container.html#a6669eeccd78e72f1d5115a06d490e271">ui::Container</a>, <a class="el" href="classui_1_1design_1_1material_1_1_list_item_simple_text.html#a647f3930c94a8a2f08d9b6e2f4eb18e1">ui::design::material::ListItemSimpleText</a>, <a class="el" href="classui_1_1design_1_1material_1_1_topbar.html#a3702dfa187b991c14d50b08894198124">ui::design::material::Topbar</a>, <a class="el" href="classui_1_1_label.html#a4611d323c39eeb1d4d289e7b2f5e47ff">ui::Label</a>, and <a class="el" href="classui_1_1_list_item.html#a2fbaf00cf4a967c67d9ad876869f329f">ui::ListItem</a>.</p>
+<p>Reimplemented in <a class="el" href="classgfx_1_1_clipping_node.html#a4170101c06d982280bdff1e0c1d04670">gfx::ClippingNode</a>, <a class="el" href="classui_1_1_list.html#af93a0cd6df9a4b26a169c24926feefdc">ui::List</a>, <a class="el" href="classd2_1_1_label.html#a66cdbca6ead733eb3f2f267614b5be10">d2::Label</a>, <a class="el" href="classd2_1_1_vertex_node.html#a5cb2e95cad5ff7e69e58d114fc3938e5">d2::VertexNode</a>, <a class="el" href="classd2_1_1_sprite.html#a4dfbbef79ccd16a905d1d5f381f29813">d2::Sprite</a>, <a class="el" href="classd2_1_1_node.html#a9094b1bd300981456cea69990555b870">d2::Node</a>, <a class="el" href="classui_1_1_container.html#a6669eeccd78e72f1d5115a06d490e271">ui::Container</a>, <a class="el" href="classui_1_1_button.html#a79daac399401693a902cb90ec8d11544">ui::Button</a>, <a class="el" href="classui_1_1design_1_1material_1_1_pop_up_view_simple_dialog.html#ac0588643764be1251fd657b51014352d">ui::design::material::PopUpViewSimpleDialog</a>, <a class="el" href="classui_1_1_text_button.html#a9265be4cd190385e6a36e38aab670645">ui::TextButton</a>, <a class="el" href="classd3_1_1_cube.html#aa4d7eb4f73d3964c07cf3b895cce7d97">d3::Cube</a>, <a class="el" href="classui_1_1_scrollable.html#a21a53f2435f535a270e85eb361eecea6">ui::Scrollable</a>, <a class="el" href="classd3_1_1_vertex_node.html#a49bb3a999d35a14fef25b204410093a9">d3::VertexNode</a>, <a class="el" href="classui_1_1design_1_1material_1_1_pop_up_view.html#a6a1cfc2440f44b4469fc5b70ab7854cc">ui::design::material::PopUpView</a>, <a class="el" href="classui_1_1_pop_up_view.html#a63eeb251adc42dfe25dacefc9a54eff3">ui::PopUpView</a>, <a class="el" href="classd3_1_1_node.html#a71dbc8b92ad28e4684b428d3c2f91727">d3::Node</a>, <a class="el" href="classui_1_1design_1_1material_1_1_list_item_simple_text.html#a647f3930c94a8a2f08d9b6e2f4eb18e1">ui::design::material::ListItemSimpleText</a>, <a class="el" href="classui_1_1design_1_1material_1_1_topbar.html#a3702dfa187b991c14d50b08894198124">ui::design::material::Topbar</a>, <a class="el" href="classui_1_1_label.html#a4611d323c39eeb1d4d289e7b2f5e47ff">ui::Label</a>, and <a class="el" href="classui_1_1_list_item.html#a2fbaf00cf4a967c67d9ad876869f329f">ui::ListItem</a>.</p>
 
 </div>
 </div>
@@ -571,7 +625,41 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa5bea0910fbc48ea8f490485423472bb"></a>
+<a class="anchor" id="a1d41e6e2a9d7e1a3efd29688e7185ae0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void gfx::Node::onChildRemoved </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgfx_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This callback will be called everytime a child is removed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>The node that will be removed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classd2_1_1_node.html#aaee06a0caff28823a8f60a82f666cb39">d2::Node</a>, and <a class="el" href="classui_1_1_container.html#a6fda1181f972b32218e41899936c0377">ui::Container</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1426bc86b1a2f5d76174d3c520882f63"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -581,7 +669,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">virtual void gfx::Node::onTouchBegan </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;&#160;</td>
           <td class="paramname"><em>touch</em></td><td>)</td>
           <td></td>
         </tr>
@@ -601,11 +689,11 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classd2_1_1_node.html#ad60d53d66b07ecaabe4fb15d07828c32">d2::Node</a>.</p>
+<p>Reimplemented in <a class="el" href="classd2_1_1_node.html#ac95fbba63402fc38d06f7fc54875ee13">d2::Node</a>, <a class="el" href="classui_1_1_container.html#add1768d44d3a1cf90460d3c68bbd6ded">ui::Container</a>, <a class="el" href="classui_1_1_button.html#a49575b15c7ec2a1086a87abc84165081">ui::Button</a>, and <a class="el" href="classui_1_1_list_item.html#a3fd3e23b7ea7070854a751837cc5f8ae">ui::ListItem</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a868903c91d3e9b4af5ee1ee8a551832b"></a>
+<a class="anchor" id="a94570beb6a50696625e059af839e4f84"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -615,7 +703,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">virtual void gfx::Node::onTouchEnded </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;&#160;</td>
           <td class="paramname"><em>touch</em></td><td>)</td>
           <td></td>
         </tr>
@@ -635,11 +723,11 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classd2_1_1_node.html#ab8da4a8eef254a99e14e3ddc9b57fee4">d2::Node</a>.</p>
+<p>Reimplemented in <a class="el" href="classd2_1_1_node.html#a91bea0b91cf3f350230c16c2d51280ff">d2::Node</a>, and <a class="el" href="classui_1_1_container.html#a7e5f9f3dff2a5ed717014922cfe23ad3">ui::Container</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7ed44a532676aee5acc9e5bf54e3d2b7"></a>
+<a class="anchor" id="a388e3d696a30ac32a7d0d454b90c3ee6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -649,7 +737,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">virtual void gfx::Node::onTouchMoved </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;&#160;</td>
           <td class="paramname"><em>touch</em></td><td>)</td>
           <td></td>
         </tr>
@@ -669,7 +757,66 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classd2_1_1_node.html#a15db0330ed1a80762468c917781d290b">d2::Node</a>.</p>
+<p>Reimplemented in <a class="el" href="classd2_1_1_node.html#af2e68fa55fa9607f19a85507780a7c4a">d2::Node</a>, and <a class="el" href="classui_1_1_container.html#abced2ef4cb99370e48d80492f9e67cbd">ui::Container</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aad6d8b122b00a5a0eabd924f54677757"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gfx::Node::removeChild </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgfx_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the given child from this node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>The node we want to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the node was successfully removed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9dff386507b3765a12ae0f980aaec82d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gfx::Node::removeFromParent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes this child from parent. </p>
+<dl class="section return"><dt>Returns</dt><dd>True on success. </dd></dl>
 
 </div>
 </div>

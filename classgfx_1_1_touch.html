@@ -105,6 +105,7 @@ $(document).ready(function(){initNavTree('classgfx_1_1_touch.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classgfx_1_1_touch-members.html">List of all members</a>  </div>
@@ -118,6 +119,15 @@ $(document).ready(function(){initNavTree('classgfx_1_1_touch.html','');});
 
 <p><code>#include &lt;<a class="el" href="_touch_8hpp_source.html">ananasgfx/gfx/Touch.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a1c6c0af5875e1313fae6d1761e58c2f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c6c0af5875e1313fae6d1761e58c2f5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#a1c6c0af5875e1313fae6d1761e58c2f5">Type</a> { <b>Begin</b> = 0, 
+<b>Move</b> = 1, 
+<b>End</b> = 2
+ }<tr class="memdesc:a1c6c0af5875e1313fae6d1761e58c2f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the different types of touch events. <br /></td></tr>
+</td></tr>
+<tr class="separator:a1c6c0af5875e1313fae6d1761e58c2f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a30202e3154cf860196cebdf6215e677d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#a30202e3154cf860196cebdf6215e677d">Touch</a> (uint8_t id, double x, double y) noexcept</td></tr>
@@ -129,9 +139,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7283e44617b690f3f78f75df79ad7a5b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#a7283e44617b690f3f78f75df79ad7a5b">getLastY</a> () const noexcept</td></tr>
 <tr class="memdesc:a7283e44617b690f3f78f75df79ad7a5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last y coordinate.  <a href="#a7283e44617b690f3f78f75df79ad7a5b">More...</a><br /></td></tr>
 <tr class="separator:a7283e44617b690f3f78f75df79ad7a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc59c143216f7eee4897316c6e1cd4fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#acc59c143216f7eee4897316c6e1cd4fe">setLast</a> (double x, double y) noexcept</td></tr>
-<tr class="memdesc:acc59c143216f7eee4897316c6e1cd4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the last coordinates.  <a href="#acc59c143216f7eee4897316c6e1cd4fe">More...</a><br /></td></tr>
-<tr class="separator:acc59c143216f7eee4897316c6e1cd4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3416bb858cb39c29eca3a99c1c7cf057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#a3416bb858cb39c29eca3a99c1c7cf057">move</a> (double x, double y) noexcept</td></tr>
+<tr class="memdesc:a3416bb858cb39c29eca3a99c1c7cf057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set move coordinates.  <a href="#a3416bb858cb39c29eca3a99c1c7cf057">More...</a><br /></td></tr>
+<tr class="separator:a3416bb858cb39c29eca3a99c1c7cf057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0e0738212eb8f381de0b42b4290c3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#aca0e0738212eb8f381de0b42b4290c3d">end</a> (double x, double y) noexcept</td></tr>
+<tr class="memdesc:aca0e0738212eb8f381de0b42b4290c3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set end coordinates.  <a href="#aca0e0738212eb8f381de0b42b4290c3d">More...</a><br /></td></tr>
+<tr class="separator:aca0e0738212eb8f381de0b42b4290c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40a7596a6e282488e2293bbd0e2bd770"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#a40a7596a6e282488e2293bbd0e2bd770">getLocalLast</a> (<a class="el" href="classd2_1_1_node.html">d2::Node</a> *node) const noexcept</td></tr>
+<tr class="memdesc:a40a7596a6e282488e2293bbd0e2bd770"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the last coordinates to local coordinates of the given node.  <a href="#a40a7596a6e282488e2293bbd0e2bd770">More...</a><br /></td></tr>
+<tr class="separator:a40a7596a6e282488e2293bbd0e2bd770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bd39f96599be92e823183bfc070a118"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#a7bd39f96599be92e823183bfc070a118">registerHandler</a> (<a class="el" href="classgfx_1_1_touch.html#a1c6c0af5875e1313fae6d1761e58c2f5">Type</a> type, std::function&lt; void(<a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;)&gt; callback) noexcept</td></tr>
+<tr class="memdesc:a7bd39f96599be92e823183bfc070a118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a handler.  <a href="#a7bd39f96599be92e823183bfc070a118">More...</a><br /></td></tr>
+<tr class="separator:a7bd39f96599be92e823183bfc070a118"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -155,6 +174,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#a437cceb7d6196e155aea677bec3a3699">mId</a> = 0</td></tr>
 <tr class="memdesc:a437cceb7d6196e155aea677bec3a3699"><td class="mdescLeft">&#160;</td><td class="mdescRight">The touch id. <br /></td></tr>
 <tr class="separator:a437cceb7d6196e155aea677bec3a3699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944e5bf439abffdf0d5d2dc1f1871e3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a944e5bf439abffdf0d5d2dc1f1871e3f"></a>
+std::map&lt; <a class="el" href="classgfx_1_1_touch.html#a1c6c0af5875e1313fae6d1761e58c2f5">Type</a>, std::list&lt; std::function&lt; void(<a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;)&gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgfx_1_1_touch.html#a944e5bf439abffdf0d5d2dc1f1871e3f">mCallbacks</a></td></tr>
+<tr class="memdesc:a944e5bf439abffdf0d5d2dc1f1871e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This map contains the handlers for the different types. <br /></td></tr>
+<tr class="separator:a944e5bf439abffdf0d5d2dc1f1871e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds information about a touch. </p>
@@ -210,6 +233,49 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aca0e0738212eb8f381de0b42b4290c3d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx::Touch::end </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set end coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The X-Coordinate. </td></tr>
+    <tr><td class="paramname">y</td><td>The Y-Coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a8aadad216ed200df7278cef45059aefa"></a>
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +328,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 
 </div>
 </div>
-<a class="anchor" id="acc59c143216f7eee4897316c6e1cd4fe"></a>
+<a class="anchor" id="a40a7596a6e282488e2293bbd0e2bd770"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -270,7 +336,40 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void gfx::Touch::setLast </td>
+          <td class="memname">glm::vec2 gfx::Touch::getLocalLast </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classd2_1_1_node.html">d2::Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the last coordinates to local coordinates of the given node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>The node where we want the local coordinates. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The local coordinates. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3416bb858cb39c29eca3a99c1c7cf057"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx::Touch::move </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -294,11 +393,54 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table>
 </div><div class="memdoc">
 
-<p>Sets the last coordinates. </p>
+<p>Set move coordinates. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>The X-Coordinate. </td></tr>
     <tr><td class="paramname">y</td><td>The Y-Coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7bd39f96599be92e823183bfc070a118"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gfx::Touch::registerHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgfx_1_1_touch.html#a1c6c0af5875e1313fae6d1761e58c2f5">Type</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(<a class="el" href="classgfx_1_1_touch.html">Touch</a> &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers a handler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The type we want to handle. </td></tr>
+    <tr><td class="paramname">callback</td><td>The handler callback. </td></tr>
   </table>
   </dd>
 </dl>

@@ -8,6 +8,7 @@ var dir_0209d0ab962b749d240ba0248b5706d2 =
     [ "ClippingNode.hpp", "_clipping_node_8hpp_source.html", null ],
     [ "Defines.hpp", "gfx_2_defines_8hpp_source.html", null ],
     [ "FileManager.hpp", "_file_manager_8hpp_source.html", null ],
+    [ "LazyInit.hpp", "_lazy_init_8hpp_source.html", null ],
     [ "Node.hpp", "gfx_2_node_8hpp_source.html", null ],
     [ "Renderer.hpp", "_renderer_8hpp_source.html", null ],
     [ "RenderTexture.hpp", "gfx_2_render_texture_8hpp_source.html", null ],

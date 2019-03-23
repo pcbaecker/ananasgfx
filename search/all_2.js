@@ -6,10 +6,12 @@ var searchData=
   ['bindframebuffer',['bindFramebuffer',['../classgfx_1_1renderer_1_1opengl_1_1_opengl_renderer.html#a01cda40dbca24951141ac7289ff73567',1,'gfx::renderer::opengl::OpenglRenderer::bindFramebuffer()'],['../classgfx_1_1_renderer.html#a82ad14bb8f1d3bdbed85823474a39b2a',1,'gfx::Renderer::bindFramebuffer()']]],
   ['bindtexture',['bindTexture',['../classgfx_1_1renderer_1_1opengl_1_1_opengl_renderer.html#aeb463bb1690376fb238492ee3b99079a',1,'gfx::renderer::opengl::OpenglRenderer::bindTexture()'],['../classgfx_1_1_renderer.html#a35021f6c1387ee2ce08ef7458b362878',1,'gfx::Renderer::bindTexture()']]],
   ['bindvertices',['bindVertices',['../classgfx_1_1renderer_1_1opengl_1_1_opengl_renderer.html#a742c7e25914ccaf4da3f1260ac69dcb8',1,'gfx::renderer::opengl::OpenglRenderer::bindVertices()'],['../classgfx_1_1_renderer.html#aed5507b77a529d3ceca135c2e75900a0',1,'gfx::Renderer::bindVertices()']]],
-  ['bitmap',['Bitmap',['../classgfx_1_1_bitmap.html',1,'gfx']]],
   ['bitmap',['Bitmap',['../classgfx_1_1_bitmap.html#a9a6cdb96068350c5f08e531b0c517f48',1,'gfx::Bitmap::Bitmap(void *pData, size_t width, size_t height, uint8_t channels) noexcept'],['../classgfx_1_1_bitmap.html#aeae782470fec0bb5ff9504823d3230a3',1,'gfx::Bitmap::Bitmap(size_t width, size_t height, uint8_t channels) noexcept'],['../classgfx_1_1_bitmap.html#a682a091d46d9cf69fee20f5e83de7fe5',1,'gfx::Bitmap::Bitmap(Bitmap &amp;&amp;bitmap) noexcept']]],
+  ['bitmap',['Bitmap',['../classgfx_1_1_bitmap.html',1,'gfx']]],
   ['buffervertices',['bufferVertices',['../classgfx_1_1renderer_1_1opengl_1_1_opengl_renderer.html#ac5257f4db4da73c4bed2b3a91fabe7b1',1,'gfx::renderer::opengl::OpenglRenderer::bufferVertices()'],['../classgfx_1_1_renderer.html#a774b3c5251c53a9e02f9b25f7fbc6a68',1,'gfx::Renderer::bufferVertices()']]],
   ['button',['Button',['../classui_1_1_button.html',1,'ui']]],
   ['buttonblue',['ButtonBlue',['../classui_1_1design_1_1material_1_1_button_blue.html',1,'ui::design::material']]],
-  ['buttongreen',['ButtonGreen',['../classui_1_1design_1_1material_1_1_button_green.html',1,'ui::design::material']]]
+  ['buttonflat',['ButtonFlat',['../classui_1_1design_1_1material_1_1_button_flat.html',1,'ui::design::material']]],
+  ['buttongreen',['ButtonGreen',['../classui_1_1design_1_1material_1_1_button_green.html',1,'ui::design::material']]],
+  ['buttonred',['ButtonRed',['../classui_1_1design_1_1material_1_1_button_red.html',1,'ui::design::material']]]
 ];

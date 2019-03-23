@@ -220,6 +220,33 @@ src/Overview.cpp.s:
 	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/Overview.cpp.s
 .PHONY : src/Overview.cpp.s
 
+src/labels/Labels.o: src/labels/Labels.cpp.o
+
+.PHONY : src/labels/Labels.o
+
+# target to build an object file
+src/labels/Labels.cpp.o:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/labels/Labels.cpp.o
+.PHONY : src/labels/Labels.cpp.o
+
+src/labels/Labels.i: src/labels/Labels.cpp.i
+
+.PHONY : src/labels/Labels.i
+
+# target to preprocess a source file
+src/labels/Labels.cpp.i:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/labels/Labels.cpp.i
+.PHONY : src/labels/Labels.cpp.i
+
+src/labels/Labels.s: src/labels/Labels.cpp.s
+
+.PHONY : src/labels/Labels.s
+
+# target to generate assembly for a file
+src/labels/Labels.cpp.s:
+	cd /src/cmake-build-emscripten && $(MAKE) -f examples/CMakeFiles/AnanasGfxExamples.dir/build.make examples/CMakeFiles/AnanasGfxExamples.dir/src/labels/Labels.cpp.s
+.PHONY : src/labels/Labels.cpp.s
+
 src/materialdesign/MaterialDesign.o: src/materialdesign/MaterialDesign.cpp.o
 
 .PHONY : src/materialdesign/MaterialDesign.o
@@ -400,6 +427,9 @@ help:
 	@echo "... src/Overview.o"
 	@echo "... src/Overview.i"
 	@echo "... src/Overview.s"
+	@echo "... src/labels/Labels.o"
+	@echo "... src/labels/Labels.i"
+	@echo "... src/labels/Labels.s"
 	@echo "... src/materialdesign/MaterialDesign.o"
 	@echo "... src/materialdesign/MaterialDesign.i"
 	@echo "... src/materialdesign/MaterialDesign.s"
