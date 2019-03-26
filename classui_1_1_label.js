@@ -7,7 +7,10 @@ var classui_1_1_label =
     [ "setColor", "classui_1_1_label.html#ab269e3a620dbeac18317ab48fadb30d5", null ],
     [ "setFont", "classui_1_1_label.html#a8e28eb9bc712a430d4ed4ab3d72f4038", null ],
     [ "setFontSize", "classui_1_1_label.html#affcbcffa8c04b0ba7d1ff61260d07ee5", null ],
+    [ "setHorizontalAlign", "classui_1_1_label.html#afd78db355d177c2392a4a1f38c4b6e4c", null ],
+    [ "setMultiline", "classui_1_1_label.html#a550ae1bab109e82cd6c92b95eba6b818", null ],
     [ "setSize", "classui_1_1_label.html#afaabe2f43e6dfe8dddbf879500fe9354", null ],
     [ "setText", "classui_1_1_label.html#a118de4dd3855c078243529b401b62778", null ],
+    [ "setVerticalAlign", "classui_1_1_label.html#a7ee7c680b299b84c36aa02d67f97de5e", null ],
     [ "pLabel", "classui_1_1_label.html#ad35705dfb28b2bc07d02a1034599f123", null ]
 ];
