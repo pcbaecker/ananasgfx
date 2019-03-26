@@ -9,6 +9,8 @@ namespace ui::design::material {
     bool PopUpViewSimpleDialog::init() noexcept {
         // Title
         this->pTitle = createChild<ui::Label>();
+        this->pTitle->setVerticalAlign(gfx::VerticalAlign::Middle);
+        this->pTitle->setHorizontalAlign(gfx::HorizontalAlign::Left);
         this->pTitle->setText(this->mTitle);
         this->pTitle->setFontSize(21);
         this->pTitle->setColor(MaterialDesign::getInstance().getTextColor());
@@ -18,6 +20,24 @@ namespace ui::design::material {
             WARN("Could not set title font", {
                 ee::Note("FontFamily", MaterialDesign::getInstance().getFontFamily()),
                 ee::Note("FontSub", MaterialDesign::getInstance().getFontSubBold())
+            });
+            return false;
+        }
+
+        // Text
+        auto text = createChild<ui::Label>();
+        text->setMultiline(true);
+        text->setVerticalAlign(gfx::VerticalAlign::Middle);
+        text->setHorizontalAlign(gfx::HorizontalAlign::Left);
+        text->setText(this->mText);
+        text->setFontSize(16);
+        text->setColor(MaterialDesign::getInstance().getMediumTextColor());
+        if (!text->setFont(
+                MaterialDesign::getInstance().getFontFamily(),
+                MaterialDesign::getInstance().getFontSubMedium())) {
+            WARN("Could not set title font", {
+                ee::Note("FontFamily", MaterialDesign::getInstance().getFontFamily()),
+                ee::Note("FontSub", MaterialDesign::getInstance().getFontSubMedium())
             });
             return false;
         }

@@ -256,14 +256,21 @@ namespace font {
     }
 
     float FontRenderer::getHeight(const std::string &text, float width) noexcept {
-        Chunk chunk;
-        chunk.characters = getCharacters(text);
-        return chunk.height;
+        if (this->mMultiline) {
+            auto rows = getRows(getCharacters(text), width);
+            return rows.size() * this->mFontSize * 1.5f;
+        } else {
+            Chunk chunk;
+            chunk.characters = getCharacters(text);
+            setConstraints(chunk);
+            return chunk.height;
+        }
     }
 
     float FontRenderer::getWidth(const std::string &text, float height) noexcept {
         Chunk chunk;
         chunk.characters = getCharacters(text);
+        setConstraints(chunk);
         return chunk.width;
     }
 

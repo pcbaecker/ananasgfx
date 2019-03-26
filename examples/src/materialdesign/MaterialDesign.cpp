@@ -54,6 +54,7 @@ public:
         btnRed->setCallback([this]() {
             auto dialog = this->createChildLazy<ui::design::material::PopUpViewSimpleDialog>();
             dialog.get()->setTitle("This is my title");
+            dialog.get()->setText("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.");
             dialog.get()->setButtonLeft("Cancel");
             dialog.get()->setButtonRight("Agree");
             dialog.get()->setOutsideTouchCallback([](ui::PopUpView*popUpView) {

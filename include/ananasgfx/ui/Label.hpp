@@ -15,6 +15,9 @@ namespace ui {
         void setText(std::string text) noexcept;
         void setFontSize(font::size_t fontSize) noexcept;
         void setColor(const glm::vec4& color) noexcept;
+        void setMultiline(bool value) noexcept;
+        void setVerticalAlign(gfx::VerticalAlign verticalAlign) noexcept;
+        void setHorizontalAlign(gfx::HorizontalAlign horizontalAlign) noexcept;
 
         densityPixel_t getOptimalHeight(densityPixel_t width) noexcept override;
 

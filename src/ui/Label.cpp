@@ -42,6 +42,24 @@ namespace ui {
         this->pLabel->setColor(color);
     }
 
+    void Label::setMultiline(bool value) noexcept {
+        this->createInlineLabel();
+
+        this->pLabel->setMultiline(value);
+    }
+
+    void Label::setVerticalAlign(gfx::VerticalAlign verticalAlign) noexcept {
+        this->createInlineLabel();
+
+        this->pLabel->setVerticalAlign(verticalAlign);
+    }
+
+    void Label::setHorizontalAlign(gfx::HorizontalAlign horizontalAlign) noexcept {
+        this->createInlineLabel();
+
+        this->pLabel->setHorizontalAlign(horizontalAlign);
+    }
+
     densityPixel_t Label::getOptimalHeight(densityPixel_t width) noexcept {
         this->createInlineLabel();
         return toVerticalDp(this->pLabel->getHeight(width));
